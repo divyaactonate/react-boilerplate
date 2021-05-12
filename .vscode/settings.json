@@ -3,11 +3,7 @@
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
   "explorer.confirmDelete": false,
-  "typescript.suggest.paths": false,
-  "javascript.validate.enable": true,
-  "javascript.suggestionActions.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "path-intellisense.extensionOnImport": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true
   },
@@ -22,5 +18,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.tabSize": 2,
-  "editor.insertSpaces": true
+  "editor.insertSpaces": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false
 }
