@@ -14,7 +14,7 @@ const Wrapper = styled.section`
 const Render = () => {
   return (
     <Wrapper>
-             <Title>Hello World!</Title>
+              <Title>Hello World!</Title>
     </Wrapper>
   )
 }
