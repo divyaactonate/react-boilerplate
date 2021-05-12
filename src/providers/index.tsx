@@ -10,7 +10,7 @@ function combineProviders(...providers: FC[]) {
       children
     )
 }
-1
+
 const CombinedProviders = combineProviders(ContactProvider)
 
 function AllProviders({ children }: any) {

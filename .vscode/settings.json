@@ -1,7 +1,4 @@
 {
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnType": true,
   "explorer.confirmDelete": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.codeActionsOnSave": {
