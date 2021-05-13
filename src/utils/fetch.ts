@@ -1,9 +1,9 @@
-import axios from 'axios'
-import { API_URL } from '@config/constants'
+import axios from 'axios';
+import { API_URL } from '@config/constants';
 // import { set } from "lodash";
 
 export class Fetch {
-  private static _fetch = Fetch.fetchBuilder()
+  private static _fetch = Fetch.fetchBuilder();
   // private static _token = ''
 
   // public static setToken(token: string) {
@@ -16,7 +16,7 @@ export class Fetch {
   }
 
   public static get fetch() {
-    return Fetch._fetch
+    return Fetch._fetch;
   }
 
   public static fetchBuilder(config: any = {}) {
@@ -26,9 +26,9 @@ export class Fetch {
       crossDomain: true,
       withCredentials: true,
       ...config,
-    }
+    };
 
-    return axios.create(_c)
+    return axios.create(_c);
   }
 }
 
