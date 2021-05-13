@@ -1,6 +1,7 @@
-import { ContactStore } from './contact';
-export * from './contact';
+import { ContactStore } from './contact'
 
 export const store = {
-  contactStore: new ContactStore()
-};
+  contactStore: new ContactStore(),
+}
+
+export * from './contact'

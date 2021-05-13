@@ -1,9 +1,14 @@
 $color-sassy: #1d4903;
 $color-blue: #9ea6b6;
 
-.app {
+.app-scss {
   color: $color-blue;
   background-color: $color-sassy;
   font-size: 2rem;
   text-align: center;
+}
+.app {
+  padding: 20px;
+  background-color: coral;
+  font-size: 12rem;
 }

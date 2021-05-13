@@ -34,7 +34,7 @@ export const PhoneIcon = ({ className }) => (
   </svg>
 )
 
-export const LoadingSpinner = ({ className }) => (
+export const Loadingmr-2 text-white animate-spin = ({ className }) => (
   <svg
     className={classNames('w-4 h-4', className)}
     xmlns="http://www.w3.org/2000/svg"
