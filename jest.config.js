@@ -1,12 +1,22 @@
-const { pathsToModuleNameMapper } = require('ts-jest/utils')
-const { compilerOptions } = require('./tsconfig')
+const { pathsToModuleNameMapper } = require('ts-jest/utils');
+const { compilerOptions } = require('./tsconfig');
 
-const SRC_PATH = '<rootDir>/src'
-const resolvedPath = pathsToModuleNameMapper(compilerOptions.paths, {
-  prefix: '<rootDir>/',
-})
+const SRC_PATH = '<rootDir>/src';
+const resolvedPath = pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/' });
 
 module.exports = {
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: -10,
+    },
+  },
+  coverageDirectory: 'coverage',
+  // coverageReporters: ['json', 'text-summary', 'html'],
+  collectCoverage: true,
+  // coverageReporters: ['text-summary'],
   moduleDirectories: ['node_modules', 'src'],
   setupFilesAfterEnv: ['<rootDir>/src/setuptests.ts'],
   modulePaths: ['<rootDir>'],
@@ -41,4 +51,4 @@ module.exports = {
   //     '<rootDir>/__mocks__/fileMock.js',
   //   '\\.(css|less|scss)$': '<rootDir>/__mocks__/styleMock.js',
   // },
-}
+};

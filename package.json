@@ -10,7 +10,9 @@
     "lint-fix": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "prettify": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "test": "jest",
-    "server": "json-server db.json -p 5000 -w -d 0"
+    "server": "json-server db.json -p 5000 -w -d 0",
+    "coverage": "jest --collect-coverage",
+    "open:coverage": "start ./coverage/lcov-report/index.html"
   },
   "keywords": [
     "React",
@@ -46,6 +48,7 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^13.1.9",
+    "@types/enzyme": "^3.10.8",
     "@types/jest": "^26.0.23",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.4",
@@ -53,6 +56,7 @@
     "@types/styled-components": "^5.1.9",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
     "autoprefixer": "^10.2.5",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
@@ -61,6 +65,7 @@
     "css-loader": "^5.2.4",
     "css-minimizer-webpack-plugin": "^3.0.0",
     "dotenv-webpack": "^7.0.2",
+    "enzyme": "^3.11.0",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
