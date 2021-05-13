@@ -6,4 +6,3 @@ declare module '*.svg' {
 declare module '*.scss'
 declare module '*.css'
 declare module 'logatim'
-declare module '&.js'

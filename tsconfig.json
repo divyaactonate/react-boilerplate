@@ -9,7 +9,9 @@
       "@config/*": ["./src/config/*"],
       "@shared/*": ["./src/shared/*"],
       "@hoc/*": ["./src/hoc/*"],
-      "@api/*": ["./store/api/*"],
+      "@api/*": ["./src/api/*"],
+      "@models*": ["./src/models"],
+      "@utils/*": ["./src/utils/*"],
       "@store/*": ["./src/store/*"],
       "@src/*": ["./src/*"]
     },

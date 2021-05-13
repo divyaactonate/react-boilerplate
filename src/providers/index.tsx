@@ -1,4 +1,4 @@
-import { ContactProvider } from '@store/contact'
+import { ContactProvider, AuthProvider } from '@store/index'
 import { store } from '@store/index'
 import { Provider } from 'mobx-react'
 import { FC } from 'react'
@@ -11,7 +11,7 @@ function combineProviders(...providers: FC[]) {
     )
 }
 
-const CombinedProviders = combineProviders(ContactProvider)
+const CombinedProviders = combineProviders(ContactProvider, AuthProvider)
 
 function AllProviders({ children }: any) {
   return (
