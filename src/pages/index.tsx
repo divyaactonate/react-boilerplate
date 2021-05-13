@@ -1,3 +1,3 @@
-const Home = () => <div className='flex justify-center items-center'>Home</div>
+const Home = () => <div className='flex justify-center items-center'>Home</div>;
 
-export default Home
+export default Home;

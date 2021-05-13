@@ -1,32 +1,32 @@
 // tslint:disable: linebreak-style
 
-import { ContactStore } from '@store/contact'
-import { inject, observer } from 'mobx-react'
-import { useRef, useState } from 'react'
-import { Loading } from '@shared/icons'
+import { ContactStore } from '@store/contact';
+import { inject, observer } from 'mobx-react';
+import { useRef, useState } from 'react';
+import { Loading } from '@shared/icons';
 
 function ContactInput({ contactStore }: { contactStore: ContactStore }) {
-  const { addContact } = contactStore
+  const { addContact } = contactStore;
   // using context
   // const { addContact } = useContact();
 
-  const nameInputRef: any = useRef()
-  const phoneInputRef: any = useRef()
+  const nameInputRef: any = useRef();
+  const phoneInputRef: any = useRef();
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const submitForm = async (event: any) => {
-    event.preventDefault()
-    const name = nameInputRef.current.value
-    const contact = phoneInputRef.current.value
+    event.preventDefault();
+    const name = nameInputRef.current.value;
+    const contact = phoneInputRef.current.value;
     if (name === '' || contact === '') {
-      return
+      return;
     }
-    setLoading(true)
-    await addContact({ name, contact, id: new Date() })
-    nameInputRef.current.value = ''
-    phoneInputRef.current.value = ''
-    setLoading(false)
-  }
+    setLoading(true);
+    await addContact({ name, contact, id: new Date() });
+    nameInputRef.current.value = '';
+    phoneInputRef.current.value = '';
+    setLoading(false);
+  };
 
   return (
     <>
@@ -54,18 +54,14 @@ function ContactInput({ contactStore }: { contactStore: ContactStore }) {
             disabled={loading}
           >
             {loading && (
-              <Loading
-                text-white
-                animate-spin
-                className='mr-2 text-white animate-spin'
-              />
+              <Loading text-white animate-spin className='mr-2 text-white animate-spin' />
             )}
             {loading ? 'Adding' : 'Add'}
           </button>
         </div>
       </form>
     </>
-  )
+  );
 }
-export default inject(({ store }) => store)(observer(ContactInput))
+export default inject(({ store }) => store)(observer(ContactInput));
 // export default inject(({ store }) => store.contactStore)(observer(ContactInput));

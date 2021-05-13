@@ -1,22 +1,22 @@
-import { ContactStore } from '@store/contact'
-import { inject, observer } from 'mobx-react'
-import { useEffect } from 'react'
-import { DeleteIcon, PhoneIcon, UserIcon } from '@shared/icons'
+import { ContactStore } from '@store/contact';
+import { inject, observer } from 'mobx-react';
+import { useEffect } from 'react';
+import { DeleteIcon, PhoneIcon, UserIcon } from '@shared/icons';
 
 function ContactList({ contactStore }: { contactStore: ContactStore }) {
-  const { contacts, deleteContact, loading, getContacts } = contactStore
-  console.log(contacts)
+  const { contacts, deleteContact, loading, getContacts } = contactStore;
+  console.log(contacts);
 
   const removeContact = async (id: number) => {
     if (!window.confirm('Are you sure?')) {
-      return
+      return;
     }
-    deleteContact(id)
-  }
+    deleteContact(id);
+  };
 
   useEffect(() => {
-    getContacts()
-  }, [])
+    getContacts();
+  }, []);
 
   return (
     <div className='flex flex-col items-center'>
@@ -56,7 +56,7 @@ function ContactList({ contactStore }: { contactStore: ContactStore }) {
         <p>Loading..</p>
       ) : null}
     </div>
-  )
+  );
 }
-export default inject(({ store }) => store)(observer(ContactList))
+export default inject(({ store }) => store)(observer(ContactList));
 // export default observer(ContactList);

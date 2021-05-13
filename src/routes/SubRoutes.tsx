@@ -1,17 +1,17 @@
-import { Route, Switch, withRouter } from 'react-router-dom'
-import ProtectedRoute from './Protected'
+import { Route, Switch, withRouter } from 'react-router-dom';
+import ProtectedRoute from './Protected';
 
 export interface SubRouteConfig {
-  key: string
-  path: string
-  prefix?: string
-  exact?: boolean
-  isProtected: boolean
-  component: any
+  key: string;
+  path: string;
+  prefix?: string;
+  exact?: boolean;
+  isProtected: boolean;
+  component: any;
 }
 
 const SubRoutes = (props: any) => {
-  const { prefix = '' } = props
+  const { prefix = '' } = props;
 
   return (
     <div>
@@ -25,7 +25,7 @@ const SubRoutes = (props: any) => {
                 component={sr.component}
                 exact={sr.exact}
               />
-            )
+            );
           }
           return (
             <Route
@@ -34,11 +34,11 @@ const SubRoutes = (props: any) => {
               component={sr.component}
               exact={sr.exact}
             />
-          )
+          );
         })}
       </Switch>
     </div>
-  )
-}
+  );
+};
 
-export default withRouter(SubRoutes)
+export default withRouter(SubRoutes);

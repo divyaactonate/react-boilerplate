@@ -1,7 +1,7 @@
-import ReactDOM from 'react-dom'
-import { App } from './App'
-import { AllProviders } from '@providers'
-import './styles.css'
+import ReactDOM from 'react-dom';
+import { App } from './App';
+import { AllProviders } from '@providers';
+import './styles.css';
 
 // import * as Sentry from '@sentry/react'
 
@@ -14,4 +14,4 @@ ReactDOM.render(
   </AllProviders>,
   // </Sentry.ErrorBoundary>,
   document.getElementById('root')
-)
+);

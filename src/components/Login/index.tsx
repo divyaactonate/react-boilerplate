@@ -1,21 +1,21 @@
-import { inject } from 'mobx-react'
-import { useState } from 'react'
-import './login.css'
+import { inject } from 'mobx-react';
+import { useState } from 'react';
+import './login.css';
 
 function Login({ authStore }: any) {
-  const { login } = authStore
+  const { login } = authStore;
 
-  const [state, setstate]: [any, any] = useState({})
+  const [state, setstate]: [any, any] = useState({});
 
   const handleInputChange = (event: any) => {
-    const name = event.target.name
-    const value = event.target.value
-    setstate({ ...state, [name]: value })
-  }
+    const name = event.target.name;
+    const value = event.target.value;
+    setstate({ ...state, [name]: value });
+  };
   const submit = (event: any) => {
-    event.preventDefault()
-    login(state.email, state.password)
-  }
+    event.preventDefault();
+    login(state.email, state.password);
+  };
 
   return (
     <div className='login-wrapper'>
@@ -46,6 +46,6 @@ function Login({ authStore }: any) {
         </div>
       </form>
     </div>
-  )
+  );
 }
-export default inject(({ store }) => store)(Login)
+export default inject(({ store }) => store)(Login);

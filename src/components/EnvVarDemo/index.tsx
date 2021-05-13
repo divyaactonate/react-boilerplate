@@ -1,6 +1,6 @@
 const EnvVar = () => {
-  console.log('process.env.NAME', process.env.NAME)
-  console.log('process.env.NAME', process.env.name)
+  console.log('process.env.NAME', process.env.NAME);
+  console.log('process.env.NAME', process.env.name);
 
   return (
     <>
@@ -10,7 +10,7 @@ const EnvVar = () => {
         process.env.NAME : {process.env.NAME}
       </h1>
     </>
-  )
-}
+  );
+};
 
-export default EnvVar
+export default EnvVar;

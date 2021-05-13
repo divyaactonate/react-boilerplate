@@ -1,6 +1,6 @@
-import ContactList from '@components/Mobx/with-context/ContactList'
-import ContactInput from '@components/Mobx/with-context/ContactInput'
-import example from '../../../public/assets/img/tdms/tacttree-logo.png'
+import ContactList from '@components/Mobx/with-context/ContactList';
+import ContactInput from '@components/Mobx/with-context/ContactInput';
+import example from '../../../public/assets/img/tdms/tacttree-logo.png';
 
 // import ContactList from '@components/Mobx/with-hoc/ContactList'
 // import ContactInput from '@components/Mobx/with-hoc/ContactInput'
@@ -13,7 +13,7 @@ function App() {
       <ContactInput />
       <ContactList />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,13 +1,13 @@
-import Styles from '@pages/cssDemo'
-import EnvVar from '@pages/envVar'
-import Home from '@pages/index'
-import Login from '@pages/login'
-import Mobx from '@pages/mobxDemo'
-import ProtectedComponent from '@pages/protected'
-import React from 'react'
+import Styles from '@pages/cssDemo';
+import EnvVar from '@pages/envVar';
+import Home from '@pages/index';
+import Login from '@pages/login';
+import Mobx from '@pages/mobxDemo';
+import ProtectedComponent from '@pages/protected';
+import React from 'react';
 // import { Route } from 'react-router-dom'
-import ProtectedRoute from './Protected'
-import Unprotected from './Unprotected'
+import ProtectedRoute from './Protected';
+import Unprotected from './Unprotected';
 
 const LazyWithSuspense =
   (Comp: any, blank = false) =>
@@ -16,8 +16,8 @@ const LazyWithSuspense =
       <React.Suspense fallback={<>Loading....</>}>
         <Comp {...props} />
       </React.Suspense>
-    )
-  }
+    );
+  };
 export const Routes = () => {
   return (
     <>
@@ -38,5 +38,5 @@ export const Routes = () => {
         exact={false}
       />
     </>
-  )
-}
+  );
+};

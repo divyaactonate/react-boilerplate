@@ -1,6 +1,6 @@
-import { BrowserRouter as Router } from 'react-router-dom'
-import { Routes } from './routes'
-import Layout from '@layouts/index'
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Routes } from './routes';
+import Layout from '@layouts/index';
 
 export const App = () => {
   return (
@@ -8,5 +8,5 @@ export const App = () => {
       <Layout />
       <Routes />
     </Router>
-  )
-}
+  );
+};

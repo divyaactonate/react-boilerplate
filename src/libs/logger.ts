@@ -4,7 +4,7 @@
 // import * as logatim from 'logatim';
 // tslint:disable-next-line:no-var-requires
 // const logatim = require('logatim');
-import logatim from 'logatim'
+import logatim from 'logatim';
 
 export enum LoggerLevels {
   TRACE = 0,
@@ -17,12 +17,12 @@ export enum LoggerLevels {
 
 export class Logger {
   public static setLevel(level: LoggerLevels) {
-    console.log('LogLevel ', level)
-    logatim.setLevel(level)
+    console.log('LogLevel ', level);
+    logatim.setLevel(level);
   }
 
   public static getLevel() {
-    logatim.getLevel()
+    logatim.getLevel();
   }
 
   /**
@@ -31,26 +31,26 @@ export class Logger {
    */
   public static info(...msg: any[]) {
     // logatim.red.bgYellow.bold.info(msg);
-    logatim.info(msg)
+    logatim.info(msg);
   }
 
   public static trace(...msg: any[]) {
-    logatim.trace(msg)
+    logatim.trace(msg);
   }
 
   public static debug(...msg: any[]) {
-    logatim.debug(msg)
+    logatim.debug(msg);
   }
 
   public static warn(...msg: any[]) {
-    logatim.warn(msg)
+    logatim.warn(msg);
   }
 
   public static error(...msg: any[]) {
-    logatim.error(msg)
+    logatim.error(msg);
   }
 
   public static silent(...msg: any[]) {
-    logatim.silent(msg)
+    logatim.silent(msg);
   }
 }

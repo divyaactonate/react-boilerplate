@@ -1,4 +1,4 @@
-import { PlainCss, StyledComponent, Tailwind } from '@components/StylesDemo'
+import { PlainCss, StyledComponent, Tailwind } from '@components/StylesDemo';
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       <Tailwind />
       <StyledComponent />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
