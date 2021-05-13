@@ -1,9 +1,9 @@
-const webpack = require('webpack')
-const paths = require('./paths')
-const Dotenv = require('dotenv-webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const webpack = require('webpack');
+const paths = require('./paths');
+const Dotenv = require('dotenv-webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -31,7 +31,7 @@ module.exports = {
     // minimizer: [() => ({ terserOptions: { mangle: false } })],
     minimizer: [
       (compiler) => {
-        const TerserPlugin = require('terser-webpack-plugin')
+        const TerserPlugin = require('terser-webpack-plugin');
         new TerserPlugin({
           terserOptions: { compress: {} },
           // Use multi-process parallel running to improve the build speed
@@ -40,7 +40,7 @@ module.exports = {
           // Enable file caching
           cache: true,
           sourceMap: true,
-        }).apply(compiler)
+        }).apply(compiler);
       },
       new CssMinimizerPlugin(),
     ],
@@ -66,4 +66,4 @@ module.exports = {
     // https://twitter.com/wSokra/status/969679223278505985
     runtimeChunk: true,
   },
-}
+};

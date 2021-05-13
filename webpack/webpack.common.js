@@ -1,6 +1,6 @@
-const paths = require('./paths')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
+const paths = require('./paths');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   entry: paths.entryPath,
@@ -49,4 +49,4 @@ module.exports = {
     }),
   ],
   stats: 'errors-only',
-}
+};
