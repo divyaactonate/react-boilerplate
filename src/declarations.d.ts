@@ -4,5 +4,6 @@ declare module '*.svg' {
   export default content
 }
 declare module '*.scss'
+declare module '*.js'
 declare module '*.css'
 declare module 'logatim'

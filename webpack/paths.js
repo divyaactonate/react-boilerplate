@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   root: path.resolve(__dirname, '../'),
-  outputPath: path.resolve(__dirname, '..', './build'),
+  outputPath: path.resolve(__dirname, '..', './dist'),
   tsConfigPath: path.resolve(__dirname, '..', './tsconfig.json'),
   devEnvPath: './env/.env.development',
   prodEnvPath: './env/.env.production',

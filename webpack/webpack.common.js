@@ -6,7 +6,7 @@ module.exports = {
   entry: paths.entryPath,
   resolve: {
     plugins: [new TsconfigPathsPlugin({ configFile: paths.tsConfigPath })],
-    extensions: ['.tsx', '.ts', '.js', '.css', 'scss', '.less'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx', '.css', 'scss', '.less'],
   },
   module: {
     rules: [
@@ -26,10 +26,16 @@ module.exports = {
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
+        // options: {
+        //   outputPath: paths.imagesFolder,
+        // },
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
         type: 'asset/inline',
+        // options: {
+        //   outputPath: paths.fontsFolder,
+        // },
       },
     ],
   },

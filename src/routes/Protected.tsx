@@ -1,4 +1,5 @@
-import { inject, observer } from 'mobx-react'
+import { useAuth } from '@store/auth'
+// import { inject, observer } from 'mobx-react'
 import { Redirect, Route } from 'react-router-dom'
 // import { useAuth } from '@store/index'
 
@@ -7,10 +8,8 @@ interface Props {
   [name: string]: any
 }
 
-const ProtectedRoute = ({ component, isAuthenticated, ...rest }: Props) => {
-  console.log(component, isAuthenticated, rest)
-
-  //  const { isAuthenticated } = useAuth()
+const ProtectedRoute = ({ component, ...rest }: Props) => {
+  const { isAuthenticated } = useAuth()
   if (isAuthenticated) {
     // send to route
     return <Route {...rest} component={component} />
@@ -19,6 +18,6 @@ const ProtectedRoute = ({ component, isAuthenticated, ...rest }: Props) => {
     return <Redirect to={'/'} />
   }
 }
-export default inject(({ store }) => store.authStore)(observer(ProtectedRoute))
+// export default inject(({ store }) => store)(observer(ProtectedRoute))
 
-// export default ProtectedRoute
+export default ProtectedRoute

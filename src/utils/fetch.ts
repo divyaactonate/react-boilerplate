@@ -4,11 +4,11 @@ import { API_URL } from '@config/constants'
 
 export class Fetch {
   private static _fetch = Fetch.fetchBuilder()
-  private static _token = ''
+  // private static _token = ''
 
-  public static setToken(token: string) {
-    Fetch._token = token
-  }
+  // public static setToken(token: string) {
+  //   Fetch._token = token
+  // }
 
   // loads token from cookie
   public static loadToken() {
