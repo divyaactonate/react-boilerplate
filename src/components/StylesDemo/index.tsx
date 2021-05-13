@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import styles from './plain.css';
 import './plains.scss';
 import './plain.css';
 
@@ -33,7 +32,7 @@ const PlainCss = () => {
     <>
       <h1 className='app-css'>Css Demo</h1>
       <h1 className='app-scss'>Scss Demo</h1>
-      <h1 className={styles.app}>Css Module Demo Not working :( </h1>
+      {/* <h1 className={styles.app}>Css Module Demo Not working :( </h1> */}
     </>
   );
 };

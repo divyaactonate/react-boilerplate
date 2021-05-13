@@ -1,5 +1,5 @@
-import { ContactProvider, AuthProvider } from '@store/index';
-import { store } from '@store/index';
+import { ContactProvider, AuthProvider, store } from '@store/index';
+
 import { Provider } from 'mobx-react';
 import { FC } from 'react';
 
