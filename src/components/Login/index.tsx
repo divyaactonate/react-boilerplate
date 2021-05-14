@@ -1,7 +1,8 @@
 import { inject } from 'mobx-react';
 import { useState } from 'react';
 import './login.css';
-import { useHistory } from 'react-router'
+import { useHistory } from 'react-router';
+import { Logger } from '@libs/logger';
 
 function Login({ authStore }: any) {
   const { login } = authStore;
@@ -15,15 +16,14 @@ function Login({ authStore }: any) {
     setstate({ ...state, [name]: value });
   };
 
-  const submit = (event: any) => {
-    event.preventDefault();
-    login(state.email, state.password)
-    .then((res: boolean) => {
-      history.push('/protected')
-    })
-    .catch((err: Error) => {
-
-    })
+  const submit = async (event: any) => {
+    try {
+      event.preventDefault();
+      await login(state.email, state.password);
+      history.push('/protected');
+    } catch (error) {
+      Logger.error(error);
+    }
   };
 
   return (

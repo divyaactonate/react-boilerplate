@@ -31,6 +31,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    'react/display-name': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/no-var-requires': 'off',

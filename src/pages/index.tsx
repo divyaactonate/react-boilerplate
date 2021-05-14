@@ -5,7 +5,7 @@ const Home = () => {
     <Layout>
       <div className='flex justify-center items-center'>Home</div>
     </Layout>
-  )
-}
+  );
+};
 
 export default Home;

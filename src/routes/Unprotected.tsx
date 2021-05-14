@@ -1,5 +1,5 @@
 import { Redirect, Route } from 'react-router-dom';
-import { inject, observer } from 'mobx-react'
+import { inject, observer } from 'mobx-react';
 
 interface Props {
   component: any;
@@ -17,4 +17,4 @@ const UnprotectedRoute = ({ component, authStore, ...rest }: Props) => {
 };
 
 // export default UnprotectedRoute;
-export default inject(({ store }) => store)(observer(UnprotectedRoute))
+export default inject(({ store }) => store)(observer(UnprotectedRoute));

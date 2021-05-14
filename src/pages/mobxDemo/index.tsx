@@ -9,7 +9,7 @@ function App() {
   return (
     <Layout>
       <div className='container mx-auto'>
-        <img src={example}></img>
+        <img src={example} alt='img'></img>
         <br />
         <h1 className='my-6 text-3xl text-center text-gray-700'>Contacts</h1>
         <ContactInput />

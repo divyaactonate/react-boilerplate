@@ -18,7 +18,7 @@ module.exports = {
   collectCoverage: true,
   // coverageReporters: ['text-summary'],
   moduleDirectories: ['node_modules', 'src'],
-  setupFilesAfterEnv: ['<rootDir>/src/setuptests.ts'],
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   modulePaths: ['<rootDir>'],
   roots: [SRC_PATH],
   transform: {
@@ -31,7 +31,7 @@ module.exports = {
     '\\.(css|less|scss)$': '<rootDir>/__mocks__/styleMock.js',
   },
   moduleDirectories: ['node_modules', 'src'],
-  setupFilesAfterEnv: ['<rootDir>/src/setuptests.ts'],
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
   modulePaths: ['<rootDir>'],
   // moduleNameMapper: {
   //   '@components/(.*)': '<rootDir>/src/components/$1',

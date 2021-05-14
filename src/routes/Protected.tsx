@@ -1,4 +1,4 @@
-import { inject, observer } from 'mobx-react'
+import { inject, observer } from 'mobx-react';
 import { Redirect, Route } from 'react-router-dom';
 // import { useAuth } from '@store/index'
 
@@ -17,4 +17,4 @@ const ProtectedRoute = ({ component, authStore, ...rest }: Props) => {
   }
 };
 
-export default inject(({ store }) => store)(observer(ProtectedRoute))
+export default inject(({ store }) => store)(observer(ProtectedRoute));

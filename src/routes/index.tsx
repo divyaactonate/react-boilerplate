@@ -9,14 +9,17 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 import ProtectedRoute from './Protected';
 import UnprotectedRoute from './Unprotected';
 
-const ProtectedPage = React.lazy(() => import('@pages/protected'));
+// eslint-disable-next-line react/display-name
+const ProtectedPage: any = React.lazy(() => import('@pages/protected'));
+
+const Loading = () => <p>Loading....</p>;
 
 const LazyWithSuspense =
-  (Comp: any, blank = false) =>
-  (props: any) => {
+  (MComp: React.FC): any =>
+  (props: any): any => {
     return (
-      <React.Suspense fallback={<>Loading....</>}>
-        <Comp {...props} />
+      <React.Suspense fallback={<Loading />}>
+        <MComp {...props} />
       </React.Suspense>
     );
   };
@@ -39,7 +42,7 @@ export const Routes = () => {
         </Switch>
       </div>
     </BrowserRouter>
-  )
+  );
 };
 
 // return (

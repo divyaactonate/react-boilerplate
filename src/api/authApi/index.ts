@@ -21,6 +21,7 @@ class AuthApi {
       //   email,
       //   password,
       // })
+      Logger.debug('auth token ', email, password);
       // Logger.debug('auth token ', res)
       // // Fetch.fetch.defaults.headers.common['Authorization'] = res.headers.authorization;
       // Logger.debug('AuthApi.siginin() ', res)

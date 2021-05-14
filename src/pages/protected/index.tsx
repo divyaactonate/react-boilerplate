@@ -1,7 +1,6 @@
 import ProtectedComponent from '@components/ProtectedComponent';
 import Layout from '@layouts/index';
 
-
 function App() {
   return (
     <Layout>
