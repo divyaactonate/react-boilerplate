@@ -1,9 +1,11 @@
 import { inject } from 'mobx-react';
 import { useState } from 'react';
 import './login.css';
+import { useHistory } from 'react-router'
 
 function Login({ authStore }: any) {
   const { login } = authStore;
+  const history = useHistory();
 
   const [state, setstate]: [any, any] = useState({});
 
@@ -12,9 +14,16 @@ function Login({ authStore }: any) {
     const value = event.target.value;
     setstate({ ...state, [name]: value });
   };
+
   const submit = (event: any) => {
     event.preventDefault();
-    login(state.email, state.password);
+    login(state.email, state.password)
+    .then((res: boolean) => {
+      history.push('/protected')
+    })
+    .catch((err: Error) => {
+
+    })
   };
 
   return (

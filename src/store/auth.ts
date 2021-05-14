@@ -23,12 +23,14 @@ class AuthStore {
 
   login = async (email: any, password: any) => {
     try {
-      this.loading = true;
-      console.log(email, password);
-      await service.signin(email, password);
+      // FIXME customise as per you requirements
+      Logger.debug('login()', email, password);
+      // await service.signin(email, password);
       this.isAuthenticated = true;
+      return true;
     } catch (err) {
-      Logger.error('ERR :: Auth ADD Operation');
+      Logger.error('ERR :: Auth login ', err);
+      throw(err)
     } finally {
       this.loading = false;
     }
