@@ -1,10 +1,17 @@
 {
   "recommendations": [
     "EditorConfig.EditorConfig",
-    "CoenraadS.bracket-pair-colorizer",
-    "christian-kohler.path-intellisense",
     "esbenp.prettier-vscode",
-    "vscode-icons-team.vscode-icons",
-    "mikestead.dotenv"
+    "bradlc.vscode-tailwindcss",
+    "CoenraadS.bracket-pair-colorizer-2",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "formulahendry.auto-rename-tag",
+    "jpoissonnier.vscode-styled-components",
+    "PKief.material-icon-theme",
+    "wix.vscode-import-cost",
+    "sdras.night-owl",
+    "dsznajder.es7-react-js-snippets",
+    "burkeholland.simple-react-snippets"
   ]
 }
