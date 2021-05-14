@@ -10,6 +10,16 @@
       "withTest": true,
       "withStory": false,
       "withLazy": false
+    },
+    "page": {
+      "customTemplates": {
+        "component": "./config/templates/page/TemplateName.tsx"
+      },
+      "path": "src/pages",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": false,
+      "withTest": false
     }
   }
 }

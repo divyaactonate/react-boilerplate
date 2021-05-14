@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "A starter template for React with Typescript using Webpack 5",
   "scripts": {
+    "gen-comp" :"npx generate-react-cli component",
+    "gen-page" :"npx generate-react-cli component --type=page",
     "commit" : "git-cz",
     "start": "webpack serve --config webpack/webpack.config.js --env env=dev",
     "build-tailwind": "tailwindcss build ./src/styles.css -o ./styles/main.css",
