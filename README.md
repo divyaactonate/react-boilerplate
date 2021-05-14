@@ -105,11 +105,7 @@ To build tailwind css, run the following command
 ```bash 
   npm run build-tailwind
 ```
-To build the code, run the following command 
 
-```bash 
-  npm run build
-```
 <br/>
 
 ### Running Tests
