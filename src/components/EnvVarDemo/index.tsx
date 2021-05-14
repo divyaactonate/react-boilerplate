@@ -5,7 +5,7 @@ const EnvVar = () => {
   return (
     <>
       <h1 className='text-white text-xl bg-black p-20'>
-                   process.env.name : {process.env.name}
+        process.env.name : {process.env.name}
         <br />
         process.env.NAME : {process.env.NAME}
       </h1>

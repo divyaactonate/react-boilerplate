@@ -12,7 +12,8 @@
     "test": "jest",
     "server": "json-server db.json -p 5000 -w -d 0",
     "test:coverage": "jest --collect-coverage",
-    "open:coverage": "start ./coverage/lcov-report/index.html"
+    "open:coverage": "start ./coverage/lcov-report/index.html",
+    "prepare": "husky install"
   },
   "keywords": [
     "React",
@@ -77,9 +78,10 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "generate-react-cli": "^7.0.0",
     "html-webpack-plugin": "^5.3.1",
-    "husky": "^4.3.0",
+    "husky": "^6.0.0",
     "jest": "^26.6.3",
     "json-server": "^0.16.3",
+    "lint-staged": "^11.0.0",
     "mini-css-extract-plugin": "^1.6.0",
     "node-sass": "^6.0.0",
     "postcss": "^8.2.15",
