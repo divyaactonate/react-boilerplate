@@ -30,7 +30,7 @@ const Tailwind = () => {
 const PlainCss = () => {
   return (
     <>
-      <h1 className='app-css'>Css Demo</h1>
+      <h1 className='app-css'>Csss Demo</h1>
       <h1 className='app-scss'>Scss Demo</h1>
       {/* <h1 className={styles.app}>Css Module Demo Not working :( </h1> */}
     </>
