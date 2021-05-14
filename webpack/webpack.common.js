@@ -13,11 +13,7 @@ module.exports = {
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-          },
-        ],
+        use: ['babel-loader'],
       },
       {
         test: /\.(css|scss|sass)$/,
@@ -26,16 +22,10 @@ module.exports = {
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
-        // options: {
-        //   outputPath: paths.imagesFolder,
-        // },
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
         type: 'asset/inline',
-        // options: {
-        //   outputPath: paths.fontsFolder,
-        // },
       },
     ],
   },
