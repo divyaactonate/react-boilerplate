@@ -38,6 +38,10 @@ const {
   Consumer: AuthConsummer,
   Provider: AuthProvider,
   useStore: useAuth,
+}: {
+  Consumer: React.Consumer<AuthStore>;
+  Provider: React.FC;
+  useStore: () => AuthStore;
 } = createStore(new AuthStore());
 
 export { AuthConsummer, useAuth, AuthStore, AuthProvider };

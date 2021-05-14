@@ -32,21 +32,10 @@ module.exports = {
     minimizer: [
       (compiler) => {
         const TerserPlugin = require('terser-webpack-plugin');
-        new TerserPlugin({
-          terserOptions: { compress: {} },
-          // Use multi-process parallel running to improve the build speed
-          // Default number of concurrent runs: os.cpus().length - 1
-          parallel: true,
-          // Enable file caching
-          cache: true,
-          sourceMap: true,
-        }).apply(compiler);
+        new TerserPlugin({ terserOptions: { compress: {} } }).apply(compiler);
       },
       new CssMinimizerPlugin(),
     ],
-    // Automatically split vendor and commons
-    // https://twitter.com/wSokra/status/969633336732905474
-    // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
     splitChunks: {
       cacheGroups: {
         vendors: {
@@ -62,8 +51,6 @@ module.exports = {
         },
       },
     },
-    // Keep the runtime chunk seperated to enable long term caching
-    // https://twitter.com/wSokra/status/969679223278505985
     runtimeChunk: true,
   },
 };

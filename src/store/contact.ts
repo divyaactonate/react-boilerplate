@@ -2,6 +2,7 @@ import { services } from '@src/api';
 import createStore from '@store/createStore';
 import { action, makeObservable, observable } from 'mobx';
 import { enableStaticRendering } from 'mobx-react';
+import React from 'react';
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 enableStaticRendering(typeof window === 'undefined');
@@ -60,6 +61,10 @@ const {
   Consumer: ContactConsummer,
   Provider: ContactProvider,
   useStore: useContact,
+}: {
+  Consumer: React.Consumer<ContactStore>;
+  Provider: React.FC;
+  useStore: () => ContactStore;
 } = createStore(new ContactStore());
 
 export { ContactConsummer, useContact, ContactStore, ContactProvider };
