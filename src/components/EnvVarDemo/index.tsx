@@ -1,4 +1,4 @@
-const EnvVar = () => {
+const EnvVarr = () => {
   console.log('process.env.NAME', process.env.NAME);
   console.log('process.env.NAME', process.env.name);
 
@@ -13,4 +13,4 @@ const EnvVar = () => {
   );
 };
 
-export default EnvVar;
+export default EnvVarr;
