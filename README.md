@@ -127,7 +127,7 @@ To run tests with coverage, run the following command
 To open coverage report, run the following command
 
 ```bash
-  npm run oepn:coverage
+  npm run open:coverage
 ```
 
 ### Linting and Prettifying 
