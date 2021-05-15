@@ -50,7 +50,7 @@ They are preconfigured so that you can focus on the code.
   <dd>Enjoy the best DX (Developer eXperience) and code your app at the speed of thought! Your saved changes to the CSS and TS are reflected instantaneously without refreshing the page. Preserve application state even when you update something in the underlying code!</dd>
 
   <dt>Scalable and Simple state management</dt>
-  <dd>Unidirectional data flow allows for change logging .</dd>
+  <dd>Unidirectional data flow allows for change logging.</dd>
 
   <dt>Next generation JavaScript</dt>
   <dd>Use template strings, object destructuring, arrow functions, JSX syntax and more.</dd>
@@ -68,13 +68,13 @@ They are preconfigured so that you can focus on the code.
   <dd>Focus on writing new features without worrying about formatting or code quality. With the right editor setup, your code will automatically be formatted and linted as you work.</dd>
 
   <dt>Industry-standard Testing</dt>
-  <dd>Allows to create tests in typescript and you can use enzume, jest and react-renserer all to simplify your testing, It provides you with coverage report</dd>
+  <dd>Allows to create tests in typescript and you can use enzume, jest and react-test-renderer all to simplify your testing, It also provides you with coverage report</dd>
 
   <dt>Ready for any Environment</dt>
-  <dd>It is ready to work with any environment such as Development, Production and staging and all can have ther different `.env` files</dd>
+  <dd>It is ready to work with any environment such as Development, Production and staging and all can have their different <span style="color: #e8cb7b">.env</span> files</dd>
 
    <dt>Path alias</dt>
-  <dd>Create a path alias in `typescript.json` and it will allow to find a file or resource located in a different directory or folder from the place where the shortcut is located.</dd>
+  <dd>Create a path alias in <span style="color: #e8cb7b">typescript.json</span> and it will allow to find a file or resource located in a different directory or folder from the place where the shortcut is located.</dd>
 </dl>
 
 ## Configuration
@@ -157,9 +157,6 @@ To generate a new page, run the following command
 ```bash 
   npm run gen-page <PageName>
 ```     
-
-<br/>
-
 ### Commitization 
 
 To commit your changes, run the following command 
@@ -167,11 +164,6 @@ To commit your changes, run the following command
 npm install -g commitizen cz-conventional-changelog git-cz
 npm run commit
 ```   
-
-<br/>
-
----
-<br/>
 
 
 ## Project structure
