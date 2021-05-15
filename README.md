@@ -8,21 +8,14 @@
 <br />
 
 # Table of contents
-[Quick-start](#Quick-start)
-
-[Features](#Features)
-
-[Configuration](#Configuration)
-
-[Scripts](#scripts)
-
-[Project-Structure](#project-structure)
-
-[Dependencies](#Dependencies)
-
-[DevDependencies](#DevDependencies)
-
-[Authors](#Authors)
+- [Quick-start](#Quick-start)
+- [Features](#Features)
+- [Configuration](#Configuration)
+- [Scripts](#scripts)
+- [Project-Structure](#project-structure)
+- [Dependencies](#Dependencies)
+- [DevDependencies](#DevDependencies)
+- [Authors](#Authors)
 
 ## Quick-start
 
