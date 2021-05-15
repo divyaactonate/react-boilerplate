@@ -71,10 +71,10 @@ They are preconfigured so that you can focus on the code.
   <dd>Allows to create tests in typescript and you can use enzume, jest and react-test-renderer all to simplify your testing, It also provides you with coverage report</dd>
 
   <dt>Ready for any Environment</dt>
-  <dd>It is ready to work with any environment such as Development, Production and staging and all can have their different <span style="color: #e8cb7b">.env</span> files</dd>
+  <dd>It is ready to work with any environment such as Development, Production and staging and all can have their different <span style="color: #e8cb7b">`.env`</span> files</dd>
 
    <dt>Path alias</dt>
-  <dd>Create a path alias in <span style="color: #e8cb7b">typescript.json</span> and it will allow to find a file or resource located in a different directory or folder from the place where the shortcut is located.</dd>
+  <dd>Create a path alias in <span style="color: #e8cb7b">`tsconfig.json`</span> and it will allow to find a file or resource located in a different directory or folder from the place where the shortcut is located.</dd>
 </dl>
 
 ## Configuration
