@@ -76,10 +76,15 @@ They are preconfigured so that you can focus on the code.
 * webpack/webpack.dev.js config webpack for dev environment.
 * `webpack/webpack.prod.js` config webpack for production environment.
 * `/webpack.config.js` main webpack config that merge common and webpack environment based config.
-* Enzyme config `/setupTest.js` here you will have all setup for enzyme to test your component.
+* Enzyme config `/setupTest.ts` here you will have all setup for enzyme to test your component.
 * Prettier config `/.prettierc`.
-* Browsers list config `/.browserslistrc`.
-
+* Jest config `/jest.config.js`.
+* Tailwind config `/tailwind.config.js`.
+* Postcss config `/postcss.config.js`.
+* Typescript config `/tsconfig.json`.
+* Generate React CLI config `/.browserslistrc`.
+* ESLint config `/.eslintrc.js`.
+* Babel config `/.babelrc`.
 
 ## Scripts
 >There are total 12 Scripts in total
