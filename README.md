@@ -3,13 +3,9 @@
 
 ![Logo](https://www.carlrippon.com/static/9d15c1b7d155ac0ced0ca045c275950d/14e05/banner.png)
 
-    
-
 > 🚀 This project is built with WEBPACK 5 and latest version of react 
 - 12 Dependencies
 - 66 Dev-dependencies
-
-<br />
 
 ### Table of contents
 [Installation](#installation)
@@ -22,11 +18,7 @@
 
 [Project-Structure](#project-structure)
 
-<br/>
-
 ---
-<br/>
-
 ## Installation 
 
 Install my-project with npm
@@ -35,20 +27,14 @@ Install my-project with npm
   npm install 
 ```
 
-<br/>
-
 ---
-<br/>
     
 ## Authors
 
 - [@kaushalshah-98](https://github.com/kaushalshah98)
 - [@prpateldev](https://github.com/prpateldev)
 
-<br/>
-
 ---
-<br/>
 
 ## Features
 
@@ -75,16 +61,12 @@ Install my-project with npm
 - Enzyme
 - Code Coverage Report
 - Git commitization
-  
-<br/>
 
 ---
-<br/>
 
 ## Scripts
 >There are total 12 Scripts in total
 
-<br/>
 
 ### Webpack  
 To start in development mode, run the following command 
@@ -97,7 +79,6 @@ To build the code, run the following command
 ```bash 
   npm run build
 ```
-<br/>
 
 ### Tailwind   
 To build tailwind css, run the following command 
@@ -106,7 +87,6 @@ To build tailwind css, run the following command
   npm run build-tailwind
 ```
 
-<br/>
 
 ### Running Tests
 
@@ -125,7 +105,6 @@ To open coverage report, run the following command
 ```bash
   npm run oepn:coverage
 ```
-<br/>
 
 ### Linting and Prettifying 
 
@@ -142,7 +121,7 @@ To fix auto fixable lint erros, run the following command
 ```bash 
   npm run lint-fix
 ```     
-<br/>
+
 
 ### Component Generation 
 
