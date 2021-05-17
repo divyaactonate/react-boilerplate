@@ -8,25 +8,13 @@
 <br />
 
 # Table of contents
-- [Table of contents](#table-of-contents)
   - [Quick-start](#quick-start)
   - [Features](#features)
   - [Configuration](#configuration)
   - [Scripts](#scripts)
   - [Project structure](#project-structure)
   - [Dependencies](#dependencies)
-    - [React](#react)
-    - [Mobx](#mobx)
-    - [UI Library](#ui-library)
-    - [Others](#others)
   - [DevDependencies](#devdependencies)
-    - [webpack](#webpack)
-    - [Babel](#babel)
-    - [UI Libraries](#ui-libraries)
-    - [Jest and Enzyme and ReactTesting](#jest-and-enzyme-and-reacttesting)
-    - [Loaders](#loaders)
-    - [Eslint](#eslint)
-    - [Plugins](#plugins)
   - [Authors](#authors)
 
 ## Quick-start
