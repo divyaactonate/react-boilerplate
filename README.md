@@ -8,14 +8,26 @@
 <br />
 
 # Table of contents
-- [Quick-start](#Quick-start)
-- [Features](#Features)
-- [Configuration](#Configuration)
-- [Scripts](#scripts)
-- [Project-Structure](#project-structure)
-- [Dependencies](#Dependencies)
-- [DevDependencies](#DevDependencies)
-- [Authors](#Authors)
+- [Table of contents](#table-of-contents)
+  - [Quick-start](#quick-start)
+  - [Features](#features)
+  - [Configuration](#configuration)
+  - [Scripts](#scripts)
+  - [Project structure](#project-structure)
+  - [Dependencies](#dependencies)
+    - [React](#react)
+    - [Mobx](#mobx)
+    - [UI Library](#ui-library)
+    - [Others](#others)
+  - [DevDependencies](#devdependencies)
+    - [webpack](#webpack)
+    - [Babel](#babel)
+    - [UI Libraries](#ui-libraries)
+    - [Jest and Enzyme and ReactTesting](#jest-and-enzyme-and-reacttesting)
+    - [Loaders](#loaders)
+    - [Eslint](#eslint)
+    - [Plugins](#plugins)
+  - [Authors](#authors)
 
 ## Quick-start
 
@@ -82,10 +94,25 @@ They are preconfigured so that you can focus on the code.
 * Tailwind config `/tailwind.config.js`.
 * Postcss config `/postcss.config.js`.
 * Typescript config `/tsconfig.json`.
-* Generate React CLI config `/.browserslistrc`.
+* Generate React CLI config `/generate-react-cli.json`.
 * ESLint config `/.eslintrc.js`.
 * Babel config `/.babelrc`.
 
+## Scripts
+- `npm run start` - To start in development mode.
+- `npm run build` - To build the code.
+- `npm run build-tailwind` - To build tailwind css.
+- `npm run test` - To run tests.
+- `npm run test:coverage` - To run tests with coverage.
+- `npm run open:coverage` - To open coverage report.
+- `npm run prettify` - To prettify code.
+- `npm run lint` - To check lint erros.
+- `npm run lint-fix` - To fix auto fixable lint erros.
+- `npm run gen-comp <ComponentName>` - To generate a new component.
+- `npm run gen-page <PageName>` - To generate a new page.
+- `npm run commit` - To commit your changes.
+
+<!-- 
 ## Scripts
 >There are total 12 Scripts in total
 
@@ -161,7 +188,7 @@ To commit your changes, run the following command
 ```bash 
 npm install -g commitizen cz-conventional-changelog git-cz
 npm run commit
-```   
+```    -->
 
 
 ## Project structure
@@ -320,13 +347,16 @@ npm run commit
 
 ### Eslint
 - [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier) - Turns off all rules that are unnecessary or might conflict with Prettier.
-- [`eslint-import-resolver-alias`](https://www.npmjs.com/package/eslint-import-resolver-alias) - a simple Node behavior import resolution plugin for eslint-plugin-import, supporting module alias.
+- [`eslint-import-resolver-typescript`](https://www.npmjs.com/package/eslint-import-resolver-typescript) -TypeScript .ts .tsx module resolver for `eslint-plugin-import`.
 - [`eslint-plugin-babel`](https://www.npmjs.com/package/eslint-plugin-babel) - an eslint rule plugin companion to babel-eslint.
 - [`eslint-plugin-import`](https://www.npmjs.com/package/eslint-plugin-import) - This plugin intends to support linting of ES2015+ (ES6+) import/export syntax, and prevent issues with misspelling of file paths and import names.
 - [`eslint-plugin-prettier`](https://www.npmjs.com/package/eslint-plugin-prettier) - Runs prettier as an eslint rule.
 - [`eslint-plugin-react`](https://www.npmjs.com/package/eslint-plugin-react) - React specific linting rules for ESLint.
 - [`eslint-plugin-react-hooks`](https://github.com/facebook/react/tree/master/packages/eslint-plugin-react-hooks) - Enforces the Rules of React Hooks.
-
+- [`eslint-plugin-eslint-comments`](https://www.npmjs.com/package/eslint-plugin-eslint-comments) - Additional ESLint rules for ESLint directive comments.
+- [`eslint-plugin-jsx-a11y`](https://www.npmjs.com/package/eslint-plugin-jsx-a11y) - Static AST checker for accessibility rules on JSX elements.
+- [`@typescript-eslint/eslint-plugin`](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) - TypeScript plugin for ESLint.
+- [`@typescript-eslint/parser`](https://www.npmjs.com/package/@typescript-eslint/parser) - An ESLint custom parser which leverages TypeScript ESTree.
 
 ### Plugins
 
