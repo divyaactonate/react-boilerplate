@@ -3,7 +3,7 @@
 <br />
 
 <div align="center"><strong>Start your next react project in seconds</strong></div>
-<div align="center">A highly scalable, configurable performaant with best practices</div>
+<div align="center">A highly scalable, configurable performant with best practices</div>
 
 <br />
 
