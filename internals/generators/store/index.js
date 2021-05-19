@@ -1,22 +1,16 @@
 /**
- * Page Generator
+ * Store Generator
  */
 
 const constants = require('../constants');
 
 module.exports = {
-  description: 'Creating new react page',
+  description: 'Creating new mobx store',
   prompts: [
     {
       type: 'input',
       name: 'name',
-      message: 'What is your page name?',
-    },
-    {
-      type: 'input',
-      name: 'component',
-      default: 'ComponentName',
-      message: 'What is your Component Name to be called?',
+      message: 'What is your store name?',
     },
   ],
   actions: function () {
@@ -25,13 +19,13 @@ module.exports = {
 
     actions.push({
       type: 'add',
-      templateFile: './page/index.tsx.hbs',
-      path: `${pathToWrite}pages/{{camelCase name}}/index.tsx`,
+      templateFile: './store/index.ts.hbs',
+      path: `${pathToWrite}store/{{camelCase name}}.ts`,
       abortOnFail: true,
     });
     actions.push({
       type: 'prettify',
-      path: '/pages/',
+      path: '/store/',
     });
     return actions;
   },

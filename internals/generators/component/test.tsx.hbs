@@ -1,6 +1,21 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import {{pascalCase name}} from './index';
+import { shallow } from 'enzyme';
 
-test('renders', () => {
-  render(<{{pascalCase name}} />);
+describe('<{{pascalCase name}} />', () => {
+  let component;
+
+  beforeEach(() => {
+    component = shallow(<{{pascalCase name}} />);
+  });
+
+  test('It should mount with enzyme', () => {
+    expect(component.length).toBe(1);
+  });
+
+  test('It should mount with testing Library', () => {
+     render(<{{pascalCase name}} />);
+    component = screen.getByTestId('{{pascalCase name}}');
+    expect(component).toBeInTheDocument();
+  });
 });

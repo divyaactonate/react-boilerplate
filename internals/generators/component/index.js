@@ -1,3 +1,9 @@
+/**
+ * Component Generator
+ */
+
+const constants = require('../constants');
+
 module.exports = {
   description: 'Creating new react components',
   prompts: [
@@ -10,13 +16,32 @@ module.exports = {
       type: 'confirm',
       default: true,
       name: 'wantTests',
-      message: 'Do you want test cases ?',
+      message: 'Would you like to create a test file?',
     },
     {
       type: 'confirm',
       name: 'memo',
       default: false,
-      message: 'Do you want to wrap your component in React.memo?',
+      message: 'Would you like to wrap your component in React.memo?',
+    },
+    {
+      type: 'confirm',
+      name: 'wantCss',
+      default: false,
+      message: 'Would you like to create a corresponding stylesheet file?',
+    },
+    {
+      type: 'confirm',
+      name: 'wantStory',
+      default: false,
+      message: 'Would you like to create a corresponding story?',
+    },
+    {
+      type: 'confirm',
+      name: 'wantLazy',
+      default: false,
+      message:
+        'Would you like to create a corresponding lazy file (a file that lazy-loads your component out of the box and enables code splitting: https://reactjs.org/docs/code-splitting.html#code-splitting) with each component you generate?',
     },
     {
       type: 'input',
@@ -27,9 +52,7 @@ module.exports = {
   ],
   actions: function (data) {
     const actions = [];
-    const root = '../../src/';
-    const pathToWrite = `${root}${data.path}`;
-    console.log(pathToWrite);
+    const pathToWrite = `${constants.root}${data.path}`;
     actions.push({
       type: 'add',
       templateFile: './component/index.tsx.hbs',
@@ -45,10 +68,34 @@ module.exports = {
         abortOnFail: true,
       });
     }
-    // actions.push({
-    //   type: 'prettify',
-    //   path: '/components/',
-    // });
+    if (data.wantCss) {
+      actions.push({
+        type: 'add',
+        templateFile: './component/index.css.hbs',
+        path: `${pathToWrite}{{pascalCase name}}/{{pascalCase name}}.css`,
+        abortOnFail: true,
+      });
+    }
+    if (data.wantLazy) {
+      actions.push({
+        type: 'add',
+        templateFile: './component/index.lazy.tsx.hbs',
+        path: `${pathToWrite}{{pascalCase name}}/{{pascalCase name}}.lazy.tsx`,
+        abortOnFail: true,
+      });
+    }
+    if (data.wantStory) {
+      actions.push({
+        type: 'add',
+        templateFile: './component/index.stories.tsx.hbs',
+        path: `${pathToWrite}{{pascalCase name}}/{{pascalCase name}}.stories.tsx`,
+        abortOnFail: true,
+      });
+    }
+    actions.push({
+      type: 'prettify',
+      path: '/components/',
+    });
     return actions;
   },
 };

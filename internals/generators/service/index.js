@@ -5,18 +5,12 @@
 const constants = require('../constants');
 
 module.exports = {
-  description: 'Creating new react page',
+  description: 'Creating new react service',
   prompts: [
     {
       type: 'input',
       name: 'name',
-      message: 'What is your page name?',
-    },
-    {
-      type: 'input',
-      name: 'component',
-      default: 'ComponentName',
-      message: 'What is your Component Name to be called?',
+      message: 'What is your service name?',
     },
   ],
   actions: function () {
@@ -25,13 +19,13 @@ module.exports = {
 
     actions.push({
       type: 'add',
-      templateFile: './page/index.tsx.hbs',
-      path: `${pathToWrite}pages/{{camelCase name}}/index.tsx`,
+      templateFile: './service/index.ts.hbs',
+      path: `${pathToWrite}api/{{camelCase name}}Api/index.ts`,
       abortOnFail: true,
     });
     actions.push({
       type: 'prettify',
-      path: '/pages/',
+      path: '/api/',
     });
     return actions;
   },
