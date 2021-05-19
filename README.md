@@ -12,6 +12,8 @@
   - [Features](#features)
   - [Configuration](#configuration)
   - [Scripts](#scripts)
+  - [Git-Publish-Changes](#Git-Publish-Changes)
+  - [React-CLI-Commands](#React-CLI-Commands)
   - [Project structure](#project-structure)
   - [Dependencies](#dependencies)
   - [DevDependencies](#devdependencies)
@@ -37,7 +39,7 @@ They are preconfigured so that you can focus on the code.
 ## Features
 <dl>
   <dt>Quick scaffolding</dt>
-  <dd>Create components, pages, - right from the CLI!</dd>
+  <dd>Create components, pages, stores and services - right from the CLI!</dd>
 
   <dt>Instant feedback</dt>
   <dd>Enjoy the best DX (Developer eXperience) and code your app at the speed of thought! Your saved changes to the CSS and TS are reflected instantaneously without refreshing the page. Preserve application state even when you update something in the underlying code!</dd>
@@ -82,23 +84,76 @@ They are preconfigured so that you can focus on the code.
 * Tailwind config `/tailwind.config.js`.
 * Postcss config `/postcss.config.js`.
 * Typescript config `/tsconfig.json`.
-* Generate React CLI config `/generate-react-cli.json`.
+* React CLI config `/internals/generators/`.
 * ESLint config `/.eslintrc.js`.
 * Babel config `/.babelrc`.
 
 ## Scripts
+- `npm run analyze:clean` - To remove previous stats created.
+- `npm run analyze` - To generate the stats report.
+- `npm run security-audit` - To scan your project for vulnerabilities.
+- `npm run security-audit:json` - To get the detailed audit report in JSON format.
+- `npm run security-audit:prod` - To scan your project for vulnerabilities skipping devDependencies.
+- `npm run security-audit:dev` - To scan your project for vulnerabilities skipping dependencies.
+- `npm run start` - To start in development mode.
+
 - `npm run start` - To start in development mode.
 - `npm run build` - To build the code.
 - `npm run build-tailwind` - To build tailwind css.
+- `npm run test:clean` - To remove previods coverage created.
 - `npm run test` - To run tests.
 - `npm run test:coverage` - To run tests with coverage.
 - `npm run open:coverage` - To open coverage report.
 - `npm run prettify` - To prettify code.
 - `npm run lint` - To check lint erros.
 - `npm run lint-fix` - To fix auto fixable lint erros.
-- `npm run generate component <ComponentName>` - To generate a new component.
-- `npm run generate page <PageName>` - To generate a new page.
 - `npm run commit` - To commit your changes.
+- `npm run storybook` - To start Storybook locally.
+- `npm run build-storybook` - To build Storybook as a static web application.
+
+## Git-Publish-Changes
+
+
+Step 1 (Only first time)
+  
+  ```
+  npm install -g commitizen cz-conventional-changelog git-cz
+  ```
+Step 2 
+  ```
+npm run commit
+  ```
+Step 3
+  ```
+git push
+  ```
+
+## React-CLI-Commands
+
+- To generate a new component, run the following command 
+```bash 
+  npm run generate component
+  OR
+  npm run generate component <ComponentName>
+```
+- To generate a new page, run the following command 
+```bash 
+  npm run generate page
+  OR
+  npm run generate page <PageName>
+```
+- To generate a new store, run the following command 
+```bash 
+  npm run generate store
+  OR
+  npm run generate store <StoreName>
+```
+- To generate a new service, run the following command 
+```bash 
+  npm run generate service
+  OR
+  npm run generate service <ServiceName>
+```
 
 <!-- 
 ## Scripts
