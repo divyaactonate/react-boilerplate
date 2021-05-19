@@ -16,7 +16,9 @@
     "server": "json-server db.json -p 5000 -w -d 0",
     "test:coverage": "jest --collect-coverage",
     "open:coverage": "start ./coverage/lcov-report/index.html",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "keywords": [
     "React",
@@ -51,6 +53,11 @@
     "@babel/preset-typescript": "^7.13.0",
     "@babel/runtime": "^7.14.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/builder-webpack5": "^6.2.9",
+    "@storybook/react": "^6.2.9",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.1.9",
