@@ -3,24 +3,24 @@ import EnvVar from '@pages/envVar';
 import Home from '@pages/index';
 import Login from '@pages/login';
 import Mobx from '@pages/mobxDemo';
-import React from 'react';
+import { lazy, FC, Suspense } from 'react';
 // import { Route } from 'react-router-dom'
 import { BrowserRouter, Switch } from 'react-router-dom';
 import ProtectedRoute from './Protected';
 import UnprotectedRoute from './Unprotected';
 
 // eslint-disable-next-line react/display-name
-const ProtectedPage: any = React.lazy(() => import('@pages/protected'));
+const ProtectedPage: any = lazy(() => import('@pages/protected'));
 
 const Loading = () => <p>Loading....</p>;
 
 const LazyWithSuspense =
-  (MComp: React.FC): any =>
+  (MComp: FC): any =>
   (props: any): any => {
     return (
-      <React.Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loading />}>
         <MComp {...props} />
-      </React.Suspense>
+      </Suspense>
     );
   };
 export const Routes = () => {

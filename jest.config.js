@@ -15,7 +15,7 @@ module.exports = {
   },
   coverageDirectory: 'coverage',
   // coverageReporters: ['json', 'text-summary', 'html'],
-  collectCoverage: true,
+  // collectCoverage: true,
   // coverageReporters: ['text-summary'],
   moduleDirectories: ['node_modules', 'src'],
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
@@ -27,8 +27,8 @@ module.exports = {
   moduleNameMapper: {
     ...resolvedPath,
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/__mocks__/fileMock.js',
-    '\\.(css|less|scss)$': '<rootDir>/__mocks__/styleMock.js',
+      '<rootDir>/internals/mocks/fileMock.js',
+    '\\.(css|less|scss)$': '<rootDir>/internals/mocks/styleMock.js',
   },
   moduleDirectories: ['node_modules', 'src'],
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],

@@ -76,7 +76,7 @@ They are preconfigured so that you can focus on the code.
 * webpack/webpack.dev.js config webpack for dev environment.
 * `webpack/webpack.prod.js` config webpack for production environment.
 * `/webpack.config.js` main webpack config that merge common and webpack environment based config.
-* Enzyme config `/setupTest.ts` here you will have all setup for enzyme to test your component.
+* Enzyme config `/setupTests.ts` here you will have all setup for enzyme to test your component.
 * Prettier config `/.prettierc`.
 * Jest config `/jest.config.js`.
 * Tailwind config `/tailwind.config.js`.
@@ -96,8 +96,8 @@ They are preconfigured so that you can focus on the code.
 - `npm run prettify` - To prettify code.
 - `npm run lint` - To check lint erros.
 - `npm run lint-fix` - To fix auto fixable lint erros.
-- `npm run gen-comp <ComponentName>` - To generate a new component.
-- `npm run gen-page <PageName>` - To generate a new page.
+- `npm run generate component <ComponentName>` - To generate a new component.
+- `npm run generate page <PageName>` - To generate a new page.
 - `npm run commit` - To commit your changes.
 
 <!-- 
@@ -353,6 +353,7 @@ npm run commit
 <!-- - [`terser-webpack-plugin`](https://github.com/webpack-contrib/terser-webpack-plugin) - Optimize and minimize JavaScript -->
 <!-- - [`@svgr/webpack`](https://github.com/mrsteele/dotenv-webpack) - SVGR can be used as a webpack loader, this way you can import your SVG directly as a React Component. -->
 - [`clean-webpack-plugin`](https://github.com/johnagan/clean-webpack-plugin) - Remove/clean build folders
+- [`circular-dependency-plugin`](https://www.npmjs.com/package/circular-dependency-plugin) - Detect modules with circular dependencies when bundling with webpack.
 - [`html-webpack-plugin`](https://github.com/jantimon/html-webpack-plugin) - Generate HTML files from template
 - [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin) - Extract CSS into separate files
 - [`react-refresh-webpack-plugin`](https://github.com/pmmmwh/react-refresh-webpack-plugin) - HMR using React Fast Refresh
