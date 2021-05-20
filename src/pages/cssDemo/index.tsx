@@ -1,4 +1,10 @@
-import { PlainCss, StyledComponent, Tailwind } from '@components/StylesDemo';
+import {
+  PlainCss,
+  StyledComponent,
+  Tailwind,
+  TwinEmotion,
+  TwinTailwind,
+} from '@components/StylesDemo';
 import Layout from '@layouts/index';
 
 function App() {
@@ -8,6 +14,8 @@ function App() {
         <PlainCss />
         <Tailwind />
         <StyledComponent />
+        <TwinTailwind />
+        <TwinEmotion />
       </div>
     </Layout>
   );

@@ -12,6 +12,7 @@
     "wix.vscode-import-cost",
     "sdras.night-owl",
     "dsznajder.es7-react-js-snippets",
-    "burkeholland.simple-react-snippets"
+    "burkeholland.simple-react-snippets",
+    "lightyen.tailwindcss-intellisense-twin"
   ]
 }
