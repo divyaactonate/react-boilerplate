@@ -21,12 +21,12 @@ module.exports = {
   ],
   actions: function () {
     const actions = [];
-    const pathToWrite = constants.root;
+    const pathToWrite = `${constants.root}pages/`;
 
     actions.push({
       type: 'add',
       templateFile: './page/index.tsx.hbs',
-      path: `${pathToWrite}pages/{{camelCase name}}/index.tsx`,
+      path: `${pathToWrite}{{camelCase name}}/index.tsx`,
       abortOnFail: true,
     });
     actions.push({

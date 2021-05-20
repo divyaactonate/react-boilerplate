@@ -99,7 +99,7 @@ They are preconfigured so that you can focus on the code.
 * `npm run start` - To start in development mode.
 * `npm run build` - To build the code.
 * `npm run build-tailwind` - To build tailwind css.
-* `npm run test:clean` - To remove previods coverage created.
+* `npm run test:clean` - To remove previous coverage created.
 * `npm run test` - To run tests.
 * `npm run test:coverage` - To run tests with coverage.
 * `npm run open:coverage` - To open coverage report.
@@ -111,7 +111,6 @@ They are preconfigured so that you can focus on the code.
 * `npm run build-storybook` - To build Storybook as a static web application.
 
 ## Git-Publish-Changes
-
 
 Step 1 (Only first time)
   

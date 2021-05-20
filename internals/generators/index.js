@@ -5,6 +5,7 @@
  */
 
 const componentGenerator = require('./component/index.js');
+const sharedComponentGenerator = require('./resuableComponent/index.js');
 const pageGenerator = require('./page/index.js');
 const storeGenerator = require('./store/index.js');
 const serviceGenerator = require('./service/index.js');
@@ -13,6 +14,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 module.exports = function (plop) {
+  plop.setGenerator('reusable', sharedComponentGenerator);
   plop.setGenerator('component', componentGenerator);
   plop.setGenerator('page', pageGenerator);
   plop.setGenerator('store', storeGenerator);
