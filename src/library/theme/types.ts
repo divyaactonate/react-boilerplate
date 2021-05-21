@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react';
 import type { DeepPartial, Tuple } from '@library/types';
 
 export type ActonateSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type ActonateCase = 'uppercase' | 'lowercase' | 'capitalize' | 'camcelCase';
 export type ActonateNumberSize = ActonateSize | number;
 
 type HeadingStyle = {

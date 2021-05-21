@@ -1,6 +1,6 @@
 import { DefaultProps } from '@library/theme/types';
 import { ComponentPassThrough } from '@library/types';
-import cn from 'classnames';
+import cn from 'clsx';
 
 const mapBaseSize = {
   sm: 'h-8 px-3 text-xs',

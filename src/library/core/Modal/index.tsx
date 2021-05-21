@@ -8,8 +8,8 @@ import { XIcon } from '@heroicons/react/solid';
 import { useScrollLock } from '@library/hooks';
 import { DefaultProps } from '@library/theme/types';
 import { ElementType, FC, Fragment } from 'react';
-import cn from 'classnames';
-import { getSizeValue } from '@library/utils/get-size-value/get-size-value';
+import cn from 'clsx';
+import { getSizeValue } from '@library/theme';
 
 export const sizes = {
   xs: 'w-3/12	',

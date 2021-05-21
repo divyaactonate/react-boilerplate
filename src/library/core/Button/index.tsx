@@ -1,17 +1,14 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable @typescript-eslint/no-empty-function */
+import { ActonateSize } from '@library/theme';
+import { ActonateCase } from '@library/theme/types';
 import { ComponentPassThrough } from '@library/types';
-import cn from 'classnames';
-
-const mapBaseSize = {
-  sm: 'h-8 px-3 text-xs',
-  base: 'h-10 px-4 text-base',
-  lg: 'h-12 px-5 text-xl',
-};
+import { textTransform } from '@library/utils/text-transform/text-transform';
+import cn from 'clsx';
+import { useMemo } from 'react';
+import { useStyles } from './Button.styles';
 
 export interface ButtonProps {
   /** Predefined button size */
-  size?: 'sm' | 'base' | 'lg';
+  size?: ActonateSize;
 
   /** Button type attribute */
   type?: 'submit' | 'button' | 'reset';
@@ -29,10 +26,13 @@ export interface ButtonProps {
   fullWidth?: boolean;
 
   /** Button border-radius from theme or number to set border-radius in px */
-  radius?: 'sm' | 'base' | 'lg';
+  radius?: ActonateSize;
 
   /** Controls button appearance */
   variant?: 'link' | 'filled' | 'outline' | 'light';
+
+  /** Text case variants */
+  textCase?: ActonateCase;
 }
 
 export const Button = <
@@ -40,15 +40,17 @@ export const Button = <
   U extends HTMLElement = HTMLButtonElement
 >({
   className,
+  color = 'blue',
   size = 'base',
   type = 'button',
   disabled = false,
   children,
   leftIcon,
   rightIcon,
-  // fullWidth = false,
-  // variant = 'filled',
-  // radius = 'sm',
+  fullWidth = false,
+  variant = 'filled',
+  textCase,
+  radius = 'xs',
   component: Element = 'button',
   elementRef,
   ...others
@@ -56,38 +58,37 @@ export const Button = <
   /** Get root element ref */
   elementRef?: React.ForwardedRef<U>;
 }) => {
+  const classes = useStyles({
+    size,
+    color,
+    disabled,
+    variant,
+    fullWidth,
+    radius,
+  });
+  const textToShow = useMemo(() => textTransform(textCase, children), [textCase, children]);
   return (
     <Element
       {...others}
-      className={cn(
-        `flex items-center justify-center rounded whitespace-no-wrap
-        focus:outline-none focus:shadow-outline
-        transition duration-300`,
-        disabled ? 'opacity-50 cursor-not-allowed' : '',
-        mapBaseSize[size],
-        className
-      )}
+      className={cn(classes.shared, classes[variant], className)}
       type={type}
       disabled={disabled}
       ref={elementRef}
-      onTouchStart={() => {}}
+      onTouchStart={() => ({})}
     >
-      <span className='flex items-center justify-center h-full' data-mantine-label>
+      <span className={classes.inner} data-actonate-label>
         {leftIcon && (
-          <span data-mantine-left-icon className='flex items-center mr-4'>
+          <span data-actonate-left-icon className={classes.leftIcon}>
             {leftIcon}
           </span>
         )}
 
-        <span
-          className='block whitespace-nowrap overflow-hidden overflow-ellipsis'
-          data-mantine-label
-        >
-          {children}
+        <span className={classes.label} data-actonate-label>
+          {textToShow}
         </span>
 
         {rightIcon && (
-          <span data-mantine-right-icon className='flex items-center ml-4'>
+          <span data-actonate-right-icon className={classes.rightIcon}>
             {rightIcon}
           </span>
         )}

@@ -7,63 +7,155 @@
  */
 import { Button } from '@library/core';
 import { FC } from 'react';
-import { ExclamationIcon } from '@heroicons/react/solid';
+import { Link } from 'react-router-dom';
+import { ArchiveIcon, AnnotationIcon } from '@heroicons/react/solid';
 
-const BaseButton: FC = (props) => {
-  const {} = props;
+const BaseButton: FC = () => {
   return (
     <div>
+      <div className='m-8 items-center flex space-x-5'>
+        <Button color='blue' onClick={() => ({})}>
+          Button
+        </Button>
+        <Button color='green' onClick={() => ({})}>
+          Button
+        </Button>
+        <Button color='red' onClick={() => ({})}>
+          Button
+        </Button>
+        <Button color='yellow' onClick={() => ({})}>
+          Button
+        </Button>
+        <Button color='pink' onClick={() => ({})}>
+          Button
+        </Button>
+      </div>
+      <div className='m-8 items-center flex space-x-5'>
+        <Button radius='xs' onClick={() => ({})}>
+          Button
+        </Button>
+        <Button radius='sm' onClick={() => ({})}>
+          Button
+        </Button>
+        <Button radius='md' onClick={() => ({})}>
+          Button
+        </Button>
+        <Button radius='lg' onClick={() => ({})}>
+          Button
+        </Button>
+        <Button radius='xl' onClick={() => ({})}>
+          Button
+        </Button>
+      </div>
+      <div className='m-8 items-center flex space-x-5'>
+        <Button size='xs' onClick={() => ({})}>
+          Button
+        </Button>
+        <Button size='sm' onClick={() => ({})}>
+          Button
+        </Button>
+        <Button size='md' onClick={() => ({})}>
+          Button
+        </Button>
+        <Button size='lg' onClick={() => ({})}>
+          Button
+        </Button>
+        <Button size='xl' onClick={() => ({})}>
+          Button
+        </Button>
+        {/* <Button disabled className='bg-purple-600  text-white' onClick={() => ({})}>
+          Button
+        </Button>
+        <Button
+          leftIcon={<ExclamationIcon className='w-7' />}
+          className='bg-purple-600  text-white'
+          onClick={() => ({})}
+        >
+          Button
+        </Button>
+        <Button
+          rightIcon={<ExclamationIcon className='w-7' />}
+          className='bg-purple-600  text-white'
+          onClick={() => ({})}
+        >
+          Button
+        </Button>
+        <Button
+          leftIcon={<ExclamationIcon className='w-7' />}
+          rightIcon={<ExclamationIcon className='w-7' />}
+          className='bg-purple-600  text-white'
+          onClick={() => ({})}
+        >
+          Button
+        </Button> */}
+      </div>
       <div className='m-8 flex space-x-5'>
-        <Button size='sm' className={' bg-purple-600  text-white '} onClick={() => ({})}>
+        <Button variant='filled' onClick={() => ({})}>
           Button
         </Button>
-        <Button size='base' className={' bg-purple-600  text-white '} onClick={() => ({})}>
+        <Button variant='light' onClick={() => ({})}>
           Button
         </Button>
-        <Button size='lg' className={' bg-purple-600  text-white '} onClick={() => ({})}>
+        <Button variant='outline' onClick={() => ({})}>
           Button
         </Button>
-        <Button disabled className='bg-purple-600  text-white' onClick={() => ({})}>
-          Button
-        </Button>
-        <Button
-          leftIcon={<ExclamationIcon className='w-7' />}
-          className='bg-purple-600  text-white'
-          onClick={() => ({})}
-        >
-          Button
-        </Button>
-        <Button
-          rightIcon={<ExclamationIcon className='w-7' />}
-          className='bg-purple-600  text-white'
-          onClick={() => ({})}
-        >
-          Button
-        </Button>
-        <Button
-          leftIcon={<ExclamationIcon className='w-7' />}
-          rightIcon={<ExclamationIcon className='w-7' />}
-          className='bg-purple-600  text-white'
-          onClick={() => ({})}
-        >
+        <Button variant='link' onClick={() => ({})}>
           Button
         </Button>
       </div>
       <div className='m-8 flex space-x-5'>
-        <Button className={' bg-red-600  text-white '} onClick={() => ({})}>
+        <Button disabled variant='filled' onClick={() => ({})}>
           Button
         </Button>
-        <Button className={' bg-yellow-600  text-white '} onClick={() => ({})}>
+        <Button disabled variant='light' onClick={() => ({})}>
           Button
         </Button>
-        <Button className={' bg-blue-600  text-white '} onClick={() => ({})}>
+        <Button disabled variant='outline' onClick={() => ({})}>
           Button
         </Button>
-        <Button className='bg-green-600  text-white' onClick={() => ({})}>
+        <Button disabled variant='link' onClick={() => ({})}>
           Button
         </Button>
-        <Button className='bg-pink-600  text-white' onClick={() => ({})}>
-          Button
+      </div>
+      <div className='m-8 flex space-x-5'>
+        <Button component='button' onClick={() => ({})}>
+          Simple Button
+        </Button>
+        <Button component='a' href='https://mantine.dev' target='_blank'>
+          link
+        </Button>
+        <Button<typeof Link, HTMLAnchorElement> component={Link} to='/'>
+          Router
+        </Button>
+        <Button fullWidth>fullWidth</Button>
+      </div>
+      <div className='m-8 flex space-x-5'>
+        <Button leftIcon={<ArchiveIcon className='w-6' />} component='button' onClick={() => ({})}>
+          Simple Button
+        </Button>
+        <Button
+          rightIcon={<AnnotationIcon className='w-6' />}
+          component='button'
+          onClick={() => ({})}
+        >
+          Simple Button
+        </Button>
+        <Button
+          leftIcon={<ArchiveIcon className='w-6' />}
+          rightIcon={<AnnotationIcon className='w-6' />}
+          component='button'
+          onClick={() => ({})}
+        >
+          Simple Button
+        </Button>
+      </div>
+      <div className='m-8 flex space-x-5'>
+        <Button
+          className='bg-yellow-200 hover:bg-yellow-300 w-full text-xl py-8 text-red-500'
+          variant='filled'
+          onClick={() => ({})}
+        >
+          Customized with Classname
         </Button>
       </div>
     </div>

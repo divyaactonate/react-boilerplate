@@ -1,5 +1,4 @@
 const colors = require('tailwindcss/colors');
-
 module.exports = {
   purge: [],
   presets: [],
@@ -15,7 +14,7 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-
+      ...colors,
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
@@ -139,6 +138,7 @@ module.exports = {
     borderOpacity: (theme) => theme('opacity'),
     borderRadius: {
       none: '0px',
+      xs: '0.115rem',
       sm: '0.125rem',
       DEFAULT: '0.25rem',
       md: '0.375rem',
