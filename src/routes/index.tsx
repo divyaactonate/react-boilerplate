@@ -1,9 +1,13 @@
+import Button from '@pages/button';
 import Styles from '@pages/cssDemo';
 import EnvVar from '@pages/envVar';
 import Home from '@pages/index';
 import Login from '@pages/login';
 import Mobx from '@pages/mobxDemo';
-import { lazy, FC, Suspense } from 'react';
+import Modal from '@pages/modal';
+import Spinner from '@pages/spinner';
+import Toaster from '@pages/toaster';
+import { FC, lazy, Suspense } from 'react';
 // import { Route } from 'react-router-dom'
 import { BrowserRouter, Switch } from 'react-router-dom';
 import ProtectedRoute from './Protected';
@@ -33,6 +37,11 @@ export const Routes = () => {
           <UnprotectedRoute path='/cssDemo' component={Styles} />
           <UnprotectedRoute path='/mobxDemo' component={Mobx} />
           <UnprotectedRoute path='/envVar' component={EnvVar} />
+          <UnprotectedRoute path='/button' component={Button} />
+          <UnprotectedRoute path='/toaster' component={Toaster} />
+          <UnprotectedRoute path='/modal' component={Modal} />
+          <UnprotectedRoute path='/spinner' component={Spinner} />
+
           <ProtectedRoute
             path='/protected'
             // component={ProtectedComponent}

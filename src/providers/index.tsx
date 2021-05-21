@@ -1,8 +1,8 @@
-import { ContactProvider, AuthProvider, store } from '@store/index';
-
+import { AuthProvider, ContactProvider, store } from '@store/index';
 import { Provider } from 'mobx-react';
 import { FC } from 'react';
 // import GlobalStyles from './styles/GlobalStyles'
+import { ToastProvider } from './toaster';
 
 function combineProviders(...providers: FC[]) {
   return ({ children }: any) =>
@@ -18,7 +18,10 @@ function AllProviders({ children }: any) {
   return (
     <Provider store={store}>
       {/* <GlobalStyles /> new */}
-      <CombinedProviders>{children}</CombinedProviders>
+      <CombinedProviders>
+        <ToastProvider />
+        {children}
+      </CombinedProviders>
     </Provider>
   );
 }
