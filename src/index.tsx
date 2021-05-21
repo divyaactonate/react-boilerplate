@@ -1,8 +1,8 @@
 import { AllProviders } from '@providers';
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
-import 'tailwindcss/dist/base.min.css';
-// import './styles.css';
+// import 'tailwindcss/dist/base.min.css';
+import './styles.css';
 
 import { App } from './App';
 // import * as Sentry from '@sentry/react'
