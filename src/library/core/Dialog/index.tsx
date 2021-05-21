@@ -1,15 +1,16 @@
 /**
  *
- * Modal
+ * Dialog
  *
  */
 
 import { ElementType, FC, Fragment, ReactNode } from 'react';
-import { Dialog, Transition } from '@headlessui/react';
+import { Dialog as DialogBase, Transition } from '@headlessui/react';
+import { useScrollLock } from '@library/hooks';
 
-export interface ModalProps {
-  open: boolean;
-  closeModal: () => void;
+export interface DialogProps {
+  opened: boolean;
+  onClose: () => void;
   title?: string;
   children: ReactNode;
   className?: string;
@@ -19,11 +20,11 @@ export interface ModalProps {
   titleComponent?: ElementType<any> | undefined;
 }
 
-const Modal: FC<ModalProps> = (props) => {
+export const Dialog: FC<DialogProps> = (props) => {
   const {
-    open = false,
+    opened = false,
     unmount = true,
-    closeModal,
+    onClose,
     titleClass,
     className,
     titleComponent = 'h3',
@@ -31,14 +32,17 @@ const Modal: FC<ModalProps> = (props) => {
     title,
     children,
   } = props;
+  useScrollLock(opened);
+  console.log(opened);
+
   return (
-    <Transition appear show={open} as={Fragment}>
-      <Dialog
+    <Transition appear show={opened} as={Fragment}>
+      <DialogBase
         unmount={unmount}
         // static={true}
         as='div'
         className={className || 'fixed inset-0 z-10 overflow-y-auto'}
-        onClose={closeModal}
+        onClose={onClose}
       >
         <div className='min-h-screen px-4 text-center'>
           <Transition.Child
@@ -50,7 +54,7 @@ const Modal: FC<ModalProps> = (props) => {
             leaveFrom='opacity-100'
             leaveTo='opacity-0'
           >
-            <Dialog.Overlay className={overlayClass || 'fixed inset-0'} />
+            <DialogBase.Overlay className={overlayClass || 'fixed inset-0'} />
           </Transition.Child>
 
           {/* This element is to trick the browser into centering the modal contents. */}
@@ -68,20 +72,18 @@ const Modal: FC<ModalProps> = (props) => {
           >
             <div className='inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl'>
               {title && (
-                <Dialog.Title
+                <DialogBase.Title
                   as={titleComponent}
                   className={titleClass || 'text-lg font-medium leading-6 text-gray-900'}
                 >
                   Payment successful
-                </Dialog.Title>
+                </DialogBase.Title>
               )}
               {children}
             </div>
           </Transition.Child>
         </div>
-      </Dialog>
+      </DialogBase>
     </Transition>
   );
 };
-
-export default Modal;

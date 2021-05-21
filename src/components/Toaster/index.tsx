@@ -5,13 +5,13 @@
  */
 
 import { FC } from 'react';
-import toast from '@shared/Toaster';
+import { Toaster } from '@library/core';
 
-const Toaster: FC = () => {
+const Toasters: FC = () => {
   // const [order, setorder] = useState(false);
   const multiline = (e: any) => {
     e?.preventDefault();
-    toast.simple({
+    Toaster.simple({
       duration: 5000,
       message:
         "This toast is super big. I don't think anyone could eat it in one bite. It's larger than you expected. You eat it but it does not seem to get smaller.",
@@ -19,35 +19,35 @@ const Toaster: FC = () => {
   };
   const simple = (e: any) => {
     e?.preventDefault();
-    toast.simple({ message: 'simple' });
+    Toaster.simple({ message: 'simple' });
   };
   const sucess = (e: any) => {
     e?.preventDefault();
-    toast.success({ message: 'sucess' });
+    Toaster.success({ message: 'sucess' });
   };
   const error = (e: any) => {
     e?.preventDefault();
-    toast.error({ message: 'error' });
+    Toaster.error({ message: 'error' });
   };
   const warn = (e: any) => {
     e?.preventDefault();
-    toast.warning({ message: 'warn' });
+    Toaster.warning({ message: 'warn' });
   };
   const info = (e: any) => {
     e?.preventDefault();
-    toast.info({ message: 'info' });
+    Toaster.info({ message: 'info' });
   };
   const loading = (e: any) => {
     e?.preventDefault();
-    toast.loading({});
+    Toaster.loading({});
   };
   const custom = (e: any) => {
     e?.preventDefault();
-    toast.custom({ message: 'custom' });
+    Toaster.custom({ message: 'custom' });
   };
   const promise = (e: any) => {
     e?.preventDefault();
-    toast.promise({
+    Toaster.promise({
       functionName: new Promise((resolve) => {
         setTimeout(() => {
           resolve('timeout elapsed');
@@ -62,32 +62,32 @@ const Toaster: FC = () => {
   };
   // const topleft = (e: any) => {
   //   e?.preventDefault();
-  //   toast.simple({ message: 'topleft', position: 'top-left' });
+  //   Toaster.simple({ message: 'topleft', position: 'top-left' });
   // };
   // const topcenter = (e: any) => {
   //   e?.preventDefault();
-  //   toast.simple({ message: 'topcenter', position: 'top-center' });
+  //   Toaster.simple({ message: 'topcenter', position: 'top-center' });
   // };
   // const topright = (e: any) => {
   //   e?.preventDefault();
-  //   toast.simple({ message: 'topright', position: 'top-right' });
+  //   Toaster.simple({ message: 'topright', position: 'top-right' });
   // };
   // const bottomleft = (e: any) => {
   //   e?.preventDefault();
-  //   toast.simple({ message: 'bottomleft', position: 'bottom-left' });
+  //   Toaster.simple({ message: 'bottomleft', position: 'bottom-left' });
   // };
   // const bottomcenter = (e: any) => {
   //   e?.preventDefault();
-  //   toast.simple({ message: 'bottomcenter', position: 'bottom-center' });
+  //   Toaster.simple({ message: 'bottomcenter', position: 'bottom-center' });
   // };
   // const bottomright = (e: any) => {
   //   e?.preventDefault();
-  //   toast.simple({ message: 'bottomright', position: 'bottom-right' });
+  //   Toaster.simple({ message: 'bottomright', position: 'bottom-right' });
   // };
   // const toggle = (e: any) => {
   //   e?.preventDefault();
   //   setorder((e) => !e);
-  //   toast.simple({ message: 'reversed', reverseOrder: !order });
+  //   Toaster.simple({ message: 'reversed', reverseOrder: !order });
   // };
   return (
     <div className='text-center'>
@@ -219,4 +219,4 @@ const Toaster: FC = () => {
   );
 };
 
-export default Toaster;
+export default Toasters;

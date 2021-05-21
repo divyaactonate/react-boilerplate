@@ -1,13 +1,13 @@
 /**
  *
- * Modal
+ * Dialog
  *
  */
 
-import { useState } from 'react';
-import { Modal } from '@library/core';
+import { useState, FC } from 'react';
+import { Dialog } from '@library/core';
 
-const MyModal = () => {
+const Dialogs: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -17,7 +17,6 @@ const MyModal = () => {
   function openModal() {
     setIsOpen(true);
   }
-
   return (
     <>
       <div className='flex mt-32 items-center justify-center'>
@@ -26,17 +25,17 @@ const MyModal = () => {
           onClick={openModal}
           className='px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'
         >
-          Open Modal
+          Open dialog
         </button>
       </div>
-      <Modal size='xl' title='Modal Title' opened={isOpen} onClose={closeModal}>
+      <Dialog title='Payment successful' opened={isOpen} onClose={closeModal}>
         <div>
-          {/* <div className='mt-2'>
+          <div className='mt-2'>
             <p className='text-sm text-gray-500'>
               Your payment has been successfully submitted. We’ve sent your an email with all of the
               details of your order.
             </p>
-          </div> */}
+          </div>
 
           <div className='mt-4'>
             <button
@@ -48,8 +47,9 @@ const MyModal = () => {
             </button>
           </div>
         </div>
-      </Modal>
+      </Dialog>
     </>
   );
 };
-export default MyModal;
+
+export default Dialogs;

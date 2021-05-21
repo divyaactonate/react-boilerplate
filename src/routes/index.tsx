@@ -1,6 +1,7 @@
 import Button from '@pages/button';
 import Styles from '@pages/cssDemo';
 import EnvVar from '@pages/envVar';
+import Dialog from '@pages/dialog';
 import Home from '@pages/index';
 import Login from '@pages/login';
 import Mobx from '@pages/mobxDemo';
@@ -41,6 +42,7 @@ export const Routes = () => {
           <UnprotectedRoute path='/toaster' component={Toaster} />
           <UnprotectedRoute path='/modal' component={Modal} />
           <UnprotectedRoute path='/spinner' component={Spinner} />
+          <UnprotectedRoute path='/dialog' component={Dialog} />
 
           <ProtectedRoute
             path='/protected'

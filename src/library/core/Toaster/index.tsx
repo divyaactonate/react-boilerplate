@@ -223,4 +223,4 @@ const Toaster = {
   promise: func.promise,
   loading: func.loading,
 };
-export default Toaster;
+export { Toaster };

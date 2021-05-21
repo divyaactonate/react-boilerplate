@@ -1,7 +1,7 @@
 import { useContact } from '@store/contact';
 import { observer } from 'mobx-react';
 import { useEffect } from 'react';
-import { DeleteIcon, PhoneIcon, UserIcon } from '@shared/icons';
+import { DeleteIcon, PhoneIcon, UserIcon } from '@library/icons';
 
 function ContactList() {
   const { contacts, deleteContact, loading, getContacts } = useContact();

@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import Button from './index';
+import { Dialog } from './index';
 import { shallow } from 'enzyme';
 
-describe('<Button />', () => {
+describe('<Dialog />', () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(<Button />);
+    component = shallow(<Dialog />);
   });
 
   test('It should mount with enzyme', () => {
@@ -14,8 +14,8 @@ describe('<Button />', () => {
   });
 
   test('It should mount with testing Library', () => {
-    render(<Button />);
-    component = screen.getByTestId('Button');
+    render(<Dialog />);
+    component = screen.getByTestId('Dialog');
     expect(component).toBeInTheDocument();
   });
 });

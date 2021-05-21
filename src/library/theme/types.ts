@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import type { DeepPartial, Tuple } from '@shared/types';
+import type { DeepPartial, Tuple } from '@library/types';
 
 export type ActonateSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type ActonateNumberSize = ActonateSize | number;

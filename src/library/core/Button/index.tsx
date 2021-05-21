@@ -1,6 +1,6 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { ComponentPassThrough } from '@shared/types';
+import { ComponentPassThrough } from '@library/types';
 import cn from 'classnames';
 
 const mapBaseSize = {
@@ -9,7 +9,7 @@ const mapBaseSize = {
   lg: 'h-12 px-5 text-xl',
 };
 
-export interface ButtonBaseProps {
+export interface ButtonProps {
   /** Predefined button size */
   size?: 'sm' | 'base' | 'lg';
 
@@ -34,7 +34,8 @@ export interface ButtonBaseProps {
   /** Controls button appearance */
   variant?: 'link' | 'filled' | 'outline' | 'light';
 }
-export function Button<
+
+export const Button = <
   T extends React.ElementType = 'button',
   U extends HTMLElement = HTMLButtonElement
 >({
@@ -51,10 +52,10 @@ export function Button<
   component: Element = 'button',
   elementRef,
   ...others
-}: ComponentPassThrough<T, ButtonBaseProps> & {
+}: ComponentPassThrough<T, ButtonProps> & {
   /** Get root element ref */
   elementRef?: React.ForwardedRef<U>;
-}) {
+}) => {
   return (
     <Element
       {...others}
@@ -93,6 +94,4 @@ export function Button<
       </span>
     </Element>
   );
-}
-
-export default Button;
+};
