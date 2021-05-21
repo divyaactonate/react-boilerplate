@@ -1,6 +1,6 @@
 /**
  *
- * Listbox
+ * ListBox
  *
  */
 
@@ -8,7 +8,7 @@ import { FC, Fragment } from 'react';
 import { Listbox as SelectList, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 
-export interface ListboxProps {
+export interface ListBoxProps {
   /** List of elements   */
   data?: any;
 
@@ -25,13 +25,13 @@ export interface ListboxProps {
   className?: string;
 }
 
-const Listbox: FC<ListboxProps> = ({
+const ListBox: FC<ListBoxProps> = ({
   data = [],
   onChange = (e) => console.log(e),
   value,
   disabled = false,
   className,
-}: ListboxProps) => {
+}: ListBoxProps) => {
   return (
     <div className={`flex items-center justify-center w-72 ml-2`}>
       <div className={`w-full max-w-xs mx-auto`}>
@@ -95,4 +95,4 @@ const Listbox: FC<ListboxProps> = ({
   );
 };
 
-export default Listbox;
+export default ListBox;

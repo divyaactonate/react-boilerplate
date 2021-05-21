@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Layout from '@layouts/index';
 import Switch from '@shared/Switch';
 import Breadcrum from '@shared/Breadcrum';
-import ListBox from '@shared/Listbox';
+import ListBox from '@shared/ListBox';
 
 const Home = () => {
   const [checked, setChecked]: [any, any] = useState(false);
