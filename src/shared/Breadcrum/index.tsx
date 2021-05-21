@@ -7,10 +7,19 @@
 import { FC } from 'react';
 
 export interface BreadcrumProps {
+  /** Adds parent screen route in breadcrum  */
   parent?: any;
+
+  /** Title of breadcrum  */
   title?: string;
+
+  /** link for the given title of breadcrum to navigate  */
   titleLink?: string;
+
+  /** Add home icon at the starting of breadcrum  */
   showHome?: boolean;
+
+  /** Add style provided by component  */
   className?: string;
 }
 

@@ -2,9 +2,11 @@ import { useState } from 'react';
 import Layout from '@layouts/index';
 import Switch from '@shared/Switch';
 import Breadcrum from '@shared/Breadcrum';
+import ListBox from '@shared/Listbox';
 
 const Home = () => {
   const [checked, setChecked]: [any, any] = useState(false);
+  const [selected, setSelected] = useState({ name: 'Wade Cooper' });
 
   return (
     <Layout>
@@ -15,7 +17,7 @@ const Home = () => {
         <u> Switch Controls </u>
         <br />
         <div className='flex justify-between items-center'>
-          <Switch checked={checked} onChange={(e) => setChecked(e)} />
+          <Switch label={'switch label'} checked={checked} onChange={(e) => setChecked(e)} />
           <Switch
             passive={false}
             checked={checked}
@@ -32,6 +34,27 @@ const Home = () => {
         </div>
       </div>
       <br />
+
+      <div className='flex justify-center flex-col items-center py-3 border border-green-600'>
+        <u> ListBox Controls </u>
+        <br />
+        <div className='flex justify-between items-center'>
+          <ListBox
+            data={[
+              { name: 'Wade Cooper' },
+              { name: 'Arlene Mccoy' },
+              { name: 'Devon Webb' },
+              { name: 'Tom Cook' },
+              { name: 'Tanya Fox' },
+              { name: 'Hellen Schmidt' },
+            ]}
+            selectedData={selected}
+            onChange={(e) => setSelected(e)}
+          />
+        </div>
+      </div>
+      <br />
+
       <div className='flex flex-col justify-center items-center py-1 border border-blue-600'>
         <u> Breadcrums </u>
         <br />

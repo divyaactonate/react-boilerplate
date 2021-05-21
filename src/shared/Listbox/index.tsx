@@ -4,52 +4,78 @@
  *
  */
 
-import { FC } from 'react';
-import { Listbox as SelectList } from '@headlessui/react';
-
-const people = [
-  { id: 1, name: 'Durward Reynolds' },
-  { id: 2, name: 'Kenton Towne' },
-  { id: 3, name: 'Therese Wunsch' },
-  { id: 4, name: 'Benedict Kessler' },
-  { id: 5, name: 'Katelyn Rohan' },
-];
+import { FC, Fragment } from 'react';
+import { Listbox as SelectList, Transition } from '@headlessui/react';
+import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 
 export interface ListboxProps {
+  /** List of elements   */
   data?: any;
+
+  /** Method that will be called on menu selection from list   */
   onChange?: (val?: any) => void;
+
+  /** Element detail selected from list box   */
+  selectedData?: any;
 }
 
 const Listbox: FC<ListboxProps> = ({
-  data = people,
-  onChange = (e) => {
-    console.log(e);
-  },
+  data = [],
+  onChange = (e) => console.log(e),
+  selectedData,
 }: ListboxProps) => {
   return (
-    <div data-testid='Listbox'>
-      <SelectList value={data[0]} onChange={onChange}>
-        {({ open }) => (
-          <>
-            <SelectList.Button>{data[0].name}</SelectList.Button>
-            {open && (
-              <div>
-                {/*
-                Using `static`, `Listbox.Options` is always rendered and
-                ignores the `open` state.
-              */}
-                <SelectList.Options static>
-                  {people.map((person) => (
-                    <SelectList.Option key={person.id} value={person}>
-                      {person.name}
+    <div className='flex items-center justify-center w-72'>
+      <div className='w-full max-w-xs mx-auto'>
+        <SelectList value={selectedData} onChange={onChange}>
+          <div className='relative mt-1'>
+            <SelectList.Button className='relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm'>
+              <span className='block truncate'>{selectedData.name}</span>
+              <span className='absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none'>
+                <SelectorIcon className='w-5 h-5 text-gray-400' aria-hidden='true' />
+              </span>
+            </SelectList.Button>
+            <Transition
+              as={Fragment}
+              leave='transition ease-in duration-100'
+              leaveFrom='opacity-100'
+              leaveTo='opacity-0'
+            >
+              <SelectList.Options className='absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm'>
+                {data.length > 0 &&
+                  data.map((person?: any, personIdx?: any) => (
+                    <SelectList.Option
+                      key={personIdx}
+                      className={({ active }) =>
+                        `${active ? 'text-amber-900 bg-amber-100' : 'text-gray-900'}
+                        cursor-default select-none relative py-2 pl-10 pr-4`
+                      }
+                      value={person}
+                    >
+                      {({ selected, active }) => (
+                        <>
+                          <span
+                            className={`${selected ? 'font-medium' : 'font-normal'} block truncate`}
+                          >
+                            {person.name}
+                          </span>
+                          {selected ? (
+                            <span
+                              className={`${active ? 'text-amber-600' : 'text-amber-600'}
+                              absolute inset-y-0 left-0 flex items-center pl-3`}
+                            >
+                              <CheckIcon className='w-5 h-5' aria-hidden='true' />
+                            </span>
+                          ) : null}
+                        </>
+                      )}
                     </SelectList.Option>
                   ))}
-                </SelectList.Options>
-              </div>
-            )}
-          </>
-        )}
-      </SelectList>
+              </SelectList.Options>
+            </Transition>
+          </div>
+        </SelectList>
+      </div>
     </div>
   );
 };
