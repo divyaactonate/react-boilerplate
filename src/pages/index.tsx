@@ -48,14 +48,44 @@ const Home = () => {
               { name: 'Tanya Fox' },
               { name: 'Hellen Schmidt' },
             ]}
-            selectedData={selected}
+            value={selected}
             onChange={(e) => setSelected(e)}
+            disabled={false}
+          />
+
+          <ListBox
+            data={[
+              { name: 'Wade Cooper' },
+              { name: 'Arlene Mccoy' },
+              { name: 'Devon Webb' },
+              { name: 'Tom Cook' },
+              { name: 'Tanya Fox' },
+              { name: 'Hellen Schmidt' },
+            ]}
+            value={selected}
+            onChange={(e) => setSelected(e)}
+            disabled={false}
+            className={`bg-green-200 text-green-700`}
+          />
+
+          <ListBox
+            data={[
+              { name: 'Wade Cooper' },
+              { name: 'Arlene Mccoy' },
+              { name: 'Devon Webb' },
+              { name: 'Tom Cook' },
+              { name: 'Tanya Fox' },
+              { name: 'Hellen Schmidt' },
+            ]}
+            value={selected}
+            onChange={(e) => setSelected(e)}
+            disabled={true}
           />
         </div>
       </div>
       <br />
 
-      <div className='flex flex-col justify-center items-center py-1 border border-blue-600'>
+      <div className='pb-10 flex flex-col justify-center items-center py-1 border border-blue-600'>
         <u> Breadcrums </u>
         <br />
         <Breadcrum showHome={true} className={`p-0 bg-white-400`} />
