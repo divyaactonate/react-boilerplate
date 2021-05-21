@@ -5,7 +5,7 @@
  * Button
  *
  */
-import Button from '@shared/Button';
+import { Button } from '@library/core';
 import { FC } from 'react';
 import { ExclamationIcon } from '@heroicons/react/solid';
 

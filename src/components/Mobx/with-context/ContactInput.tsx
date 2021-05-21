@@ -3,7 +3,7 @@
 import { useContact } from '@store/contact';
 import { observer } from 'mobx-react';
 import { useRef, useState } from 'react';
-import { Loading } from '@shared/icons';
+import { Loading } from '@library/icons';
 
 function ContactInput() {
   const { addContact } = useContact();

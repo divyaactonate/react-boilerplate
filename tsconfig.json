@@ -3,6 +3,7 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@providers": ["./src/providers"],
+      "@library/*": ["./src/library/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@pages/*": ["./src/pages/*"],
       "@libs/*": ["./src/libs/*"],

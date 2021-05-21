@@ -12,6 +12,7 @@ const Layout = (props: any) => {
         <Link to='/button'>Button</Link>
         <Link to='/toaster'>Toaster</Link>
         <Link to='/spinner'>Spinners</Link>
+        <Link to='/dialog'>Dialog</Link>
         <Link to='/modal'>Modal</Link>
         <Link to='/login'>Login</Link>
       </div>
