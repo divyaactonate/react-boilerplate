@@ -1,18 +1,19 @@
+import { sizes as AllSizes } from '../../sizes';
 export function getSizeValue({
   size,
   sizes,
-  defaultSize = 'md',
+  defaultValue = 'md',
 }: {
   size: string | number | null;
-  sizes: Record<string, any>;
-  defaultSize?: string;
+  sizes?: Record<string, any>;
+  defaultValue?: string;
 }) {
   if (!size) {
-    return sizes[defaultSize];
+    return AllSizes[defaultValue];
   }
-  if (typeof size === 'number') {
-    return size;
+  if (sizes) {
+    return sizes[size] || sizes[defaultValue];
   }
 
-  return sizes[size] || size || sizes[defaultSize];
+  return AllSizes[size] || AllSizes[defaultValue];
 }

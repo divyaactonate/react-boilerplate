@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import { ActonateSize } from '@library/theme';
+import { ActonateSize, getRadiusValue, getSizeValue, getStyleValue } from '@library/theme';
 import cn from 'clsx';
 
 interface ButtonStylesProps {
@@ -13,36 +13,31 @@ interface ButtonStylesProps {
   variant: 'link' | 'filled' | 'outline' | 'light';
 }
 
-const sizes = {
-  xs: 'text-xs px-4 h-6',
-  sm: 'text-sm px-4 h-8',
-  md: 'text-base px-4 h-10',
-  lg: 'text-lg px-6 h-12',
-  xl: 'text-xl px-6 h-14',
+const paddings = {
+  xs: 'px-4',
+  sm: 'px-4',
+  md: 'px-4',
+  lg: 'px-6',
+  xl: 'px-6',
 };
-const radius = {
-  xs: 'rounded-md',
-  sm: 'rounded-lg',
-  md: 'rounded-xl',
-  lg: 'rounded-2xl',
-  xl: 'rounded-full',
+const heights = {
+  xs: 'h-6',
+  sm: 'h-8',
+  md: 'h-10',
+  lg: 'h-12',
+  xl: 'h-14',
 };
 const getWidthStyles = (fullWidth: boolean) => {
   if (fullWidth) return 'block w-full';
   else return 'inline-block w-auto';
 };
-const getFontSize = (font: string) => {
-  return sizes[font] ?? sizes.md;
-};
-const getborderRadius = (rad: string) => {
-  return radius[rad] ?? sizes.md;
-};
+
 export const useStyles = (props: ButtonStylesProps) => {
   const { color, disabled, fullWidth, radius, size } = props;
   const iconStyle = `flex items center`;
   const leftIcon = ``;
   const rightIcon = ``;
-  const inner = `flex items-center space-x-2 justify-center h-full `;
+  const inner = `flex items-center space-x-2 justify-center h-full`;
   const label = `block whitespace-nowrap overflow-hidden overflow-ellipsis`;
   const disabledClass = `opacity-50 cursor-not-allowed`;
   const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed' : '';
@@ -53,29 +48,42 @@ export const useStyles = (props: ButtonStylesProps) => {
     `focus:outline-none`
   );
   const widhtSize = getWidthStyles(fullWidth);
-  const fontSize = getFontSize(size);
-  const borderRadius = getborderRadius(radius);
+  const fontSize = getSizeValue({ size });
+  const borderRadius = getRadiusValue({ radius });
+  const padding = getStyleValue(paddings, size);
+  const height = getStyleValue(heights, size);
 
   const link = cn(disabled ? disabledClass : 'hover:underline', `text-${color}-500`);
   const filled = cn(
     disabled ? disabledClass : `hover:bg-${color}-600`,
-    `bg-${color}-500 text-white`,
+    color === 'white'
+      ? `bg-${color} text-black`
+      : color === 'black'
+      ? `bg-${color} text-white`
+      : `bg-${color}-500 text-white`,
     ` shadow-sm`
   );
+
   const outline = cn(
-    disabled ? disabledClass : `hover:border-${color}-600`,
-    `border border-${color}-500 text-${color}-600`,
+    disabled ? disabledClass : `hover:border-${color}-600 border`,
+    ['white', 'black'].includes(color) ? `border-gray-500` : `border-${color}-500`,
+    `text-${color}-600`,
     ` shadow-sm`,
     `focus:ring-2 focus:ring-${color}-500 focus:ring-offset-2`
   );
   const light = cn(
     disabled ? disabledClass : `hover:bg-${color}-200`,
-    `bg-${color}-100 text-${color}-600`,
-    ` shadow-sm`,
+    color === 'white'
+      ? `bg-coolGray-100 text-black`
+      : color === 'black'
+      ? `bg-trueGray-300 text-black`
+      : `bg-${color}-100 text-${color}-600`,
+    `shadow-sm`,
     `focus:ring-2 focus:ring-${color}-500 focus:ring-offset-2`
   );
 
-  const shared = cn(common, widhtSize, fontSize, disabledStyles, borderRadius);
+  const button = cn(common, padding, height, widhtSize, fontSize, disabledStyles, borderRadius);
+
   const classes = {
     link,
     filled,
@@ -86,7 +94,7 @@ export const useStyles = (props: ButtonStylesProps) => {
     rightIcon,
     inner,
     label,
-    shared,
+    button,
   };
   return classes;
 };

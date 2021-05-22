@@ -4,7 +4,18 @@ import type { DeepPartial, Tuple } from '@library/types';
 export type ActonateSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type ActonateCase = 'uppercase' | 'lowercase' | 'capitalize' | 'camcelCase';
 export type ActonateNumberSize = ActonateSize | number;
-
+export type ActonateShadow = 'none' | ActonateSize | '2xl' | 'inner';
+export type ActonatePadding =
+  | 'none'
+  | ActonateSize
+  | '2xl'
+  | '3xl'
+  | '4xl'
+  | '5xl'
+  | '6xl'
+  | '7xl'
+  | '8xl'
+  | '9xl';
 type HeadingStyle = {
   readonly fontSize: CSSProperties['fontSize'];
   readonly lineHeight: CSSProperties['lineHeight'];

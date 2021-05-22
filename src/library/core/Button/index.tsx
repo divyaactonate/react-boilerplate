@@ -41,7 +41,7 @@ export const Button = <
 >({
   className,
   color = 'blue',
-  size = 'base',
+  size = 'md',
   type = 'button',
   disabled = false,
   children,
@@ -70,7 +70,7 @@ export const Button = <
   return (
     <Element
       {...others}
-      className={cn(classes.shared, classes[variant], className)}
+      className={cn(classes.button, classes[variant], className)}
       type={type}
       disabled={disabled}
       ref={elementRef}
