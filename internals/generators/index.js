@@ -9,6 +9,8 @@ const sharedComponentGenerator = require('./resuableComponent/index.js');
 const pageGenerator = require('./page/index.js');
 const storeGenerator = require('./store/index.js');
 const serviceGenerator = require('./service/index.js');
+const coreGenerator = require('./libraryCore/index.js');
+const utilGenerator = require('./utilityFunction/index.js');
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
@@ -19,6 +21,8 @@ module.exports = function (plop) {
   plop.setGenerator('page', pageGenerator);
   plop.setGenerator('store', storeGenerator);
   plop.setGenerator('service', serviceGenerator);
+  plop.setGenerator('core', coreGenerator);
+  plop.setGenerator('utils', utilGenerator);
 
   plop.setActionType('prettify', (answers, config) => {
     let fileName;
@@ -26,8 +30,10 @@ module.exports = function (plop) {
       fileName = plop.getHelper('camelCase')(answers.name) + 'Api';
     } else if (config.path === '/store/') {
       fileName = plop.getHelper('camelCase')(answers.name) + '.ts';
-    } else if (path === '/pages/') {
+    } else if (config.path === '/pages/') {
       fileName = plop.getHelper('camelCase')(answers.name);
+    } else if (config.path.includes('utils')) {
+      fileName = plop.getHelper('kebabCase')(answers.name);
     } else {
       fileName = plop.getHelper('properCase')(answers.name);
     }
@@ -40,7 +46,6 @@ module.exports = function (plop) {
       // '**.{js,jsx,ts,tsx,json,css,scss,md}'
     )}`;
     try {
-      console.log(folderPath);
       execSync(`npm run prettier -- "${folderPath}\"`);
       return folderPath;
     } catch (err) {

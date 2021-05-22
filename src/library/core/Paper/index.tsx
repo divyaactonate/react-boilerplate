@@ -25,7 +25,7 @@ export interface PaperProps extends DefaultProps, ComponentPropsWithoutRef<'div'
   /** Get element ref */
   elementRef?: ForwardedRef<HTMLDivElement>;
 }
-export function Paper({
+export const Paper = ({
   className,
   color = 'white',
   children,
@@ -35,7 +35,7 @@ export function Paper({
   // themeOverride,
   elementRef,
   ...others
-}: PaperProps) {
+}: PaperProps) => {
   const classes = useMemo(
     () => fetchStyles({ radius, shadow, color, padding }),
     [radius, shadow, color, padding]
@@ -46,5 +46,5 @@ export function Paper({
       {children}
     </div>
   );
-}
+};
 Paper.displayName = '@beautify/core/Paper';
