@@ -1,13 +1,13 @@
-import { ActonateTextAlignment } from '@library/theme/types';
+import { BeautifyTextAlignment } from '@library/theme/types';
 import { alignments as AllAlignments } from '../../text-alignments';
 export function getAlignValue({
   align,
   aligns,
   defaultValue = 'left',
 }: {
-  align?: ActonateTextAlignment | null;
-  aligns?: Record<ActonateTextAlignment, any>;
-  defaultValue?: ActonateTextAlignment;
+  align?: BeautifyTextAlignment | null;
+  aligns?: Record<BeautifyTextAlignment, any>;
+  defaultValue?: BeautifyTextAlignment;
 }) {
   if (!align) {
     return AllAlignments[defaultValue];

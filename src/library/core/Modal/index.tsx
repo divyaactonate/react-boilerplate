@@ -51,7 +51,7 @@ export interface ModalProps
   overlayColor?: string;
 
   /** Modal body width */
-  size?: string | number;
+  size?: string;
 
   /** Modal body transition */
   // transition?: MantineTransition;
@@ -133,6 +133,7 @@ export const Modal: FC<ModalProps> = ({
             leaveTo='opacity-0 scale-95'
           >
             <div
+              data-beautify-modal
               className={cn(
                 `inline-block p-6 my-8 
                 overflow-hidden text-left align-middle 
@@ -143,6 +144,7 @@ export const Modal: FC<ModalProps> = ({
               {(title || !hideCloseButton) && (
                 <div className='flex items-center justify-between mb-4'>
                   <Dialog.Title
+                    data-beautify-modal-title
                     as={titleComponent}
                     className={
                       titleClass ||
@@ -156,6 +158,7 @@ export const Modal: FC<ModalProps> = ({
                     // <ActionIcon onClick={onClose}>
                     <XIcon
                       onClick={onClose}
+                      data-beautify-modal-close-icon
                       className='w-10 cursor-pointer p-2 hover:bg-gray-100 rounded-full'
                     />
                     // </ActionIcon>
@@ -164,6 +167,7 @@ export const Modal: FC<ModalProps> = ({
               )}
               <div
                 tw='break-words'
+                data-beautify-modal-body
                 css={[overflow === 'inside' && `max-height: calc(100vh - 185px);overflow-y:auto`]}
               >
                 {children}
@@ -175,3 +179,4 @@ export const Modal: FC<ModalProps> = ({
     </Transition>
   );
 };
+Modal.displayName = '@beautify/core/Modal';

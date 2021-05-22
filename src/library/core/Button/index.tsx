@@ -1,5 +1,5 @@
-import { ActonateSize } from '@library/theme';
-import { ActonateCase } from '@library/theme/types';
+import { BeautifySize } from '@library/theme';
+import { BeautifyCase } from '@library/theme/types';
 import { ComponentPassThrough } from '@library/types';
 import cn from 'clsx';
 import { useMemo } from 'react';
@@ -7,7 +7,7 @@ import { fetchStyles } from './Button.styles';
 
 export interface ButtonProps {
   /** Predefined button size */
-  size?: ActonateSize;
+  size?: BeautifySize;
 
   /** Button type attribute */
   type?: 'submit' | 'button' | 'reset';
@@ -25,13 +25,13 @@ export interface ButtonProps {
   fullWidth?: boolean;
 
   /** Button border-radius from theme or number to set border-radius in px */
-  radius?: ActonateSize;
+  radius?: BeautifySize;
 
   /** Controls button appearance */
   variant?: 'link' | 'filled' | 'outline' | 'light';
 
   /** Text transform variants */
-  transform?: ActonateCase;
+  transform?: BeautifyCase;
 }
 
 export const Button = <
@@ -72,19 +72,19 @@ export const Button = <
       ref={elementRef}
       onTouchStart={() => ({})}
     >
-      <span className={classes.inner} data-actonate-label>
+      <span className={classes.inner} data-beautify-label>
         {leftIcon && (
-          <span data-actonate-left-icon className={classes.leftIcon}>
+          <span data-beautify-left-icon className={classes.leftIcon}>
             {leftIcon}
           </span>
         )}
 
-        <span className={classes.label} data-actonate-label>
+        <span className={classes.label} data-beautify-label>
           {children}
         </span>
 
         {rightIcon && (
-          <span data-actonate-right-icon className={classes.rightIcon}>
+          <span data-beautify-right-icon className={classes.rightIcon}>
             {rightIcon}
           </span>
         )}
@@ -92,4 +92,4 @@ export const Button = <
     </Element>
   );
 };
-Button.displayName = '@library/core/Button';
+Button.displayName = '@beautify/core/Button';

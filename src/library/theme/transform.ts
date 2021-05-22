@@ -1,6 +1,6 @@
-import { ActonateCase } from '.';
+import { BeautifyCase } from '.';
 
-export const transforms: Record<ActonateCase, string> = {
+export const transforms: Record<BeautifyCase, string> = {
   uppercase: 'uppercase',
   lowercase: 'lowercase',
   capitalize: 'capitalize',

@@ -87,3 +87,4 @@ export const Dialog: FC<DialogProps> = (props) => {
     </Transition>
   );
 };
+Dialog.displayName = '@beautify/core/Dialog';

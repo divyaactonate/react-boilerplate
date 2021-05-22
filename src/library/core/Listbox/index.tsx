@@ -94,3 +94,4 @@ export const ListBox: FC<ListBoxProps> = ({
     </div>
   );
 };
+ListBox.displayName = '@beautify/core/ListBox';

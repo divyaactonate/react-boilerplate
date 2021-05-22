@@ -31,7 +31,7 @@ const sizes = (
   </Text>
 ));
 
-storiesOf('@actonate/core/Text', module)
+storiesOf('@beautify/core/Text', module)
   .add('General usage', () => (
     <>
       <Text>Default text</Text>
@@ -40,7 +40,7 @@ storiesOf('@actonate/core/Text', module)
       <Text transform='uppercase'>uppercase</Text>
       <Text transform='lowercase'>LOWERcase</Text>
       <Text component='i'>italic</Text>
-      <Anchor href='https://mantine.dev' target='_blank'>
+      <Anchor href='https://actonate.com/' target='_blank'>
         Anchor
       </Anchor>
     </>
@@ -67,7 +67,7 @@ storiesOf('@actonate/core/Text', module)
   .add('Sizes', () => <div style={{ padding: 20 }}>{sizes}</div>)
   .add('Link', () => (
     <div style={{ padding: 20 }}>
-      <Text component='a' href='https://mantine.dev' variant='link'>
+      <Text component='a' href='https://actonate.com/' variant='link'>
         Link
       </Text>
     </div>

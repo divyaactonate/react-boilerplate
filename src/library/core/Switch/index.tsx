@@ -50,3 +50,4 @@ export const Switch: FC<SwitchProps> = ({
     </ToggleSwitch.Group>
   );
 };
+Switch.displayName = '@beautify/core/Switch';

@@ -1,6 +1,6 @@
-import { ActonateLineHeight } from './types';
+import { BeautifyLineHeight } from './types';
 
-export const lineHeights: Record<ActonateLineHeight, string> = {
+export const lineHeights: Record<BeautifyLineHeight, string> = {
   none: 'leading-none',
   tight: 'leading-tight',
   snug: 'leading-snug',

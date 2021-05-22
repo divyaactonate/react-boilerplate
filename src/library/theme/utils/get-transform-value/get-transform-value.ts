@@ -1,13 +1,13 @@
-import { ActonateCase } from '@library/theme/types';
+import { BeautifyCase } from '@library/theme/types';
 import { transforms as AllTransforms } from '../../transform';
 export function getTransformValue({
   transform,
   transforms,
   defaultValue = 'normal-case',
 }: {
-  transform?: ActonateCase;
-  transforms?: Record<ActonateCase, any>;
-  defaultValue?: ActonateCase;
+  transform?: BeautifyCase;
+  transforms?: Record<BeautifyCase, any>;
+  defaultValue?: BeautifyCase;
 }) {
   if (!transform) {
     return AllTransforms[defaultValue];

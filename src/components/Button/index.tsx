@@ -126,7 +126,7 @@ const BaseButton: FC = () => {
         <Button component='button' onClick={() => ({})}>
           Simple Button
         </Button>
-        <Button component='a' href='https://mantine.dev' target='_blank'>
+        <Button component='a' href='https://actonate.com/' target='_blank'>
           link
         </Button>
         <Button<typeof Link, HTMLAnchorElement> component={Link} to='/'>

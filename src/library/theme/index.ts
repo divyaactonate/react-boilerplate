@@ -1,26 +1,25 @@
 export type {
-  ActonateTheme,
-  ActonateThemeOverride,
-  ActonateSize,
-  ActonateNumberSize,
+  BeautifyTheme,
+  BeautifyThemeOverride,
+  BeautifySize,
+  BeautifyNumberSize,
   DefaultProps,
-  ActonateSizes,
-  ActonateCase,
-  ActonatePadding,
-  ActonateShadow,
-  ActonateTextAlignment,
-  ActonateLineHeight,
-  ActonateWeight,
+  BeautifySizes,
+  BeautifyCase,
+  BeautifyPadding,
+  BeautifyShadow,
+  BeautifyTextAlignment,
+  BeautifyLineHeight,
+  BeautifyWeight,
 } from './types';
 
 // export { createMemoStyles } from './create-memo-styles';
 // export { getFocusStyles } from './utils/get-focus-styles/get-focus-styles';
 export * from './utils';
 
-// export { ActonateProvider } from './ActonateProvider/ActonateProvider';
-// export { useActonateTheme } from './use-Actonate-theme/use-Actonate-theme';
-// export { theming } from './ActonateProvider/theme-context';
-export { DEFAULT_THEME } from './default-theme';
+// export { BeautifyProvider } from './BeautifyProvider/BeautifyProvider';
+// export { useBeautifyTheme } from './use-Beautify-theme/use-Beautify-theme';
+// export { theming } from './BeautifyProvider/theme-context';
 export { sizes } from './sizes';
 export { radii } from './radius';
 export { paddings } from './paddings';

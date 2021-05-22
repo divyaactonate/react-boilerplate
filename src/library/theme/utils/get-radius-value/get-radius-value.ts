@@ -1,13 +1,13 @@
-import { ActonateSize } from '@library/theme/types';
+import { BeautifySize } from '@library/theme/types';
 import { radii as AllRadius } from '../../radius';
 export function getRadiusValue({
   radius,
   radii,
   defaultValue = 'md',
 }: {
-  radius: ActonateSize | null;
-  radii?: Record<ActonateSize, any>;
-  defaultValue?: ActonateSize;
+  radius: BeautifySize | null;
+  radii?: Record<BeautifySize, any>;
+  defaultValue?: BeautifySize;
 }) {
   if (!radius) {
     return AllRadius[defaultValue];

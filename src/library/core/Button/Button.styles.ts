@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 
 import {
-  ActonateCase,
-  ActonateSize,
+  BeautifyCase,
+  BeautifySize,
   getRadiusValue,
   getSizeValue,
   getStyleValue,
@@ -11,10 +11,10 @@ import cn from 'clsx';
 
 interface ButtonStylesProps {
   color: string;
-  size: ActonateSize;
-  radius: ActonateSize;
+  size: BeautifySize;
+  radius: BeautifySize;
   disabled: boolean;
-  transform: ActonateCase;
+  transform: BeautifyCase;
   // theme: MantineTheme;
   fullWidth: boolean;
   // variant: 'link' | 'filled' | 'outline' | 'light';
@@ -41,7 +41,7 @@ const getWidthStyles = (fullWidth: boolean) => {
 
 export const fetchStyles = (props: ButtonStylesProps) => {
   const { color, disabled, fullWidth, radius, size, transform } = props;
-  const iconStyle = `flex items center ${transform}`;
+  const iconStyle = `flex items center`;
   const leftIcon = ``;
   const rightIcon = ``;
   const inner = `flex items-center space-x-2 justify-center h-full`;
@@ -49,7 +49,7 @@ export const fetchStyles = (props: ButtonStylesProps) => {
   const disabledClass = `opacity-50 cursor-not-allowed`;
   const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed' : '';
   const common = cn(
-    `cursor-pointer`,
+    `cursor-pointer ${transform}`,
     `box-border no-underline appearance-none`,
     `transition ease-in-out duration-150`,
     `focus:outline-none`

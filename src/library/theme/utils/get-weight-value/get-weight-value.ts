@@ -1,13 +1,13 @@
-import { ActonateWeight } from '@library/theme/types';
+import { BeautifyWeight } from '@library/theme/types';
 import { weights as AllWeights } from '../../weight';
 export function getWeightValue({
   weight,
   weights,
   defaultValue = 'normal',
 }: {
-  weight?: ActonateWeight | null;
-  weights?: Record<ActonateWeight, any>;
-  defaultValue?: ActonateWeight;
+  weight?: BeautifyWeight | null;
+  weights?: Record<BeautifyWeight, any>;
+  defaultValue?: BeautifyWeight;
 }) {
   if (!weight) {
     return AllWeights[defaultValue];

@@ -1,4 +1,4 @@
-import type { ActonateTheme } from './types';
+import type { BeautifyTheme } from './types';
 
 const tailwindColors = {
   black: '#000',
@@ -268,7 +268,7 @@ const tailwindColors = {
     '900': '#0f172a',
   },
 };
-const colors: ActonateTheme['colors'] = {
+const colors: BeautifyTheme['colors'] = {
   dark: [
     '#d5d7e0',
     '#acaebf',

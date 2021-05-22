@@ -1,6 +1,6 @@
-import { ActonateSize } from '.';
+import { BeautifySize } from '.';
 
-export const paddings: Record<ActonateSize | string | number, string> = {
+export const paddings: Record<BeautifySize | string | number, string> = {
   xs: 'p-2',
   sm: 'p-4',
   md: 'p-6',

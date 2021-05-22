@@ -92,3 +92,4 @@ export const Breadcrum: FC<BreadcrumProps> = ({
     </div>
   );
 };
+Breadcrum.displayName = '@beautify/core/Breadcrum';

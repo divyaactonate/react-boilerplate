@@ -1,6 +1,6 @@
-import { ActonateSize } from '.';
+import { BeautifySize } from '.';
 
-export const shadows: Record<ActonateSize | string, string> = {
+export const shadows: Record<BeautifySize | string, string> = {
   none: 'shadow-none',
   xs: 'shadow-sm',
   sm: 'shadow',

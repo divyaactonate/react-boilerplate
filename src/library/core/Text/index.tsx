@@ -1,5 +1,5 @@
-import { ActonateCase, ActonateTextAlignment, ActonateWeight, DefaultProps } from '@library/theme';
-import { ActonateTextSize } from '@library/theme/types';
+import { BeautifyCase, BeautifyTextAlignment, BeautifyWeight, DefaultProps } from '@library/theme';
+import { BeautifyTextSize } from '@library/theme/types';
 import { ComponentPassThrough } from '@library/types';
 import cx from 'clsx';
 import React, { createElement, ElementType, ReactNode, useMemo } from 'react';
@@ -10,19 +10,19 @@ export interface TextProps extends DefaultProps {
   children?: ReactNode;
 
   /** Predefined font-size from theme.fontSizes */
-  size?: ActonateTextSize;
+  size?: BeautifyTextSize;
 
   /** Text color from theme */
   color?: string;
 
   /** Sets font-weight css property */
-  weight?: ActonateWeight;
+  weight?: BeautifyWeight;
 
   /** Sets text-transform css property */
-  transform?: ActonateCase;
+  transform?: BeautifyCase;
 
   /** Sets text-align css property */
-  align?: ActonateTextAlignment;
+  align?: BeautifyTextAlignment;
 
   /** Link or text variant */
   variant?: 'text' | 'link';
@@ -61,9 +61,9 @@ export function Anchor<T extends React.ElementType = 'a', U = HTMLAnchorElement>
   component = 'a',
   ...others
 }: ComponentPassThrough<T, TextProps> & { elementRef?: React.ForwardedRef<U> }) {
-  return <Text component={component} variant='link' {...others} />;
+  return <Text data-beautify-anchor component={component} variant='link' {...others} />;
 }
 
-Anchor.displayName = '@mantine/core/Anchor';
+Anchor.displayName = '@beautify/core/Anchor';
 
-Text.displayName = '@library/core/Text';
+Text.displayName = '@beautify/core/Text';

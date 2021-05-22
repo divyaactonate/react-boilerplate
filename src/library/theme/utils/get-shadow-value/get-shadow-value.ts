@@ -1,13 +1,13 @@
-import { ActonateShadow } from '@library/theme/types';
+import { BeautifyShadow } from '@library/theme/types';
 import { shadows as AllShadows } from '../../shadows';
 export function getShadowValue({
   shadow,
   shadows,
   defaultValue = 'md',
 }: {
-  shadow: ActonateShadow | null;
-  shadows?: Record<ActonateShadow | string, string>;
-  defaultValue?: ActonateShadow;
+  shadow: BeautifyShadow | null;
+  shadows?: Record<BeautifyShadow | string, string>;
+  defaultValue?: BeautifyShadow;
 }) {
   if (!shadow) {
     return AllShadows[defaultValue];

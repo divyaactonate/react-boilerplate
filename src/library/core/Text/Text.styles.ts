@@ -1,9 +1,9 @@
 import {
-  ActonateSize,
+  BeautifySize,
   getSizeValue,
-  ActonateCase,
-  ActonateTextAlignment,
-  ActonateWeight,
+  BeautifyCase,
+  BeautifyTextAlignment,
+  BeautifyWeight,
   getAlignValue,
   getWeightValue,
   getTransformValue,
@@ -16,10 +16,10 @@ interface TextStylesProps {
   // theme: MantineTheme;
   color: string;
   variant: TextVariant;
-  size: ActonateSize;
-  weight?: ActonateWeight;
-  transform?: ActonateCase;
-  align?: ActonateTextAlignment;
+  size: BeautifySize;
+  weight?: BeautifyWeight;
+  transform?: BeautifyCase;
+  align?: BeautifyTextAlignment;
 }
 
 export const fetchStyles = (props: TextStylesProps) => {

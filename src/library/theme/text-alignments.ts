@@ -1,6 +1,6 @@
-import { ActonateTextAlignment } from './types';
+import { BeautifyTextAlignment } from './types';
 
-export const alignments: Record<ActonateTextAlignment, string> = {
+export const alignments: Record<BeautifyTextAlignment, string> = {
   left: 'text-left',
   center: 'text-center',
   right: 'text-right',

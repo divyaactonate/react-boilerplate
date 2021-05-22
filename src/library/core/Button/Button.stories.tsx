@@ -2,9 +2,9 @@ import { Link, MemoryRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
 import { ExternalLinkIcon, CalendarIcon } from '@heroicons/react/solid';
 import { Button } from './index';
-import { ActonateSize } from '../../theme';
+import { BeautifySize } from '../../theme';
 import { tailwindColors } from '../../theme/colors';
-import { ActonateCase } from '../../theme/types';
+import { BeautifyCase } from '../../theme/types';
 
 const getThemes = (props?: any) =>
   Object.keys(tailwindColors).map((color) => (
@@ -17,7 +17,7 @@ const getLinkThemes = (props?: any) =>
   Object.keys(tailwindColors).map((color) => (
     <Button
       component='a'
-      href='https://mantine.dev'
+      href='https://actonate.com/'
       target='_blank'
       key={color}
       color={color}
@@ -27,12 +27,12 @@ const getLinkThemes = (props?: any) =>
     </Button>
   ));
 
-const sizes = (['xs', 'sm', 'md', 'lg', 'xl'] as ActonateSize[]).map((size) => (
+const sizes = (['xs', 'sm', 'md', 'lg', 'xl'] as BeautifySize[]).map((size) => (
   <Button color='blue' key={size} size={size}>
     Button {size}
   </Button>
 ));
-const cases = (['uppercase', 'lowercase', 'capitalize', 'normal-case'] as ActonateCase[]).map(
+const cases = (['uppercase', 'lowercase', 'capitalize', 'normal-case'] as BeautifyCase[]).map(
   (textCase) => (
     <Button color='blue' key={textCase} transform={textCase}>
       {textCase}
@@ -40,7 +40,7 @@ const cases = (['uppercase', 'lowercase', 'capitalize', 'normal-case'] as Actona
   )
 );
 
-storiesOf('@actonate/core/Button', module)
+storiesOf('@beautify/core/Button', module)
   .add('Themes', () => (
     <>
       <div className='flex space-x-5 ' style={{ padding: 20 }}>

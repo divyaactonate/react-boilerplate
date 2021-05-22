@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import type { DeepPartial, Tuple } from '@library/types';
 
-export type ActonateWeight =
+export type BeautifyWeight =
   | 'thin'
   | 'extralight'
   | 'light'
@@ -11,7 +11,7 @@ export type ActonateWeight =
   | 'bold'
   | 'extrabold'
   | 'black';
-export type ActonateLineHeight =
+export type BeautifyLineHeight =
   | 'none'
   | 'tight'
   | 'snug'
@@ -26,9 +26,9 @@ export type ActonateLineHeight =
   | 8
   | 9
   | 10;
-export type ActonateSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-export type ActonateTextSize =
-  | ActonateSize
+export type BeautifySize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type BeautifyTextSize =
+  | BeautifySize
   | '2xl'
   | '3xl'
   | '4xl'
@@ -37,14 +37,14 @@ export type ActonateTextSize =
   | '7xl'
   | '8xl'
   | '9xl';
-export type ActonateCase = 'uppercase' | 'lowercase' | 'capitalize' | 'normal-case';
-export type ActonateNumberSize = ActonateSize | number;
-export type ActonateShadow = 'none' | ActonateSize | '2xl' | 'inner';
-export type ActonateTextAlignment = 'left' | 'center' | 'right' | 'justify';
+export type BeautifyCase = 'uppercase' | 'lowercase' | 'capitalize' | 'normal-case';
+export type BeautifyNumberSize = BeautifySize | number;
+export type BeautifyShadow = 'none' | BeautifySize | '2xl' | 'inner';
+export type BeautifyTextAlignment = 'left' | 'center' | 'right' | 'justify';
 
-export type ActonatePadding =
+export type BeautifyPadding =
   | 'none'
-  | ActonateSize
+  | BeautifySize
   | '2xl'
   | '3xl'
   | '4xl'
@@ -58,9 +58,9 @@ type HeadingStyle = {
   readonly lineHeight: CSSProperties['lineHeight'];
 };
 
-export type ActonateSizes = Record<ActonateSize, number>;
+export type BeautifySizes = Record<BeautifySize, number>;
 
-export interface ActonateTheme {
+export interface BeautifyTheme {
   readonly colorScheme: 'light' | 'dark';
   readonly white: string;
   readonly black: string;
@@ -71,10 +71,10 @@ export interface ActonateTheme {
   readonly fontFamilyMonospace: CSSProperties['fontFamily'];
   readonly primaryColor: string;
 
-  readonly fontSizes: ActonateSizes;
-  readonly radius: ActonateSizes;
-  readonly spacing: ActonateSizes;
-  readonly shadows: Record<ActonateSize, string>;
+  readonly fontSizes: BeautifySizes;
+  readonly radius: BeautifySizes;
+  readonly spacing: BeautifySizes;
+  readonly shadows: Record<BeautifySize, string>;
 
   readonly headings: {
     readonly fontFamily: CSSProperties['fontFamily'];
@@ -90,14 +90,14 @@ export interface ActonateTheme {
   };
 }
 
-export interface InternalActonateTheme extends ActonateTheme {
-  __mantine_theme: boolean;
+export interface InternalBeautifyTheme extends BeautifyTheme {
+  __beautify_theme: boolean;
 }
 
-export type ActonateThemeOverride = DeepPartial<ActonateTheme>;
+export type BeautifyThemeOverride = DeepPartial<BeautifyTheme>;
 
 export interface DefaultProps {
   className?: string;
   style?: CSSProperties;
-  readonly themeOverride?: ActonateThemeOverride;
+  readonly themeOverride?: BeautifyThemeOverride;
 }

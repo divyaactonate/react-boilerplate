@@ -1,7 +1,7 @@
 import {
-  ActonatePadding,
-  ActonateShadow,
-  ActonateSize,
+  BeautifyPadding,
+  BeautifyShadow,
+  BeautifySize,
   getPaddingValue,
   getRadiusValue,
   getShadowValue,
@@ -10,9 +10,9 @@ import cn from 'clsx';
 
 interface PaperStylesProps {
   color: string;
-  padding: ActonatePadding;
-  shadow: ActonateShadow;
-  radius: ActonateSize;
+  padding: BeautifyPadding;
+  shadow: BeautifyShadow;
+  radius: BeautifySize;
 }
 
 export const fetchStyles = (props: PaperStylesProps) => {

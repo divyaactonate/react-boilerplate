@@ -1,6 +1,6 @@
 import { upperFirst } from './upper-first';
 
-describe('@mantine/utils/upper-first', () => {
+describe('@beautify/utils/upper-first', () => {
   it('capitalizes first letter', () => {
     expect(upperFirst('hello')).toBe('Hello');
     expect(upperFirst('hELLO')).toBe('HELLO');

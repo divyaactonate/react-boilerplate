@@ -224,3 +224,4 @@ const Toaster = {
   loading: func.loading,
 };
 export { Toaster };
+ToastFunction.displayName = '@beautify/core/ToastFunction';

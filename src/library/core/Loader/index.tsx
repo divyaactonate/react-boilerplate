@@ -1,4 +1,4 @@
-import { ActonateSize, DefaultProps, getSizeValue } from '@library/theme';
+import { BeautifySize, DefaultProps, getSizeValue } from '@library/theme';
 import { tailwindColors } from '@library/theme/colors';
 import { ComponentPropsWithoutRef } from 'react';
 
@@ -12,7 +12,7 @@ export const LOADER_SIZES = {
 
 export interface LoaderProps extends DefaultProps, ComponentPropsWithoutRef<'svg'> {
   /** Defines width of loader */
-  size?: ActonateSize;
+  size?: BeautifySize;
 
   /** Loader color from theme */
   color?: string;
@@ -21,6 +21,7 @@ export interface LoaderProps extends DefaultProps, ComponentPropsWithoutRef<'svg
 export function Loader({ size = 'md', color = 'blue', ...others }: LoaderProps) {
   return (
     <svg
+      data-beautify-loader
       width={`${getSizeValue({ size, sizes: LOADER_SIZES })}px`}
       fill={tailwindColors[color]['500']}
       viewBox='0 0 135 140'
@@ -122,4 +123,4 @@ export function Loader({ size = 'md', color = 'blue', ...others }: LoaderProps) 
   );
 }
 
-Loader.displayName = '@mantine/core/Loader';
+Loader.displayName = '@beautify/core/Loader';

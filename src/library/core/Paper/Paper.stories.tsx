@@ -60,7 +60,7 @@ const getThemes = (props?: any) =>
       </Text>
     </Paper>
   ));
-storiesOf('@actonate/core/Paper', module)
+storiesOf('@beautify/core/Paper', module)
   .add('Colors', () => <div style={{ padding: 40 }}>{getThemes()}</div>)
   .add('Radius', () => <div style={{ padding: 40 }}>{getRadius()}</div>)
   .add('Padding', () => <div style={{ padding: 40 }}>{getPaddings()}</div>)
