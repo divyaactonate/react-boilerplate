@@ -6,15 +6,20 @@
  *
  */
 import { Button } from '@library/core';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArchiveIcon, AnnotationIcon } from '@heroicons/react/solid';
 
 const BaseButton: FC = () => {
+  const [state, setstate] = useState(false);
   return (
     <div>
       <div className='m-8 items-center flex space-x-5'>
-        <Button color='blue' onClick={() => ({})}>
+        <Button
+          color={state ? 'red' : 'blue'}
+          radius={state ? 'md' : 'xl'}
+          onClick={() => [setstate((e) => !e)]}
+        >
           Button
         </Button>
         <Button color='green' onClick={() => ({})}>

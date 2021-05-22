@@ -10,7 +10,7 @@ interface ButtonStylesProps {
   disabled: boolean;
   // theme: MantineTheme;
   fullWidth: boolean;
-  variant: 'link' | 'filled' | 'outline' | 'light';
+  // variant: 'link' | 'filled' | 'outline' | 'light';
 }
 
 const paddings = {
@@ -28,11 +28,13 @@ const heights = {
   xl: 'h-14',
 };
 const getWidthStyles = (fullWidth: boolean) => {
+  console.log('width');
+
   if (fullWidth) return 'block w-full';
   else return 'inline-block w-auto';
 };
 
-export const useStyles = (props: ButtonStylesProps) => {
+export const fetchStyles = (props: ButtonStylesProps) => {
   const { color, disabled, fullWidth, radius, size } = props;
   const iconStyle = `flex items center`;
   const leftIcon = ``;
@@ -47,6 +49,13 @@ export const useStyles = (props: ButtonStylesProps) => {
     `transition ease-in-out duration-150`,
     `focus:outline-none`
   );
+
+  // const widhtSize = useMemo(() => getWidthStyles(fullWidth), [fullWidth]);
+  // const fontSize = useMemo(() => getSizeValue({ size }), [size]);
+  // const borderRadius = useMemo(() => getRadiusValue({ radius }), [radius]);
+  // const padding = useMemo(() => getStyleValue(paddings, size), [size]);
+  // const height = useMemo(() => getStyleValue(heights, size), [size]);
+
   const widhtSize = getWidthStyles(fullWidth);
   const fontSize = getSizeValue({ size });
   const borderRadius = getRadiusValue({ radius });

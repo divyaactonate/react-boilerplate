@@ -4,7 +4,7 @@ import { ComponentPassThrough } from '@library/types';
 import { textTransform } from '@library/utils/text-transform/text-transform';
 import cn from 'clsx';
 import { useMemo } from 'react';
-import { useStyles } from './Button.styles';
+import { fetchStyles } from './Button.styles';
 
 export interface ButtonProps {
   /** Predefined button size */
@@ -58,14 +58,11 @@ export const Button = <
   /** Get root element ref */
   elementRef?: React.ForwardedRef<U>;
 }) => {
-  const classes = useStyles({
-    size,
-    color,
-    disabled,
-    variant,
-    fullWidth,
-    radius,
-  });
+  const classes = useMemo(
+    () => fetchStyles({ size, color, disabled, fullWidth, radius }),
+    [size, color, disabled, fullWidth, radius]
+  );
+
   const textToShow = useMemo(() => textTransform(textCase, children), [textCase, children]);
   return (
     <Element

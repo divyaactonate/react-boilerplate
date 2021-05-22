@@ -15,7 +15,7 @@ interface PaperStylesProps {
   radius: ActonateSize;
 }
 
-export const useStyles = (props: PaperStylesProps) => {
+export const fetchStyles = (props: PaperStylesProps) => {
   const { shadow, radius, color, padding } = props;
   const common = `box-border`;
   const boxShadow = getShadowValue({ shadow });

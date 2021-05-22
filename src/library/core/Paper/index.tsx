@@ -5,9 +5,9 @@
  */
 
 import { ActonateSize, ActonatePadding, DefaultProps, ActonateShadow } from '@library/theme';
-import { ComponentPropsWithoutRef, ForwardedRef } from 'react';
+import { ComponentPropsWithoutRef, ForwardedRef, useMemo } from 'react';
 import cx from 'clsx';
-import { useStyles } from './Paper.styles';
+import { fetchStyles } from './Paper.styles';
 
 export interface PaperProps extends DefaultProps, ComponentPropsWithoutRef<'div'> {
   /** Paper color from theme */
@@ -36,7 +36,10 @@ export function Paper({
   elementRef,
   ...others
 }: PaperProps) {
-  const classes = useStyles({ radius, shadow, color, padding });
+  const classes = useMemo(
+    () => fetchStyles({ radius, shadow, color, padding }),
+    [radius, shadow, color, padding]
+  );
 
   return (
     <div className={cx(classes.paper, className)} ref={elementRef} {...others}>
