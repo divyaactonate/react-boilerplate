@@ -1,5 +1,5 @@
 /**
- * Shared Component Generator
+ * Library Core Component Generator
  */
 
 const constants = require('../constants');

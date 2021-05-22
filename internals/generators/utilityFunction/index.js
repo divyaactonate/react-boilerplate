@@ -1,5 +1,5 @@
 /**
- * Shared Component Generator
+ * Utlity Generator
  */
 
 const constants = require('../constants');

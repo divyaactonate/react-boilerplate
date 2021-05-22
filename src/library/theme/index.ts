@@ -11,6 +11,7 @@ export type {
   BeautifyTextAlignment,
   BeautifyLineHeight,
   BeautifyWeight,
+  BeautifyHeading,
 } from './types';
 
 // export { createMemoStyles } from './create-memo-styles';

@@ -7,3 +7,4 @@ export { getWeightValue } from './get-weight-value/get-weight-value';
 export { getLineHeightValue } from './get-line-height-value/get-line-height-value';
 export { getAlignValue } from './get-text-alignment-value/get-text-alignment-value';
 export { getTransformValue } from './get-transform-value/get-transform-value';
+export { getHeadingValue } from './get-heading-value/get-heading-value';
