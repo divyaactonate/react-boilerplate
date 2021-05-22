@@ -337,9 +337,10 @@ npm run commit
 ### UI Library
 - [`emotion/react`](https://emotion.sh/docs/introduction) - Simple styling in React.
 - [`emotion/styled`](https://emotion.sh/docs/styled) - Styled API for emotion
-- [`headlessui/react`](https://headlessui.dev/) - A set of completely unstyled, fully accessible UI components for React, designed to integrate beautifully with Tailwind CSS.
-- [`classnames`](https://jedwatson.github.io/classnames/) - A simple utility for conditionally joining classNames together
-
+- [`@headlessui/react`](https://headlessui.dev/) - React components for heroicons.
+- [`@heroicons/react`](https://heroicons.com/) - Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS.
+- [`clsx`](https://www.npmjs.com/package/clsx) - A tiny (228B) utility for constructing className strings conditionally. Also serves as a faster & smaller drop-in replacement for the classnames module.
+- [`twin.macro`](https://www.npmjs.com/package/twin.macro) - Twin blends the magic of Tailwind with the flexibility of css-in-js.
 ### Others
 - [`Logatim`](http://sospedra.github.io/logatim/) - Isomorphic logger which implements log levels and ANSI styles
 - [`axios`](https://axios-http.com/) - Promise based HTTP client for the browser and node.js
@@ -385,6 +386,14 @@ npm run commit
 - [`css-loader`](https://webpack.js.org/loaders/css-loader/) - Resolve CSS imports
 - [`postcss-loader`](https://webpack.js.org/loaders/postcss-loader/) - Loader to process CSS with PostCSS
 - [`style-loader`](https://webpack.js.org/loaders/style-loader/) - Inject CSS into the DOM
+
+### StoryBook
+
+- [`@storybook/addon-actions`](https://www.npmjs.com/package/@storybook/addon-actions) - Get UI feedback when an action is performed on an interactive element
+- [`@storybook/addon-essentials`](https://www.npmjs.com/package/@storybook/addon-essentials) - Curated addons to bring out the best of Storybook
+- [`@storybook/addon-links`](https://www.npmjs.com/package/@storybook/addon-links) - Link stories together to build demos and prototypes with your UI components
+- [`@storybook/builder-webpack5`](https://www.npmjs.com/package/@storybook/builder-webpack5) - Storybook framework-agnostic API
+- [`@storybook/react`](https://www.npmjs.com/package/@storybook/react) - Storybook for React: Develop React Component in isolation with Hot Reloading.
 
 ### Eslint
 - [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier) - Turns off all rules that are unnecessary or might conflict with Prettier.
