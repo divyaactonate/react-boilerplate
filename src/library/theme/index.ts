@@ -8,6 +8,9 @@ export type {
   ActonateCase,
   ActonatePadding,
   ActonateShadow,
+  ActonateTextAlignment,
+  ActonateLineHeight,
+  ActonateWeight,
 } from './types';
 
 // export { createMemoStyles } from './create-memo-styles';

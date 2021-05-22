@@ -1,12 +1,13 @@
+import { ActonateSize } from '@library/theme/types';
 import { sizes as AllSizes } from '../../sizes';
 export function getSizeValue({
   size,
   sizes,
   defaultValue = 'md',
 }: {
-  size: string | number | null;
-  sizes?: Record<string, any>;
-  defaultValue?: string;
+  size: ActonateSize | null;
+  sizes?: Record<ActonateSize, any>;
+  defaultValue?: ActonateSize;
 }) {
   if (!size) {
     return AllSizes[defaultValue];

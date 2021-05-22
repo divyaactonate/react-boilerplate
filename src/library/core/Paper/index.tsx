@@ -47,3 +47,4 @@ export function Paper({
     </div>
   );
 }
+Paper.displayName = '@library/core/Paper';

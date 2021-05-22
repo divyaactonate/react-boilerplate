@@ -162,10 +162,10 @@ const BaseButton: FC = () => {
         </Button>
       </div>
       <div className='m-8 flex space-x-5'>
-        <Button textCase='camcelCase'>camcelCase</Button>
-        <Button textCase='capitalize'>capitalize</Button>
-        <Button textCase='lowercase'>lowercase</Button>
-        <Button textCase='uppercase'>uppercase</Button>
+        <Button transform='normal-case'>normal-case</Button>
+        <Button transform='capitalize'>capitalize</Button>
+        <Button transform='lowercase'>lowercase</Button>
+        <Button transform='uppercase'>uppercase</Button>
       </div>
     </div>
   );

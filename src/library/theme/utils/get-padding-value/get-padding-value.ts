@@ -1,13 +1,13 @@
-import { ActonateSize } from '@library/theme';
+import { ActonatePadding } from '@library/theme/types';
 import { paddings as AllPaddings } from '../../paddings';
 export function getPaddingValue({
   padding,
   paddings,
   defaultValue = 'md',
 }: {
-  padding: string | number | null;
-  paddings?: Record<ActonateSize | string | number, string>;
-  defaultValue?: string;
+  padding: ActonatePadding | null;
+  paddings?: Record<ActonatePadding | string | number, string>;
+  defaultValue?: ActonatePadding;
 }) {
   if (!padding) {
     return AllPaddings[defaultValue];

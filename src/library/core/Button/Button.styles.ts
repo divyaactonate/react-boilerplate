@@ -1,6 +1,12 @@
 /** @jsxImportSource @emotion/react */
 
-import { ActonateSize, getRadiusValue, getSizeValue, getStyleValue } from '@library/theme';
+import {
+  ActonateCase,
+  ActonateSize,
+  getRadiusValue,
+  getSizeValue,
+  getStyleValue,
+} from '@library/theme';
 import cn from 'clsx';
 
 interface ButtonStylesProps {
@@ -8,6 +14,7 @@ interface ButtonStylesProps {
   size: ActonateSize;
   radius: ActonateSize;
   disabled: boolean;
+  transform: ActonateCase;
   // theme: MantineTheme;
   fullWidth: boolean;
   // variant: 'link' | 'filled' | 'outline' | 'light';
@@ -28,15 +35,13 @@ const heights = {
   xl: 'h-14',
 };
 const getWidthStyles = (fullWidth: boolean) => {
-  console.log('width');
-
   if (fullWidth) return 'block w-full';
   else return 'inline-block w-auto';
 };
 
 export const fetchStyles = (props: ButtonStylesProps) => {
-  const { color, disabled, fullWidth, radius, size } = props;
-  const iconStyle = `flex items center`;
+  const { color, disabled, fullWidth, radius, size, transform } = props;
+  const iconStyle = `flex items center ${transform}`;
   const leftIcon = ``;
   const rightIcon = ``;
   const inner = `flex items-center space-x-2 justify-center h-full`;

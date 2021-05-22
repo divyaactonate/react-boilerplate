@@ -1,10 +1,47 @@
 import type { CSSProperties } from 'react';
 import type { DeepPartial, Tuple } from '@library/types';
 
+export type ActonateWeight =
+  | 'thin'
+  | 'extralight'
+  | 'light'
+  | 'normal'
+  | 'medium'
+  | 'semibold'
+  | 'bold'
+  | 'extrabold'
+  | 'black';
+export type ActonateLineHeight =
+  | 'none'
+  | 'tight'
+  | 'snug'
+  | 'normal'
+  | 'relaxed'
+  | 'loose'
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10;
 export type ActonateSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-export type ActonateCase = 'uppercase' | 'lowercase' | 'capitalize' | 'camcelCase';
+export type ActonateTextSize =
+  | ActonateSize
+  | '2xl'
+  | '3xl'
+  | '4xl'
+  | '5xl'
+  | '6xl'
+  | '7xl'
+  | '8xl'
+  | '9xl';
+export type ActonateCase = 'uppercase' | 'lowercase' | 'capitalize' | 'normal-case';
 export type ActonateNumberSize = ActonateSize | number;
 export type ActonateShadow = 'none' | ActonateSize | '2xl' | 'inner';
+export type ActonateTextAlignment = 'left' | 'center' | 'right' | 'justify';
+
 export type ActonatePadding =
   | 'none'
   | ActonateSize

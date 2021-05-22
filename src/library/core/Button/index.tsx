@@ -1,7 +1,6 @@
 import { ActonateSize } from '@library/theme';
 import { ActonateCase } from '@library/theme/types';
 import { ComponentPassThrough } from '@library/types';
-import { textTransform } from '@library/utils/text-transform/text-transform';
 import cn from 'clsx';
 import { useMemo } from 'react';
 import { fetchStyles } from './Button.styles';
@@ -31,8 +30,8 @@ export interface ButtonProps {
   /** Controls button appearance */
   variant?: 'link' | 'filled' | 'outline' | 'light';
 
-  /** Text case variants */
-  textCase?: ActonateCase;
+  /** Text transform variants */
+  transform?: ActonateCase;
 }
 
 export const Button = <
@@ -49,7 +48,7 @@ export const Button = <
   rightIcon,
   fullWidth = false,
   variant = 'filled',
-  textCase,
+  transform,
   radius = 'xs',
   component: Element = 'button',
   elementRef,
@@ -59,11 +58,11 @@ export const Button = <
   elementRef?: React.ForwardedRef<U>;
 }) => {
   const classes = useMemo(
-    () => fetchStyles({ size, color, disabled, fullWidth, radius }),
-    [size, color, disabled, fullWidth, radius]
+    () => fetchStyles({ size, color, disabled, fullWidth, radius, transform }),
+    [size, color, disabled, fullWidth, radius, transform]
   );
 
-  const textToShow = useMemo(() => textTransform(textCase, children), [textCase, children]);
+  // const textToShow = useMemo(() => textTransform(textCase, children), [textCase, children]);
   return (
     <Element
       {...others}
@@ -81,7 +80,7 @@ export const Button = <
         )}
 
         <span className={classes.label} data-actonate-label>
-          {textToShow}
+          {children}
         </span>
 
         {rightIcon && (
@@ -93,3 +92,4 @@ export const Button = <
     </Element>
   );
 };
+Button.displayName = '@library/core/Button';

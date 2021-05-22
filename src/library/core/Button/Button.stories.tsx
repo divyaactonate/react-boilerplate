@@ -32,9 +32,9 @@ const sizes = (['xs', 'sm', 'md', 'lg', 'xl'] as ActonateSize[]).map((size) => (
     Button {size}
   </Button>
 ));
-const cases = (['uppercase', 'lowercase', 'capitalize', 'camelCase'] as ActonateCase[]).map(
+const cases = (['uppercase', 'lowercase', 'capitalize', 'normal-case'] as ActonateCase[]).map(
   (textCase) => (
-    <Button color='blue' key={textCase} textCase={textCase}>
+    <Button color='blue' key={textCase} transform={textCase}>
       {textCase}
     </Button>
   )

@@ -7,6 +7,8 @@ export { ListBox } from './Listbox';
 export { Switch } from './Switch';
 export { Loader } from './Loader';
 export { Paper } from './Paper';
+export { Text } from './Text';
+export { Anchor } from './Text';
 
 export type { ButtonProps } from './Button';
 export type { DialogProps } from './Dialog';
@@ -17,3 +19,4 @@ export type { ListBoxProps } from './Listbox';
 export type { SwitchProps } from './Switch';
 export type { LoaderProps } from './Loader';
 export type { PaperProps } from './Paper';
+export type { TextProps } from './Text';
