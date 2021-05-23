@@ -18,11 +18,14 @@ const { execSync } = require('child_process');
 module.exports = function (plop) {
   plop.setGenerator('reusable', sharedComponentGenerator);
   plop.setGenerator('component', componentGenerator);
+  plop.setGenerator('c', componentGenerator);
   plop.setGenerator('page', pageGenerator);
+  plop.setGenerator('p', pageGenerator);
   plop.setGenerator('store', storeGenerator);
   plop.setGenerator('service', serviceGenerator);
   plop.setGenerator('core', coreGenerator);
   plop.setGenerator('utils', utilGenerator);
+  plop.setGenerator('u', utilGenerator);
 
   plop.setActionType('prettify', (answers, config) => {
     let fileName;

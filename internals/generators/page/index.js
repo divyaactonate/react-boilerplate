@@ -3,6 +3,7 @@
  */
 
 const constants = require('../constants');
+const lengthValidator = require('../utils/lengthValidator');
 
 module.exports = {
   description: 'Creating new react page',
@@ -11,6 +12,15 @@ module.exports = {
       type: 'input',
       name: 'name',
       message: 'What is your page name?',
+      validate: (value) => {
+        const maxLength = 15;
+        if (/.+/.test(value)) {
+          return lengthValidator(value, maxLength)
+            ? `A page name length is greater than maxLength- ${maxLength}`
+            : true;
+        }
+        return 'The name is required';
+      },
     },
     {
       type: 'input',
