@@ -1,5 +1,3 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable import/no-named-as-default */
 /**
  *
  * Button
@@ -9,6 +7,7 @@ import { Button } from '@library/core';
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArchiveIcon, AnnotationIcon } from '@heroicons/react/solid';
+import { Logger } from '@libs/logger';
 
 const BaseButton: FC = () => {
   const [state, setstate] = useState(false);
@@ -18,7 +17,14 @@ const BaseButton: FC = () => {
         <Button
           color={state ? 'red' : 'blue'}
           radius={state ? 'md' : 'xl'}
-          onClick={() => [setstate((e) => !e)]}
+          onClick={() => [
+            setstate((e) => !e),
+            Logger.info('info'),
+            Logger.error('error'),
+            Logger.debug('debug'),
+            Logger.trace('trace'),
+            Logger.warn('warn'),
+          ]}
         >
           Button
         </Button>

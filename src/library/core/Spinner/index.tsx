@@ -8,9 +8,10 @@
 
 import { DefaultProps } from '@library/theme';
 import cn from 'clsx';
+import { ComponentPropsWithoutRef } from 'react';
 import { useStyles } from './Spinner.styles';
 
-export interface SpinnerProps extends DefaultProps {
+export interface SpinnerProps extends DefaultProps, ComponentPropsWithoutRef<'div'> {
   /**
    * The color of the empty area in the spinner
    */

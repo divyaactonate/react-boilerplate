@@ -43,7 +43,6 @@ const getWidthStyles = (fullWidth: boolean) => {
 };
 
 const getStyles = (props: ButtonStylesProps) => {
-  console.log(props);
   const { colorScheme, disabled, isLoading, fullWidth, radius, size, transform, loadingText } =
     props;
   const iconStyle = `flex items center`;

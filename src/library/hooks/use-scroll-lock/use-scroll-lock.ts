@@ -43,5 +43,6 @@ export function useScrollLock(lock: boolean, options = { disableTouchEvents: fal
     }
 
     return unlockScroll;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lock]);
 }

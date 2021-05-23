@@ -1,10 +1,3 @@
-// tslint:disable-next-line:no-reference
-// eslint-disable-next-line @typescript-eslint/triple-slash-reference
-/// <reference path="../declarations.d.ts" />
-
-// import * as logatim from 'logatim';
-// tslint:disable-next-line:no-var-requires
-// const logatim = require('logatim');
 import logatim from 'logatim';
 
 export enum LoggerLevels {

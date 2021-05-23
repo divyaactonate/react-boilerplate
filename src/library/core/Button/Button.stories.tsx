@@ -140,7 +140,7 @@ storiesOf('@beautify/core/Button', module)
   .add('React router', () => (
     <MemoryRouter>
       <div style={{ padding: 20 }}>
-        <Button<typeof Link, HTMLAnchorElement> component={Link} to='/'>
+        <Button component={Link} to='/'>
           Router button
         </Button>
       </div>

@@ -5,9 +5,8 @@ import { DeleteIcon, PhoneIcon, UserIcon } from '@library/icons';
 
 function ContactList({ contactStore }: { contactStore: ContactStore }) {
   const { contacts, deleteContact, loading, getContacts } = contactStore;
-  console.log(contacts);
 
-  const removeContact = async (id: number) => {
+  const removeContact = async (id: string) => {
     if (!window.confirm('Are you sure?')) {
       return;
     }
@@ -16,6 +15,7 @@ function ContactList({ contactStore }: { contactStore: ContactStore }) {
 
   useEffect(() => {
     getContacts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
