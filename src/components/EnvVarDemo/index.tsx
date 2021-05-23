@@ -1,6 +1,8 @@
+import { Logger } from '@libs/logger';
+
 const EnvVar = () => {
-  console.log('process.env.NAME', process.env.NAME);
-  console.log('process.env.NAME', process.env.name);
+  Logger.info('process.env.NAME', process.env.NAME);
+  Logger.info('process.env.NAME', process.env.name);
 
   return (
     <>

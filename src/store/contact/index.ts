@@ -1,3 +1,4 @@
+import { Logger } from '@libs/logger';
 import { services } from '@src/api';
 import createStore from '@store/createStore';
 import { action, makeObservable, observable } from 'mobx';
@@ -33,7 +34,7 @@ class ContactStore {
       this.contacts.push(contact);
       return res;
     } catch (err) {
-      console.log('ERR :: Contact ADD Operation', err);
+      Logger.error('ERR :: Contact ADD Operation', err);
     } finally {
       this.loading = false;
     }
@@ -45,7 +46,7 @@ class ContactStore {
       this.contacts = res;
       return res;
     } catch (err) {
-      console.log('ERR :: Contact GET Operation', err);
+      Logger.error('ERR :: Contact GET Operation', err);
     } finally {
       this.loading = false;
     }
@@ -57,7 +58,7 @@ class ContactStore {
       this.contacts = [];
       return res;
     } catch (err) {
-      console.log('ERR :: Contact GET Operation');
+      Logger.error('ERR :: Contact GET Operation');
     } finally {
       this.loading = false;
     }
@@ -67,7 +68,7 @@ class ContactStore {
       await service.delete(contactId);
       this.contacts = this.contacts.filter((c) => c.id !== contactId);
     } catch (err) {
-      console.log('ERR :: Contact DELETE Operation', err);
+      Logger.error('ERR :: Contact DELETE Operation', err);
     }
   };
 }

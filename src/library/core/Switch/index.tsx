@@ -6,6 +6,7 @@
 
 import { FC } from 'react';
 import { Switch as ToggleSwitch } from '@headlessui/react';
+import { Logger } from '@libs/logger';
 
 export interface SwitchProps {
   checked?: boolean;
@@ -21,7 +22,7 @@ export const Switch: FC<SwitchProps> = ({
   checked = true,
   passive = true,
   onChange = (e) => {
-    console.log(e);
+    Logger.info(e);
   },
   className,
   label = '',

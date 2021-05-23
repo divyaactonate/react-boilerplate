@@ -33,7 +33,6 @@ export const Dialog: FC<DialogProps> = (props) => {
     children,
   } = props;
   useScrollLock(opened);
-  console.log(opened);
 
   return (
     <Transition appear show={opened} as={Fragment}>

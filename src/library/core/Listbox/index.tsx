@@ -7,6 +7,7 @@
 import { FC, Fragment } from 'react';
 import { Listbox as SelectList, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
+import { Logger } from '@libs/logger';
 
 export interface ListBoxProps {
   /** List of elements   */
@@ -27,7 +28,7 @@ export interface ListBoxProps {
 
 export const ListBox: FC<ListBoxProps> = ({
   data = [],
-  onChange = (e) => console.log(e),
+  onChange = (e) => Logger.info(e),
   value,
   disabled = false,
   className,

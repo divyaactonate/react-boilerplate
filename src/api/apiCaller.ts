@@ -76,7 +76,6 @@ export class ApiCaller {
   };
 
   static httpPatch = (data: any, url: string) => {
-    console.log('data', data);
     // const token = localStorage.getItem('token');
     return new Promise((resolve, reject) => {
       const URL = BASE_URL + url;
@@ -93,7 +92,6 @@ export class ApiCaller {
         .then((res) => {
           // const bearer = res.headers.get('Authorization')
           // localStorage.setItem('token', bearer);
-          console.log('response >>>>', res);
           return res;
         })
         .then((res) => {

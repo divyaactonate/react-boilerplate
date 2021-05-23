@@ -29,7 +29,6 @@ const getStyles = (props: PaperStylesProps) => {
       ? `bg-${colorScheme} text-white`
       : `bg-${colorScheme}-700 text-white`
   );
-  console.log(colorStyles);
 
   const paper = cn(common, boxShadow, colorStyles, borderRadius, paddingValue);
 
