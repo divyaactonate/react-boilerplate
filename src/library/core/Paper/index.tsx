@@ -4,10 +4,10 @@
  *
  */
 
-import { BeautifySize, BeautifyPadding, DefaultProps, BeautifyShadow } from '@library/theme';
-import { ComponentPropsWithoutRef, ForwardedRef, useMemo } from 'react';
+import { BeautifyPadding, BeautifyShadow, BeautifySize, DefaultProps } from '@library/theme';
 import cx from 'clsx';
-import { fetchStyles } from './Paper.styles';
+import { ComponentPropsWithoutRef, ForwardedRef } from 'react';
+import { useStyles } from './Paper.styles';
 
 export interface PaperProps extends DefaultProps, ComponentPropsWithoutRef<'div'> {
   /** Paper colorScheme from theme */
@@ -36,10 +36,7 @@ export const Paper = ({
   elementRef,
   ...others
 }: PaperProps) => {
-  const classes = useMemo(
-    () => fetchStyles({ radius, shadow, colorScheme, padding }),
-    [radius, shadow, colorScheme, padding]
-  );
+  const classes = useStyles({ radius, shadow, colorScheme, padding });
 
   return (
     <div data-beautify-paper className={cx(classes.paper, className)} ref={elementRef} {...others}>

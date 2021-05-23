@@ -1,14 +1,15 @@
 import {
-  BeautifySize,
-  getSizeValue,
   BeautifyCase,
+  BeautifySize,
   BeautifyTextAlignment,
   BeautifyWeight,
   getAlignValue,
-  getWeightValue,
+  getSizeValue,
   getTransformValue,
+  getWeightValue,
 } from '@library/theme';
 import cn from 'clsx';
+import { useMemo } from 'react';
 
 export type TextVariant = 'text' | 'link';
 
@@ -22,7 +23,7 @@ interface TextStylesProps {
   align?: BeautifyTextAlignment;
 }
 
-export const fetchStyles = (props: TextStylesProps) => {
+export const getStyles = (props: TextStylesProps) => {
   const { size, colorScheme, variant, align, transform, weight } = props;
   const common = `no-underline shadow-sm`;
   const textAlign = getAlignValue({ align });
@@ -53,4 +54,11 @@ export const fetchStyles = (props: TextStylesProps) => {
     text,
   };
   return classes;
+};
+export const useStyles = (props: TextStylesProps) => {
+  const { size, colorScheme, variant, align, transform, weight } = props;
+  return useMemo(
+    () => getStyles({ size, colorScheme, variant, align, transform, weight }),
+    [size, colorScheme, variant, align, transform, weight]
+  );
 };

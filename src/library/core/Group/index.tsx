@@ -1,7 +1,7 @@
-import React, { Children, cloneElement, ComponentPropsWithoutRef, useMemo } from 'react';
-import cx from 'clsx';
-import { fetchStyles, GroupPosition } from './Group.styles';
 import { BeautifyNumberSize, DefaultProps } from '@library/theme';
+import cx from 'clsx';
+import React, { Children, cloneElement, ComponentPropsWithoutRef } from 'react';
+import { GroupPosition, useStyles } from './Group.styles';
 
 export interface GroupProps extends DefaultProps, ComponentPropsWithoutRef<'div'> {
   /** Defines justify-content property */
@@ -32,10 +32,7 @@ export function Group({
   direction = 'row',
   ...others
 }: GroupProps) {
-  const classes = useMemo(
-    () => fetchStyles({ grow, wrap, spacing, position, direction }),
-    [grow, wrap, spacing, position, direction]
-  );
+  const classes = useStyles({ grow, wrap, spacing, position, direction });
 
   const items = (Children.toArray(children) as React.ReactElement[]).map((child) =>
     cloneElement(child, { className: cx(classes.child, child.props.className) })

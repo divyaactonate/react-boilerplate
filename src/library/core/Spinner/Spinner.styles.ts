@@ -1,6 +1,7 @@
 import { keyframes } from '@emotion/react';
 import { getBorderWidthValue } from '@library/theme';
 import cn from 'clsx';
+import { useMemo } from 'react';
 
 interface SpinnerStylesProps {
   thickness?: string;
@@ -18,7 +19,7 @@ const spin = keyframes({
   },
 });
 
-export const fetchStyles = (props: SpinnerStylesProps) => {
+export const getStyles = (props: SpinnerStylesProps) => {
   const { thickness, emptyColor, speed, size, color } = props;
   const common = `block border-solid rounded-full`;
   const css = {
@@ -43,4 +44,11 @@ export const fetchStyles = (props: SpinnerStylesProps) => {
     css,
   };
   return classes;
+};
+export const useStyles = (props: SpinnerStylesProps) => {
+  const { thickness, emptyColor, speed, size, color } = props;
+  return useMemo(
+    () => getStyles({ thickness, emptyColor, speed, size, color }),
+    [thickness, emptyColor, speed, size, color]
+  );
 };

@@ -7,6 +7,7 @@ import {
   getShadowValue,
 } from '@library/theme';
 import cn from 'clsx';
+import { useMemo } from 'react';
 
 interface PaperStylesProps {
   colorScheme: string;
@@ -15,7 +16,7 @@ interface PaperStylesProps {
   radius: BeautifySize;
 }
 
-export const fetchStyles = (props: PaperStylesProps) => {
+const getStyles = (props: PaperStylesProps) => {
   const { shadow, radius, colorScheme, padding } = props;
   const common = `box-border`;
   const boxShadow = getShadowValue({ shadow });
@@ -36,4 +37,12 @@ export const fetchStyles = (props: PaperStylesProps) => {
     paper,
   };
   return classes;
+};
+
+export const useStyles = (props: PaperStylesProps) => {
+  const { shadow, radius, colorScheme, padding } = props;
+  return useMemo(
+    () => getStyles({ shadow, radius, colorScheme, padding }),
+    [shadow, radius, colorScheme, padding]
+  );
 };

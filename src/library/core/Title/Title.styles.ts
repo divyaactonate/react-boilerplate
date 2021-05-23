@@ -1,12 +1,13 @@
 import { BeautifyHeading, getHeadingValue } from '@library/theme';
 import cn from 'clsx';
+import { useMemo } from 'react';
 
 interface TitleStylesProps {
   order: BeautifyHeading;
   colorScheme: string;
 }
 
-export const fetchStyles = (props: TitleStylesProps) => {
+export const getStyles = (props: TitleStylesProps) => {
   const { order, colorScheme } = props;
   const common = ``;
   const heading = getHeadingValue({ heading: order });
@@ -23,4 +24,8 @@ export const fetchStyles = (props: TitleStylesProps) => {
     title,
   };
   return classes;
+};
+export const useStyles = (props: TitleStylesProps) => {
+  const { order, colorScheme } = props;
+  return useMemo(() => getStyles({ order, colorScheme }), [order, colorScheme]);
 };

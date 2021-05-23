@@ -2,9 +2,9 @@ import { BeautifySize } from '@library/theme';
 import { BeautifyCase } from '@library/theme/types';
 import { ComponentPassThrough } from '@library/types';
 import cn from 'clsx';
-import { ReactElement, useMemo } from 'react';
+import { memo, ReactElement } from 'react';
 import { Spinner } from '../Spinner';
-import { fetchStyles } from './Button.styles';
+import { useStyles } from './Button.styles';
 
 export interface ButtonProps {
   /**
@@ -84,7 +84,7 @@ export interface ButtonProps {
   transform?: BeautifyCase;
 }
 
-export const Button = <
+export const ButtonBase = <
   T extends React.ElementType = 'button',
   U extends HTMLElement = HTMLButtonElement
 >({
@@ -110,22 +110,16 @@ export const Button = <
   /** Get root element ref */
   elementRef?: React.ForwardedRef<U>;
 }) => {
-  const classes = useMemo(
-    () =>
-      fetchStyles({
-        size,
-        colorScheme,
-        disabled,
-        fullWidth,
-        radius,
-        transform,
-        isLoading,
-        loadingText,
-      }),
-    [size, colorScheme, disabled, fullWidth, radius, transform, loadingText, isLoading]
-  );
-
-  // const textToShow = useMemo(() => textTransform(textCase, children), [textCase, children]);
+  const classes = useStyles({
+    size,
+    colorScheme,
+    disabled,
+    fullWidth,
+    radius,
+    transform,
+    isLoading,
+    loadingText,
+  });
   return (
     <Element
       {...others}
@@ -163,4 +157,5 @@ export const Button = <
     </Element>
   );
 };
+export const Button = memo(ButtonBase);
 Button.displayName = '@beautify/core/Button';

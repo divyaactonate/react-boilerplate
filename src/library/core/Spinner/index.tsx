@@ -8,8 +8,7 @@
 
 import { DefaultProps } from '@library/theme';
 import cn from 'clsx';
-import { useMemo } from 'react';
-import { fetchStyles } from './Spinner.styles';
+import { useStyles } from './Spinner.styles';
 
 export interface SpinnerProps extends DefaultProps {
   /**
@@ -56,10 +55,8 @@ export const Spinner = ({
   size = 4,
   ...rest
 }: SpinnerProps) => {
-  const classes = useMemo(
-    () => fetchStyles({ thickness, speed, emptyColor, size, color }),
-    [thickness, speed, emptyColor, size, color]
-  );
+  const classes = useStyles({ thickness, speed, emptyColor, size, color });
+
   return (
     <div
       data-beautify-spinner

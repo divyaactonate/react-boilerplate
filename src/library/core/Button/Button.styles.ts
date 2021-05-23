@@ -8,6 +8,7 @@ import {
   getStyleValue,
 } from '@library/theme';
 import cn from 'clsx';
+import { useMemo } from 'react';
 
 interface ButtonStylesProps {
   colorScheme: string;
@@ -41,7 +42,8 @@ const getWidthStyles = (fullWidth: boolean) => {
   else return 'inline-block w-auto';
 };
 
-export const fetchStyles = (props: ButtonStylesProps) => {
+const getStyles = (props: ButtonStylesProps) => {
+  console.log(props);
   const { colorScheme, disabled, isLoading, fullWidth, radius, size, transform, loadingText } =
     props;
   const iconStyle = `flex items center`;
@@ -126,6 +128,24 @@ export const fetchStyles = (props: ButtonStylesProps) => {
     spinner,
   };
   return classes;
+};
+export const useStyles = (props: ButtonStylesProps) => {
+  const { colorScheme, disabled, isLoading, fullWidth, radius, size, transform, loadingText } =
+    props;
+  return useMemo(
+    () =>
+      getStyles({
+        colorScheme,
+        disabled,
+        isLoading,
+        fullWidth,
+        radius,
+        size,
+        transform,
+        loadingText,
+      }),
+    [colorScheme, disabled, isLoading, fullWidth, radius, size, transform, loadingText]
+  );
 };
 // const getColorStyles = (variant: string, colorScheme: string) => {
 //   switch (variant) {

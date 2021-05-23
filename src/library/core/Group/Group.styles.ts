@@ -1,5 +1,6 @@
 import { BeautifyNumberSize } from '@library/theme';
 import cn from 'clsx';
+import { useMemo } from 'react';
 
 export type GroupPosition = 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
 
@@ -37,7 +38,7 @@ const FLEX_WRAPS = {
   'wrap-reverse': 'flex-wrap-reverse',
   nowrap: 'flex-nowrap',
 };
-export const fetchStyles = (props: GroupStylesProps) => {
+const getStyles = (props: GroupStylesProps) => {
   const { spacing, position, wrap, direction, grow } = props;
   const common = `flex`;
   const flexDirection = FLEX_DIRECTIONS[direction];
@@ -55,4 +56,12 @@ export const fetchStyles = (props: GroupStylesProps) => {
     child,
   };
   return classes;
+};
+
+export const useStyles = (props: GroupStylesProps) => {
+  const { spacing, position, wrap, direction, grow } = props;
+  return useMemo(
+    () => getStyles({ spacing, position, wrap, direction, grow }),
+    [spacing, position, wrap, direction, grow]
+  );
 };

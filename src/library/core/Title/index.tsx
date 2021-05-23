@@ -1,7 +1,7 @@
 import { BeautifyHeading, DefaultProps } from '@library/theme';
 import cx from 'clsx';
-import { ComponentPropsWithoutRef, createElement, useMemo } from 'react';
-import { fetchStyles } from './Title.styles';
+import { ComponentPropsWithoutRef, createElement } from 'react';
+import { useStyles } from './Title.styles';
 
 export interface TitleProps extends DefaultProps, ComponentPropsWithoutRef<'h1'> {
   /** Defines styles which will be used */
@@ -19,7 +19,7 @@ export const Title = ({
   // if (![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].includes(order)) {
   //   return null;
   // }
-  const classes = useMemo(() => fetchStyles({ order, colorScheme }), [order, colorScheme]);
+  const classes = useStyles({ order, colorScheme });
   const element = `div` as const;
 
   return createElement(

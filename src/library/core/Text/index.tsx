@@ -2,8 +2,8 @@ import { BeautifyCase, BeautifyTextAlignment, BeautifyWeight, DefaultProps } fro
 import { BeautifyTextSize } from '@library/theme/types';
 import { ComponentPassThrough } from '@library/types';
 import cx from 'clsx';
-import React, { createElement, ElementType, ReactNode, useMemo } from 'react';
-import { fetchStyles } from './Text.styles';
+import React, { createElement, ElementType, ReactNode } from 'react';
+import { useStyles } from './Text.styles';
 
 export interface TextProps extends DefaultProps {
   /** Text itself */
@@ -42,10 +42,7 @@ export function Text<T extends ElementType = 'div', U = HTMLDivElement>({
   elementRef,
   ...others
 }: ComponentPassThrough<T, TextProps> & { elementRef?: React.ForwardedRef<U> }) {
-  const classes = useMemo(
-    () => fetchStyles({ variant, colorScheme, size, transform, weight, align }),
-    [variant, colorScheme, size, transform, weight, align]
-  );
+  const classes = useStyles({ variant, colorScheme, size, transform, weight, align });
 
   return createElement(
     component,
