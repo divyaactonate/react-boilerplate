@@ -14,12 +14,12 @@ function ContactInput() {
   const submitForm = async (event: any) => {
     event.preventDefault();
     const name = nameInputRef.current.value;
-    const contact = phoneInputRef.current.value;
-    if (name === '' || contact === '') {
+    const phone = phoneInputRef.current.value;
+    if (name === '' || phone === '') {
       return;
     }
     setLoading(true);
-    await addContact({ name, contact, id: new Date() });
+    await addContact({ name, phone, id: new Date() });
     nameInputRef.current.value = '';
     phoneInputRef.current.value = '';
     setLoading(false);

@@ -7,13 +7,16 @@ import React from 'react';
 enableStaticRendering(typeof window === 'undefined');
 
 class {{pascalCase name}}Store {
-  loading: boolean;
+  _loading: boolean;
 
   constructor() {
-    this.loading = false;
+    this._loading = false;
     makeObservable(this, {
-      loading: observable,
+      _loading: observable,
     });
+  }
+  get Loading(){
+    return this._loading;
   }
 }
 const {

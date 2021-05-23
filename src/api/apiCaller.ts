@@ -1,6 +1,6 @@
 // import { BASE_URL } from '@config/constant';
 const BASE_URL = 'http://localhost:5000/';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 
 export class ApiCaller {
   static httpGet = async (url: string) => {
@@ -8,9 +8,9 @@ export class ApiCaller {
       const URL = BASE_URL + url;
       const headers = {};
       const method = 'GET';
-      const options: RequestInit = { method, headers };
-      const res = await fetch(URL, options);
-      return res.json();
+      const options: AxiosRequestConfig = { headers, method, url: URL };
+      const res = await axios(options);
+      return res.data;
     } catch (err) {
       return err;
     }
@@ -24,16 +24,15 @@ export class ApiCaller {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
       };
-      const body = JSON.stringify(data);
-      const options: RequestInit = { method, headers, body };
-      const res = await fetch(URL, options);
-      return res.json();
+      const options: AxiosRequestConfig = { headers, method, url: URL, data };
+      const res = await axios(options);
+      return res.data;
     } catch (err) {
       throw err;
     }
   };
 
-  static httpPut = async (data: any, url: string) => {
+  static httpPut = async (payload: any, url: string) => {
     try {
       const URL = BASE_URL + url;
       const method = 'PUT';
@@ -41,10 +40,10 @@ export class ApiCaller {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
       };
-      const body = JSON.stringify(data);
-      const options: RequestInit = { method, headers, body };
-      const res = await fetch(URL, options);
-      return res.json();
+      const data = JSON.stringify(payload);
+      const options: AxiosRequestConfig = { method, headers, data };
+      const res = await axios.put(URL, options);
+      return res.data;
     } catch (err) {
       throw err;
     }
@@ -65,7 +64,7 @@ export class ApiCaller {
         .then((res) => {
           //   const bearer = res.headers.get('Authorization');
           //   localStorage.setItem('token', bearer);
-          return res.json();
+          return res;
         })
         .then((res) => {
           resolve(res);
@@ -95,7 +94,7 @@ export class ApiCaller {
           // const bearer = res.headers.get('Authorization')
           // localStorage.setItem('token', bearer);
           console.log('response >>>>', res);
-          return res.json();
+          return res;
         })
         .then((res) => {
           resolve(res);
@@ -111,9 +110,9 @@ export class ApiCaller {
       const URL = BASE_URL + url;
       const headers = {};
       const method = 'DELETE';
-      const options: RequestInit = { method, headers };
-      const res = await fetch(URL, options);
-      return res.json();
+      const options: AxiosRequestConfig = { headers, method, url: URL };
+      const res = await axios(options);
+      return res.data;
     } catch (err) {
       throw err;
     }

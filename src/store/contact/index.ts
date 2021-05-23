@@ -23,7 +23,9 @@ class ContactStore {
       deleteContact: action,
     });
   }
-
+  get Contacts() {
+    return this.contacts;
+  }
   addContact = async (contact: any) => {
     try {
       this.loading = true;
@@ -31,7 +33,7 @@ class ContactStore {
       this.contacts.push(contact);
       return res;
     } catch (err) {
-      console.log('ERR :: Contact ADD Operation');
+      console.log('ERR :: Contact ADD Operation', err);
     } finally {
       this.loading = false;
     }
@@ -43,17 +45,29 @@ class ContactStore {
       this.contacts = res;
       return res;
     } catch (err) {
+      console.log('ERR :: Contact GET Operation', err);
+    } finally {
+      this.loading = false;
+    }
+  };
+  clearContacts = async () => {
+    try {
+      this.loading = true;
+      const res = await service.clear();
+      this.contacts = [];
+      return res;
+    } catch (err) {
       console.log('ERR :: Contact GET Operation');
     } finally {
       this.loading = false;
     }
   };
-  deleteContact = async (contactId: number) => {
+  deleteContact = async (contactId: string) => {
     try {
       await service.delete(contactId);
       this.contacts = this.contacts.filter((c) => c.id !== contactId);
     } catch (err) {
-      console.log('ERR :: Contact DELETE Operation');
+      console.log('ERR :: Contact DELETE Operation', err);
     }
   };
 }

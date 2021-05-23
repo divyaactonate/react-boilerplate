@@ -32,7 +32,7 @@ module.exports = function (plop) {
     if (config.path === '/api/') {
       fileName = plop.getHelper('camelCase')(answers.name) + 'Api';
     } else if (config.path === '/store/') {
-      fileName = plop.getHelper('camelCase')(answers.name) + '.ts';
+      fileName = plop.getHelper('camelCase')(answers.name);
     } else if (config.path === '/pages/') {
       fileName = plop.getHelper('camelCase')(answers.name);
     } else if (config.path.includes('utils')) {
