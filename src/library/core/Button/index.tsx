@@ -12,8 +12,8 @@ export interface ButtonProps {
   /** Button type attribute */
   type?: 'submit' | 'button' | 'reset';
 
-  /** Button color from theme */
-  color?: string;
+  /** Button colorScheme from theme */
+  colorScheme?: string;
 
   /** Adds icon before button label  */
   leftIcon?: React.ReactNode;
@@ -39,7 +39,7 @@ export const Button = <
   U extends HTMLElement = HTMLButtonElement
 >({
   className,
-  color = 'blue',
+  colorScheme = 'blue',
   size = 'md',
   type = 'button',
   disabled = false,
@@ -58,8 +58,8 @@ export const Button = <
   elementRef?: React.ForwardedRef<U>;
 }) => {
   const classes = useMemo(
-    () => fetchStyles({ size, color, disabled, fullWidth, radius, transform }),
-    [size, color, disabled, fullWidth, radius, transform]
+    () => fetchStyles({ size, colorScheme, disabled, fullWidth, radius, transform }),
+    [size, colorScheme, disabled, fullWidth, radius, transform]
   );
 
   // const textToShow = useMemo(() => textTransform(textCase, children), [textCase, children]);

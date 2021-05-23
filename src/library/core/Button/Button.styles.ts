@@ -10,7 +10,7 @@ import {
 import cn from 'clsx';
 
 interface ButtonStylesProps {
-  color: string;
+  colorScheme: string;
   size: BeautifySize;
   radius: BeautifySize;
   disabled: boolean;
@@ -40,7 +40,7 @@ const getWidthStyles = (fullWidth: boolean) => {
 };
 
 export const fetchStyles = (props: ButtonStylesProps) => {
-  const { color, disabled, fullWidth, radius, size, transform } = props;
+  const { colorScheme, disabled, fullWidth, radius, size, transform } = props;
   const iconStyle = `flex items center`;
   const leftIcon = ``;
   const rightIcon = ``;
@@ -67,33 +67,33 @@ export const fetchStyles = (props: ButtonStylesProps) => {
   const padding = getStyleValue(paddings, size);
   const height = getStyleValue(heights, size);
 
-  const link = cn(disabled ? disabledClass : 'hover:underline', `text-${color}-500`);
+  const link = cn(disabled ? disabledClass : 'hover:underline', `text-${colorScheme}-500`);
   const filled = cn(
-    disabled ? disabledClass : `hover:bg-${color}-600`,
-    color === 'white'
-      ? `bg-${color} text-black`
-      : color === 'black'
-      ? `bg-${color} text-white`
-      : `bg-${color}-500 text-white`,
+    disabled ? disabledClass : `hover:bg-${colorScheme}-600`,
+    colorScheme === 'white'
+      ? `bg-${colorScheme} text-black`
+      : colorScheme === 'black'
+      ? `bg-${colorScheme} text-white`
+      : `bg-${colorScheme}-500 text-white`,
     ` shadow-sm`
   );
 
   const outline = cn(
-    disabled ? disabledClass : `hover:border-${color}-600 border`,
-    ['white', 'black'].includes(color) ? `border-gray-500` : `border-${color}-500`,
-    `text-${color}-600`,
+    disabled ? disabledClass : `hover:border-${colorScheme}-600 border`,
+    ['white', 'black'].includes(colorScheme) ? `border-gray-500` : `border-${colorScheme}-500`,
+    `text-${colorScheme}-600`,
     ` shadow-sm`,
-    `focus:ring-2 focus:ring-${color}-500 focus:ring-offset-2`
+    `focus:ring-2 focus:ring-${colorScheme}-500 focus:ring-offset-2`
   );
   const light = cn(
-    disabled ? disabledClass : `hover:bg-${color}-200`,
-    color === 'white'
+    disabled ? disabledClass : `hover:bg-${colorScheme}-200`,
+    colorScheme === 'white'
       ? `bg-coolGray-100 text-black`
-      : color === 'black'
+      : colorScheme === 'black'
       ? `bg-trueGray-300 text-black`
-      : `bg-${color}-100 text-${color}-600`,
+      : `bg-${colorScheme}-100 text-${colorScheme}-600`,
     `shadow-sm`,
-    `focus:ring-2 focus:ring-${color}-500 focus:ring-offset-2`
+    `focus:ring-2 focus:ring-${colorScheme}-500 focus:ring-offset-2`
   );
 
   const button = cn(common, padding, height, widhtSize, fontSize, disabledStyles, borderRadius);
@@ -112,26 +112,26 @@ export const fetchStyles = (props: ButtonStylesProps) => {
   };
   return classes;
 };
-// const getColorStyles = (variant: string, color: string) => {
+// const getColorStyles = (variant: string, colorScheme: string) => {
 //   switch (variant) {
 //     case 'link':
-//       return ` text-${color}-500 hover:underline
+//       return ` text-${colorScheme}-500 hover:underline
 //       focus:outline-none
 //       transition ease-in-out duration-150`;
 //     case 'filled':
-//       return ` bg-${color}-500 text-white hover:bg-${color}-600
+//       return ` bg-${colorScheme}-500 text-white hover:bg-${colorScheme}-600
 //       focus:outline-none shadow-sm
 //       transition ease-in-out duration-150`;
 //     case 'outline':
-//       return ` border border-${color}-500 text-${color}-600 hover:border-${color}-600
-//       focus:outline-none focus:ring-2 focus:ring-${color}-500 focus:ring-offset-2
+//       return ` border border-${colorScheme}-500 text-${colorScheme}-600 hover:border-${colorScheme}-600
+//       focus:outline-none focus:ring-2 focus:ring-${colorScheme}-500 focus:ring-offset-2
 //       transition ease-in-out duration-150`;
 //     case 'light':
-//       return ` bg-${color}-100 text-${color}-600 hover:bg-${color}-200
-//       focus:outline-none focus:ring-2 focus:ring-${color}-500 focus:ring-offset-2
+//       return ` bg-${colorScheme}-100 text-${colorScheme}-600 hover:bg-${colorScheme}-200
+//       focus:outline-none focus:ring-2 focus:ring-${colorScheme}-500 focus:ring-offset-2
 //       transition ease-in-out duration-150`;
 //     default:
-//       return ` bg-${color}-500 text-white hover:bg-${color}-600
+//       return ` bg-${colorScheme}-500 text-white hover:bg-${colorScheme}-600
 //       focus:outline-none
 //       transition ease-in-out duration-150`;
 //   }

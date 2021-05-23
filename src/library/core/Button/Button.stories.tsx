@@ -7,34 +7,34 @@ import { tailwindColors } from '../../theme/colors';
 import { BeautifyCase } from '../../theme/types';
 
 const getThemes = (props?: any) =>
-  Object.keys(tailwindColors).map((color) => (
-    <Button key={color} color={color} {...props}>
-      {color}
+  Object.keys(tailwindColors).map((colorScheme) => (
+    <Button key={colorScheme} colorScheme={colorScheme} {...props}>
+      {colorScheme}
     </Button>
   ));
 
 const getLinkThemes = (props?: any) =>
-  Object.keys(tailwindColors).map((color) => (
+  Object.keys(tailwindColors).map((colorScheme) => (
     <Button
       component='a'
       href='https://actonate.com/'
       target='_blank'
-      key={color}
-      color={color}
+      key={colorScheme}
+      colorScheme={colorScheme}
       {...props}
     >
-      link - {color}
+      link - {colorScheme}
     </Button>
   ));
 
 const sizes = (['xs', 'sm', 'md', 'lg', 'xl'] as BeautifySize[]).map((size) => (
-  <Button color='blue' key={size} size={size}>
+  <Button colorScheme='blue' key={size} size={size}>
     Button {size}
   </Button>
 ));
 const cases = (['uppercase', 'lowercase', 'capitalize', 'normal-case'] as BeautifyCase[]).map(
   (textCase) => (
-    <Button color='blue' key={textCase} transform={textCase}>
+    <Button colorScheme='blue' key={textCase} transform={textCase}>
       {textCase}
     </Button>
   )

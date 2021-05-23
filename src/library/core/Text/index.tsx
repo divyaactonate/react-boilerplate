@@ -12,8 +12,8 @@ export interface TextProps extends DefaultProps {
   /** Predefined font-size from theme.fontSizes */
   size?: BeautifyTextSize;
 
-  /** Text color from theme */
-  color?: string;
+  /** Text colorScheme from theme */
+  colorScheme?: string;
 
   /** Sets font-weight css property */
   weight?: BeautifyWeight;
@@ -35,7 +35,7 @@ export function Text<T extends ElementType = 'div', U = HTMLDivElement>({
   size = 'md',
   weight,
   transform,
-  color,
+  colorScheme,
   align,
   variant = 'text',
   // themeOverride,
@@ -43,8 +43,8 @@ export function Text<T extends ElementType = 'div', U = HTMLDivElement>({
   ...others
 }: ComponentPassThrough<T, TextProps> & { elementRef?: React.ForwardedRef<U> }) {
   const classes = useMemo(
-    () => fetchStyles({ variant, color, size, transform, weight, align }),
-    [variant, color, size, transform, weight, align]
+    () => fetchStyles({ variant, colorScheme, size, transform, weight, align }),
+    [variant, colorScheme, size, transform, weight, align]
   );
 
   return createElement(

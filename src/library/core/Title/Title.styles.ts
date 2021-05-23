@@ -3,15 +3,19 @@ import cn from 'clsx';
 
 interface TitleStylesProps {
   order: BeautifyHeading;
-  color: string;
+  colorScheme: string;
 }
 
 export const fetchStyles = (props: TitleStylesProps) => {
-  const { order, color } = props;
+  const { order, colorScheme } = props;
   const common = ``;
   const heading = getHeadingValue({ heading: order });
   const colorStyles = cn(
-    color === 'white' ? `text-white` : color === 'black' ? `text-black` : `text-${color}-700`
+    colorScheme === 'white'
+      ? `text-white`
+      : colorScheme === 'black'
+      ? `text-black`
+      : `text-${colorScheme}-700`
   );
   const title = cn(common, heading, colorStyles);
 

@@ -17,9 +17,9 @@ const CustomComponent = ({
 );
 
 const getThemes = (props?: any) =>
-  Object.keys(tailwindColors).map((color) => (
-    <Text key={color} color={color} style={{ marginTop: 5 }} {...props}>
-      {color} text
+  Object.keys(tailwindColors).map((colorScheme) => (
+    <Text key={colorScheme} colorScheme={colorScheme} style={{ marginTop: 5 }} {...props}>
+      {colorScheme} text
     </Text>
   ));
 

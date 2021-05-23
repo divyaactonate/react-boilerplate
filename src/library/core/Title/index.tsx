@@ -6,12 +6,12 @@ import { fetchStyles } from './Title.styles';
 export interface TitleProps extends DefaultProps, ComponentPropsWithoutRef<'h1'> {
   /** Defines styles which will be used */
   order?: BeautifyHeading;
-  color?: string;
+  colorScheme?: string;
 }
 
 export const Title = ({
   className,
-  color = 'black',
+  colorScheme = 'black',
   order = 5,
   children,
   ...others
@@ -19,7 +19,7 @@ export const Title = ({
   // if (![1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].includes(order)) {
   //   return null;
   // }
-  const classes = useMemo(() => fetchStyles({ order, color }), [order, color]);
+  const classes = useMemo(() => fetchStyles({ order, colorScheme }), [order, colorScheme]);
   const element = `div` as const;
 
   return createElement(

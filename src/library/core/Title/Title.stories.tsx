@@ -4,9 +4,9 @@ import { storiesOf } from '@storybook/react';
 import { Title } from '.';
 
 const getThemes = () =>
-  Object.keys(tailwindColors).map((color) => (
-    <Title key={color} color={color}>
-      Color-{color} title
+  Object.keys(tailwindColors).map((colorScheme) => (
+    <Title key={colorScheme} colorScheme={colorScheme}>
+      Color-{colorScheme} title
     </Title>
   ));
 const getSizes = () =>

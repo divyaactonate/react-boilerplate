@@ -9,24 +9,24 @@ import {
 import cn from 'clsx';
 
 interface PaperStylesProps {
-  color: string;
+  colorScheme: string;
   padding: BeautifyPadding;
   shadow: BeautifyShadow;
   radius: BeautifySize;
 }
 
 export const fetchStyles = (props: PaperStylesProps) => {
-  const { shadow, radius, color, padding } = props;
+  const { shadow, radius, colorScheme, padding } = props;
   const common = `box-border`;
   const boxShadow = getShadowValue({ shadow });
   const borderRadius = getRadiusValue({ radius });
   const paddingValue = getPaddingValue({ padding });
   const colorStyles = cn(
-    color === 'white'
-      ? `bg-${color} text-black`
-      : color === 'black'
-      ? `bg-${color} text-white`
-      : `bg-${color}-700 text-white`
+    colorScheme === 'white'
+      ? `bg-${colorScheme} text-black`
+      : colorScheme === 'black'
+      ? `bg-${colorScheme} text-white`
+      : `bg-${colorScheme}-700 text-white`
   );
   console.log(colorStyles);
 

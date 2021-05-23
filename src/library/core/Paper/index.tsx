@@ -10,8 +10,8 @@ import cx from 'clsx';
 import { fetchStyles } from './Paper.styles';
 
 export interface PaperProps extends DefaultProps, ComponentPropsWithoutRef<'div'> {
-  /** Paper color from theme */
-  color?: string;
+  /** Paper colorScheme from theme */
+  colorScheme?: string;
 
   /** Predefined padding value from theme.spacing or number for padding in px */
   padding?: BeautifyPadding;
@@ -27,7 +27,7 @@ export interface PaperProps extends DefaultProps, ComponentPropsWithoutRef<'div'
 }
 export const Paper = ({
   className,
-  color = 'white',
+  colorScheme = 'white',
   children,
   padding = 'md',
   radius = 'sm',
@@ -37,8 +37,8 @@ export const Paper = ({
   ...others
 }: PaperProps) => {
   const classes = useMemo(
-    () => fetchStyles({ radius, shadow, color, padding }),
-    [radius, shadow, color, padding]
+    () => fetchStyles({ radius, shadow, colorScheme, padding }),
+    [radius, shadow, colorScheme, padding]
   );
 
   return (

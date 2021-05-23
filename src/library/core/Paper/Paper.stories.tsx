@@ -51,8 +51,14 @@ const getRadius = (props?: any) =>
     </Paper>
   ));
 const getThemes = (props?: any) =>
-  Object.keys(tailwindColors).map((color) => (
-    <Paper style={{ width: 260, margin: 30 }} key={color} color={color} padding='md' {...props}>
+  Object.keys(tailwindColors).map((colorScheme) => (
+    <Paper
+      style={{ width: 260, margin: 30 }}
+      key={colorScheme}
+      colorScheme={colorScheme}
+      padding='md'
+      {...props}
+    >
       <Text>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, temporibus excepturi,
         placeat quam eius quisquam ad nostrum magnam molestias voluptates minima minus natus

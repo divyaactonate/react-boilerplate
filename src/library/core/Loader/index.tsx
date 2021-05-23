@@ -14,16 +14,16 @@ export interface LoaderProps extends DefaultProps, ComponentPropsWithoutRef<'svg
   /** Defines width of loader */
   size?: BeautifySize;
 
-  /** Loader color from theme */
-  color?: string;
+  /** Loader colorScheme from theme */
+  colorScheme?: string;
 }
 
-export function Loader({ size = 'md', color = 'blue', ...others }: LoaderProps) {
+export function Loader({ size = 'md', colorScheme = 'blue', ...others }: LoaderProps) {
   return (
     <svg
       data-beautify-loader
       width={`${getSizeValue({ size, sizes: LOADER_SIZES })}px`}
-      fill={tailwindColors[color]['500']}
+      fill={tailwindColors[colorScheme]['500']}
       viewBox='0 0 135 140'
       xmlns='http://www.w3.org/2000/svg'
       role='presentation'

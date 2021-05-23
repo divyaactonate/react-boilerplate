@@ -14,7 +14,7 @@ export type TextVariant = 'text' | 'link';
 
 interface TextStylesProps {
   // theme: MantineTheme;
-  color: string;
+  colorScheme: string;
   variant: TextVariant;
   size: BeautifySize;
   weight?: BeautifyWeight;
@@ -23,7 +23,7 @@ interface TextStylesProps {
 }
 
 export const fetchStyles = (props: TextStylesProps) => {
-  const { size, color, variant, align, transform, weight } = props;
+  const { size, colorScheme, variant, align, transform, weight } = props;
   const common = `no-underline shadow-sm`;
   const textAlign = getAlignValue({ align });
   const fontWeight = getWeightValue({ weight });
@@ -32,7 +32,11 @@ export const fetchStyles = (props: TextStylesProps) => {
   const fontSize = getSizeValue({ size });
   const textDecoration = variant === 'link' ? 'hover-underline' : 'hover-none';
   const colorStyles = cn(
-    color === 'white' ? `text-white` : color === 'black' ? `text-black` : `text-${color}-600`
+    colorScheme === 'white'
+      ? `text-white`
+      : colorScheme === 'black'
+      ? `text-black`
+      : `text-${colorScheme}-600`
   );
 
   const text = cn(
