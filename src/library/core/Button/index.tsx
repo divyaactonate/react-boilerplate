@@ -2,35 +2,85 @@ import { BeautifySize } from '@library/theme';
 import { BeautifyCase } from '@library/theme/types';
 import { ComponentPassThrough } from '@library/types';
 import cn from 'clsx';
-import { useMemo } from 'react';
+import { ReactElement, useMemo } from 'react';
+import { Spinner } from '../Spinner';
 import { fetchStyles } from './Button.styles';
 
 export interface ButtonProps {
-  /** Predefined button size */
+  /**
+   * If `true`, the button will show a spinner.
+   * @type boolean
+   * @default false
+   */
+  isLoading?: boolean;
+
+  /**
+   * The label to show in the button when `isLoading` is true
+   * If no text is passed, it only shows the spinner
+   */
+  loadingText?: string;
+
+  /**
+   * Replace the spinner component when `isLoading` is set to `true`
+   * @type React.ReactElement
+   */
+  spinner?: React.ReactElement;
+
+  /**
+   * It determines the placement of the spinner when isLoading is true
+   * @default "start"
+   */
+  spinnerPlacement?: 'start' | 'end';
+
+  /**
+   * The size of the button
+   * @type BeautifySize
+   * @default 'md'
+   */
   size?: BeautifySize;
 
-  /** Button type attribute */
-  type?: 'submit' | 'button' | 'reset';
-
-  /** Button colorScheme from theme */
+  /**
+   * Button colorScheme from theme
+   * @type string
+   * @default 'blue'
+   */
   colorScheme?: string;
 
-  /** Adds icon before button label  */
-  leftIcon?: React.ReactNode;
+  /**
+   * If added, the button will show an icon before the button's label.
+   * @type React.ReactElement
+   */
+  leftIcon?: ReactElement;
 
-  /** Adds icon after button label  */
-  rightIcon?: React.ReactNode;
+  /**
+   * If added, the button will show an icon after the button's label.
+   * @type React.ReactElement
+   */
+  rightIcon?: ReactElement;
 
-  /** Sets button width to 100% of parent element */
+  /**
+   * If `true`, the button will take up the full width of its container.
+   */
   fullWidth?: boolean;
 
-  /** Button border-radius from theme or number to set border-radius in px */
+  /**
+   * Button border-radius from theme
+   * @type BeautifySize
+   * @default 'sm'
+   */
   radius?: BeautifySize;
 
-  /** Controls button appearance */
+  /**
+   * Controls button appearance
+   * @type 'link' | 'filled' | 'outline' | 'light'
+   * @default 'filled'
+   */
   variant?: 'link' | 'filled' | 'outline' | 'light';
 
-  /** Text transform variants */
+  /**
+   * Text transform variants
+   * @type BeautifyCase
+   */
   transform?: BeautifyCase;
 }
 
@@ -41,15 +91,18 @@ export const Button = <
   className,
   colorScheme = 'blue',
   size = 'md',
-  type = 'button',
   disabled = false,
   children,
   leftIcon,
   rightIcon,
   fullWidth = false,
+  isLoading = false,
+  loadingText,
   variant = 'filled',
   transform,
-  radius = 'xs',
+  spinner,
+  radius = 'sm',
+  spinnerPlacement = 'start',
   component: Element = 'button',
   elementRef,
   ...others
@@ -58,8 +111,18 @@ export const Button = <
   elementRef?: React.ForwardedRef<U>;
 }) => {
   const classes = useMemo(
-    () => fetchStyles({ size, colorScheme, disabled, fullWidth, radius, transform }),
-    [size, colorScheme, disabled, fullWidth, radius, transform]
+    () =>
+      fetchStyles({
+        size,
+        colorScheme,
+        disabled,
+        fullWidth,
+        radius,
+        transform,
+        isLoading,
+        loadingText,
+      }),
+    [size, colorScheme, disabled, fullWidth, radius, transform, loadingText, isLoading]
   );
 
   // const textToShow = useMemo(() => textTransform(textCase, children), [textCase, children]);
@@ -67,23 +130,31 @@ export const Button = <
     <Element
       {...others}
       className={cn(classes.button, classes[variant], className)}
-      type={type}
       disabled={disabled}
       ref={elementRef}
       onTouchStart={() => ({})}
     >
       <span className={classes.inner} data-beautify-label>
-        {leftIcon && (
+        {leftIcon && !isLoading && (
           <span data-beautify-left-icon className={classes.leftIcon}>
             {leftIcon}
           </span>
         )}
-
+        {isLoading && spinnerPlacement === 'start' && (
+          <span data-beautify-left-spinner className={classes.spinner}>
+            {spinner || <Spinner color='current' />}
+          </span>
+        )}
         <span className={classes.label} data-beautify-label>
-          {children}
+          {isLoading ? loadingText : children}
         </span>
 
-        {rightIcon && (
+        {isLoading && spinnerPlacement === 'end' && (
+          <span data-beautify-right-spinner className={classes.spinner}>
+            {spinner || <Spinner color='current' />}
+          </span>
+        )}
+        {rightIcon && !isLoading && (
           <span data-beautify-right-icon className={classes.rightIcon}>
             {rightIcon}
           </span>

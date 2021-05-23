@@ -1,0 +1,72 @@
+/** @jsxImportSource @emotion/react */
+
+/**
+ *
+ * Spinner
+ *
+ */
+
+import { DefaultProps } from '@library/theme';
+import cn from 'clsx';
+import { useMemo } from 'react';
+import { fetchStyles } from './Spinner.styles';
+
+export interface SpinnerProps extends DefaultProps {
+  /**
+   * The color of the empty area in the spinner
+   */
+  emptyColor?: string;
+  /**
+   * The size of the spinner
+   */
+  size?: number;
+  /**
+   * The color of the spinner
+   */
+  color?: string;
+  /**
+   * The thickness of the spinner
+   * @example
+   * ```jsx
+   * <Spinner thickness="4px"/>
+   * ```
+   */
+  thickness?: string;
+  /**
+   * The speed of the spinner.
+   * @example
+   * ```jsx
+   * <Spinner speed="0.2s"/>
+   * ```
+   */
+  speed?: string;
+  /**
+   * For accessibility, it is important to add a fallback loading text.
+   * This text will be visible to screen readers.
+   */
+  label?: string;
+}
+export const Spinner = ({
+  // label = 'Loading...',
+  thickness = 'sm',
+  color = 'current',
+  speed = '0.45s',
+  emptyColor = 'transparent',
+  className,
+  size = 4,
+  ...rest
+}: SpinnerProps) => {
+  const classes = useMemo(
+    () => fetchStyles({ thickness, speed, emptyColor, size, color }),
+    [thickness, speed, emptyColor, size, color]
+  );
+  return (
+    <div
+      data-beautify-spinner
+      css={classes.css}
+      className={cn(classes.spinner, className)}
+      {...rest}
+    />
+  );
+};
+Spinner.displayName = '@beautify/core/Spinner';

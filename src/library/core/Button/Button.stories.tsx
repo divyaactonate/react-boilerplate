@@ -145,4 +145,10 @@ storiesOf('@beautify/core/Button', module)
         </Button>
       </div>
     </MemoryRouter>
-  ));
+  ))
+  .add('Loader', () => (
+    <Button loadingText='Loading..' isLoading>
+      Loader
+    </Button>
+  ))
+  .add('Only spinner', () => <Button isLoading>Loader</Button>);

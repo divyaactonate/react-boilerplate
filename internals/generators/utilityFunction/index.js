@@ -13,7 +13,7 @@ module.exports = {
       name: 'name',
       message: 'What is your util name?',
       validate: (value) => {
-        const maxLength = 15;
+        const maxLength = 20;
         if (/.+/.test(value)) {
           return lengthValidator(value, maxLength)
             ? `A component name length is greater than maxLength- ${maxLength}`

@@ -14,6 +14,8 @@ interface ButtonStylesProps {
   size: BeautifySize;
   radius: BeautifySize;
   disabled: boolean;
+  loadingText: boolean;
+  isLoading: boolean;
   transform: BeautifyCase;
   // theme: MantineTheme;
   fullWidth: boolean;
@@ -40,7 +42,8 @@ const getWidthStyles = (fullWidth: boolean) => {
 };
 
 export const fetchStyles = (props: ButtonStylesProps) => {
-  const { colorScheme, disabled, fullWidth, radius, size, transform } = props;
+  const { colorScheme, disabled, isLoading, fullWidth, radius, size, transform, loadingText } =
+    props;
   const iconStyle = `flex items center`;
   const leftIcon = ``;
   const rightIcon = ``;
@@ -55,6 +58,10 @@ export const fetchStyles = (props: ButtonStylesProps) => {
     `focus:outline-none`
   );
 
+  const spinner = cn(
+    `flex items-center text-md leadin-normal`,
+    loadingText ? 'relative m-2' : 'absolute m-0'
+  );
   // const widhtSize = useMemo(() => getWidthStyles(fullWidth), [fullWidth]);
   // const fontSize = useMemo(() => getSizeValue({ size }), [size]);
   // const borderRadius = useMemo(() => getRadiusValue({ radius }), [radius]);
@@ -67,9 +74,12 @@ export const fetchStyles = (props: ButtonStylesProps) => {
   const padding = getStyleValue(paddings, size);
   const height = getStyleValue(heights, size);
 
-  const link = cn(disabled ? disabledClass : 'hover:underline', `text-${colorScheme}-500`);
+  const link = cn(
+    isLoading ? 'cursor-not-allowed' : disabled ? disabledClass : 'hover:underline',
+    `text-${colorScheme}-500`
+  );
   const filled = cn(
-    disabled ? disabledClass : `hover:bg-${colorScheme}-600`,
+    isLoading ? 'cursor-not-allowed' : disabled ? disabledClass : `hover:bg-${colorScheme}-600`,
     colorScheme === 'white'
       ? `bg-${colorScheme} text-black`
       : colorScheme === 'black'
@@ -79,14 +89,18 @@ export const fetchStyles = (props: ButtonStylesProps) => {
   );
 
   const outline = cn(
-    disabled ? disabledClass : `hover:border-${colorScheme}-600 border`,
+    isLoading
+      ? 'cursor-not-allowed'
+      : disabled
+      ? disabledClass
+      : `hover:border-${colorScheme}-700 border hover:font-bold hover:text-${colorScheme}-700`,
     ['white', 'black'].includes(colorScheme) ? `border-gray-500` : `border-${colorScheme}-500`,
     `text-${colorScheme}-600`,
     ` shadow-sm`,
     `focus:ring-2 focus:ring-${colorScheme}-500 focus:ring-offset-2`
   );
   const light = cn(
-    disabled ? disabledClass : `hover:bg-${colorScheme}-200`,
+    isLoading ? 'cursor-not-allowed' : disabled ? disabledClass : `hover:bg-${colorScheme}-200`,
     colorScheme === 'white'
       ? `bg-coolGray-100 text-black`
       : colorScheme === 'black'
@@ -109,6 +123,7 @@ export const fetchStyles = (props: ButtonStylesProps) => {
     inner,
     label,
     button,
+    spinner,
   };
   return classes;
 };

@@ -10,6 +10,7 @@ export { Paper } from './Paper';
 export { Text } from './Text';
 export { Anchor } from './Text';
 export { Title } from './Title';
+export { Spinner } from './Spinner';
 
 export type { ButtonProps } from './Button';
 export type { DialogProps } from './Dialog';
@@ -22,3 +23,4 @@ export type { LoaderProps } from './Loader';
 export type { PaperProps } from './Paper';
 export type { TextProps } from './Text';
 export type { TitleProps } from './Title';
+export type { SpinnerProps } from './Spinner';

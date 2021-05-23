@@ -8,3 +8,4 @@ export { getLineHeightValue } from './get-line-height-value/get-line-height-valu
 export { getAlignValue } from './get-text-alignment-value/get-text-alignment-value';
 export { getTransformValue } from './get-transform-value/get-transform-value';
 export { getHeadingValue } from './get-heading-value/get-heading-value';
+export { getBorderWidthValue } from './get-border-width-value/get-border-width-value';
