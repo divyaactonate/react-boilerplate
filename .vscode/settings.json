@@ -33,6 +33,7 @@
     "typescriptreact": "javascript"
   },
   "cSpell.words": [
+    "clsx",
     "tailwindcss"
   ]
 }
