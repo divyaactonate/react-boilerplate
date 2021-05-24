@@ -75,7 +75,7 @@ They are preconfigured so that you can focus on the code.
 ## Configuration
 * Webpack Config paths based on your file structure you can go to `webpack/paths.js` and modify the source and file names based on your need.
 * `webpack/webpack.common.js` config common webpack for both dev and production environments.
-* webpack/webpack.dev.js config webpack for dev environment.
+* `webpack/webpack.dev.js` config webpack for dev environment.
 * `webpack/webpack.prod.js` config webpack for production environment.
 * `/webpack.config.js` main webpack config that merge common and webpack environment based config.
 * Enzyme config `/setupTests.ts` here you will have all setup for enzyme to test your component.
@@ -130,24 +130,32 @@ git push
 
 - To generate a new component, run the following command 
 ```bash 
+  npm run g c
+  OR
   npm run generate component
   OR
   npm run generate component <ComponentName>
 ```
 - To generate a new page, run the following command 
 ```bash 
+  npm run g p
+  OR
   npm run generate page
   OR
   npm run generate page <PageName>
 ```
 - To generate a new store, run the following command 
 ```bash 
+  npm run g store
+  OR
   npm run generate store
   OR
   npm run generate store <StoreName>
 ```
 - To generate a new service, run the following command 
 ```bash 
+  npm run g service
+  OR
   npm run generate service
   OR
   npm run generate service <ServiceName>

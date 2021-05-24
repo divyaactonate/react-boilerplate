@@ -1,6 +1,5 @@
 {
   "recommendations": [
-    "EditorConfig.EditorConfig",
     "esbenp.prettier-vscode",
     "bradlc.vscode-tailwindcss",
     "CoenraadS.bracket-pair-colorizer-2",
@@ -13,6 +12,11 @@
     "sdras.night-owl",
     "dsznajder.es7-react-js-snippets",
     "burkeholland.simple-react-snippets",
-    "lightyen.tailwindcss-intellisense-twin"
+    "streetsidesoftware.code-spell-checker",
+    "firsttris.vscode-jest-runner",
+    "meganrogge.template-string-converter",
+    "vespa-dev-works.jestrunit"
+    // "silvenon.mdx"
+    // "pflannery.vscode-versionlens"
   ]
 }
