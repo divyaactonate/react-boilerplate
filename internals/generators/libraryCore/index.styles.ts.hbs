@@ -1,11 +1,12 @@
 import cn from 'clsx';
+import { useMemo } from 'react';
 
 
 interface {{properCase name}}StylesProps {
 
 }
 
-export const fetchStyles = (props: {{properCase name}}StylesProps) => {
+export const getStyles = (props: {{properCase name}}StylesProps) => {
   const {  } = props;
   const common = ``;
 
@@ -18,4 +19,9 @@ export const fetchStyles = (props: {{properCase name}}StylesProps) => {
     {{lowerCase name}},
   };
   return classes;
+};
+
+export const useStyles = (props: {{properCase name}}StylesProps) => {
+  const {  } =props;
+  return useMemo(() =>getStyles({}),[]);
 };

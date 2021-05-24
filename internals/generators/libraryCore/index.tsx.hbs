@@ -6,13 +6,12 @@
 
 
 import cx from 'clsx';
-import { fetchStyles } from './{{ properCase name }}.styles';
-import { useMemo } from 'react';
+import { useStyles } from './{{ properCase name }}.styles';
 
 export interface {{ properCase name }}Props {
 }
 export const {{ properCase name }} =({}: {{ properCase name }}Props) => {
-  const classes = useMemo(() => fetchStyles({ }),[]);
+  const classes = useStyles({ });
   return (
     <div data-beautify-{{ lowerCase name }} className={cx(classes.{{ lowerCase name }})}>
      {{ lowerCase name }}
