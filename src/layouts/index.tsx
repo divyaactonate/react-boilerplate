@@ -11,7 +11,6 @@ const Layout = (props: any) => {
         <Link to='/protected'>Protected</Link>
         <Link to='/button'>Button</Link>
         <Link to='/toaster'>Toaster</Link>
-        <Link to='/dialog'>Dialog</Link>
         <Link to='/modal'>Modal</Link>
         <Link to='/login'>Login</Link>
       </div>
