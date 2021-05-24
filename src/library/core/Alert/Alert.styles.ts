@@ -9,8 +9,6 @@ interface AlertStylesProps {
 
 export const getStyles = (props: AlertStylesProps) => {
   const { colorScheme, isTitle, variant } = props;
-  console.log(variant);
-
   const iconClass = cn(
     variant === 'solid' ? 'text-white' : `text-${colorScheme}-600`,
     isTitle ? 'w-20 h-20' : 'w-10'

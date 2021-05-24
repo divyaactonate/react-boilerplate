@@ -58,7 +58,12 @@ export function Alert({
   const classes = useStyles({ colorScheme: colorSelected, isTitle: title, variant });
 
   return (
-    <Paper shadow={shadow} className={cx(classes.alert, classes[variant], className)} {...others}>
+    <Paper
+      data-beautify-wrapper
+      shadow={shadow}
+      className={cx(classes.alert, classes[variant], className)}
+      {...others}
+    >
       {icon || <Icon className={classes.iconClass} />}
       <div data-beautify-alert-content className={classes.contentWrapper}>
         {title && (
