@@ -1,5 +1,5 @@
+import type { Tuple } from '@library/types';
 import type { CSSProperties } from 'react';
-import type { DeepPartial, Tuple } from '@library/types';
 
 export type BeautifyWeight =
   | 'thin'
@@ -55,12 +55,6 @@ export type BeautifyPadding =
   | '7xl'
   | '8xl'
   | '9xl';
-type HeadingStyle = {
-  readonly fontSize: CSSProperties['fontSize'];
-  readonly lineHeight: CSSProperties['lineHeight'];
-};
-
-export type BeautifySizes = Record<BeautifySize, number>;
 
 export interface BeautifyTheme {
   readonly colorScheme: 'light' | 'dark';
@@ -68,38 +62,32 @@ export interface BeautifyTheme {
   readonly black: string;
   readonly colors: Record<string, Tuple<string, 10>>;
   readonly fontFamily: CSSProperties['fontFamily'];
-  readonly lineHeight: CSSProperties['lineHeight'];
   readonly transitionTimingFunction: CSSProperties['transitionTimingFunction'];
   readonly fontFamilyMonospace: CSSProperties['fontFamily'];
   readonly primaryColor: string;
+  readonly weights: Record<BeautifyWeight, string>;
+  readonly lineHeights: Record<BeautifyLineHeight, string>;
+  readonly fontSizes: Record<BeautifySize, string>;
+  readonly radius: Record<BeautifySize, string>;
+  readonly paddings: Record<BeautifyPadding, string>;
 
-  readonly fontSizes: BeautifySizes;
-  readonly radius: BeautifySizes;
-  readonly spacing: BeautifySizes;
+  // readonly spacing: BeautifySizes;
   readonly shadows: Record<BeautifySize, string>;
 
-  readonly headings: {
-    readonly fontFamily: CSSProperties['fontFamily'];
-    readonly fontWeight: CSSProperties['fontWeight'];
-    readonly sizes: {
-      readonly h1: HeadingStyle;
-      readonly h2: HeadingStyle;
-      readonly h3: HeadingStyle;
-      readonly h4: HeadingStyle;
-      readonly h5: HeadingStyle;
-      readonly h6: HeadingStyle;
-    };
-  };
+  readonly headings: Record<BeautifyHeading, string>;
 }
 
 export interface InternalBeautifyTheme extends BeautifyTheme {
-  __beautify_theme: boolean;
+  __beautify_theme?: boolean;
 }
 
-export type BeautifyThemeOverride = DeepPartial<BeautifyTheme>;
+export type BeautifyThemeOverride = Partial<BeautifyTheme>;
 
 export interface DefaultProps {
   className?: string;
   style?: CSSProperties;
+  readonly themeOverride?: BeautifyThemeOverride;
+}
+export interface DefaultStyleProps {
   readonly themeOverride?: BeautifyThemeOverride;
 }

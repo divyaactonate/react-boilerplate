@@ -1,4 +1,4 @@
-import { BeautifyLineHeight } from './types';
+import { BeautifyLineHeight } from '..';
 
 export const lineHeights: Record<BeautifyLineHeight, string> = {
   none: 'leading-none',

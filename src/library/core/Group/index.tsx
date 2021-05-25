@@ -32,7 +32,7 @@ export function Group({
   direction = 'row',
   ...others
 }: GroupProps) {
-  const classes = useStyles({ grow, wrap, spacing, position, direction });
+  const { classes } = useStyles({ grow, wrap, spacing, position, direction });
 
   const items = (Children.toArray(children) as React.ReactElement[]).map((child) =>
     cloneElement(child, { className: cx(classes.child, child.props.className) })
@@ -45,4 +45,4 @@ export function Group({
   );
 }
 
-Group.displayName = '@mantine/core/Group';
+Group.displayName = '@beautify/core/Group';

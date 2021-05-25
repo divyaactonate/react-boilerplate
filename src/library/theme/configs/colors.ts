@@ -1,4 +1,4 @@
-import type { BeautifyTheme } from './types';
+import type { BeautifyTheme } from '..';
 
 const tailwindColors = {
   black: '#000',
@@ -451,5 +451,5 @@ const colors: BeautifyTheme['colors'] = {
     '#d9480f',
   ],
 };
-export { tailwindColors };
+export { tailwindColors, colors };
 export default colors;

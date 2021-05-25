@@ -1,4 +1,4 @@
-import { tailwindColors } from '@library/theme/colors';
+import { DEFAULT_THEME } from '@library/theme/default-theme';
 import { storiesOf } from '@storybook/react';
 import { Text } from '../Text';
 import { Paper } from './index';
@@ -50,24 +50,13 @@ const getRadius = (props?: any) =>
       </Text>
     </Paper>
   ));
-const getThemes = (props?: any) =>
-  Object.keys(tailwindColors).map((colorScheme) => (
-    <Paper
-      style={{ width: 260, margin: 30 }}
-      key={colorScheme}
-      colorScheme={colorScheme}
-      padding='md'
-      {...props}
-    >
-      <Text>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, temporibus excepturi,
-        placeat quam eius quisquam ad nostrum magnam molestias voluptates minima minus natus
-        dignissimos reiciendis quasi repellat quos voluptas ullam.
-      </Text>
-    </Paper>
-  ));
+
 storiesOf('@beautify/core/Paper', module)
-  .add('Colors', () => <div style={{ padding: 40 }}>{getThemes()}</div>)
   .add('Radius', () => <div style={{ padding: 40 }}>{getRadius()}</div>)
   .add('Padding', () => <div style={{ padding: 40 }}>{getPaddings()}</div>)
-  .add('Shadows', () => <div style={{ padding: 40 }}>{getShadows()}</div>);
+  .add('Shadows', () => <div style={{ padding: 40 }}>{getShadows()}</div>)
+  .add('Dark theme', () => (
+    <div style={{ backgroundColor: DEFAULT_THEME.colors.dark[5], padding: 40 }}>
+      {getShadows({ themeOverride: { colorScheme: 'dark' } })}
+    </div>
+  ));

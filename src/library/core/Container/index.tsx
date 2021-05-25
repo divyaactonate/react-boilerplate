@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { ComponentPropsWithoutRef } from 'react';
 import cx from 'clsx';
 import { useStyles, sizes } from './Container.styles';
@@ -9,7 +10,7 @@ export interface ContainerProps extends DefaultProps, ComponentPropsWithoutRef<'
   size?: BeautifySize;
 
   /** colorSchemes from theme */
-  colorScheme?: string;
+  color?: string;
 
   /** Horizontal padding defined in theme.spacing, or number value for padding in px */
   padding?: BeautifyPadding;
@@ -21,13 +22,14 @@ export interface ContainerProps extends DefaultProps, ComponentPropsWithoutRef<'
 export function Container({
   className,
   padding = 'md',
-  colorScheme = 'blue',
+  color = 'blue',
   fluid = false,
   size = 'lg',
+  themeOverride,
   ...others
 }: ContainerProps) {
-  const classes = useStyles({ padding, fluid, size, colorScheme });
-  return <div className={cx(classes.container, className)} {...others} />;
+  const { classes, css } = useStyles({ padding, fluid, size, color, themeOverride });
+  return <div css={css.container} className={cx(classes.container, className)} {...others} />;
 }
 
 Container.displayName = '@beautify/core/Container';

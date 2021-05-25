@@ -1,5 +1,5 @@
 import { BeautifyTextAlignment } from '@library/theme/types';
-import { alignments as AllAlignments } from '../../text-alignments';
+import { alignments as AllAlignments } from '../../configs';
 export function getAlignValue({
   align,
   aligns,

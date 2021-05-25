@@ -1,4 +1,6 @@
-export const weights = {
+import { BeautifyWeight } from '..';
+
+export const weights: Record<BeautifyWeight, string> = {
   thin: 'font-thin',
   extralight: 'font-extralight',
   light: 'font-light',

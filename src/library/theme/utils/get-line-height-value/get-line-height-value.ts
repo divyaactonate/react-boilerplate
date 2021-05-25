@@ -1,5 +1,5 @@
 import { BeautifyLineHeight } from '@library/theme/types';
-import { lineHeights as LineHeights } from '../../line-height';
+import { lineHeights as LineHeights } from '../../configs';
 export function getLineHeightValue({
   lineHeight,
   lineHeights,

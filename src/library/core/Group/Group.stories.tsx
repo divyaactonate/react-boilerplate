@@ -38,7 +38,7 @@ storiesOf('@beautify/core/Group', module)
   .add('SpacingsRow', () => <>{spacingsRow}</>)
   .add('SpacingsColumn', () => <>{spacingsColumn}</>)
   .add('No wrap', () => (
-    <div style={{ padding: 15, maxWidth: 200, backgroundColor: '#f3f3f3' }}>
+    <div style={{ padding: 15, backgroundColor: '#f3f3f3' }}>
       <Group wrap='nowrap'>
         <Button>Button 1</Button>
         <Button>Button 2</Button>

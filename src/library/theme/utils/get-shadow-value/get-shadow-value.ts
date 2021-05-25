@@ -1,5 +1,5 @@
 import { BeautifyShadow } from '@library/theme/types';
-import { shadows as AllShadows } from '../../shadows';
+import { shadows as AllShadows } from '../../configs';
 export function getShadowValue({
   shadow,
   shadows,

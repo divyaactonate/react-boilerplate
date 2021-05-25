@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { BeautifySize } from '@library/theme';
 import { BeautifyCase } from '@library/theme/types';
 import { ComponentPassThrough } from '@library/types';
@@ -40,11 +41,11 @@ export interface ButtonProps {
   size?: BeautifySize;
 
   /**
-   * Button colorScheme from theme
+   * Button color from theme
    * @type string
    * @default 'blue'
    */
-  colorScheme?: string;
+  color?: string;
 
   /**
    * If added, the button will show an icon before the button's label.
@@ -89,7 +90,7 @@ export const ButtonBase = <
   U extends HTMLElement = HTMLButtonElement
 >({
   className,
-  colorScheme = 'blue',
+  color,
   size = 'md',
   disabled = false,
   children,
@@ -105,25 +106,28 @@ export const ButtonBase = <
   spinnerPlacement = 'start',
   component: Element = 'button',
   elementRef,
+  themeOverride,
   ...others
 }: ComponentPassThrough<T, ButtonProps> & {
   /** Get root element ref */
   elementRef?: React.ForwardedRef<U>;
 }) => {
-  const classes = useStyles({
+  const { classes, css } = useStyles({
     size,
-    colorScheme,
+    color,
     disabled,
     fullWidth,
     radius,
     transform,
     isLoading,
     loadingText,
+    themeOverride,
   });
   return (
     <Element
       {...others}
-      className={cn(classes.button, classes[variant], className)}
+      className={cn(classes.button, className)}
+      css={css[variant]}
       disabled={disabled}
       ref={elementRef}
       onTouchStart={() => ({})}

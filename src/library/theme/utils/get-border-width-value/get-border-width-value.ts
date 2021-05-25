@@ -1,4 +1,4 @@
-import { borderWidths as AllBorderWidhts } from '../../borderWidth';
+import { borderWidths as AllBorderWidhts } from '../../configs';
 export function getBorderWidthValue({
   thickness,
   borders,

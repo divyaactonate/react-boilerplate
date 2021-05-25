@@ -1,14 +1,18 @@
 import { keyframes } from '@emotion/react';
-import { getBorderWidthValue } from '@library/theme';
+import { getBorderWidthValue, getThemeColor, useBeautifyTheme } from '@library/theme';
+import { BeautifyTheme, DefaultStyleProps } from '@library/theme/types';
 import cn from 'clsx';
 import { useMemo } from 'react';
 
-interface SpinnerStylesProps {
+interface SpinnerStylesProps extends DefaultStyleProps {
   thickness?: string;
   size: number;
-  speed?: string;
+  speed: string;
   color?: string;
   emptyColor?: string;
+}
+interface StylesProps extends SpinnerStylesProps {
+  theme: BeautifyTheme;
 }
 const spin = keyframes({
   '0%': {
@@ -19,36 +23,39 @@ const spin = keyframes({
   },
 });
 
-export const getStyles = (props: SpinnerStylesProps) => {
-  const { thickness, emptyColor, speed, size, color } = props;
-  const common = `block border-solid rounded-full`;
-  const css = {
-    borderBottomColor: emptyColor,
-    borderLeftColor: emptyColor,
-    animation: `${spin} ${speed} linear infinite`,
-  };
-  const borderWidth = getBorderWidthValue({ thickness });
-  const sizes = `w-${size} h-${size} `;
-  const spinnerColor = cn(
-    color === 'current'
-      ? 'border-current'
-      : color === 'white'
-      ? 'border-white'
-      : color === 'black'
-      ? 'border-black'
-      : `border-${color}-600`
-  );
-  const spinner = cn(common, sizes, spinnerColor, borderWidth);
+export const getStyles = (props: StylesProps) => {
+  const { thickness, emptyColor, speed, size, color, theme } = props;
   const classes = {
-    spinner,
-    css,
+    spinner: cn(
+      `block border-solid rounded-full`,
+      `w-${size} h-${size}`,
+      getBorderWidthValue({ thickness })
+    ),
   };
-  return classes;
+  const css = {
+    spinner: {
+      borderBottomColor: emptyColor,
+      borderColor:
+        color === 'current'
+          ? 'currentColor'
+          : color === 'white'
+          ? theme.white
+          : color === 'black'
+          ? theme.black
+          : getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 4 : 6 }),
+      borderLeftColor: emptyColor,
+      animation: `${spin} ${speed} linear infinite`,
+    },
+  };
+  return { classes, css };
 };
 export const useStyles = (props: SpinnerStylesProps) => {
-  const { thickness, emptyColor, speed, size, color } = props;
+  const { thickness, emptyColor, speed, size, color, themeOverride } = props;
+  const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
+
   return useMemo(
-    () => getStyles({ thickness, emptyColor, speed, size, color }),
-    [thickness, emptyColor, speed, size, color]
+    () => getStyles({ thickness, emptyColor, speed, size, color, themeOverride, theme }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [thickness, emptyColor, speed, size, color, themeOverride]
   );
 };

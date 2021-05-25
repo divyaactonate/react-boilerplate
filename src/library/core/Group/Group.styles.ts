@@ -1,17 +1,24 @@
-import { BeautifyNumberSize } from '@library/theme';
+import {
+  BeautifyNumberSize,
+  BeautifyTheme,
+  DefaultStyleProps,
+  useBeautifyTheme,
+} from '@library/theme';
 import cn from 'clsx';
 import { useMemo } from 'react';
 
 export type GroupPosition = 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
 
-interface GroupStylesProps {
+interface GroupStylesProps extends DefaultStyleProps {
   position: GroupPosition;
   wrap: 'wrap' | 'wrap-reverse' | 'nowrap';
   grow: boolean;
   spacing: BeautifyNumberSize;
   direction: 'row' | 'column' | 'row-reverse' | 'column-reverse';
 }
-
+interface StylesProps extends GroupStylesProps {
+  theme: BeautifyTheme;
+}
 const ALIGNS = {
   start: 'items-start',
   end: 'items-end',
@@ -38,30 +45,30 @@ const FLEX_WRAPS = {
   'wrap-reverse': 'flex-wrap-reverse',
   nowrap: 'flex-nowrap',
 };
-const getStyles = (props: GroupStylesProps) => {
+const getStyles = (props: StylesProps) => {
   const { spacing, position, wrap, direction, grow } = props;
-  const common = `flex`;
-  const flexDirection = FLEX_DIRECTIONS[direction];
-  const alignItems = cn(direction === 'row' ? ALIGNS.center : grow ? 'stretch' : JUSTIFY[position]);
-  const justifyContent = direction === 'row' && JUSTIFY[position];
-  const flexWrap = FLEX_WRAPS[wrap];
-  const space = direction === 'row' ? `space-x-${spacing}` : `space-y-${spacing}`;
-  const group = cn(common, flexDirection, space, alignItems, justifyContent, flexWrap);
-  const child = cn(
-    grow ? 'flex-grow' : 'flex-grow-0'
-    // direction === 'row' ? `space-x-${spacing}` : `space-y-${spacing}`
-  );
   const classes = {
-    group,
-    child,
+    group: cn(
+      `flex`,
+      FLEX_DIRECTIONS[direction],
+      direction === 'row' ? ALIGNS.center : grow ? 'stretch' : JUSTIFY[position],
+      direction === 'row' && JUSTIFY[position],
+      FLEX_WRAPS[wrap],
+      direction === 'row' ? `space-x-${spacing}` : `space-y-${spacing}`
+    ),
+    child: cn(grow ? 'flex-grow' : 'flex-grow-0'),
   };
-  return classes;
+  const css = {};
+  return { classes, css };
 };
 
 export const useStyles = (props: GroupStylesProps) => {
-  const { spacing, position, wrap, direction, grow } = props;
+  const { spacing, position, wrap, direction, grow, themeOverride } = props;
+  const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
+
   return useMemo(
-    () => getStyles({ spacing, position, wrap, direction, grow }),
-    [spacing, position, wrap, direction, grow]
+    () => getStyles({ spacing, position, wrap, direction, grow, theme }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [spacing, position, wrap, direction, grow, themeOverride]
   );
 };

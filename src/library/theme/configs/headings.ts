@@ -1,4 +1,6 @@
-export const headings = {
+import { BeautifyHeading } from '..';
+
+export const headings: Record<BeautifyHeading, string> = {
   1: 'font-bold text-xs leading-tight',
   2: 'font-bold text-sm leading-tight',
   3: 'font-bold text-base leading-tight',

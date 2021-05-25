@@ -1,8 +1,8 @@
+import { DEFAULT_THEME } from '@library/theme/default-theme';
 import { storiesOf } from '@storybook/react';
+import { Container } from '.';
 import { Text } from '../Text';
 import { Title } from '../Title';
-import { Container } from '.';
-import { tailwindColors } from '@library/theme/colors';
 
 const content = (
   <Text>
@@ -19,9 +19,9 @@ const containers = (['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
   </Container>
 ));
 const getThemes = () =>
-  Object.keys(tailwindColors).map((colorScheme) => (
-    <Container key={colorScheme} colorScheme={colorScheme} style={{ marginTop: 20 }}>
-      <Title order={4}>Container size: {colorScheme}</Title>
+  Object.keys(DEFAULT_THEME.colors).map((color) => (
+    <Container key={color} color={color} style={{ marginTop: 20 }}>
+      <Title order={4}>Container size: {color}</Title>
       {content}
     </Container>
   ));

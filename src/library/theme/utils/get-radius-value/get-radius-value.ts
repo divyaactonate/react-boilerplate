@@ -1,5 +1,5 @@
 import { BeautifySize } from '@library/theme/types';
-import { radii as AllRadius } from '../../radius';
+import { radii as AllRadius } from '../../configs';
 export function getRadiusValue({
   radius,
   radii,

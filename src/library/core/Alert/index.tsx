@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import React from 'react';
 import cx from 'clsx';
 import { Text } from '../Text';
@@ -29,17 +30,17 @@ export interface AlertProps
   variant?: 'subtle' | 'solid' | 'leftAccent' | 'topAccent';
 
   /** Alert title and line colorSchemes from theme */
-  colorScheme?: string;
+  color?: string;
 
   /** Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property */
   shadow?: BeautifyShadow;
 }
 
 const STATUSES = {
-  info: { icon: InfoIcon, colorScheme: 'blue' },
-  warning: { icon: WarningIcon, colorScheme: 'orange' },
-  success: { icon: CheckIcon, colorScheme: 'green' },
-  error: { icon: WarningIcon, colorScheme: 'red' },
+  info: { icon: InfoIcon, color: 'blue' },
+  warning: { icon: WarningIcon, color: 'orange' },
+  success: { icon: CheckIcon, color: 'green' },
+  error: { icon: WarningIcon, color: 'red' },
 };
 
 export function Alert({
@@ -47,32 +48,39 @@ export function Alert({
   title,
   icon,
   children,
-  colorScheme,
+  color,
   variant = 'subtle',
   status = 'info',
   shadow = 'sm',
+  themeOverride,
   ...others
 }: AlertProps) {
-  const colorSelected = colorScheme || STATUSES[status].colorScheme;
+  const colorSelected = color || STATUSES[status].color;
   const Icon = STATUSES[status].icon || InfoIcon;
-  const classes = useStyles({ colorScheme: colorSelected, isTitle: title, variant });
+  const { classes, css } = useStyles({
+    color: colorSelected,
+    isTitle: title,
+    variant,
+    themeOverride,
+  });
 
   return (
     <Paper
-      data-beautify-wrapper
+      data-beautify-alert-wrapper
       shadow={shadow}
-      className={cx(classes.alert, classes[variant], className)}
+      css={css[variant]}
+      className={cx(classes.alert, className)}
       {...others}
     >
-      {icon || <Icon className={classes.iconClass} />}
+      {icon || <Icon css={css.iconClass} className={classes.iconClass} />}
       <div data-beautify-alert-content className={classes.contentWrapper}>
         {title && (
-          <Text data-beautify-alert-title className={classes.title}>
+          <Text css={css.title} data-beautify-alert-title className={classes.title}>
             {title}
           </Text>
         )}
 
-        <div data-beautify-alert-body className={classes.body}>
+        <div css={css.body} data-beautify-alert-body className={classes.body}>
           {children}
         </div>
       </div>

@@ -1,31 +1,45 @@
-import { BeautifyHeading, getHeadingValue } from '@library/theme';
+import {
+  BeautifyHeading,
+  BeautifyTheme,
+  DefaultStyleProps,
+  getHeadingValue,
+  getThemeColor,
+  useBeautifyTheme,
+} from '@library/theme';
 import cn from 'clsx';
 import { useMemo } from 'react';
 
-interface TitleStylesProps {
+interface TitleStylesProps extends DefaultStyleProps {
   order: BeautifyHeading;
-  colorScheme: string;
+  color: string;
 }
-
-export const getStyles = (props: TitleStylesProps) => {
-  const { order, colorScheme } = props;
-  const common = ``;
-  const heading = getHeadingValue({ heading: order });
-  const colorStyles = cn(
-    colorScheme === 'white'
-      ? `text-white`
-      : colorScheme === 'black'
-      ? `text-black`
-      : `text-${colorScheme}-700`
-  );
-  const title = cn(common, heading, colorStyles);
-
-  const classes = {
-    title,
+interface StylesProps extends TitleStylesProps {
+  theme: BeautifyTheme;
+}
+export const getStyles = (props: StylesProps) => {
+  const { order, color, theme } = props;
+  const css = {
+    title: {
+      color:
+        color === 'white' || theme.colorScheme === 'dark'
+          ? theme.white
+          : color === 'black'
+          ? theme.black
+          : getThemeColor({ theme, color, shade: 8 }),
+    },
   };
-  return classes;
+  const classes = {
+    title: cn(`m-0`, getHeadingValue({ heading: order })),
+  };
+  return { classes, css };
 };
 export const useStyles = (props: TitleStylesProps) => {
-  const { order, colorScheme } = props;
-  return useMemo(() => getStyles({ order, colorScheme }), [order, colorScheme]);
+  const { order, color, themeOverride } = props;
+  const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
+
+  return useMemo(
+    () => getStyles({ order, color, theme }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [order, color, themeOverride]
+  );
 };

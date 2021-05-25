@@ -1,57 +1,72 @@
 import { useMemo } from 'react';
 import cn from 'clsx';
+import { BeautifyTheme, DefaultStyleProps, getThemeColor, useBeautifyTheme } from '@library/theme';
 
-interface AlertStylesProps {
-  colorScheme: string;
+interface AlertStylesProps extends DefaultStyleProps {
+  color: string;
   isTitle: React.ReactNode;
   variant: 'subtle' | 'solid' | 'leftAccent' | 'topAccent';
 }
-
-export const getStyles = (props: AlertStylesProps) => {
-  const { colorScheme, isTitle, variant } = props;
-  const iconClass = cn(
-    variant === 'solid' ? 'text-white' : `text-${colorScheme}-600`,
-    isTitle ? 'w-20 h-20' : 'w-10'
-  );
-  const title = cn(
-    `box m-0 mb-1 font-bold text-xl overflow-ellipsis overflow-hidden`,
-    colorScheme === 'white' || variant === 'solid'
-      ? 'text-white'
-      : colorScheme === 'black'
-      ? 'text-black'
-      : `text-${colorScheme}-600`
-  );
-
-  const body = cn(
-    variant === 'solid' ? 'text-white' : `text-${colorScheme}-500`,
-    `leading-normal overflow-ellipsis overflow-hidden text-md`,
-    `font-normal `
-  );
-  const contentWrapper = `ml-4`;
-  const alert = cn(`alert flex flex-row items-center`, `p-5 rounded`);
-
-  const subtle = `bg-${colorScheme}-100`;
-  const solid = `bg-${colorScheme}-500`;
-  const leftAccent = `border-l-8 text-white border-${colorScheme}-500  bg-${colorScheme}-100`;
-  const topAccent = `border-t-8 border-${colorScheme}-500  bg-${colorScheme}-100`;
+interface StylesProps extends AlertStylesProps {
+  theme: BeautifyTheme;
+}
+export const getStyles = (props: StylesProps) => {
+  const { color, theme, isTitle, variant } = props;
+  const css = {
+    subtle: {
+      backgroundColor: getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 1 : 1 }),
+    },
+    solid: {
+      backgroundColor: getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 3 : 5 }),
+    },
+    leftAccent: {
+      borderLeftWidth: '10px',
+      borderColor: getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 2 : 5 }),
+      backgroundColor: getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 1 : 1 }),
+    },
+    topAccent: {
+      borderTopWidth: '10px',
+      borderColor: getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 2 : 5 }),
+      backgroundColor: getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 1 : 1 }),
+    },
+    iconClass: {
+      color:
+        variant === 'solid'
+          ? theme.white
+          : getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 4 : 6 }),
+    },
+    title: {
+      color:
+        color === 'white' || variant === 'solid'
+          ? theme.white
+          : color === 'black'
+          ? theme.black
+          : getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 8 : 6 }),
+    },
+    body: {
+      color:
+        variant === 'solid'
+          ? theme.white
+          : getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 8 : 5 }),
+    },
+  };
 
   const classes = {
-    title,
-    contentWrapper,
-    body,
-    iconClass,
-    alert,
-    subtle,
-    solid,
-    topAccent,
-    leftAccent,
+    contentWrapper: `ml-4`,
+    title: `box m-0 mb-1 font-bold text-xl overflow-ellipsis overflow-hidden`,
+    body: `leading-normal overflow-ellipsis overflow-hidden text-md font-normal `,
+    iconClass: isTitle ? 'w-20 h-20' : 'w-10',
+    alert: cn(`alert flex flex-row items-center`, `p-5 rounded`),
   };
-  return classes;
+  return { classes, css };
 };
 export const useStyles = (props: AlertStylesProps) => {
-  const { colorScheme, isTitle, variant } = props;
+  const { color, isTitle, variant, themeOverride } = props;
+  const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
+
   return useMemo(
-    () => getStyles({ colorScheme, isTitle, variant }),
-    [colorScheme, isTitle, variant]
+    () => getStyles({ color, isTitle, variant, theme, themeOverride }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [color, isTitle, variant]
   );
 };
