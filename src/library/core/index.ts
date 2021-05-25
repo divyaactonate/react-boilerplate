@@ -11,6 +11,7 @@ export { Anchor } from './Text';
 export { Title } from './Title';
 export { Spinner } from './Spinner';
 export { Alert } from './Alert';
+export { InputField } from './InputField';
 
 export type { ButtonProps } from './Button';
 export type { ModalProps } from './Modal';

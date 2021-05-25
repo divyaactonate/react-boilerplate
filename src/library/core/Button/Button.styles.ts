@@ -146,27 +146,3 @@ export const useStyles = (props: ButtonStylesProps) => {
     [colorScheme, disabled, isLoading, fullWidth, radius, size, transform, loadingText]
   );
 };
-// const getColorStyles = (variant: string, colorScheme: string) => {
-//   switch (variant) {
-//     case 'link':
-//       return ` text-${colorScheme}-500 hover:underline
-//       focus:outline-none
-//       transition ease-in-out duration-150`;
-//     case 'filled':
-//       return ` bg-${colorScheme}-500 text-white hover:bg-${colorScheme}-600
-//       focus:outline-none shadow-sm
-//       transition ease-in-out duration-150`;
-//     case 'outline':
-//       return ` border border-${colorScheme}-500 text-${colorScheme}-600 hover:border-${colorScheme}-600
-//       focus:outline-none focus:ring-2 focus:ring-${colorScheme}-500 focus:ring-offset-2
-//       transition ease-in-out duration-150`;
-//     case 'light':
-//       return ` bg-${colorScheme}-100 text-${colorScheme}-600 hover:bg-${colorScheme}-200
-//       focus:outline-none focus:ring-2 focus:ring-${colorScheme}-500 focus:ring-offset-2
-//       transition ease-in-out duration-150`;
-//     default:
-//       return ` bg-${colorScheme}-500 text-white hover:bg-${colorScheme}-600
-//       focus:outline-none
-//       transition ease-in-out duration-150`;
-//   }
-// };
