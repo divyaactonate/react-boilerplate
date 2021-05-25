@@ -10,7 +10,6 @@ export function getThemeColor({
   shade: number;
 }) {
   const primaryShades = theme.colors[theme.primaryColor];
-
   if (!color) {
     return primaryShades[shade];
   }

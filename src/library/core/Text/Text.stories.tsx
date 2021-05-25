@@ -1,4 +1,4 @@
-import { tailwindColors } from '@library/theme';
+import { DEFAULT_THEME } from '@library/theme/default-theme';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { Anchor, Text } from '.';
@@ -17,9 +17,9 @@ const CustomComponent = ({
 );
 
 const getThemes = (props?: any) =>
-  Object.keys(tailwindColors).map((colorScheme) => (
-    <Text key={colorScheme} colorScheme={colorScheme} style={{ marginTop: 5 }} {...props}>
-      {colorScheme} text
+  Object.keys(DEFAULT_THEME.colors).map((color) => (
+    <Text key={color} color={color} style={{ marginTop: 5 }} {...props}>
+      {color} text
     </Text>
   ));
 
@@ -70,5 +70,18 @@ storiesOf('@beautify/core/Text', module)
       <Text component='a' href='https://actonate.com/' variant='link'>
         Link
       </Text>
+    </div>
+  ))
+  .add('Dark theme', () => (
+    <div style={{ background: DEFAULT_THEME.colors.dark[7], minHeight: '100vh', padding: 50 }}>
+      <Text themeOverride={{ colorScheme: 'dark' }}>Default text</Text>
+      <Text themeOverride={{ colorScheme: 'dark' }} weight={'extrabold'}>
+        Semibold text
+      </Text>
+      <Text themeOverride={{ colorScheme: 'dark' }} weight={'bold'}>
+        Bold text
+      </Text>
+
+      {getThemes({ themeOverride: { colorScheme: 'dark' } })}
     </div>
   ));

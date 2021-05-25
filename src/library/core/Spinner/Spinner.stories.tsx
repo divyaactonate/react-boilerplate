@@ -6,15 +6,15 @@ import { Spinner } from './index';
 const sizes = [2, 4, 6, 8, 10, 12, 14, 16, 20].map((size) => (
   <Spinner key={size} size={size}></Spinner>
 ));
-const getThemes = (props?: any) =>
+const getThemes = (themeOverride?: any) =>
   Object.keys(DEFAULT_THEME.colors).map((colorScheme) => (
     <Spinner
       size={20}
       speed='0.9s'
       thickness='lg'
       key={colorScheme}
+      themeOverride={themeOverride}
       color={colorScheme}
-      {...props}
     ></Spinner>
   ));
 const getBorders = () =>

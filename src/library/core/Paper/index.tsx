@@ -1,17 +1,12 @@
-/**
- *
- * Paper
- *
- */
-
+/** @jsxImportSource @emotion/react */
 import { BeautifyPadding, BeautifyShadow, BeautifySize, DefaultProps } from '@library/theme';
 import cx from 'clsx';
 import { ComponentPropsWithoutRef, ForwardedRef } from 'react';
 import { useStyles } from './Paper.styles';
 
 export interface PaperProps extends DefaultProps, ComponentPropsWithoutRef<'div'> {
-  /** Paper colorScheme from theme */
-  colorScheme?: string;
+  /** Paper color from theme */
+  color?: string;
 
   /** Predefined padding value from theme.spacing or number for padding in px */
   padding?: BeautifyPadding;
@@ -27,19 +22,25 @@ export interface PaperProps extends DefaultProps, ComponentPropsWithoutRef<'div'
 }
 export const Paper = ({
   className,
-  colorScheme = 'white',
+  color = 'white',
   children,
   padding = 'md',
   radius = 'sm',
   shadow = 'md',
-  // themeOverride,
+  themeOverride,
   elementRef,
   ...others
 }: PaperProps) => {
-  const classes = useStyles({ radius, shadow, colorScheme, padding });
+  const { classes, css } = useStyles({ radius, shadow, color, padding, themeOverride });
 
   return (
-    <div data-beautify-paper className={cx(classes.paper, className)} ref={elementRef} {...others}>
+    <div
+      data-beautify-paper
+      css={css.paper}
+      className={cx(classes.paper, className)}
+      ref={elementRef}
+      {...others}
+    >
       {children}
     </div>
   );

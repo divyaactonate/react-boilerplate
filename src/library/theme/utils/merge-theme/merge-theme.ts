@@ -12,7 +12,7 @@ export function mergeTheme(
 
   const colors = { ...currentTheme.colors, ...themeOverride.colors };
 
-  const theme = { ...currentTheme, ...themeOverride, ...colors };
+  const theme = { ...currentTheme, ...themeOverride, colors };
 
   return theme;
 }

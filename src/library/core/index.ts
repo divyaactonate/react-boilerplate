@@ -11,6 +11,7 @@ export { Anchor } from './Text';
 export { Title } from './Title';
 export { Spinner } from './Spinner';
 export { Alert } from './Alert';
+export { Overlay } from './Overlay';
 
 export type { ButtonProps } from './Button';
 export type { ModalProps } from './Modal';
@@ -24,3 +25,4 @@ export type { TextProps } from './Text';
 export type { TitleProps } from './Title';
 export type { SpinnerProps } from './Spinner';
 export type { AlertProps } from './Alert';
+export type { OverlayProps } from './Overlay';

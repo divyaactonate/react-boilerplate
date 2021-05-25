@@ -6,7 +6,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/solid';
 import { useScrollLock } from '@library/hooks';
-import { DefaultProps } from '@library/theme/types';
+import { BeautifySize, DefaultProps } from '@library/theme/types';
 import { ElementType, FC, Fragment } from 'react';
 import cn from 'clsx';
 import { getSizeValue } from '@library/theme';
@@ -51,7 +51,7 @@ export interface ModalProps
   overlayColor?: string;
 
   /** Modal body width */
-  size?: string;
+  size?: BeautifySize;
 
   /** Modal body transition */
   // transition?: MantineTransition;

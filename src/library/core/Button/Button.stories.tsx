@@ -28,13 +28,13 @@ const getLinkThemes = (props?: any) =>
   ));
 
 const sizes = (['xs', 'sm', 'md', 'lg', 'xl'] as BeautifySize[]).map((size) => (
-  <Button color='blue' key={size} size={size}>
+  <Button key={size} size={size}>
     Button {size}
   </Button>
 ));
 const cases = (['uppercase', 'lowercase', 'capitalize', 'normal-case'] as BeautifyCase[]).map(
   (textCase) => (
-    <Button color='blue' key={textCase} transform={textCase}>
+    <Button key={textCase} transform={textCase}>
       {textCase}
     </Button>
   )

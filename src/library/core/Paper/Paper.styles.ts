@@ -2,46 +2,60 @@ import {
   BeautifyPadding,
   BeautifyShadow,
   BeautifySize,
+  BeautifyTheme,
+  DefaultStyleProps,
   getPaddingValue,
   getRadiusValue,
   getShadowValue,
+  useBeautifyTheme,
 } from '@library/theme';
 import cn from 'clsx';
 import { useMemo } from 'react';
 
-interface PaperStylesProps {
-  colorScheme: string;
+interface PaperStylesProps extends DefaultStyleProps {
+  color: string;
   padding: BeautifyPadding;
   shadow: BeautifyShadow;
   radius: BeautifySize;
 }
+interface StylesProps extends PaperStylesProps {
+  theme: BeautifyTheme;
+}
+const getStyles = (props: StylesProps) => {
+  const { shadow, radius, color, padding, theme } = props;
 
-const getStyles = (props: PaperStylesProps) => {
-  const { shadow, radius, colorScheme, padding } = props;
-  const common = `box-border`;
-  const boxShadow = getShadowValue({ shadow });
-  const borderRadius = getRadiusValue({ radius });
-  const paddingValue = getPaddingValue({ padding });
   const colorStyles = cn(
-    colorScheme === 'white'
-      ? `bg-${colorScheme} text-black`
-      : colorScheme === 'black'
-      ? `bg-${colorScheme} text-white`
-      : `bg-${colorScheme}-700 text-white`
+    color === 'white'
+      ? `bg-${color} text-black`
+      : color === 'black'
+      ? `bg-${color} text-white`
+      : `bg-${color}-700 text-white`
   );
-
-  const paper = cn(common, boxShadow, colorStyles, borderRadius, paddingValue);
-
-  const classes = {
-    paper,
+  const css = {
+    paper: {
+      color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+      backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+    },
   };
-  return classes;
+  const classes = {
+    paper: cn(
+      `box-border`,
+      getShadowValue({ shadow }),
+      colorStyles,
+      getRadiusValue({ radius }),
+      getPaddingValue({ padding })
+    ),
+  };
+  return { classes, css };
 };
 
 export const useStyles = (props: PaperStylesProps) => {
-  const { shadow, radius, colorScheme, padding } = props;
+  const { shadow, radius, color, padding, themeOverride } = props;
+  const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
+
   return useMemo(
-    () => getStyles({ shadow, radius, colorScheme, padding }),
-    [shadow, radius, colorScheme, padding]
+    () => getStyles({ shadow, radius, color, padding, theme }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [shadow, radius, color, padding, themeOverride]
   );
 };

@@ -14,16 +14,14 @@ import cn from 'clsx';
 import { useMemo } from 'react';
 
 interface ButtonStylesProps extends DefaultStyleProps {
-  color: string;
+  color?: string;
   size: BeautifySize;
   radius: BeautifySize;
   disabled: boolean;
   loadingText: boolean;
   isLoading: boolean;
   transform: BeautifyCase;
-  // theme: MantineTheme;
   fullWidth: boolean;
-  // variant: 'link' | 'filled' | 'outline' | 'light';
 }
 interface StylesProps extends ButtonStylesProps {
   theme: BeautifyTheme;
@@ -50,7 +48,6 @@ const getWidthStyles = (fullWidth: boolean) => {
 const getStyles = (props: StylesProps) => {
   const { color, theme, isLoading, fullWidth, radius, size, transform, loadingText } = props;
 
-  // const disabledStyles = disabled ? 'opacity-50 cursor-not-allowed' : '';
   const css = {
     link: {
       cursor: isLoading ? 'not-allowed' : 'auto',

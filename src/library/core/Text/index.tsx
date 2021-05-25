@@ -1,8 +1,9 @@
+/** @jsxImportSource @emotion/react */
 import { BeautifyCase, BeautifyTextAlignment, BeautifyWeight, DefaultProps } from '@library/theme';
 import { BeautifyTextSize } from '@library/theme/types';
 import { ComponentPassThrough } from '@library/types';
 import cx from 'clsx';
-import React, { createElement, ElementType, ReactNode } from 'react';
+import React, { ElementType, ReactNode } from 'react';
 import { useStyles } from './Text.styles';
 
 export interface TextProps extends DefaultProps {
@@ -12,8 +13,8 @@ export interface TextProps extends DefaultProps {
   /** Predefined font-size from theme.fontSizes */
   size?: BeautifyTextSize;
 
-  /** Text colorScheme from theme */
-  colorScheme?: string;
+  /** Text color from theme */
+  color?: string;
 
   /** Sets font-weight css property */
   weight?: BeautifyWeight;
@@ -35,24 +36,38 @@ export function Text<T extends ElementType = 'div', U = HTMLDivElement>({
   size = 'md',
   weight,
   transform,
-  colorScheme,
+  color,
   align,
   variant = 'text',
-  // themeOverride,
+  themeOverride,
   elementRef,
   ...others
 }: ComponentPassThrough<T, TextProps> & { elementRef?: React.ForwardedRef<U> }) {
-  const classes = useStyles({ variant, colorScheme, size, transform, weight, align });
-
-  return createElement(
-    component,
-    {
-      className: cx(classes.text, className),
-      ref: elementRef,
-      ...others,
-    },
-    children
+  const { classes, css } = useStyles({
+    variant,
+    color,
+    size,
+    transform,
+    themeOverride,
+    weight,
+    align,
+  });
+  const Element = component;
+  return (
+    <Element ref={elementRef} css={css.text} className={cx(classes.text, className)} {...others}>
+      {children}
+    </Element>
   );
+  // return createElement(
+  //   component,
+  //   {
+  //     css: css.text,
+  //     className: cx(classes.text, className),
+  //     ref: elementRef,
+  //     ...others,
+  //   },
+  //   children
+  // );
 }
 export function Anchor<T extends React.ElementType = 'a', U = HTMLAnchorElement>({
   component = 'a',

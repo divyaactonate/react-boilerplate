@@ -1,28 +1,23 @@
-import { BeautifySize, tailwindColors, DefaultProps, getSizeValue } from '@library/theme';
+import { BeautifySize, DefaultProps } from '@library/theme';
 import { ComponentPropsWithoutRef } from 'react';
-
-export const LOADER_SIZES = {
-  xs: 18,
-  sm: 22,
-  md: 36,
-  lg: 44,
-  xl: 58,
-};
+import { useStyles } from './Loader.styles';
 
 export interface LoaderProps extends DefaultProps, ComponentPropsWithoutRef<'svg'> {
   /** Defines width of loader */
   size?: BeautifySize;
 
-  /** Loader colorScheme from theme */
-  colorScheme?: string;
+  /** Loader color from theme */
+  color?: string;
 }
 
-export function Loader({ size = 'md', colorScheme = 'blue', ...others }: LoaderProps) {
+export function Loader({ size = 'md', color, themeOverride, ...others }: LoaderProps) {
+  const { classes } = useStyles({ color, themeOverride, size });
+
   return (
     <svg
       data-beautify-loader
-      width={`${getSizeValue({ size, sizes: LOADER_SIZES })}px`}
-      fill={tailwindColors[colorScheme]['500']}
+      width={classes.LoaderWidth}
+      fill={classes.LoaderFill}
       viewBox='0 0 135 140'
       xmlns='http://www.w3.org/2000/svg'
       role='presentation'

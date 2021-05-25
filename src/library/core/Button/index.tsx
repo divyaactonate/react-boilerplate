@@ -90,7 +90,7 @@ export const ButtonBase = <
   U extends HTMLElement = HTMLButtonElement
 >({
   className,
-  color = 'blue',
+  color,
   size = 'md',
   disabled = false,
   children,

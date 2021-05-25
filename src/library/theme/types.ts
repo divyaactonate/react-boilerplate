@@ -78,7 +78,7 @@ export interface BeautifyTheme {
 }
 
 export interface InternalBeautifyTheme extends BeautifyTheme {
-  __beautify_theme: boolean;
+  __beautify_theme?: boolean;
 }
 
 export type BeautifyThemeOverride = Partial<BeautifyTheme>;

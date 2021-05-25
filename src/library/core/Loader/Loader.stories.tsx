@@ -3,13 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { Loader } from './index';
 
 const getThemes = (props?: any) =>
-  Object.keys(tailwindColors).map((colorScheme) => (
-    <Loader
-      key={colorScheme}
-      colorScheme={colorScheme}
-      style={{ display: 'block', marginTop: 15 }}
-      {...props}
-    />
+  Object.keys(tailwindColors).map((color) => (
+    <Loader key={color} color={color} style={{ display: 'block', marginTop: 15 }} {...props} />
   ));
 
 const sizes = (['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (

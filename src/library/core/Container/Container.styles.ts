@@ -1,14 +1,25 @@
-import { BeautifyPadding, BeautifySize, getPaddingValue, getSizeValue } from '@library/theme';
+import {
+  BeautifyPadding,
+  BeautifySize,
+  BeautifyTheme,
+  DefaultStyleProps,
+  getPaddingValue,
+  getSizeValue,
+  getThemeColor,
+  useBeautifyTheme,
+} from '@library/theme';
 import { useMemo } from 'react';
 import cn from 'clsx';
 
-interface ContainerStylesProps {
+interface ContainerStylesProps extends DefaultStyleProps {
   fluid: boolean;
-  colorScheme: string;
+  color: string;
   size: BeautifySize;
   padding: BeautifyPadding;
 }
-
+interface StylesProps extends ContainerStylesProps {
+  theme: BeautifyTheme;
+}
 export const sizes = {
   xs: 'w-2/12',
   sm: 'w-4/12',
@@ -17,30 +28,31 @@ export const sizes = {
   xl: 'w-10/12',
 };
 
-export const getStyles = (props: ContainerStylesProps) => {
-  const { fluid, size, padding, colorScheme } = props;
-  const common = `m-auto`;
-  const maxWidth = fluid ? '100%' : getSizeValue({ size, sizes });
-  const spacing = getPaddingValue({ padding });
+export const getStyles = (props: StylesProps) => {
+  const { fluid, size, padding, color, theme } = props;
 
-  const colorStyles = cn(
-    colorScheme === 'white'
-      ? `bg-${colorScheme} text-black`
-      : colorScheme === 'black'
-      ? `bg-${colorScheme} text-white`
-      : `bg-${colorScheme}-700 text-white`
-  );
-
-  const container = cn(common, maxWidth, spacing, colorStyles);
-  const classes = {
-    container,
+  const css = {
+    container: {
+      color: color === 'white' ? theme.black : theme.white,
+      backgroundColor: getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 4 : 6 }),
+    },
   };
-  return classes;
+
+  const classes = {
+    container: cn(
+      `m-auto`,
+      fluid ? 'w-full' : getSizeValue({ size, sizes }),
+      getPaddingValue({ padding })
+    ),
+  };
+  return { classes, css };
 };
 export const useStyles = (props: ContainerStylesProps) => {
-  const { fluid, size, padding, colorScheme } = props;
+  const { fluid, size, padding, color, themeOverride } = props;
+  const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
   return useMemo(
-    () => getStyles({ fluid, size, colorScheme, padding }),
-    [fluid, size, padding, colorScheme]
+    () => getStyles({ fluid, size, color, padding, theme }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [fluid, size, themeOverride, padding, color]
   );
 };
