@@ -5,13 +5,24 @@
  */
 import React, { memo } from 'react';
 import cx from 'clsx';
-import { BeautifySize, DefaultProps } from '@library/theme';
+import { BeautifySize, DefaultProps, BeautifyCase } from '@library/theme';
 import { ComponentPassThrough } from '@library/types';
 import { useStyles } from './InputField.styles';
 
 export interface InputFieldProps extends DefaultProps {
   /** Sets border color to red and aria-invalid=true on input element */
   invalid?: boolean;
+
+  /**
+   * Text transform variants
+   * @type BeautifyCase
+   */
+  transform?: BeautifyCase;
+
+  /**
+   * If `true`, the button will take up the full width of its container.
+   */
+  fullWidth?: boolean;
 
   /** Adds icon on the left side of input */
   icon?: React.ReactNode;
@@ -55,12 +66,17 @@ export const InputFieldCustom = <
   variant = 'default',
   icon,
   style,
+  color,
+  size = 'md',
+  disabled = false,
   rightSection,
   rightSectionProps = {},
   radius = 'sm',
   inputClassName,
   inputStyle,
   themeOverride,
+  transform,
+  fullWidth = false,
   wrapperProps,
   elementRef,
   ...others
@@ -68,8 +84,15 @@ export const InputFieldCustom = <
   /** Get element ref */
   elementRef?: React.ForwardedRef<U>;
 }) => {
-  const theme = themeOverride;
-  const classes = useStyles({ radius, theme });
+  const { classes, css } = useStyles({
+    size,
+    color,
+    disabled,
+    fullWidth,
+    radius,
+    transform,
+    themeOverride,
+  });
 
   return (
     <div data-beautify-inputfield className={cx(classes.inputfield)}>
@@ -81,7 +104,9 @@ export const InputFieldCustom = <
           className
         )}
         style={style}
+        css={css[variant]}
         {...wrapperProps}
+        disabled={disabled}
       >
         {icon && <span className={classes.icon}>{icon}</span>}
 

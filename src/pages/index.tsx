@@ -82,7 +82,7 @@ const Home = () => {
         </div>
       </div>
       <br />
-      <div className='pb-10 flex flex-col justify-center items-center py-1 border border-blue-600 '>
+      <div className='pb-10 flex flex-col justify-center items-center py-1 border border-blue-600 px-3'>
         <u> Input Field </u>
         <br />
         <div className='flex flex-row flex-wrap w-full justify-between items-center'>
