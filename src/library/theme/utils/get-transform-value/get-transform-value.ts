@@ -1,5 +1,5 @@
 import { BeautifyCase } from '@library/theme/types';
-import { transforms as AllTransforms } from '../../transform';
+import { transforms as AllTransforms } from '../../configs';
 export function getTransformValue({
   transform,
   transforms,

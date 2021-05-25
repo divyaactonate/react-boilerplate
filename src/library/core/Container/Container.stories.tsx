@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react';
 import { Text } from '../Text';
 import { Title } from '../Title';
 import { Container } from '.';
-import { tailwindColors } from '@library/theme/colors';
+import { tailwindColors } from '@library/theme';
 
 const content = (
   <Text>

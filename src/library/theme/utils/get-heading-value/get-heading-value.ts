@@ -1,5 +1,5 @@
 import { BeautifyHeading } from '@library/theme';
-import { headings as AllHeadings } from '../../headings';
+import { headings as AllHeadings } from '../../configs';
 export function getHeadingValue({
   heading,
   headings,

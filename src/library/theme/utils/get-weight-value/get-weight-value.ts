@@ -1,5 +1,5 @@
 import { BeautifyWeight } from '@library/theme/types';
-import { weights as AllWeights } from '../../weight';
+import { weights as AllWeights } from '../../configs';
 export function getWeightValue({
   weight,
   weights,

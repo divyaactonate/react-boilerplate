@@ -9,3 +9,5 @@ export { getAlignValue } from './get-text-alignment-value/get-text-alignment-val
 export { getTransformValue } from './get-transform-value/get-transform-value';
 export { getHeadingValue } from './get-heading-value/get-heading-value';
 export { getBorderWidthValue } from './get-border-width-value/get-border-width-value';
+export { getThemeColor } from './get-theme-color/get-theme-color';
+export { hexToRgba } from './hex-to-rgba/hex-to-rgba';

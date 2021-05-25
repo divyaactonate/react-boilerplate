@@ -1,4 +1,4 @@
-import { BeautifySize } from '.';
+import { BeautifySize } from '..';
 
 export const shadows: Record<BeautifySize | string, string> = {
   none: 'shadow-none',

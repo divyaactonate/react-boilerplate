@@ -1,11 +1,4 @@
 /** @jsxImportSource @emotion/react */
-
-/**
- *
- * Spinner
- *
- */
-
 import { DefaultProps } from '@library/theme';
 import cn from 'clsx';
 import { ComponentPropsWithoutRef } from 'react';
@@ -53,15 +46,16 @@ export const Spinner = ({
   speed = '0.45s',
   emptyColor = 'transparent',
   className,
+  themeOverride,
   size = 4,
   ...rest
 }: SpinnerProps) => {
-  const classes = useStyles({ thickness, speed, emptyColor, size, color });
+  const { classes, css } = useStyles({ thickness, speed, emptyColor, size, color, themeOverride });
 
   return (
     <div
       data-beautify-spinner
-      css={classes.css}
+      css={css.spinner}
       className={cn(classes.spinner, className)}
       {...rest}
     />

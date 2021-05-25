@@ -1,5 +1,5 @@
 import { BeautifySize } from '@library/theme/types';
-import { sizes as AllSizes } from '../../sizes';
+import { sizes as AllSizes } from '../../configs';
 export function getSizeValue({
   size,
   sizes,

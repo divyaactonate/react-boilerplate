@@ -1,4 +1,4 @@
-import { BeautifyCase } from '.';
+import { BeautifyCase } from '..';
 
 export const transforms: Record<BeautifyCase, string> = {
   uppercase: 'uppercase',

@@ -1,11 +1,11 @@
-import { tailwindColors } from '@library/theme/colors';
 import { storiesOf } from '@storybook/react';
 import { Alert } from '.';
 import { BellIcon } from '@heroicons/react/outline';
+import { DEFAULT_THEME } from '@library/theme/default-theme';
 
 const getThemes = (props?: any) =>
-  Object.keys(tailwindColors).map((color) => (
-    <Alert key={color} colorScheme={color} {...props} style={{ marginTop: 20 }}>
+  Object.keys(DEFAULT_THEME.colors).map((color) => (
+    <Alert key={color} color={color} {...props} style={{ marginTop: 20 }}>
       Alert body with {color} color, Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Voluptatem, reiciendis?
     </Alert>
@@ -37,7 +37,7 @@ storiesOf('@beautify/core/Alert', module)
     <div style={{ maxWidth: 800, padding: 50 }}>
       <Alert
         icon={<BellIcon className='w-10 text-purple-600' />}
-        colorScheme='purple'
+        color='purple'
         style={{ marginTop: 20 }}
       >
         Data uploaded to the server. Fire on
@@ -60,5 +60,13 @@ storiesOf('@beautify/core/Alert', module)
       >
         AlertBodyWithoutSpacesThatWillNotBreakToAnotherLineAndWillDamageTheLayout
       </Alert>
+    </div>
+  ))
+  .add('Dark theme', () => (
+    <div style={{ background: DEFAULT_THEME.colors.dark[7], minHeight: '100vh' }}>
+      <div style={{ maxWidth: 800, padding: 50 }}>
+        {getThemes({ title: 'Alert title', themeOverride: { colorScheme: 'dark' } })}
+        {getThemes({ themeOverride: { colorScheme: 'dark' } })}
+      </div>
     </div>
   ));

@@ -1,4 +1,4 @@
-import { BeautifyTextAlignment } from './types';
+import { BeautifyTextAlignment } from '..';
 
 export const alignments: Record<BeautifyTextAlignment, string> = {
   left: 'text-left',

@@ -1,4 +1,4 @@
-import { tailwindColors } from '@library/theme/colors';
+import { tailwindColors } from '@library/theme';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { Anchor, Text } from '.';

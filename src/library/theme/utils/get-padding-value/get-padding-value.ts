@@ -1,5 +1,5 @@
 import { BeautifyPadding } from '@library/theme/types';
-import { paddings as AllPaddings } from '../../paddings';
+import { paddings as AllPaddings } from '../../configs';
 export function getPaddingValue({
   padding,
   paddings,

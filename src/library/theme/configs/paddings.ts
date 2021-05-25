@@ -1,4 +1,4 @@
-import { BeautifySize } from '.';
+import { BeautifySize } from '..';
 
 export const paddings: Record<BeautifySize | string | number, string> = {
   xs: 'p-2',

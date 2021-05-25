@@ -1,5 +1,4 @@
-import { BeautifySize, DefaultProps, getSizeValue } from '@library/theme';
-import { tailwindColors } from '@library/theme/colors';
+import { BeautifySize, tailwindColors, DefaultProps, getSizeValue } from '@library/theme';
 import { ComponentPropsWithoutRef } from 'react';
 
 export const LOADER_SIZES = {

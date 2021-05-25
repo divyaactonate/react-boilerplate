@@ -1,5 +1,5 @@
-import { BeautifyHeading } from '@library/theme';
-import { tailwindColors } from '@library/theme/colors';
+import { BeautifyHeading, tailwindColors } from '@library/theme';
+
 import { storiesOf } from '@storybook/react';
 import { Title } from '.';
 

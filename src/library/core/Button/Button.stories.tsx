@@ -2,39 +2,39 @@ import { Link, MemoryRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
 import { ExternalLinkIcon, CalendarIcon } from '@heroicons/react/solid';
 import { Button } from './index';
-import { BeautifySize } from '../../theme';
-import { tailwindColors } from '../../theme/colors';
-import { BeautifyCase } from '../../theme/types';
+import { BeautifyCase, BeautifySize } from '../../theme';
+import { DEFAULT_THEME } from '@library/theme/default-theme';
+import { Group } from '../Group';
 
 const getThemes = (props?: any) =>
-  Object.keys(tailwindColors).map((colorScheme) => (
-    <Button key={colorScheme} colorScheme={colorScheme} {...props}>
-      {colorScheme}
+  Object.keys(DEFAULT_THEME.colors).map((color) => (
+    <Button key={color} color={color} {...props}>
+      {color}
     </Button>
   ));
 
 const getLinkThemes = (props?: any) =>
-  Object.keys(tailwindColors).map((colorScheme) => (
+  Object.keys(DEFAULT_THEME.colors).map((color) => (
     <Button
       component='a'
       href='https://actonate.com/'
       target='_blank'
-      key={colorScheme}
-      colorScheme={colorScheme}
+      key={color}
+      color={color}
       {...props}
     >
-      link - {colorScheme}
+      link - {color}
     </Button>
   ));
 
 const sizes = (['xs', 'sm', 'md', 'lg', 'xl'] as BeautifySize[]).map((size) => (
-  <Button colorScheme='blue' key={size} size={size}>
+  <Button color='blue' key={size} size={size}>
     Button {size}
   </Button>
 ));
 const cases = (['uppercase', 'lowercase', 'capitalize', 'normal-case'] as BeautifyCase[]).map(
   (textCase) => (
-    <Button colorScheme='blue' key={textCase} transform={textCase}>
+    <Button color='blue' key={textCase} transform={textCase}>
       {textCase}
     </Button>
   )
@@ -151,4 +151,27 @@ storiesOf('@beautify/core/Button', module)
       Loader
     </Button>
   ))
-  .add('Only spinner', () => <Button isLoading>Loader</Button>);
+  .add('Only spinner', () => <Button isLoading>Loader</Button>)
+  .add('Dark theme', () => (
+    <div style={{ background: DEFAULT_THEME.colors.dark[7], minHeight: '100vh', padding: 50 }}>
+      <Group style={{ padding: 20 }}>{getThemes({ themeOverride: { colorScheme: 'dark' } })}</Group>
+      <Group style={{ padding: 20 }}>
+        {getThemes({ themeOverride: { colorScheme: 'dark' }, variant: 'light' })}
+      </Group>
+      <Group style={{ padding: 20 }}>
+        {getThemes({ themeOverride: { colorScheme: 'dark' }, variant: 'outline' })}
+      </Group>
+      <Group style={{ padding: 20 }}>
+        {getThemes({ themeOverride: { colorScheme: 'dark' }, variant: 'link' })}
+      </Group>
+      <Group style={{ padding: 20 }}>
+        {getThemes({ themeOverride: { colorScheme: 'dark' }, disabled: true })}
+      </Group>
+      <Group style={{ padding: 20 }}>
+        {getThemes({ themeOverride: { colorScheme: 'dark' }, variant: 'outline', disabled: true })}
+      </Group>
+      <Group style={{ padding: 20 }}>
+        {getThemes({ themeOverride: { colorScheme: 'dark' }, variant: 'link', disabled: true })}
+      </Group>
+    </div>
+  ));
