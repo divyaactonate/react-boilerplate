@@ -1,27 +1,34 @@
 import cn from 'clsx';
 import { useMemo } from 'react';
+import {BeautifyTheme,DefaultStyleProps,useBeautifyTheme,} from '@library/theme';
 
-
-interface {{properCase name}}StylesProps {
+interface {{properCase name}}StylesProps extends DefaultStyleProps {
 
 }
+interface StylesProps extends {{properCase name}}StylesProps {
+  theme: BeautifyTheme;
+}
+export const getStyles = (props: StylesProps) => {
+  const { theme } = props;
 
-export const getStyles = (props: {{properCase name}}StylesProps) => {
-  const {  } = props;
-  const common = ``;
-
-  const {{lowerCase name}} = cn(
-    common,
-    
-  );
+  const css = {
+    {{lowerCase name}}: {
+       },
+  };
 
   const classes = {
-    {{lowerCase name}},
+    {{lowerCase name}}: cn(
+       ),
   };
-  return classes;
+  return { classes, css };
 };
 
 export const useStyles = (props: {{properCase name}}StylesProps) => {
-  const {  } =props;
-  return useMemo(() =>getStyles({}),[]);
+  const { themeOverride } =props;
+  const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
+
+  return useMemo(() =>
+  getStyles({theme}),
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  [themeOverride]);
 };

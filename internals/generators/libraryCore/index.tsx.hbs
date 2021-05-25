@@ -1,19 +1,16 @@
-/**
- *
- * {{ properCase name }}
- *
- */
-
+/** @jsxImportSource @emotion/react */
+// Please remove above line if not using twin css
 
 import cx from 'clsx';
 import { useStyles } from './{{ properCase name }}.styles';
+import { DefaultProps } from '@library/theme';
 
-export interface {{ properCase name }}Props {
+export interface {{ properCase name }}Props extends DefaultProps{
 }
-export const {{ properCase name }} =({}: {{ properCase name }}Props) => {
-  const classes = useStyles({ });
+export const {{ properCase name }} =({themeOverride}: {{ properCase name }}Props) => {
+  const { classes, css } = useStyles({ themeOverride});
   return (
-    <div data-beautify-{{ lowerCase name }} className={cx(classes.{{ lowerCase name }})}>
+    <div data-beautify-{{ lowerCase name }} css={css.cards} className={cx(classes.{{ lowerCase name }})}>
      {{ lowerCase name }}
     </div>
   );
