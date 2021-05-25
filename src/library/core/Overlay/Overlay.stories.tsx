@@ -4,5 +4,5 @@ import { Overlay } from '.';
 storiesOf('@beautify/core/Overlay', module)
   .add('General usage', () => <Overlay color='#000' opacity={0.5} />)
   .add('Custom component', () => (
-    <Overlay color='#000' opacity={0.5} component='a' href='https://mantine.dev' target='_blank' />
+    <Overlay color='#000' opacity={0.5} component='a' href='https://google.com' target='_blank' />
   ));

@@ -37,4 +37,4 @@ export function Overlay<T extends React.ElementType = 'div'>({
   );
 }
 
-Overlay.displayName = '@mantine/core/Overlay';
+Overlay.displayName = '@beautify/core/Overlay';
