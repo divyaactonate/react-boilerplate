@@ -1,11 +1,11 @@
 /** @jsxImportSource @emotion/react */
 // Please remove above line if not using twin css
 
-import React from 'react';
-import cx from 'clsx';
-import { useStyles, heights } from './Badge.styles';
-import { DefaultProps, BeautifySize, useBeautifyTheme } from '@library/theme';
+import { BeautifySize, DefaultProps } from '@library/theme';
 import { ComponentPassThrough } from '@library/types';
+import cx from 'clsx';
+import React from 'react';
+import { heights, useStyles } from './Badge.styles';
 
 export const BADGE_SIZES = heights;
 
@@ -47,11 +47,11 @@ export const Badge = <T extends React.ElementType = 'div'>({
   ...others
 }: ComponentPassThrough<T, BadgeProps>) => {
   const { classes, css } = useStyles({
+    themeOverride,
     size,
     fullWidth,
     color,
     radius,
-    theme: useBeautifyTheme(themeOverride),
   });
   return (
     <Component
