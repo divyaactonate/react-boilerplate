@@ -159,7 +159,7 @@ storiesOf('@beautify/core/Badge', module)
         className='p-5 m-2'
         color='red'
         component='a'
-        href='https://mantine.dev'
+        href='https://beautify.dev'
         target='_blank'
       >
         Link badge

@@ -54,7 +54,7 @@ export interface ModalProps
   size?: BeautifySize;
 
   /** Modal body transition */
-  // transition?: MantineTransition;
+  // transition?: beautifyTransition;
 
   /** Duration in ms of modal transitions, set to 0 to disable all animations */
   // transitionDuration?: number;

@@ -60,7 +60,7 @@ export const Badge = <T extends React.ElementType = 'div'>({
       className={cx(classes.badge, classes[variant], className)}
     >
       {leftSection && (
-        <span data-mantine-badge-left css={[css.leftSection]} className={classes.leftSection}>
+        <span data-beautify-badge-left css={[css.leftSection]} className={classes.leftSection}>
           {leftSection}
         </span>
       )}
@@ -70,7 +70,7 @@ export const Badge = <T extends React.ElementType = 'div'>({
       </span>
 
       {rightSection && (
-        <span data-mantine-badge-right css={[css.rightSection]} className={classes.rightSection}>
+        <span data-beautify-badge-right css={[css.rightSection]} className={classes.rightSection}>
           {rightSection}
         </span>
       )}
