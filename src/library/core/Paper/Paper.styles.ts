@@ -9,7 +9,7 @@ import {
   getShadowValue,
   useBeautifyTheme,
 } from '@library/theme';
-import cn from 'clsx';
+import cx from 'clsx';
 import { useMemo } from 'react';
 
 interface PaperStylesProps extends DefaultStyleProps {
@@ -24,7 +24,7 @@ interface StylesProps extends PaperStylesProps {
 const getStyles = (props: StylesProps) => {
   const { shadow, radius, color, padding, theme } = props;
 
-  const colorStyles = cn(
+  const colorStyles = cx(
     color === 'white'
       ? `bg-${color} text-black`
       : color === 'black'
@@ -38,7 +38,7 @@ const getStyles = (props: StylesProps) => {
     },
   };
   const classes = {
-    paper: cn(
+    paper: cx(
       `box-border`,
       getShadowValue({ shadow }),
       colorStyles,

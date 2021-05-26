@@ -8,7 +8,7 @@ import {
   getThemeColor,
   useBeautifyTheme,
 } from '@library/theme';
-import cn from 'clsx';
+import cx from 'clsx';
 import { useMemo } from 'react';
 
 interface ContainerStylesProps extends DefaultStyleProps {
@@ -39,7 +39,7 @@ export const getStyles = (props: StylesProps) => {
   };
 
   const classes = {
-    container: cn(
+    container: cx(
       `m-auto`,
       fluid ? 'w-full' : getSizeValue({ size, sizes }),
       getPaddingValue({ padding })

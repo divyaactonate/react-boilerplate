@@ -1,4 +1,4 @@
-import cn from 'clsx';
+import cx from 'clsx';
 import { useMemo } from 'react';
 import {BeautifyTheme,DefaultStyleProps,useBeautifyTheme,CSSRules} from '@library/theme';
 
@@ -17,7 +17,7 @@ export const getStyles = (props: StylesProps) => {
   };
 
   const classes = {
-    {{lowerCase name}}: cn(
+    {{lowerCase name}}: cx(
        ),
   };
   return { classes, css };

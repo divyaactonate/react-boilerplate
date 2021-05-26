@@ -2,7 +2,7 @@
 import { BeautifySize } from '@library/theme';
 import { BeautifyCase } from '@library/theme/types';
 import { ComponentPassThrough } from '@library/types';
-import cn from 'clsx';
+import cx from 'clsx';
 import { memo, ReactElement } from 'react';
 import { Spinner } from '../Spinner';
 import { useStyles } from './Button.styles';
@@ -126,7 +126,7 @@ export const ButtonBase = <
   return (
     <Element
       {...others}
-      className={cn(classes.button, className)}
+      className={cx(classes.button, className)}
       css={css[variant]}
       disabled={disabled}
       ref={elementRef}

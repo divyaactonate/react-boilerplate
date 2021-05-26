@@ -4,7 +4,7 @@ import {
   DefaultStyleProps,
   useBeautifyTheme,
 } from '@library/theme';
-import cn from 'clsx';
+import cx from 'clsx';
 import { useMemo } from 'react';
 
 export type GroupPosition = 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
@@ -48,7 +48,7 @@ const FLEX_WRAPS = {
 const getStyles = (props: StylesProps) => {
   const { spacing, position, wrap, direction, grow } = props;
   const classes = {
-    group: cn(
+    group: cx(
       `flex`,
       FLEX_DIRECTIONS[direction],
       direction === 'row' ? ALIGNS.center : grow ? 'stretch' : JUSTIFY[position],
@@ -56,7 +56,7 @@ const getStyles = (props: StylesProps) => {
       FLEX_WRAPS[wrap],
       direction === 'row' ? `space-x-${spacing}` : `space-y-${spacing}`
     ),
-    child: cn(grow ? 'flex-grow' : 'flex-grow-0'),
+    child: cx(grow ? 'flex-grow' : 'flex-grow-0'),
   };
   const css = {};
   return { classes, css };
