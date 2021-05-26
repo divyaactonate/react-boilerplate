@@ -1,10 +1,4 @@
-import {
-  BeautifyTheme,
-  DefaultStyleProps,
-  getThemeColor,
-  useBeautifyTheme,
-  CSSRules,
-} from '@library/theme';
+import { BeautifyTheme, DefaultStyleProps, getThemeColor, useBeautifyTheme } from '@library/theme';
 import cn from 'clsx';
 import { useMemo } from 'react';
 
@@ -19,7 +13,7 @@ interface StylesProps extends AlertStylesProps {
 
 export const getStyles = (props: StylesProps) => {
   const { color, theme, isTitle, variant } = props;
-  const css: CSSRules = {
+  const css = {
     subtle: {
       backgroundColor: getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 1 : 1 }),
     },

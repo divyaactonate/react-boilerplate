@@ -2,15 +2,14 @@ import {
   BeautifyPadding,
   BeautifySize,
   BeautifyTheme,
-  CSSRules,
   DefaultStyleProps,
   getPaddingValue,
   getSizeValue,
   getThemeColor,
   useBeautifyTheme,
 } from '@library/theme';
-import { useMemo } from 'react';
 import cn from 'clsx';
+import { useMemo } from 'react';
 
 interface ContainerStylesProps extends DefaultStyleProps {
   fluid: boolean;
@@ -32,7 +31,7 @@ export const sizes = {
 export const getStyles = (props: StylesProps) => {
   const { fluid, size, padding, color, theme } = props;
 
-  const css: CSSRules = {
+  const css = {
     container: {
       color: color === 'white' ? theme.black : theme.white,
       backgroundColor: getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 4 : 6 }),
