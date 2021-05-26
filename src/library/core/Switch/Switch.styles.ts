@@ -128,11 +128,11 @@ export const getStyles = (props: StylesProps) => {
 
         '&::before': {
           borderColor: hexToRgba(
-            getThemeColor({ theme, color, shade: 7 }),
+            getThemeColor({ theme, color, shade: 1 }),
             theme.colorScheme === 'dark' ? 0.65 : 1
           ),
           backgroundColor: hexToRgba(
-            getThemeColor({ theme, color, shade: 7 }),
+            getThemeColor({ theme, color, shade: 5 }),
             theme.colorScheme === 'dark' ? 0.65 : 1
           ),
         },

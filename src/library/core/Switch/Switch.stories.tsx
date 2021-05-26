@@ -35,7 +35,7 @@ storiesOf('@beautify/core/Switch', module)
   ))
   .add('Disabled', () => (
     <div style={{ padding: 15 }}>
-      <Switch label='Disabled' disabled color='gray' />
+      <Switch defaultChecked={false} label='Disabled' disabled color='gray' />
       <Switch checked label='Disabled checked' disabled color='gray' style={{ marginTop: 15 }} />
     </div>
   ))
