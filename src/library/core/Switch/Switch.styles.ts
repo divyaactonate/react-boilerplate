@@ -14,7 +14,7 @@ import {
 
 interface SwitchStylesProps extends DefaultStyleProps {
   reduceMotion?: boolean;
-  color: string;
+  color?: string;
   size: BeautifySize;
   radius: BeautifySize;
   theme: BeautifyTheme;
@@ -69,7 +69,6 @@ export const getStyles = (props: StylesProps) => {
     switch: {
       WebkitTapHighlightColor: 'transparent',
       position: 'relative',
-      borderRadius: getRadiusValue({ radius }),
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2],
       border: `1px solid ${
         theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
