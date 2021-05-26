@@ -2,13 +2,13 @@ import {
   BeautifyCase,
   BeautifySize,
   BeautifyTheme,
+  DefaultStyleProps,
   getRadiusValue,
   getSizeValue,
   getStyleValue,
-  useBeautifyTheme,
-  DefaultStyleProps,
   getThemeColor,
   hexToRgba,
+  useBeautifyTheme,
 } from '@library/theme';
 import cn from 'clsx';
 import { useMemo } from 'react';
@@ -145,7 +145,7 @@ const getStyles = (props: StylesProps) => {
   };
 
   const classes = {
-    iconStyle: `flex items center`,
+    iconStyle: `flex items-center`,
     leftIcon: ``,
     rightIcon: ``,
     inner: `flex items-center space-x-2 justify-center h-full`,

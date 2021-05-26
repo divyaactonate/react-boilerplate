@@ -2,6 +2,7 @@ import {
   BeautifyPadding,
   BeautifySize,
   BeautifyTheme,
+  CSSRules,
   DefaultStyleProps,
   getPaddingValue,
   getSizeValue,
@@ -31,7 +32,7 @@ export const sizes = {
 export const getStyles = (props: StylesProps) => {
   const { fluid, size, padding, color, theme } = props;
 
-  const css = {
+  const css: CSSRules = {
     container: {
       color: color === 'white' ? theme.black : theme.white,
       backgroundColor: getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 4 : 6 }),

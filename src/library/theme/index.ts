@@ -12,6 +12,7 @@ export type {
   BeautifyWeight,
   BeautifyHeading,
   DefaultStyleProps,
+  CSSRules,
 } from './types';
 
 // export { createMemoStyles } from './create-memo-styles';
