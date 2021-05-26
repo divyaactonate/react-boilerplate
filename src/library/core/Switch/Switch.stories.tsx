@@ -25,7 +25,7 @@ const sizes = (['xs', 'sm', 'md', 'lg', 'xl'] as any[]).map((size) => (
 ));
 
 storiesOf('@beautify/core/Switch', module)
-  .add('Themes', () => <div style={{ padding: 15 }}>{getThemes({ checked: true })}</div>)
+  .add('Themes', () => <div style={{ padding: 15 }}>{getThemes({ defaultChecked: true })}</div>)
   .add('Sizes', () => <div style={{ padding: 15 }}>{sizes}</div>)
   .add('Controlled', () => (
     <SwitchWrapper color='blue' label='Controlled' style={{ padding: 15 }} />
@@ -44,7 +44,7 @@ storiesOf('@beautify/core/Switch', module)
       <div
         style={{ backgroundColor: DEFAULT_THEME.colors.dark[7], padding: 40, minHeight: '100vh' }}
       >
-        {getThemes({ checked: true })}
+        {getThemes({ defaultChecked: true })}
         <Switch label='Disabled' disabled style={{ marginTop: 15 }} />
         <Switch checked label='Disabled checked' disabled style={{ marginTop: 15 }} />
         <SwitchWrapper label='Controlled' style={{ marginTop: 15 }} />
