@@ -1,54 +1,87 @@
-/**
- *
- * Switch
- *
- */
+/** @jsxImportSource @emotion/react */
 
-import { FC } from 'react';
-import { Switch as ToggleSwitch } from '@headlessui/react';
-import { Logger } from '@libs/logger';
+import cx from 'clsx';
+import { useStyles, sizes } from './Switch.styles';
+import { DefaultProps, useBeautifyTheme, BeautifySize, BeautifyNumberSize } from '@library/theme';
 
-export interface SwitchProps {
-  checked?: boolean;
-  passive?: boolean;
-  onChange?: (val: any) => void;
-  className?: string;
-  label?: string;
-  activeColor?: string;
-  deactiveColor?: string;
+export const SWITCH_SIZES = sizes;
+
+export interface SwitchProps
+  extends DefaultProps,
+    Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size'> {
+  /** Id is used to bind input and label, if not passed unique id will be generated for each input */
+  id?: string;
+
+  /** Switch label */
+  label?: React.ReactNode;
+
+  /** Switch checked state color from theme, defaults to theme.primaryColor
+   ** @type string
+   * @default 'blue'
+   */
+  color?: string;
+
+  /** Predefined size value */
+  size?: BeautifySize;
+
+  /** Predefined border-radius value from theme.radius or number for border-radius in px */
+  radius?: BeautifyNumberSize;
+
+  /** Style properties added to input element */
+  inputStyle?: React.CSSProperties;
+
+  /** Class name added to input element */
+  inputClassName?: string;
+
+  /** Props spread to wrapper element */
+  wrapperProps?: Record<string, any>;
+
+  /** Get element ref */
+  elementRef?: React.ForwardedRef<HTMLInputElement>;
 }
 
-export const Switch: FC<SwitchProps> = ({
-  checked = true,
-  passive = true,
-  onChange = (e) => {
-    Logger.info(e);
-  },
+export const Switch = ({
+  themeOverride,
   className,
-  label = '',
-  activeColor = 'bg-blue-600',
-  deactiveColor = 'bg-gray-200',
+  color,
+  label,
+  id = '1',
+  style,
+  size = 'md',
+  radius = 'xl',
+  wrapperProps,
+  inputStyle,
+  inputClassName,
+  elementRef,
+  // children,
+  ...others
 }: SwitchProps) => {
+  const { classes, css } = useStyles({
+    theme: useBeautifyTheme(themeOverride),
+    size,
+    color,
+    radius,
+    // themeOverride
+  });
+
   return (
-    <ToggleSwitch.Group>
-      <div className='flex items-center'>
-        <ToggleSwitch.Label className='mr-4' passive={passive}>
+    <div className={cx(classes.wrapper, className)} style={style} {...wrapperProps}>
+      <input
+        {...others}
+        id={id}
+        ref={elementRef}
+        type='checkbox'
+        css={css.switch}
+        className={cx(classes.switch, inputClassName)}
+        style={inputStyle}
+      />
+
+      {label && (
+        <label className={classes.label} htmlFor={id}>
           {label}
-        </ToggleSwitch.Label>
-        <ToggleSwitch
-          checked={checked}
-          onChange={onChange}
-          className={`${checked ? activeColor : deactiveColor} ${className ? className : ''}
-          relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-transparent`}
-        >
-          <span
-            className={`${
-              checked ? 'translate-x-6' : 'translate-x-1'
-            } inline-block w-4 h-4 transform bg-white rounded-full transition-transform`}
-          />
-        </ToggleSwitch>
-      </div>
-    </ToggleSwitch.Group>
+        </label>
+      )}
+    </div>
   );
 };
 Switch.displayName = '@beautify/core/Switch';
