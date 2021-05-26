@@ -13,6 +13,7 @@ export { Spinner } from './Spinner';
 export { Alert } from './Alert';
 export { InputField } from './InputField';
 export { Overlay } from './Overlay';
+export { Avatar } from './Avatar';
 
 export type { ButtonProps } from './Button';
 export type { InputFieldProps } from './InputField';
@@ -28,3 +29,4 @@ export type { TitleProps } from './Title';
 export type { SpinnerProps } from './Spinner';
 export type { AlertProps } from './Alert';
 export type { OverlayProps } from './Overlay';
+export type { AvatarProps } from './Avatar';
