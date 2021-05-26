@@ -22,15 +22,17 @@ interface StylesProps extends PaperStylesProps {
   theme: BeautifyTheme;
 }
 const getStyles = (props: StylesProps) => {
-  const { shadow, radius, color, padding, theme } = props;
+  const { shadow, radius, padding, theme } = props;
 
-  const colorStyles = cx(
-    color === 'white'
-      ? `bg-${color} text-black`
-      : color === 'black'
-      ? `bg-${color} text-white`
-      : `bg-${color}-700 text-white`
-  );
+  // const colorStyles = cx(
+  //   color === 'white'
+  //     ? `bg-${color} text-black`
+  //     : color === 'black'
+  //     ? `bg-${color} text-white`
+  //     : `bg-${color}-700 text-white`
+  // );
+  console.log(theme.colorScheme, theme.white);
+
   const css = {
     paper: {
       color: theme.colorScheme === 'dark' ? theme.white : theme.black,
@@ -41,7 +43,7 @@ const getStyles = (props: StylesProps) => {
     paper: cx(
       `box-border`,
       getShadowValue({ shadow }),
-      colorStyles,
+      // colorStyles,
       getRadiusValue({ radius }),
       getPaddingValue({ padding })
     ),

@@ -1,9 +1,9 @@
-import { tailwindColors } from '@library/theme';
+import { DEFAULT_THEME } from '@library/theme/default-theme';
 import { storiesOf } from '@storybook/react';
 import { Loader } from './index';
 
 const getThemes = (props?: any) =>
-  Object.keys(tailwindColors).map((color) => (
+  Object.keys(DEFAULT_THEME.colors).map((color) => (
     <Loader key={color} color={color} style={{ display: 'block', marginTop: 15 }} {...props} />
   ));
 

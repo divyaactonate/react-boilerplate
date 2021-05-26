@@ -10,11 +10,7 @@ export interface BeautifyProviderProps {
 }
 
 export const BeautifyProvider = ({ children, theme }: BeautifyProviderProps) => {
-  return (
-    <ThemeProvider value={mergeTheme({ __beautify_theme: true, ...DEFAULT_THEME }, theme)}>
-      {children}
-    </ThemeProvider>
-  );
+  return <ThemeProvider value={mergeTheme({ ...DEFAULT_THEME }, theme)}>{children}</ThemeProvider>;
 };
 
 BeautifyProvider.displayName = '@beautify/Provider';
