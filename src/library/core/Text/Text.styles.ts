@@ -11,7 +11,7 @@ import {
   getWeightValue,
   useBeautifyTheme,
 } from '@library/theme';
-import cn from 'clsx';
+import cx from 'clsx';
 import { useMemo } from 'react';
 
 export type TextVariant = 'text' | 'link';
@@ -45,7 +45,7 @@ export const getStyles = (props: StylesProps) => {
   };
 
   const classes = {
-    text: cn(
+    text: cx(
       `no-underline shadow-sm`,
       getWeightValue({ weight }),
       getAlignValue({ align }),

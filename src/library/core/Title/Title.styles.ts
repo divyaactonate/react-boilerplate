@@ -6,7 +6,7 @@ import {
   getThemeColor,
   useBeautifyTheme,
 } from '@library/theme';
-import cn from 'clsx';
+import cx from 'clsx';
 import { useMemo } from 'react';
 
 interface TitleStylesProps extends DefaultStyleProps {
@@ -29,7 +29,7 @@ export const getStyles = (props: StylesProps) => {
     },
   };
   const classes = {
-    title: cn(`m-0`, getHeadingValue({ heading: order })),
+    title: cx(`m-0`, getHeadingValue({ heading: order })),
   };
   return { classes, css };
 };

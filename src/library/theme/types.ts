@@ -91,3 +91,6 @@ export interface DefaultProps {
 export interface DefaultStyleProps {
   readonly themeOverride?: BeautifyThemeOverride;
 }
+export interface CSSRules {
+  [x: string]: CSSProperties;
+}

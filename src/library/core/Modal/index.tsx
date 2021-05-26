@@ -8,7 +8,7 @@ import { XIcon } from '@heroicons/react/solid';
 import { useScrollLock } from '@library/hooks';
 import { BeautifySize, DefaultProps } from '@library/theme/types';
 import { ElementType, FC, Fragment } from 'react';
-import cn from 'clsx';
+import cx from 'clsx';
 import { getSizeValue } from '@library/theme';
 
 export const sizes = {
@@ -134,7 +134,7 @@ export const Modal: FC<ModalProps> = ({
           >
             <div
               data-beautify-modal
-              className={cn(
+              className={cx(
                 `inline-block p-6 my-8 
                 overflow-hidden text-left align-middle 
                 transition-all transform bg-white shadow-xl rounded-2xl`,

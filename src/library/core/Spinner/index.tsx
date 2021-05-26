@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { DefaultProps } from '@library/theme';
-import cn from 'clsx';
+import cx from 'clsx';
 import { ComponentPropsWithoutRef } from 'react';
 import { useStyles } from './Spinner.styles';
 
@@ -56,7 +56,7 @@ export const Spinner = ({
     <div
       data-beautify-spinner
       css={css.spinner}
-      className={cn(classes.spinner, className)}
+      className={cx(classes.spinner, className)}
       {...rest}
     />
   );

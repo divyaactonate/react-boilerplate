@@ -1,7 +1,7 @@
 import { keyframes } from '@emotion/react';
 import { getBorderWidthValue, getThemeColor, useBeautifyTheme } from '@library/theme';
 import { BeautifyTheme, DefaultStyleProps } from '@library/theme/types';
-import cn from 'clsx';
+import cx from 'clsx';
 import { useMemo } from 'react';
 
 interface SpinnerStylesProps extends DefaultStyleProps {
@@ -26,7 +26,7 @@ const spin = keyframes({
 export const getStyles = (props: StylesProps) => {
   const { thickness, emptyColor, speed, size, color, theme } = props;
   const classes = {
-    spinner: cn(
+    spinner: cx(
       `block border-solid rounded-full`,
       `w-${size} h-${size}`,
       getBorderWidthValue({ thickness })
