@@ -118,11 +118,11 @@ export const getStyles = (props: StylesProps) => {
       },
       '&:disabled': {
         backgroundColor: hexToRgba(
-          getThemeColor({ theme, color, shade: 7 }),
+          getThemeColor({ theme, color, shade: 2 }),
           theme.colorScheme === 'dark' ? 0.65 : 1
         ),
         borderColor: hexToRgba(
-          getThemeColor({ theme, color, shade: 7 }),
+          getThemeColor({ theme, color, shade: 2 }),
           theme.colorScheme === 'dark' ? 0.65 : 1
         ),
         cursor: 'not-allowed',

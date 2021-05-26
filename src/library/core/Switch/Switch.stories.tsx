@@ -31,8 +31,8 @@ storiesOf('@beautify/core/Switch', module)
   .add('Autofocus', () => <SwitchWrapper label='Autofocus' style={{ padding: 15 }} autoFocus />)
   .add('Disabled', () => (
     <div style={{ padding: 15 }}>
-      <Switch label='Disabled' disabled />
-      <Switch checked label='Disabled checked' disabled style={{ marginTop: 15 }} />
+      <Switch label='Disabled' disabled color='gray' />
+      <Switch checked label='Disabled checked' disabled color='gray' style={{ marginTop: 15 }} />
     </div>
   ))
   .add('Dark theme', () => (
