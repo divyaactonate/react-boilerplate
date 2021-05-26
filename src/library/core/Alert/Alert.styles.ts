@@ -1,6 +1,12 @@
-import { useMemo } from 'react';
+import {
+  BeautifyTheme,
+  DefaultStyleProps,
+  getThemeColor,
+  useBeautifyTheme,
+  CSSRules,
+} from '@library/theme';
 import cn from 'clsx';
-import { BeautifyTheme, DefaultStyleProps, getThemeColor, useBeautifyTheme } from '@library/theme';
+import { useMemo } from 'react';
 
 interface AlertStylesProps extends DefaultStyleProps {
   color: string;
@@ -10,9 +16,10 @@ interface AlertStylesProps extends DefaultStyleProps {
 interface StylesProps extends AlertStylesProps {
   theme: BeautifyTheme;
 }
+
 export const getStyles = (props: StylesProps) => {
   const { color, theme, isTitle, variant } = props;
-  const css = {
+  const css: CSSRules = {
     subtle: {
       backgroundColor: getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 1 : 1 }),
     },
@@ -53,7 +60,7 @@ export const getStyles = (props: StylesProps) => {
 
   const classes = {
     contentWrapper: `ml-4`,
-    title: `box m-0 mb-1 font-bold text-xl overflow-ellipsis overflow-hidden`,
+    title: `box m-0 mb-1 font-bold fo text-xl overflow-ellipsis overflow-hidden`,
     body: `leading-normal overflow-ellipsis overflow-hidden text-md font-normal `,
     iconClass: isTitle ? 'w-20 h-20' : 'w-10',
     alert: cn(`alert flex flex-row items-center`, `p-5 rounded`),

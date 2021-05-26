@@ -1,6 +1,7 @@
 import {
   BeautifyHeading,
   BeautifyTheme,
+  CSSRules,
   DefaultStyleProps,
   getHeadingValue,
   getThemeColor,
@@ -18,7 +19,7 @@ interface StylesProps extends TitleStylesProps {
 }
 export const getStyles = (props: StylesProps) => {
   const { order, color, theme } = props;
-  const css = {
+  const css: CSSRules = {
     title: {
       color:
         color === 'white' || theme.colorScheme === 'dark'

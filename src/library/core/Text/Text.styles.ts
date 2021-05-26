@@ -4,6 +4,7 @@ import {
   BeautifyTextAlignment,
   BeautifyTheme,
   BeautifyWeight,
+  CSSRules,
   DefaultStyleProps,
   getAlignValue,
   getSizeValue,
@@ -31,7 +32,7 @@ interface StylesProps extends TextStylesProps {
 export const getStyles = (props: StylesProps) => {
   const { size, theme, color, variant, align, transform, weight } = props;
 
-  const css = {
+  const css: CSSRules = {
     text: {
       color:
         color in theme.colors

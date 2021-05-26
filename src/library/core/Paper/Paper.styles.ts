@@ -3,6 +3,7 @@ import {
   BeautifyShadow,
   BeautifySize,
   BeautifyTheme,
+  CSSRules,
   DefaultStyleProps,
   getPaddingValue,
   getRadiusValue,
@@ -31,7 +32,7 @@ const getStyles = (props: StylesProps) => {
       ? `bg-${color} text-white`
       : `bg-${color}-700 text-white`
   );
-  const css = {
+  const css: CSSRules = {
     paper: {
       color: theme.colorScheme === 'dark' ? theme.white : theme.black,
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,

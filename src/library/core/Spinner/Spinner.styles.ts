@@ -1,6 +1,6 @@
 import { keyframes } from '@emotion/react';
 import { getBorderWidthValue, getThemeColor, useBeautifyTheme } from '@library/theme';
-import { BeautifyTheme, DefaultStyleProps } from '@library/theme/types';
+import { BeautifyTheme, CSSRules, DefaultStyleProps } from '@library/theme/types';
 import cn from 'clsx';
 import { useMemo } from 'react';
 
@@ -32,7 +32,7 @@ export const getStyles = (props: StylesProps) => {
       getBorderWidthValue({ thickness })
     ),
   };
-  const css = {
+  const css: CSSRules = {
     spinner: {
       borderBottomColor: emptyColor,
       borderColor:

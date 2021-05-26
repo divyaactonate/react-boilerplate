@@ -22,6 +22,16 @@
   },
   "editor.autoClosingQuotes": "always",
   "tailwindCSS.experimental.classRegex": [
+    // ["cn\\(([^)]*)\\)", "'([^']*)'", "\"([^']*)\""],
+    [":(?:.|\n)*?[\"'`]([^\"'`]*).*?,"],
+    [":\\s*?[\"'`]([^\"'`]*).*?,"],
+    // ["%\\w+([^\\s]*)", "\\.([^\\.]*)"],
+    // ["classNames\\(([^)]*)\\)", "'([^']*)'", "\"([^']*)\""],
+    // ["cn\\(([^)]*)\\)", "'([^']*)'"],
+    // ["%\\w+([^\\s]*)", "\\.([^\\.]*)"],
+    // ["classNames\\s*=\\s*\\[([^\\]]*)\\]", "'([^']*)'"],
+    // [":\\s*?[\"'`]([^\"'`]*).*?,"],
+    // "css`([^`]*)", // css`...`
     "tw`([^`]*)", // tw`...`
     "tw='([^']*)", // <div tw="..." />
     "tw={'([^'}]*)", // <div tw={"..."} />
@@ -30,11 +40,8 @@
   ],
   "tailwindCSS.includeLanguages": {
     "typescript": "javascript",
+    "plaintext": "javascript",
     "typescriptreact": "javascript"
   },
-  "cSpell.words": [
-    "clsx",
-    "nowrap",
-    "tailwindcss"
-  ]
+  "cSpell.words": ["clsx", "nowrap", "tailwindcss"]
 }
