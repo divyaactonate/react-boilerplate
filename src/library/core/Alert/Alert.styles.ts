@@ -55,9 +55,9 @@ export const getStyles = (props: StylesProps) => {
   const classes = {
     contentWrapper: `ml-4`,
     title: `box m-0 mb-1 font-bold fo text-xl overflow-ellipsis overflow-hidden`,
-    body: `leading-normal overflow-ellipsis overflow-hidden text-md font-normal `,
+    body: `leading-normal overflow-ellipsis overflow-hidden text-base font-normal `,
     iconClass: isTitle ? 'w-20 h-20' : 'w-10',
-    alert: cx(`alert flex flex-row items-center`, `p-5 rounded`),
+    alert: cx(`flex flex-row items-center p-5 rounded`),
   };
   return { classes, css };
 };
