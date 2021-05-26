@@ -15,6 +15,7 @@ export { InputField } from './InputField';
 export { Overlay } from './Overlay';
 
 export type { ButtonProps } from './Button';
+export type { InputFieldProps } from './InputField';
 export type { ModalProps } from './Modal';
 export type { ToasterProps } from './Toaster';
 export type { BreadcrumProps } from './Breadcrum';

@@ -3,7 +3,7 @@ import Layout from '@layouts/index';
 import { Switch, Breadcrum, ListBox, InputField } from '@library/core';
 
 const Home = () => {
-  const [checked, setChecked]: [any, any] = useState(false);
+  // const [checked, setChecked]: [any, any] = useState(false);
   const [selected, setSelected] = useState({ name: 'Wade Cooper' });
 
   return (
@@ -14,9 +14,13 @@ const Home = () => {
       <div className='flex justify-center flex-col items-center py-3 border border-green-600'>
         <u> Switch Controls </u>
         <br />
-        <div className='flex justify-between items-center'>
-          <Switch label={'switch label'} checked={checked} onChange={(e) => setChecked(e)} />
-          <Switch
+        <div className='flex flex-col justify-between items-center'>
+          <Switch label='I agree to sell my privacy' />
+          <br />
+          <Switch label='I am label' color='green' />
+
+          {/* <Switch label={'switch label'} checked={checked} onChange={(e) => setChecked(e)} /> */}
+          {/* <Switch
             passive={false}
             checked={checked}
             onChange={(e) => setChecked(e)}
@@ -28,7 +32,7 @@ const Home = () => {
             onChange={(e) => setChecked(e)}
             activeColor={`bg-green-500`}
             deactiveColor={`bg-yellow-500`}
-          />
+          /> */}
         </div>
       </div>
       <br />
