@@ -7,7 +7,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  devtool: 'source-map',
+  devtool: 'eval-cheap-source-map',
   output: {
     filename: '[name].[chunkhash].js',
     sourceMapFilename: '[name].[chunkhash].map',

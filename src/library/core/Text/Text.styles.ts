@@ -45,7 +45,7 @@ export const getStyles = (props: StylesProps) => {
 
   const classes = {
     text: cx(
-      `no-underline shadow-sm`,
+      `no-underline`,
       getWeightValue({ weight }),
       getAlignValue({ align }),
       getTextSizeValue({ size }),

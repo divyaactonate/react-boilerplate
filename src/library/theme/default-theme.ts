@@ -1,4 +1,13 @@
-import { weights, lineHeights, headings, colors, shadows, paddings, radii, sizes } from './configs';
+import {
+  weights,
+  lineHeights,
+  headings,
+  colors,
+  shadows,
+  paddings,
+  radii,
+  textSizes,
+} from './configs';
 import { BeautifyTheme } from './types';
 
 export const DEFAULT_THEME: BeautifyTheme = {
@@ -14,7 +23,7 @@ export const DEFAULT_THEME: BeautifyTheme = {
   weights,
   lineHeights,
   shadows,
-  fontSizes: sizes,
+  fontSizes: textSizes,
   radius: radii,
   paddings,
   headings,
