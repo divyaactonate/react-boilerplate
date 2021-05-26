@@ -6,7 +6,7 @@ import {
   useBeautifyTheme,
   BeautifySize,
   getThemeColor,
-  getSizeValue,
+  getTextSizeValue,
   hexToRgba,
 } from '@library/theme';
 
@@ -65,10 +65,10 @@ export const getStyles = (props: StylesProps) => {
       WebkitTapHighlightColor: 'transparent',
       lineHeight: `${height - 2}px`,
       border: '1px solid transparent',
-      padding: [0, getSizeValue({ size, sizes: spacing }) / 1.5],
+      padding: [0, getTextSizeValue({ size, sizes: spacing }) / 1.5],
       display: fullWidth ? 'flex' : 'inline-flex',
       width: fullWidth ? '100%' : 'auto',
-      borderRadius: getSizeValue({ size: radius, sizes: theme.radius }),
+      borderRadius: getTextSizeValue({ size: radius, sizes: theme.radius }),
       letterSpacing: 0.25,
     },
     leftSection: {
@@ -108,7 +108,7 @@ export const getStyles = (props: StylesProps) => {
   const classes = {
     badge: cx(
       `no-underline box-border justify-center items-center uppercases font-bold cursor-default overflow-ellipsis overflow-hidden`,
-      getSizeValue({ size: radius, sizes: theme.radius })
+      getTextSizeValue({ size: radius, sizes: theme.radius })
     ),
     leftSection: cx(),
     rightSection: cx(),

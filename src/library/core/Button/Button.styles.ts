@@ -4,7 +4,7 @@ import {
   BeautifyTheme,
   DefaultStyleProps,
   getRadiusValue,
-  getSizeValue,
+  getTextSizeValue,
   getStyleValue,
   getThemeColor,
   hexToRgba,
@@ -158,7 +158,7 @@ const getStyles = (props: StylesProps) => {
       getStyleValue(paddings, size),
       getStyleValue(heights, size),
       getWidthStyles(fullWidth),
-      getSizeValue({ size }),
+      getTextSizeValue({ size }),
       getRadiusValue({ radius })
     ),
     spinner: cx(

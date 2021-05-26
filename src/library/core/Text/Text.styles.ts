@@ -6,7 +6,7 @@ import {
   BeautifyWeight,
   DefaultStyleProps,
   getAlignValue,
-  getSizeValue,
+  getTextSizeValue,
   getTransformValue,
   getWeightValue,
   useBeautifyTheme,
@@ -48,7 +48,7 @@ export const getStyles = (props: StylesProps) => {
       `no-underline shadow-sm`,
       getWeightValue({ weight }),
       getAlignValue({ align }),
-      getSizeValue({ size }),
+      getTextSizeValue({ size }),
       getTransformValue({ transform }),
       variant === 'link' ? 'hover-underline' : 'hover-none'
     ),

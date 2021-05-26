@@ -3,7 +3,7 @@ import {
   BeautifyTheme,
   DefaultStyleProps,
   getRadiusValue,
-  getSizeValue,
+  getTextSizeValue,
   getThemeColor,
   useBeautifyTheme,
 } from '@library/theme';
@@ -44,12 +44,12 @@ const getStyles = (props: StylesProps) => {
     avatar: cx(
       `flex box-border relative overflow-hidden select-none`,
       `w-${sizes[size]} h-${sizes[size]}`,
-      getSizeValue({ size }),
+      getTextSizeValue({ size }),
       getRadiusValue({ radius })
     ),
     placeholder: cx(
       `flex items-center justify-center w-full h-full select-none w- font-bold`,
-      getSizeValue({ size })
+      getTextSizeValue({ size })
     ),
     placeholderIcon: `w-9/12 h-full`,
     badge: cx(

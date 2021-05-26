@@ -9,7 +9,7 @@ import { useScrollLock } from '@library/hooks';
 import { BeautifySize, DefaultProps } from '@library/theme/types';
 import { ElementType, FC, Fragment } from 'react';
 import cx from 'clsx';
-import { getSizeValue } from '@library/theme';
+import { getTextSizeValue } from '@library/theme';
 
 export const sizes = {
   xs: 'w-3/12	',
@@ -138,7 +138,7 @@ export const Modal: FC<ModalProps> = ({
                 `inline-block p-6 my-8 
                 overflow-hidden text-left align-middle 
                 transition-all transform bg-white shadow-xl rounded-2xl`,
-                getSizeValue({ sizes, size })
+                getTextSizeValue({ sizes, size })
               )}
             >
               {(title || !hideCloseButton) && (

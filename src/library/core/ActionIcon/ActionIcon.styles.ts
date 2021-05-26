@@ -6,7 +6,7 @@ import {
   useBeautifyTheme,
   hexToRgba,
   getThemeColor,
-  getSizeValue,
+  getTextSizeValue,
   BeautifySize,
   getRadiusValue,
 } from '@library/theme';
@@ -37,10 +37,10 @@ export const getStyles = (props: StylesProps) => {
       WebkitAppearance: 'none',
       WebkitTapHighlightColor: 'transparent',
       border: '1px solid transparent',
-      height: getSizeValue({ size, sizes }),
-      minHeight: getSizeValue({ size, sizes }),
-      width: getSizeValue({ size, sizes }),
-      minWidth: getSizeValue({ size, sizes }),
+      height: getTextSizeValue({ size, sizes }),
+      minHeight: getTextSizeValue({ size, sizes }),
+      width: getTextSizeValue({ size, sizes }),
+      minWidth: getTextSizeValue({ size, sizes }),
       borderRadius: getRadiusValue({ radius }),
       transition: 'color 100ms ease, background-color 100ms ease',
 
@@ -137,7 +137,7 @@ export const getStyles = (props: StylesProps) => {
     actionicon: cx(
       `appearance-none flex justify-center items-center cursor-pointer box-border p-0 leading-none`,
       getRadiusValue({ radius }),
-      getSizeValue({ size, sizes })
+      getTextSizeValue({ size, sizes })
     ),
   };
   return { classes, css };

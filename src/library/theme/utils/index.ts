@@ -1,4 +1,4 @@
-export { getSizeValue } from './get-size-value/get-size-value';
+export { getTextSizeValue } from './get-text-size-value/get-text-size-value';
 export { getRadiusValue } from './get-radius-value/get-radius-value';
 export { getStyleValue } from './get-style-value/get-style-value';
 export { getShadowValue } from './get-shadow-value/get-shadow-value';

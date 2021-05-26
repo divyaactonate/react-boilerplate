@@ -1,7 +1,7 @@
 import cn from 'clsx';
 import { useMemo } from 'react';
 import {
-  getSizeValue,
+  getTextSizeValue,
   BeautifySize,
   BeautifyTheme,
   useBeautifyTheme,
@@ -63,7 +63,7 @@ interface StylesProps extends SwitchStylesProps {
 export const getStyles = (props: StylesProps) => {
   const { theme, size, radius, reduceMotion, color } = props;
 
-  const handleSize = getSizeValue({ size, sizes: handleSizes });
+  const handleSize = getTextSizeValue({ size, sizes: handleSizes });
 
   const css: any = {
     switch: {
@@ -73,9 +73,9 @@ export const getStyles = (props: StylesProps) => {
       border: `1px solid ${
         theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
       }`,
-      height: getSizeValue({ size, sizes: switchHeight }),
-      width: getSizeValue({ size, sizes: switchWidth }),
-      minWidth: getSizeValue({ size, sizes: switchWidth }),
+      height: getTextSizeValue({ size, sizes: switchHeight }),
+      width: getTextSizeValue({ size, sizes: switchWidth }),
+      minWidth: getTextSizeValue({ size, sizes: switchWidth }),
       padding: [0, 2],
       margin: 0,
       transitionProperty: 'background-color, border-color',
@@ -108,8 +108,8 @@ export const getStyles = (props: StylesProps) => {
 
         '&::before': {
           transform: `translateX(${
-            getSizeValue({ size, sizes: switchWidth }) -
-            getSizeValue({ size, sizes: handleSizes }) -
+            getTextSizeValue({ size, sizes: switchWidth }) -
+            getTextSizeValue({ size, sizes: handleSizes }) -
             6 // borderWidth: 2 + padding: 2 * 2
           }px)`,
           borderColor: theme.white,
@@ -141,7 +141,7 @@ export const getStyles = (props: StylesProps) => {
   };
 
   const classes = {
-    switch: cn(``, getSizeValue({ size }), getRadiusValue({ radius })),
+    switch: cn(``, getTextSizeValue({ size }), getRadiusValue({ radius })),
     wrapper: cn(`flex items-center`),
     label: `text-${hexToRgba(
       getThemeColor({ theme, color, shade: 7 }),

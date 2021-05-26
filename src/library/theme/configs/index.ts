@@ -1,4 +1,4 @@
-export { sizes } from './sizes';
+export { textSizes } from './text-sizes';
 export { radii } from './radius';
 export { paddings } from './paddings';
 export { shadows } from './shadows';

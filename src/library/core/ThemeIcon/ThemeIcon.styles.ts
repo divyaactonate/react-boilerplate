@@ -27,7 +27,6 @@ export const sizes = {
 };
 const getStyles = (props: StylesProps) => {
   const { theme, radius, color, size } = props;
-  // const iconSize = getSizeValue({ size, sizes });
   const classes = {
     themeIcon: cx(
       `inline-flex items-center p-2 justify-center box-border`,
@@ -50,10 +49,6 @@ const getStyles = (props: StylesProps) => {
         theme.colorScheme === 'dark' ? 0.65 : 1
       ),
     },
-    // themeIcon: {
-    //   width: iconSize,
-    //   height: iconSize,
-    // },
   };
   return { classes, css };
 };

@@ -4,7 +4,7 @@ import {
   BeautifyTheme,
   DefaultStyleProps,
   getPaddingValue,
-  getSizeValue,
+  getTextSizeValue,
   getThemeColor,
   useBeautifyTheme,
 } from '@library/theme';
@@ -41,7 +41,7 @@ export const getStyles = (props: StylesProps) => {
   const classes = {
     container: cx(
       `m-auto`,
-      fluid ? 'w-full' : getSizeValue({ size, sizes }),
+      fluid ? 'w-full' : getTextSizeValue({ size, sizes }),
       getPaddingValue({ padding })
     ),
   };

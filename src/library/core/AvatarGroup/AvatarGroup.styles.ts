@@ -2,7 +2,7 @@ import {
   BeautifySize,
   BeautifyTheme,
   DefaultStyleProps,
-  getSizeValue,
+  getTextSizeValue,
   getThemeColor,
   useBeautifyTheme,
 } from '@library/theme';
@@ -54,7 +54,7 @@ export const getStyles = (props: StylesProps) => {
   const classes = {
     excessStyles: cx(
       `rounded-full -ml-4`,
-      getSizeValue({ size, sizes: sizess }),
+      getTextSizeValue({ size, sizes: sizess }),
       `w-${sizes[size]} h-${sizes[size]}`,
       `uppercase flex items-center justify-center text-center font-bold`
     ),
