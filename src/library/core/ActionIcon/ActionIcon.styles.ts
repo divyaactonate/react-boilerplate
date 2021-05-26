@@ -23,11 +23,11 @@ interface StylesProps extends ActionIconStylesProps {
 }
 
 export const sizes = {
-  xs: 18,
-  sm: 22,
-  md: 28,
-  lg: 34,
-  xl: 44,
+  xs: 28,
+  sm: 34,
+  md: 44,
+  lg: 56,
+  xl: 68,
 };
 
 export const getStyles = (props: StylesProps) => {

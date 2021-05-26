@@ -2,7 +2,7 @@
 
 import { BeautifySize, DefaultProps } from '@library/theme';
 import { getValidChildren } from '@library/utils/get-valid-children/get-valid-children';
-import { filterUndefined } from '@library/utils/oject-operations/object-operations';
+import { filterUndefined } from '@library/utils/object-operations/object-operations';
 import cx from 'clsx';
 import React, { cloneElement } from 'react';
 import { useStyles } from './AvatarGroup.styles';
