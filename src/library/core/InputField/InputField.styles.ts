@@ -130,6 +130,7 @@ export const useStyles = (props: InputFieldStylesProps) => {
 
   return useMemo(
     () => getStyles({ color, fullWidth, radius, size, transform, theme, disabled }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [color, theme, fullWidth, radius, size, transform, themeOverride, disabled]
   );
 };

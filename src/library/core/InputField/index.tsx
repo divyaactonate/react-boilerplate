@@ -112,7 +112,7 @@ export const InputFieldCustom = <
 
         <Element
           {...others}
-          data-mantine-input
+          data-beautify-input
           ref={elementRef}
           aria-required={required}
           aria-invalid={invalid}
@@ -126,7 +126,7 @@ export const InputFieldCustom = <
         {rightSection && (
           <div
             {...rightSectionProps}
-            data-mantine-input-section
+            data-beautify-input-section
             style={{
               ...rightSectionProps.style,
             }}

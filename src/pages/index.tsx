@@ -6,9 +6,9 @@ const Home = () => {
   // const [checked, setChecked]: [any, any] = useState(false);
   const [selected, setSelected] = useState({ name: 'Wade Cooper' });
   const items = [
-    { title: 'Mantine', href: 'https://mantine.dev' },
-    { title: 'Mantine hooks', href: 'https://mantine.dev/hooks/getting-started' },
-    { title: 'use-id', href: 'https://mantine.dev/hooks/use-id' },
+    { title: 'Mantine', href: 'https://beautify.dev' },
+    { title: 'Mantine hooks', href: 'https://beautify.dev/hooks/getting-started' },
+    { title: 'use-id', href: 'https://beautify.dev/hooks/use-id' },
   ].map((item, index) => (
     <Text variant='link' component='a' href={item.href} key={index}>
       {item.title}

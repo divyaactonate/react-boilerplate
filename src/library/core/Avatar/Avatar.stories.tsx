@@ -5,22 +5,26 @@ import { Avatar } from '.';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
 
 const getSizes = (props?: any) =>
-  ['xs', 'sm', 'md', 'lg', 'xl'].map((size) => <Avatar key={size} size={size} {...props} />);
+  ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'].map((size) => (
+    <Avatar key={size} size={size} {...props} />
+  ));
 
 const getRadius = (props?: any) =>
   ['xs', 'sm', 'md', 'lg', 'xl'].map((size) => <Avatar key={size} radius={size} {...props} />);
 
 const getThemes = (props?: any) =>
-  Object.keys(DEFAULT_THEME.colors).map((color) => <Avatar key={color} color={color} {...props} />);
+  Object.keys(DEFAULT_THEME.colors).map((color) => (
+    <Avatar key={color} badgeColor={color} color={color} {...props} />
+  ));
 
 const image = 'https://avatars.githubusercontent.com/u/4598631?v=4';
 
 storiesOf('@beautify/core/Avatar', module)
   .add('Sizes', () => (
-    <Group>{getSizes({ src: image, radius: 'md', style: { margin: '20px' } })}</Group>
+    <Group>{getSizes({ src: image, badge: true, radius: 'md', style: { margin: '20px' } })}</Group>
   ))
   .add('Radius', () => (
-    <Group>{getRadius({ src: image, size: 'xl', style: { margin: '20px' } })}</Group>
+    <Group>{getRadius({ src: image, badge: true, size: 'xl', style: { margin: '20px' } })}</Group>
   ))
   .add('Placeholder', () => <Group>{getSizes({ radius: 'lg', style: { margin: '20px' } })}</Group>)
   .add('Icon avatar', () => (
@@ -32,10 +36,22 @@ storiesOf('@beautify/core/Avatar', module)
       })}
     </Group>
   ))
-  .add('Letter avatar', () => (
+  .add('Badge Color', () => (
     <Group style={{ padding: 15 }}>
-      {getThemes({ size: 'xl', children: 'VR', radius: 'xl', style: { margin: '20px' } })}
+      {getThemes({
+        badge: true,
+        size: 'xl',
+        style: { margin: '20px' },
+        children: <PaperClipIcon style={{ width: 40, height: 40 }} />,
+      })}
     </Group>
+  ))
+  .add('Letter avatar', () => (
+    <>
+      <Group style={{ padding: 15 }}>
+        {getThemes({ size: 'xl', children: 'VR', radius: 'xl', style: { margin: '20px' } })}
+      </Group>
+    </>
   ))
   .add('Dark theme', () => (
     <div style={{ background: DEFAULT_THEME.colors.dark[7], minHeight: '100vh' }}>

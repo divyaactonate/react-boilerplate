@@ -17,7 +17,6 @@ import { useMemo } from 'react';
 export type TextVariant = 'text' | 'link';
 
 interface TextStylesProps extends DefaultStyleProps {
-  // theme: MantineTheme;
   color: string;
   variant: TextVariant;
   size: BeautifySize;

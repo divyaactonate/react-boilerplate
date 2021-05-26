@@ -1,5 +1,3 @@
-// import { InternalMantineTheme, MantineThemeOverride } from '../../types';
-
 import { BeautifyThemeOverride, InternalBeautifyTheme } from '@library/theme/types';
 
 export function mergeTheme(
