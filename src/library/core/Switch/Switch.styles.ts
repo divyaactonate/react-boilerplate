@@ -64,13 +64,12 @@ export const getStyles = (props: StylesProps) => {
   const { theme, size, radius, reduceMotion, color } = props;
 
   const handleSize = getSizeValue({ size, sizes: handleSizes });
-  const borderRadius = getRadiusValue({ radius });
 
-  const css = {
+  const css: any = {
     switch: {
       WebkitTapHighlightColor: 'transparent',
       position: 'relative',
-      borderRadius,
+      borderRadius: getRadiusValue({ radius }),
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2],
       border: `1px solid ${
         theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
@@ -88,7 +87,7 @@ export const getStyles = (props: StylesProps) => {
       display: 'flex',
       alignItems: 'center',
       '&::before': {
-        borderRadius: getRadiusValue({ radius }),
+        borderRadius: '45%',
         boxSizing: 'border-box',
         content: "''",
         display: 'block',
@@ -143,7 +142,7 @@ export const getStyles = (props: StylesProps) => {
   };
 
   const classes = {
-    switch: cn(``),
+    switch: cn(``, getSizeValue({ size }), getRadiusValue({ radius })),
     wrapper: cn(`flex items-center`),
     label: `text-${hexToRgba(
       getThemeColor({ theme, color, shade: 7 }),

@@ -56,7 +56,7 @@ export const Switch = ({
   // children,
   ...others
 }: SwitchProps) => {
-  const { classes } = useStyles({
+  const { classes, css } = useStyles({
     theme: useBeautifyTheme(themeOverride),
     size,
     color,
@@ -71,6 +71,7 @@ export const Switch = ({
         id={id}
         ref={elementRef}
         type='checkbox'
+        css={css.switch}
         className={cx(classes.switch, inputClassName)}
         style={inputStyle}
       />
@@ -81,9 +82,6 @@ export const Switch = ({
         </label>
       )}
     </div>
-    // <div data-beautify-switch css={css.cards} className={cx(classes.switch)}>
-    //   switch
-    // </div>
   );
 };
 Switch.displayName = '@beautify/core/Switch';
