@@ -27,8 +27,12 @@ const sizes = (['xs', 'sm', 'md', 'lg', 'xl'] as any[]).map((size) => (
 storiesOf('@beautify/core/Switch', module)
   .add('Themes', () => <div style={{ padding: 15 }}>{getThemes({ checked: true })}</div>)
   .add('Sizes', () => <div style={{ padding: 15 }}>{sizes}</div>)
-  .add('Controlled', () => <SwitchWrapper label='Controlled' style={{ padding: 15 }} />)
-  .add('Autofocus', () => <SwitchWrapper label='Autofocus' style={{ padding: 15 }} autoFocus />)
+  .add('Controlled', () => (
+    <SwitchWrapper color='blue' label='Controlled' style={{ padding: 15 }} />
+  ))
+  .add('Autofocus', () => (
+    <SwitchWrapper color='blue' label='Autofocus' style={{ padding: 15 }} autoFocus />
+  ))
   .add('Disabled', () => (
     <div style={{ padding: 15 }}>
       <Switch label='Disabled' disabled color='gray' />

@@ -27,21 +27,6 @@ const Home = () => {
           <Switch label='I agree to sell my privacy' />
           <br />
           <Switch label='I am label' color='green' />
-
-          {/* <Switch label={'switch label'} checked={checked} onChange={(e) => setChecked(e)} /> */}
-          {/* <Switch
-            passive={false}
-            checked={checked}
-            onChange={(e) => setChecked(e)}
-            className={`py-3 bg-red-400`}
-            activeColor={`bg-pink-600`}
-          />
-          <Switch
-            checked={checked}
-            onChange={(e) => setChecked(e)}
-            activeColor={`bg-green-500`}
-            deactiveColor={`bg-yellow-500`}
-          /> */}
         </div>
       </div>
       <br />

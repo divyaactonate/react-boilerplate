@@ -43,7 +43,7 @@ export interface SwitchProps
 export const Switch = ({
   themeOverride,
   className,
-  color,
+  color = 'blue',
   label,
   id = '1',
   style,
