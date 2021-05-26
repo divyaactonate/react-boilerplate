@@ -13,7 +13,7 @@ export interface AvatarProps extends DefaultProps, ComponentPropsWithoutRef<'div
   alt?: string;
 
   /** Avatar width and height */
-  size?: BeautifySize;
+  size?: BeautifySize | number;
 
   /** Predefined border-radius value from theme.radius or number for border-radius in px */
   radius?: BeautifySize;
