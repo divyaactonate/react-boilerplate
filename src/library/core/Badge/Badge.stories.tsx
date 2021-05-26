@@ -6,8 +6,9 @@ import { ActionIcon } from '@library/core/ActionIcon';
 import { Avatar } from '@library/core/Avatar';
 import { Group } from '@library/core/Group';
 
-const Cross1Icon = () => (
+const Cross1Icon = (props?: any) => (
   <svg
+    {...props}
     xmlns='http://www.w3.org/2000/svg'
     className='h-4 w-4'
     fill='none'
@@ -119,7 +120,7 @@ storiesOf('@beautify/core/Badge', module)
         color='lime'
         leftSection={
           <Avatar
-            size={24}
+            size={'2xl'}
             style={{ marginRight: 5 }}
             src='https://avatars0.githubusercontent.com/u/10353856?s=460&u=88394dfd67727327c1f7670a1764dc38a8a24831&v=4'
           />

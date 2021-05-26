@@ -1,13 +1,13 @@
 /** @jsxImportSource @emotion/react */
 // Please remove above line if not using twin css
 
-import React from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 import cx from 'clsx';
 import { useStyles, sizes } from './ActionIcon.styles';
 import { DefaultProps, useBeautifyTheme, BeautifySize } from '@library/theme';
 import { ComponentPassThrough } from '@library/types';
 
-export interface ActionIconProps extends DefaultProps, React.ComponentPropsWithoutRef<'button'> {
+export interface ActionIconProps extends DefaultProps, ComponentPropsWithoutRef<'button'> {
   /** Icon rendered inside button */
   children: React.ReactNode;
 
