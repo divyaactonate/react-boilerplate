@@ -3,7 +3,7 @@
 import React from 'react';
 import cx from 'clsx';
 import { useStyles } from './Input.styles';
-import { DefaultProps, useBeautifyTheme } from '@library/theme';
+import { BeautifySize, DefaultProps, useBeautifyTheme } from '@library/theme';
 import { ComponentPassThrough } from '@library/types';
 
 export interface InputProps extends DefaultProps {
@@ -35,7 +35,7 @@ export interface InputProps extends DefaultProps {
   required?: boolean;
 
   /** Input border-radius from theme or number to set border-radius in px */
-  radius?: MantineNumberSize;
+  radius?: BeautifySize;
 
   /** Defines input appearance */
   variant?: 'default' | 'filled' | 'unstyled';
@@ -46,7 +46,7 @@ export const Input = <
   U extends HTMLElement = HTMLInputElement
 >({
   component: Element = 'input',
-  // className,
+  className,
   invalid = false,
   required = false,
   variant = 'default',
@@ -68,10 +68,9 @@ export const Input = <
 }) => {
   const theme = useBeautifyTheme(themeOverride);
   const { classes, css } = useStyles({ radius, theme });
-
   return (
     <div
-      css={[css.inputWrapper, { [css.invalid]: invalid }, css[`${variant}Variant`]]}
+      css={(css.inputWrapper, css[`${variant}Variant`], { [css.invalid]: invalid })}
       className={cx(
         classes.inputWrapper,
         { [classes.invalid]: invalid },
@@ -82,11 +81,7 @@ export const Input = <
       {...wrapperProps}
     >
       {icon && (
-        <div
-          data-mantine-icon
-          css={css.icon}
-          // className={classes.icon}
-        >
+        <div data-mantine-icon css={css.icon} className={cx(classes.icon, `ml-1`)}>
           {icon}
         </div>
       )}
@@ -95,12 +90,13 @@ export const Input = <
         {...others}
         data-mantine-input
         ref={elementRef}
-        css={[css.input, { [css.withIcon]: icon }, inputClassName]}
+        css={css.input}
         aria-required={required}
         aria-invalid={invalid}
-        // className={cx({ [classes.withIcon]: icon }, classes.input, inputClassName)}
+        className={cx({ [classes.withIcon]: icon }, classes.input, inputClassName)}
         style={{
           paddingRight: rightSection ? rightSectionWidth : 12,
+          paddingLeft: icon ? 28 : 5,
           ...inputStyle,
         }}
       />
@@ -108,11 +104,10 @@ export const Input = <
       {rightSection && (
         <div
           {...rightSectionProps}
-          css={[css.rightSection]}
+          css={css.rightSection}
           data-mantine-input-section
           style={{ ...rightSectionProps.style, width: rightSectionWidth }}
-          className={rightSectionProps.className}
-          // className={cx(classes.rightSection, rightSectionProps.className)}
+          className={cx(classes.rightSection, rightSectionProps.className)}
         >
           {rightSection}
         </div>

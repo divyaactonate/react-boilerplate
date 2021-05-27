@@ -4,7 +4,7 @@ import {
   BeautifyTheme,
   DefaultStyleProps,
   BeautifySize,
-  getSizeValue,
+  getTextSizeValue,
   useBeautifyTheme,
 } from '@library/theme';
 
@@ -23,15 +23,10 @@ export const getStyles = (props: StylesProps) => {
   const css: any = {
     input: {
       WebkitTapHighlightColor: 'transparent',
-      lineHeight: theme.lineHeights,
-      appearance: 'none',
-      resize: 'none',
-      boxSizing: 'border-box',
+      lineHeight: theme.lineHeights.normal,
       fontSize: theme.fontSizes.sm,
       width: '100%',
-      color: theme.black,
-      display: 'block',
-      textAlign: 'left',
+      color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[5],
 
       '&:disabled': {
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[1],
@@ -55,8 +50,7 @@ export const getStyles = (props: StylesProps) => {
     },
     withIcon: {},
     inputWrapper: {
-      position: 'relative',
-      borderRadius: getSizeValue({ size: radius, sizes: theme.radius }),
+      borderRadius: getTextSizeValue({ size: radius, sizes: theme.radius }),
 
       '&, & *': { boxSizing: 'border-box' },
     },
@@ -64,14 +58,14 @@ export const getStyles = (props: StylesProps) => {
       '& $input': {
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
         minHeight: 36,
-        paddingLeft: 12,
-        paddingRight: 12,
-        borderRadius: getSizeValue({ size: radius, sizes: theme.radius }),
+        paddingLeft: theme.paddings.md,
+        paddingRight: theme.paddings.md,
+        borderRadius: getTextSizeValue({ size: radius, sizes: theme.radius }),
         border: `1px solid ${
           theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[4]
         }`,
         transition: 'border-color 100ms ease, box-shadow 100ms ease',
-        color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
+        color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[5],
 
         '&:focus': {
           outline: 'none',
@@ -96,7 +90,7 @@ export const getStyles = (props: StylesProps) => {
         minHeight: 36,
         paddingLeft: 12,
         paddingRight: 12,
-        borderRadius: getSizeValue({ size: radius, sizes: theme.radius }),
+        borderRadius: getTextSizeValue({ size: radius, sizes: theme.radius }),
         border: '1px solid transparent',
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1],
         color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
@@ -154,21 +148,11 @@ export const getStyles = (props: StylesProps) => {
         paddingLeft: 34,
       },
     },
-    icon: {
-      pointerEvents: 'none',
-      position: 'absolute',
-      left: 0,
-      top: 0,
-      bottom: 0,
-      color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[5],
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
     invalid: {
       '& $input': {
         color: theme.colors.red[theme.colorScheme === 'dark' ? 4 : 6],
         borderColor: theme.colors.red[theme.colorScheme === 'dark' ? 4 : 6],
+        paddingLeft: theme.paddings['4xl'],
 
         '&::placeholder': {
           color: theme.colors.red[theme.colorScheme === 'dark' ? 4 : 6],
@@ -179,27 +163,32 @@ export const getStyles = (props: StylesProps) => {
         color: theme.colors.red[theme.colorScheme === 'dark' ? 4 : 6],
       },
     },
+    icon: {
+      color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[5],
+    },
     rightSection: {
-      position: 'absolute',
-      top: 0,
-      bottom: 0,
-      right: 0,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[5],
     },
   };
 
   const classes = {
-    input: cx(`appearance-none resize-none border-box block text-left text-sm bg-red`),
+    input: cx(
+      `appearance-none resize-none border-box block text-left rounded transition easy-in-out duration-400 bg-white-700 border border-gray-300 px-2 py-1`,
+      `focus focus:border-indigo-600 focus:outline-none active:outline-none active:border-indigo-600 shadow`
+    ),
     withIcon: cx(),
     inputWrapper: cx(`relative`),
     defaultVariant: cx(),
     filledVariant: cx(),
     unstyledVariant: cx(),
-    icon: cx(`pointer-events-none absolute left-0 top-0 bottom-0 flex justify-center items-center`),
+    icon: cx(
+      `pointer-events-none absolute left-0 top-0 bottom-0 flex justify-center items-center h-auto w-auto`
+    ),
     invalid: cx(``),
-    rightSection: cx(`absolute top-0 bottom-0 right-0 flex justify-center items-center`),
+    rightSection: cx(
+      ``,
+      `absolute top-0 bottom-0 right-0 flex justify-center items-center mr-1 text-yellow-400`
+    ),
   };
   return { classes, css };
 };

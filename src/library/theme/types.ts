@@ -57,6 +57,7 @@ export type BeautifyPadding =
   | '9xl';
 
 export interface BeautifyTheme {
+  spacing: Record<string, any> | undefined;
   readonly colorScheme: 'light' | 'dark';
   readonly white: string;
   readonly black: string;

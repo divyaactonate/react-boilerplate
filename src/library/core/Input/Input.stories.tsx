@@ -1,12 +1,11 @@
 import { storiesOf } from '@storybook/react';
 import { Input } from './index';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
-import { ActionIcon } from '@library/core/ActionIcon';
 
 const MagnifyingGlassIcon = () => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    className='h-6 w-6'
+    className='h-4 w-4'
     fill='none'
     viewBox='0 0 24 24'
     stroke='currentColor'
@@ -20,12 +19,6 @@ const MagnifyingGlassIcon = () => (
   </svg>
 );
 
-const actionIcon = () => (
-  <ActionIcon size='sm'>
-    <MagnifyingGlassIcon />
-  </ActionIcon>
-);
-
 const getStates = (props?: any) => (
   <div style={{ maxWidth: 300, padding: 50 }}>
     <Input placeholder='Text' {...props} />
@@ -36,7 +29,7 @@ const getStates = (props?: any) => (
     <Input placeholder='Url' type='url' {...props} style={{ marginTop: 15 }} />
     <Input
       placeholder='Invalid'
-      icon={MagnifyingGlassIcon}
+      icon={<MagnifyingGlassIcon />}
       invalid
       style={{ marginTop: 15 }}
       {...props}
@@ -44,20 +37,20 @@ const getStates = (props?: any) => (
     <Input placeholder='Disabled' disabled style={{ marginTop: 15 }} {...props} />
     <Input
       placeholder='With icon'
-      icon={MagnifyingGlassIcon}
+      icon={<MagnifyingGlassIcon />}
       style={{ marginTop: 15 }}
       {...props}
     />
     <Input
       style={{ marginTop: 15 }}
       placeholder='With right section'
-      rightSection={actionIcon}
+      rightSection={<MagnifyingGlassIcon />}
       {...props}
     />
     <Input
       style={{ marginTop: 15 }}
       placeholder='Right Section width'
-      rightSection={actionIcon}
+      rightSection={<MagnifyingGlassIcon />}
       rightSectionWidth={50}
       {...props}
     />
