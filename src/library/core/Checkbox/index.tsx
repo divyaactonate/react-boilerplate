@@ -81,7 +81,9 @@ export const Checkbox = ({
           {...others}
         />
 
-        <CheckboxIcon indeterminate={indeterminate} css={css.icon} className={classes.icon} />
+        {(indeterminate || checked) && (
+          <CheckboxIcon indeterminate={indeterminate} css={css.icon} className={classes.icon} />
+        )}
       </div>
 
       {label && (

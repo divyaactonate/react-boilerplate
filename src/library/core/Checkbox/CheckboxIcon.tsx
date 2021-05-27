@@ -4,17 +4,17 @@
 import { ComponentPropsWithoutRef } from 'react';
 
 interface CheckboxIconProps extends ComponentPropsWithoutRef<'svg'> {
-  indeterminate: boolean;
+  indeterminate?: boolean;
 }
 
-export const CheckboxIcon = ({ indeterminate, ...others }: CheckboxIconProps) => {
+export const CheckboxIcon = ({ ...others }: CheckboxIconProps) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
       height='15'
       width='15'
       viewBox='0 0 15 15'
-      fill={indeterminate ? '#fff' : 'transparent'}
+      fill={'#fff'}
       {...others}
     >
       <path
