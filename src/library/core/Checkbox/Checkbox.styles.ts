@@ -1,25 +1,23 @@
+import cx from 'clsx';
+import { useMemo } from 'react';
 import {
-  BeautifySize,
   BeautifyTheme,
   DefaultStyleProps,
-  getFocusStyles,
-  getRadiusValue,
-  getsizeValue,
+  useBeautifyTheme,
+  BeautifySize,
   getTextSizeValue,
   getThemeColor,
-  useBeautifyTheme,
+  getsizeValue,
+  getRadiusValue,
 } from '@library/theme';
-import { useMemo } from 'react';
-import cx from 'clsx';
 
-interface CheckboxStylesProps extends DefaultStyleProps {
-  size: BeautifySize;
-  color?: string;
-  radius: BeautifySize;
-}
-interface StylesProps extends CheckboxStylesProps {
-  theme: BeautifyTheme;
-}
+// export const sizes = {
+//   xs: 12,
+//   sm: 16,
+//   md: 20,
+//   lg: 26,
+//   xl: 36,
+// };
 export const sizes = {
   xs: 'w-4 h-4',
   sm: 'w-6 h-6',
@@ -27,27 +25,20 @@ export const sizes = {
   lg: 'w-10 h-10',
   xl: 'w-12 h-12',
 };
+interface CheckboxStylesProps extends DefaultStyleProps {
+  size: BeautifySize;
+  color: string;
+  radius: BeautifySize;
+}
 
+interface StylesProps extends CheckboxStylesProps {
+  theme: BeautifyTheme;
+}
 export const getStyles = (props: StylesProps) => {
-  const { size, color, radius, theme } = props;
-  const classes = {
-    label: cx(`pl-4`, getTextSizeValue({ size })),
-    checkboxWrapper: cx(`relative`, getsizeValue({ size, sizes })),
-    wrapper: `flex items-center`,
-    icon: `hidden pointer-events-none w-4/5 h-4/5 absolute z-10 inset-0 m-auto`,
-    checkbox: cx(
-      `block p-0 m-0 bg-green-600 text-green-600`,
-      getsizeValue({ size, sizes }),
-      getRadiusValue({ radius })
-    ),
-  };
+  const { theme, radius, size, color } = props;
   const css = {
-    label: {
-      WebkitTapHighlightColor: 'transparent',
-      color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
-    },
     checkbox: {
-      ...getFocusStyles(theme),
+      // appearance: 'none',
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[0],
       border: `1px solid ${
         theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[4]
@@ -77,16 +68,35 @@ export const getStyles = (props: StylesProps) => {
         },
       },
     },
+    label: {
+      WebkitTapHighlightColor: 'transparent',
+      color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+    },
+    icon: {
+      color: theme.colorScheme === 'dark' ? theme.black : theme.white,
+    },
+  };
+  const classes = {
+    label: cx(`pl-4`, getTextSizeValue({ size })),
+    checkboxWrapper: cx(`relative`, getsizeValue({ size, sizes })),
+    wrapper: `flex items-center`,
+    icon: `pointer-events-none w-4/5 h-4/5 absolute z-10 inset-0 m-auto`,
+    checkbox: cx(
+      `block p-0 m-0 bg-green-600 text-green-600 appearance-none`,
+      getsizeValue({ size, sizes }),
+      getRadiusValue({ radius })
+    ),
   };
   return { classes, css };
 };
+
 export const useStyles = (props: CheckboxStylesProps) => {
-  const { size, color, radius, themeOverride } = props;
+  const { themeOverride, size, radius, color } = props;
   const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
 
   return useMemo(
-    () => getStyles({ size, color, radius, theme }),
+    () => getStyles({ theme, size, radius, color }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [size, color, radius, themeOverride]
+    [themeOverride, size, color, radius, theme]
   );
 };
