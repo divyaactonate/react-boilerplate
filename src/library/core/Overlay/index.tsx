@@ -17,7 +17,7 @@ export interface OverlayProps extends DefaultProps {
 export function Overlay<T extends React.ElementType = 'div'>({
   className,
   opacity = 0.6,
-  color = '#fff',
+  color = '#000',
   zIndex = 1000,
   style,
   component: Element = 'div',
@@ -25,7 +25,8 @@ export function Overlay<T extends React.ElementType = 'div'>({
 }: ComponentPassThrough<T, OverlayProps>) {
   return (
     <Element
-      className={(cx('absolute inset-0'), className)}
+      data-beautify-overlay
+      className={(cx('absolute h-full min-h-screen inset-0'), className)}
       style={{
         opacity,
         backgroundColor: color,

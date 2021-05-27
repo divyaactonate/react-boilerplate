@@ -29,7 +29,7 @@ const MyModal = () => {
           Open Modal
         </button>
       </div>
-      <Modal size='xl' title='Modal Title' opened={isOpen} onClose={closeModal}>
+      <Modal size='sm' title='Modal Title' opened={isOpen} onClose={closeModal}>
         <div>
           {/* <div className='mt-2'>
             <p className='text-sm text-gray-500'>
