@@ -1,17 +1,16 @@
 /** @jsxImportSource @emotion/react */
 // Please remove above line if not using twin css
-import React from 'react';
 import cx from 'clsx';
 import { useStyles } from './Breadcrum.styles';
 import { DefaultProps } from '@library/theme';
 import { Text } from '@library/core/Text';
-
+import { Children, cloneElement, ReactNode } from 'react';
 export interface BreadcrumProps extends DefaultProps {
   /** Separator between breadcrumbs */
-  separator?: React.ReactNode;
+  separator?: ReactNode;
 
   /** React nodes that should be separated */
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const Breadcrum = ({
@@ -22,12 +21,12 @@ export const Breadcrum = ({
   ...others
 }: BreadcrumProps) => {
   const { classes } = useStyles({ themeOverride });
-  const items = React.Children.toArray(children).reduce((acc: any[], child: any, index, array) => {
+  const items = Children.toArray(children).reduce((acc: any[], child: any, index, array) => {
     acc.push(
-      React.cloneElement(child, {
+      cloneElement(child, {
         className: classes.breadcrum,
         key: index,
-        'data-mantine-breadcrumb': true,
+        'data-beautify-breadcrumb': true,
       })
     );
 
@@ -35,7 +34,7 @@ export const Breadcrum = ({
       acc.push(
         <Text
           size='sm'
-          data-mantine-separator
+          data-beautify-separator
           className={classes.separator}
           key={`separator-${index}`}
           themeOverride={themeOverride}

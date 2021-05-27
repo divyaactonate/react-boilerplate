@@ -3,14 +3,13 @@ import {
   BeautifyShadow,
   BeautifySize,
   BeautifyTheme,
-  CSSRules,
   DefaultStyleProps,
   getPaddingValue,
   getRadiusValue,
   getShadowValue,
   useBeautifyTheme,
 } from '@library/theme';
-import cn from 'clsx';
+import cx from 'clsx';
 import { useMemo } from 'react';
 
 interface PaperStylesProps extends DefaultStyleProps {
@@ -23,26 +22,28 @@ interface StylesProps extends PaperStylesProps {
   theme: BeautifyTheme;
 }
 const getStyles = (props: StylesProps) => {
-  const { shadow, radius, color, padding, theme } = props;
+  const { shadow, radius, padding, theme } = props;
 
-  const colorStyles = cn(
-    color === 'white'
-      ? `bg-${color} text-black`
-      : color === 'black'
-      ? `bg-${color} text-white`
-      : `bg-${color}-700 text-white`
-  );
-  const css: CSSRules = {
+  // const colorStyles = cx(
+  //   color === 'white'
+  //     ? `bg-${color} text-black`
+  //     : color === 'black'
+  //     ? `bg-${color} text-white`
+  //     : `bg-${color}-700 text-white`
+  // );
+  console.log(theme.colorScheme, theme.white);
+
+  const css = {
     paper: {
       color: theme.colorScheme === 'dark' ? theme.white : theme.black,
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
     },
   };
   const classes = {
-    paper: cn(
+    paper: cx(
       `box-border`,
       getShadowValue({ shadow }),
-      colorStyles,
+      // colorStyles,
       getRadiusValue({ radius }),
       getPaddingValue({ padding })
     ),

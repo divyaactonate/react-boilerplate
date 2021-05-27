@@ -8,8 +8,8 @@ import { XIcon } from '@heroicons/react/solid';
 import { useScrollLock } from '@library/hooks';
 import { BeautifySize, DefaultProps } from '@library/theme/types';
 import { ElementType, FC, Fragment } from 'react';
-import cn from 'clsx';
-import { getSizeValue } from '@library/theme';
+import cx from 'clsx';
+import { getTextSizeValue } from '@library/theme';
 
 export const sizes = {
   xs: 'w-3/12	',
@@ -54,7 +54,7 @@ export interface ModalProps
   size?: BeautifySize;
 
   /** Modal body transition */
-  // transition?: MantineTransition;
+  // transition?: beautifyTransition;
 
   /** Duration in ms of modal transitions, set to 0 to disable all animations */
   // transitionDuration?: number;
@@ -134,11 +134,11 @@ export const Modal: FC<ModalProps> = ({
           >
             <div
               data-beautify-modal
-              className={cn(
+              className={cx(
                 `inline-block p-6 my-8 
                 overflow-hidden text-left align-middle 
                 transition-all transform bg-white shadow-xl rounded-2xl`,
-                getSizeValue({ sizes, size })
+                getTextSizeValue({ sizes, size })
               )}
             >
               {(title || !hideCloseButton) && (

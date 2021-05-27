@@ -1,4 +1,4 @@
-export const sizes = {
+export const textSizes = {
   xs: 'text-xs',
   sm: 'text-sm',
   md: 'text-base',

@@ -2,7 +2,7 @@ import {
   BeautifySize,
   BeautifyTheme,
   DefaultStyleProps,
-  getSizeValue,
+  getTextSizeValue,
   getThemeColor,
   useBeautifyTheme,
 } from '@library/theme';
@@ -27,7 +27,7 @@ export const LOADER_SIZES = {
 const getStyles = (props: StylesProps) => {
   const { theme, color, size } = props;
   const classes = {
-    LoaderWidth: `${getSizeValue({ size, sizes: LOADER_SIZES })}px`,
+    LoaderWidth: `${getTextSizeValue({ size, sizes: LOADER_SIZES })}px`,
     LoaderFill: getThemeColor({ theme, color, shade: theme.colorScheme === 'dark' ? 4 : 6 }),
   };
   const css = {};

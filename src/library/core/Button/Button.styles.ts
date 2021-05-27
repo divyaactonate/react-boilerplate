@@ -4,13 +4,13 @@ import {
   BeautifyTheme,
   DefaultStyleProps,
   getRadiusValue,
-  getSizeValue,
+  getTextSizeValue,
   getStyleValue,
   getThemeColor,
   hexToRgba,
   useBeautifyTheme,
 } from '@library/theme';
-import cn from 'clsx';
+import cx from 'clsx';
 import { useMemo } from 'react';
 
 interface ButtonStylesProps extends DefaultStyleProps {
@@ -150,7 +150,7 @@ const getStyles = (props: StylesProps) => {
     rightIcon: ``,
     inner: `flex items-center space-x-2 justify-center h-full`,
     label: `block whitespace-nowrap overflow-hidden overflow-ellipsis`,
-    button: cn(
+    button: cx(
       `cursor-pointer ${transform}`,
       `box-border no-underline appearance-none`,
       `transition ease-in-out duration-150`,
@@ -158,10 +158,10 @@ const getStyles = (props: StylesProps) => {
       getStyleValue(paddings, size),
       getStyleValue(heights, size),
       getWidthStyles(fullWidth),
-      getSizeValue({ size }),
+      getTextSizeValue({ size }),
       getRadiusValue({ radius })
     ),
-    spinner: cn(
+    spinner: cx(
       `flex items-center text-white text-md leading-normal`,
       loadingText ? 'relative m-2' : 'absolute m-0'
     ),

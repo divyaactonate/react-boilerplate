@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 
+import { BeautifySize, DefaultProps, useBeautifyTheme } from '@library/theme';
 import cx from 'clsx';
-import { useStyles, sizes } from './Switch.styles';
-import { DefaultProps, useBeautifyTheme, BeautifySize, BeautifyNumberSize } from '@library/theme';
+import { sizes, useStyles } from './Switch.styles';
 
 export const SWITCH_SIZES = sizes;
 
@@ -25,7 +25,7 @@ export interface SwitchProps
   size?: BeautifySize;
 
   /** Predefined border-radius value from theme.radius or number for border-radius in px */
-  radius?: BeautifyNumberSize;
+  radius?: BeautifySize;
 
   /** Style properties added to input element */
   inputStyle?: React.CSSProperties;
@@ -43,7 +43,7 @@ export interface SwitchProps
 export const Switch = ({
   themeOverride,
   className,
-  color,
+  color = 'blue',
   label,
   id = '1',
   style,

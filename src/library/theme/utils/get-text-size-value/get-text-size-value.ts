@@ -1,6 +1,6 @@
 import { BeautifySize } from '@library/theme/types';
-import { sizes as AllSizes } from '../../configs';
-export function getSizeValue({
+import { textSizes as AllSizes } from '../../configs';
+export function getTextSizeValue({
   size,
   sizes,
   defaultValue = 'md',

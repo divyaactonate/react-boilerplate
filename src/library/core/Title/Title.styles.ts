@@ -1,13 +1,12 @@
 import {
   BeautifyHeading,
   BeautifyTheme,
-  CSSRules,
   DefaultStyleProps,
   getHeadingValue,
   getThemeColor,
   useBeautifyTheme,
 } from '@library/theme';
-import cn from 'clsx';
+import cx from 'clsx';
 import { useMemo } from 'react';
 
 interface TitleStylesProps extends DefaultStyleProps {
@@ -19,7 +18,7 @@ interface StylesProps extends TitleStylesProps {
 }
 export const getStyles = (props: StylesProps) => {
   const { order, color, theme } = props;
-  const css: CSSRules = {
+  const css = {
     title: {
       color:
         color === 'white' || theme.colorScheme === 'dark'
@@ -30,7 +29,7 @@ export const getStyles = (props: StylesProps) => {
     },
   };
   const classes = {
-    title: cn(`m-0`, getHeadingValue({ heading: order })),
+    title: cx(`m-0`, getHeadingValue({ heading: order })),
   };
   return { classes, css };
 };

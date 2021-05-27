@@ -1,7 +1,7 @@
 import { DefaultProps } from '@library/theme';
 import { ComponentPassThrough } from '@library/types';
 import React from 'react';
-import cn from 'clsx';
+import cx from 'clsx';
 
 export interface OverlayProps extends DefaultProps {
   /** Overlay opacity */
@@ -25,7 +25,7 @@ export function Overlay<T extends React.ElementType = 'div'>({
 }: ComponentPassThrough<T, OverlayProps>) {
   return (
     <Element
-      className={(cn('absolute inset-0'), className)}
+      className={(cx('absolute inset-0'), className)}
       style={{
         opacity,
         backgroundColor: color,

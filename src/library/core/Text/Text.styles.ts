@@ -4,21 +4,19 @@ import {
   BeautifyTextAlignment,
   BeautifyTheme,
   BeautifyWeight,
-  CSSRules,
   DefaultStyleProps,
   getAlignValue,
-  getSizeValue,
+  getTextSizeValue,
   getTransformValue,
   getWeightValue,
   useBeautifyTheme,
 } from '@library/theme';
-import cn from 'clsx';
+import cx from 'clsx';
 import { useMemo } from 'react';
 
 export type TextVariant = 'text' | 'link';
 
 interface TextStylesProps extends DefaultStyleProps {
-  // theme: MantineTheme;
   color: string;
   variant: TextVariant;
   size: BeautifySize;
@@ -32,7 +30,7 @@ interface StylesProps extends TextStylesProps {
 export const getStyles = (props: StylesProps) => {
   const { size, theme, color, variant, align, transform, weight } = props;
 
-  const css: CSSRules = {
+  const css = {
     text: {
       color:
         color in theme.colors
@@ -46,11 +44,11 @@ export const getStyles = (props: StylesProps) => {
   };
 
   const classes = {
-    text: cn(
-      `no-underline shadow-sm`,
+    text: cx(
+      `no-underline`,
       getWeightValue({ weight }),
       getAlignValue({ align }),
-      getSizeValue({ size }),
+      getTextSizeValue({ size }),
       getTransformValue({ transform }),
       variant === 'link' ? 'hover-underline' : 'hover-none'
     ),

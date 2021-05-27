@@ -1,6 +1,6 @@
-import cn from 'clsx';
+import cx from 'clsx';
 import { useMemo } from 'react';
-import {BeautifyTheme,DefaultStyleProps,useBeautifyTheme,CSSRules} from '@library/theme';
+import {BeautifyTheme,DefaultStyleProps,useBeautifyTheme} from '@library/theme';
 
 interface {{properCase name}}StylesProps extends DefaultStyleProps {
 
@@ -11,13 +11,13 @@ interface StylesProps extends {{properCase name}}StylesProps {
 export const getStyles = (props: StylesProps) => {
   const { theme } = props;
 
-  const css :CSSRules = {
+  const css = {
     {{lowerCase name}}: {
        },
   };
 
   const classes = {
-    {{lowerCase name}}: cn(
+    {{lowerCase name}}: cx(
        ),
   };
   return { classes, css };

@@ -4,9 +4,9 @@ import { Text } from '@library/core/Text';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
 
 const items = [
-  { title: 'Mantine', href: 'https://mantine.dev' },
-  { title: 'Mantine hooks', href: 'https://mantine.dev/hooks/getting-started' },
-  { title: 'use-id', href: 'https://mantine.dev/hooks/use-id' },
+  { title: 'beautify', href: 'https://beautify.dev' },
+  { title: 'beautify hooks', href: 'https://beautify.dev/hooks/getting-started' },
+  { title: 'use-id', href: 'https://beautify.dev/hooks/use-id' },
 ].map((item, index) => (
   <Text<'a'> variant='link' color={'blue'} component='a' href={item.href} key={index}>
     {item.title}
@@ -47,9 +47,9 @@ storiesOf('@beautify/core/Breadcrum', module)
     <div style={{ background: DEFAULT_THEME.colors.dark[7], minHeight: '100vh', padding: 50 }}>
       <Breadcrum themeOverride={{ colorScheme: 'dark' }}>
         {[
-          { title: 'Mantine', href: 'https://mantine.dev' },
-          { title: 'Mantine hooks', href: 'https://mantine.dev/hooks/getting-started' },
-          { title: 'use-id', href: 'https://mantine.dev/hooks/use-id' },
+          { title: 'beautify', href: 'https://beautify.dev' },
+          { title: 'beautify hooks', href: 'https://beautify.dev/hooks/getting-started' },
+          { title: 'use-id', href: 'https://beautify.dev/hooks/use-id' },
         ].map((item, index) => (
           <Text<'a'>
             variant='link'

@@ -6,7 +6,7 @@ import { Paper } from './index';
 const getShadows = (props?: any) =>
   (['none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', 'inner'] as const).map((shadow) => (
     <Paper style={{ width: 260, margin: 30 }} key={shadow} shadow={shadow} padding='md' {...props}>
-      <Text>
+      <Text {...props}>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, temporibus excepturi,
         placeat quam eius quisquam ad nostrum magnam molestias voluptates minima minus natus
         dignissimos reiciendis quasi repellat quos voluptas ullam.
