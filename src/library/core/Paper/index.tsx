@@ -14,6 +14,7 @@ export interface PaperProps extends DefaultProps, ComponentPropsWithoutRef<'div'
   /** Predefined box-shadow from theme.shadows (xs, sm, md, lg, xl) or any valid css box-shadow property */
   shadow?: BeautifyShadow;
 
+  _css?: any;
   /** Predefined border-radius value from theme.radius or number for border-radius in px */
   radius?: BeautifySize;
 
@@ -29,6 +30,7 @@ export const Paper = ({
   shadow = 'md',
   themeOverride,
   elementRef,
+  _css,
   ...others
 }: PaperProps) => {
   const { classes, css } = useStyles({ radius, shadow, color, padding, themeOverride });
@@ -36,7 +38,7 @@ export const Paper = ({
   return (
     <div
       data-beautify-paper
-      css={css.paper}
+      css={(css.paper, _css)}
       className={cx(classes.paper, className)}
       ref={elementRef}
       {...others}

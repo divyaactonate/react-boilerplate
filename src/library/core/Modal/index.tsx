@@ -1,24 +1,13 @@
-/**
- *
- * Modal
- *
- */
-import { Dialog, Transition } from '@headlessui/react';
-import { XIcon } from '@heroicons/react/solid';
-import { useScrollLock } from '@library/hooks';
-import { BeautifySize, DefaultProps } from '@library/theme/types';
-import { ElementType, FC, Fragment } from 'react';
-import cx from 'clsx';
-import { getTextSizeValue } from '@library/theme';
+/** @jsxImportSource @emotion/react */
 
-export const sizes = {
-  xs: 'w-3/12	',
-  sm: 'w-4/12	',
-  md: 'w-6/12	',
-  lg: 'w-8/12	',
-  xl: 'w-10/12',
-  full: 'w-full',
-};
+import { XIcon as CloseIcon } from '@heroicons/react/solid';
+import { useClickOutside, useScrollLock } from '@library/hooks';
+import { BeautifyPadding, BeautifyShadow, BeautifySize, DefaultProps } from '@library/theme';
+import cx from 'clsx';
+import React from 'react';
+import { ActionIcon } from '../ActionIcon';
+import { GroupTransition } from '../Transition';
+import { useStyles } from './Modal.styles';
 
 export interface ModalProps
   extends DefaultProps,
@@ -29,11 +18,13 @@ export interface ModalProps
   /** Called when close button clicked and when escape key is pressed */
   onClose(): void;
 
+  closeOnOverlayClick?: boolean;
+
   /** Modal title, displayed in header before close button */
   title?: React.ReactNode;
 
-  /**Whether the element should be unmounted or hidden based on the open/closed state. */
-  unmount?: boolean;
+  /** Modal title, displayed in header before close button */
+  shadow?: BeautifyShadow;
 
   /** Modal z-index property */
   zIndex?: number;
@@ -51,132 +42,104 @@ export interface ModalProps
   overlayColor?: string;
 
   /** Modal body width */
-  size?: BeautifySize;
+  size?: BeautifySize | 'full';
 
-  /** Modal body transition */
-  // transition?: beautifyTransition;
+  /** Modal body width */
+  padding?: BeautifyPadding;
+
+  /** Modal body width */
+  radius?: BeautifySize;
 
   /** Duration in ms of modal transitions, set to 0 to disable all animations */
-  // transitionDuration?: number;
+  transitionDuration?: number;
 
   /** Modal body transitionTimingFunction, defaults to theme.transitionTimingFunction */
-  // transitionTimingFunction?: string;
+  transitionTimingFunction?: string;
 
   /** Close button aria-label and title attributes */
   closeButtonLabel?: string;
 
   /** id base, used to generate ids to connect modal title and body with aria- attributes, defaults to random id */
-  // id?: string;
-  overlayClass?: string;
-  titleClass?: string;
-  titleComponent?: ElementType<any> | undefined;
+  id?: string;
 }
 
-export const Modal: FC<ModalProps> = ({
+export function Modal({
   className,
   opened,
-  unmount = true,
-  // themeOverride,
+  themeOverride,
   title,
   onClose,
   children,
-  titleClass,
-  titleComponent = 'h3',
   hideCloseButton = false,
-  overlayClass,
-  // overlayOpacity,
+  overlayOpacity,
   size = 'md',
-  // transitionDuration = 300,
-  // closeButtonLabel,
-  // overlayColor,
-  // zIndex = 1000,
+  shadow = 'lg',
+  padding = 'sm',
+  closeButtonLabel,
+  overlayColor,
+  closeOnOverlayClick = false,
+  zIndex = 1000,
+  radius = 'md',
   overflow = 'outside',
-  // transition = 'slide-down',
-  // id,
-  // ...others
-}) => {
+  ...others
+}: ModalProps) {
+  const { classes, css } = useStyles({
+    size,
+    radius,
+    padding,
+    overflow,
+    shadow,
+    overlayColor,
+    themeOverride,
+    overlayOpacity,
+  });
+  const clickOutsideRef = useClickOutside(closeOnOverlayClick ? onClose : () => ({}));
   useScrollLock(opened);
+  // const focusTrapRef: any = useFocusTrap();
 
   return (
-    <Transition appear show={opened} as={Fragment}>
-      <Dialog
-        unmount={unmount}
-        // static={true}
-        as='div'
-        className={className || 'fixed inset-0 z-10 overflow-y-auto'}
-        onClose={onClose}
-      >
-        <div className='min-h-screen px-4 text-center'>
-          <Transition.Child
-            as={Fragment}
-            enter='ease-out duration-300'
-            enterFrom='opacity-0'
-            enterTo='opacity-100'
-            leave='ease-in duration-200'
-            leaveFrom='opacity-100'
-            leaveTo='opacity-0'
-          >
-            <Dialog.Overlay className={overlayClass || 'fixed inset-0'} />
-          </Transition.Child>
-
-          {/* This element is to trick the browser into centering the modal contents. */}
-          <span className='inline-block h-screen align-middle' aria-hidden='true'>
-            &#8203;
-          </span>
-          <Transition.Child
-            as={Fragment}
-            enter='ease-out duration-300'
-            enterFrom='opacity-0 scale-95'
-            enterTo='opacity-100 scale-100'
-            leave='ease-in duration-200'
-            leaveFrom='opacity-100 scale-100'
-            leaveTo='opacity-0 scale-95'
+    <div className=''>
+      {opened && <div css={css.overlay} className={cx(classes.overlay, className)} />}
+      <GroupTransition {...classes.transitions} show={opened}>
+        <div data-beautify-modal className={cx(classes.wrapper, className)} {...others}>
+          <div
+            data-mantine-modal-inner
+            className={classes.inner}
+            onKeyDownCapture={(event) => event.nativeEvent.code === 'Escape' && onClose()}
+            style={{ zIndex: zIndex + 1 }}
+            // ref={focusTrapRef}
           >
             <div
-              data-beautify-modal
-              className={cx(
-                `inline-block p-6 my-8 
-                overflow-hidden text-left align-middle 
-                transition-all transform bg-white shadow-xl rounded-2xl`,
-                getTextSizeValue({ sizes, size })
-              )}
+              css={css.modal}
+              className={classes.modal}
+              role='dialog'
+              aria-modal
+              ref={clickOutsideRef}
+              tabIndex={-1}
             >
               {(title || !hideCloseButton) && (
-                <div className='flex items-center justify-between mb-4'>
-                  <Dialog.Title
-                    data-beautify-modal-title
-                    as={titleComponent}
-                    className={
-                      titleClass ||
-                      'text-lg font-medium overflow-ellipsis block break-words leading-6 text-gray-900'
-                    }
-                  >
+                <div data-mantine-modal-header className={classes.header}>
+                  <h1 css={css.title} data-mantine-modal-title className={classes.title}>
                     {title}
-                  </Dialog.Title>
+                  </h1>
 
                   {!hideCloseButton && (
-                    // <ActionIcon onClick={onClose}>
-                    <XIcon
-                      onClick={onClose}
-                      data-beautify-modal-close-icon
-                      className='w-10 cursor-pointer p-2 hover:bg-gray-100 rounded-full'
-                    />
-                    // </ActionIcon>
+                    <ActionIcon onClick={onClose} aria-label={closeButtonLabel}>
+                      <CloseIcon className='w-10 p-2' />
+                    </ActionIcon>
                   )}
                 </div>
               )}
-              <div
-                tw='break-words'
-                data-beautify-modal-body
-                css={[overflow === 'inside' && `max-height: calc(100vh - 185px);overflow-y:auto`]}
-              >
+
+              <div data-beautify-modal-body css={css.body} className={classes.body}>
                 {children}
               </div>
             </div>
-          </Transition.Child>
+          </div>
         </div>
-      </Dialog>
-    </Transition>
+      </GroupTransition>
+    </div>
   );
-};
+}
+
 Modal.displayName = '@beautify/core/Modal';

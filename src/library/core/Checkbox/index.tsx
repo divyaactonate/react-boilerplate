@@ -1,11 +1,11 @@
 /** @jsxImportSource @emotion/react */
 // Please remove above line if not using twin css
 
+import { CheckIcon, MinusIcon } from '@heroicons/react/solid';
 import { BeautifySize, DefaultProps } from '@library/theme';
 import cx from 'clsx';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useStyles } from './Checkbox.styles';
-import { CheckIcon, MinusIcon } from '@heroicons/react/solid';
 export interface CheckboxProps
   extends DefaultProps,
     Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size'> {
@@ -62,8 +62,12 @@ export const Checkbox = ({
   ...others
 }: CheckboxProps) => {
   const { classes, css } = useStyles({ size, color, radius, themeOverride });
-
   const [isChecked, setisChecked] = useState(checked || defaultChecked);
+
+  useEffect(() => {
+    setisChecked(checked || defaultChecked);
+  }, [checked, defaultChecked]);
+
   const onCheckUncheck = (event: any) => {
     onChange && onChange(event);
     setisChecked(event?.currentTarget?.checked);
