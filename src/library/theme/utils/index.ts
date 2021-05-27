@@ -11,3 +11,5 @@ export { getHeadingValue } from './get-heading-value/get-heading-value';
 export { getBorderWidthValue } from './get-border-width-value/get-border-width-value';
 export { getThemeColor } from './get-theme-color/get-theme-color';
 export { hexToRgba } from './hex-to-rgba/hex-to-rgba';
+export { getsizeValue } from './get-size-value/get-size-value';
+export { getFocusStyles } from './get-focus-styles/get-focus-styles';

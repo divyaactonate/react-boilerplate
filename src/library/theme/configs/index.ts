@@ -9,3 +9,4 @@ export { lineHeights } from './line-height';
 export { alignments } from './text-alignments';
 export { transforms } from './transform';
 export { weights } from './weight';
+export { sizes } from './sizes';
