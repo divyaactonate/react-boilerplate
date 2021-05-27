@@ -1,14 +1,11 @@
 /** @jsxImportSource @emotion/react */
 // Please remove above line if not using twin css
 
-import React from 'react';
+import { BeautifySize, DefaultProps } from '@library/theme';
 import cx from 'clsx';
-import { useStyles, sizes } from './Checkbox.styles';
-import { DefaultProps, useBeautifyTheme, BeautifySize } from '@library/theme';
-import { CheckboxIcon } from './CheckboxIcon';
-
-export const CHECKBOX_SIZES = sizes;
-
+import React, { useState } from 'react';
+import { useStyles } from './Checkbox.styles';
+import { CheckIcon, MinusIcon } from '@heroicons/react/solid';
 export interface CheckboxProps
   extends DefaultProps,
     Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size'> {
@@ -17,6 +14,9 @@ export interface CheckboxProps
 
   /** Predefined label font-size and checkbox width and height in px */
   size?: BeautifySize;
+
+  /** Predefined label font-size and checkbox width and height in px */
+  radius?: BeautifySize;
 
   /** Checkbox label */
   label?: React.ReactNode;
@@ -48,8 +48,10 @@ export const Checkbox = ({
   themeOverride,
   label,
   disabled,
-  indeterminate = false,
+  indeterminate,
+  defaultChecked = false,
   id = '1',
+  radius = 'xs',
   size = 'md',
   wrapperProps,
   style,
@@ -59,35 +61,51 @@ export const Checkbox = ({
   // children,
   ...others
 }: CheckboxProps) => {
-  const { classes, css } = useStyles({ size, color, theme: useBeautifyTheme(themeOverride) });
+  const { classes, css } = useStyles({ size, color, radius, themeOverride });
+
+  const [isChecked, setisChecked] = useState(checked || defaultChecked);
+  const onCheckUncheck = (event: any) => {
+    onChange && onChange(event);
+    setisChecked(event?.currentTarget?.checked);
+  };
+
   return (
     <div
-      css={css.wrapper}
+      data-beautify-checkbox
+      // css={css.wrapper}
       className={cx(classes.wrapper, className)}
       style={style}
       {...wrapperProps}
     >
-      <div css={css.checkboxWrapper} className={classes.checkboxWrapper}>
+      <div
+        data-beautify-checkbox-wrapper
+        // css={css.checkboxWrapper}
+        className={classes.checkboxWrapper}
+      >
         <input
+          data-beautify-checkbox-input
           id={id}
           ref={elementRef}
           type='checkbox'
           css={css.checkbox}
           className={cx(classes.checkbox, inputClassName)}
-          checked={indeterminate || checked}
-          onChange={onChange}
+          checked={indeterminate || isChecked}
+          onChange={onCheckUncheck}
           disabled={disabled}
           style={inputStyle}
           {...others}
         />
-
-        {(indeterminate || checked) && (
-          <CheckboxIcon indeterminate={indeterminate} css={css.icon} className={classes.icon} />
+        {indeterminate ? (
+          <MinusIcon data-beautify-checkbox-icon css={css.icon} className={classes.icon} />
+        ) : isChecked ? (
+          <CheckIcon data-beautify-checkbox-icon css={css.icon} className={classes.icon} />
+        ) : (
+          <></>
         )}
       </div>
 
       {label && (
-        <label css={css.label} className={classes.label} htmlFor={id}>
+        <label css={css.label} data-beautify-checkbox-label className={classes.label} htmlFor={id}>
           {label}
         </label>
       )}

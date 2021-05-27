@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Checkbox } from './index';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
-
 const CheckboxWrapper = (
   props: Omit<React.ComponentProps<typeof Checkbox>, 'value' | 'onChange'>
 ) => {

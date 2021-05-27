@@ -7,43 +7,42 @@ import {
   BeautifySize,
   getTextSizeValue,
   getThemeColor,
+  getsizeValue,
+  getRadiusValue,
 } from '@library/theme';
 
+// export const sizes = {
+//   xs: 12,
+//   sm: 16,
+//   md: 20,
+//   lg: 26,
+//   xl: 36,
+// };
 export const sizes = {
-  xs: 12,
-  sm: 16,
-  md: 20,
-  lg: 26,
-  xl: 36,
+  xs: 'w-4 h-4',
+  sm: 'w-6 h-6',
+  md: 'w-8 h-8',
+  lg: 'w-10 h-10',
+  xl: 'w-12 h-12',
 };
-
 interface CheckboxStylesProps extends DefaultStyleProps {
-  theme: BeautifyTheme;
   size: BeautifySize;
   color: string;
+  radius: BeautifySize;
 }
 
 interface StylesProps extends CheckboxStylesProps {
   theme: BeautifyTheme;
 }
 export const getStyles = (props: StylesProps) => {
-  const { theme, size, color } = props;
-
-  const css: any = {
+  const { theme, radius, size, color } = props;
+  const css = {
     checkbox: {
-      appearance: 'none',
+      // appearance: 'none',
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[0],
       border: `1px solid ${
         theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[4]
       }`,
-      width: getTextSizeValue({ size, sizes }),
-      height: getTextSizeValue({ size, sizes }),
-      borderRadius: theme.radius.md,
-      padding: 0,
-      outline: 0,
-      display: 'block',
-      margin: 0,
-
       '&:checked': {
         backgroundColor: getThemeColor({
           theme,
@@ -69,53 +68,35 @@ export const getStyles = (props: StylesProps) => {
         },
       },
     },
-    wrapper: {
-      display: 'flex',
-      alignItems: 'center',
-    },
-    checkboxWrapper: {
-      position: 'relative',
-      width: getTextSizeValue({ size, sizes }),
-      height: getTextSizeValue({ size, sizes }),
-    },
     label: {
       WebkitTapHighlightColor: 'transparent',
-      paddingLeft: 8,
-      fontSize: getTextSizeValue({ size, sizes: theme.fontSizes }),
-      lineHeight: `${getTextSizeValue({ size, sizes })}px`,
-      color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
+      color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     },
     icon: {
-      pointerEvents: 'none',
-      width: '80%',
-      height: '80%',
-      position: 'absolute',
-      zIndex: 1,
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      margin: 'auto',
+      color: theme.colorScheme === 'dark' ? theme.black : theme.white,
     },
   };
-
   const classes = {
-    checkbox: cx(),
-    wrapper: cx(),
-    checkboxWrapper: cx(),
-    label: cx(),
-    icon: cx(),
+    label: cx(`pl-4`, getTextSizeValue({ size })),
+    checkboxWrapper: cx(`relative`, getsizeValue({ size, sizes })),
+    wrapper: `flex items-center`,
+    icon: `pointer-events-none w-4/5 h-4/5 absolute z-10 inset-0 m-auto`,
+    checkbox: cx(
+      `block p-0 m-0 bg-green-600 text-green-600 appearance-none`,
+      getsizeValue({ size, sizes }),
+      getRadiusValue({ radius })
+    ),
   };
   return { classes, css };
 };
 
 export const useStyles = (props: CheckboxStylesProps) => {
-  const { themeOverride, size, color } = props;
+  const { themeOverride, size, radius, color } = props;
   const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
 
   return useMemo(
-    () => getStyles({ theme, size, color }),
+    () => getStyles({ theme, size, radius, color }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [themeOverride, size, color, theme]
+    [themeOverride, size, color, radius, theme]
   );
 };
