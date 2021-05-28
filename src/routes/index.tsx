@@ -1,4 +1,5 @@
 import Button from '@pages/button';
+import Card from '@pages/card';
 import Styles from '@pages/cssDemo';
 import EnvVar from '@pages/envVar';
 import Home from '@pages/index';
@@ -41,6 +42,7 @@ export const Routes = () => {
           <UnprotectedRoute path='/toaster' component={Toaster} />
           <UnprotectedRoute path='/modal' component={Modal} />
           <UnprotectedRoute path='/translations' component={Translations} />
+          <UnprotectedRoute path='/card' component={Card} />
 
           <ProtectedRoute
             path='/protected'
