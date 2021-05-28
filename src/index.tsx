@@ -1,6 +1,6 @@
 import { Logger, LoggerLevels } from '@libs/logger';
 import { AllProviders } from '@providers';
-import { StrictMode } from 'react';
+import { StrictMode, Suspense } from 'react';
 import { render } from 'react-dom';
 import { App } from './App';
 // import 'tailwindcss/dist/base.min.css';
@@ -13,11 +13,13 @@ Logger.setLevel(LoggerLevels.INFO);
 
 render(
   // <Sentry.ErrorBoundary fallback={'An error has occurred'}>
-  <StrictMode>
-    <AllProviders>
-      <App />
-    </AllProviders>
-  </StrictMode>,
+  <Suspense fallback={<>Loading...</>}>
+    <StrictMode>
+      <AllProviders>
+        <App />
+      </AllProviders>
+    </StrictMode>
+  </Suspense>,
   // </Sentry.ErrorBoundary>,
   document.getElementById('root')
 );

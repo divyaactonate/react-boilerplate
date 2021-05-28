@@ -6,6 +6,7 @@ import Login from '@pages/login';
 import Mobx from '@pages/mobxDemo';
 import Modal from '@pages/modal';
 import Toaster from '@pages/toaster';
+import Translations from '@pages/translations';
 import { FC, lazy, Suspense } from 'react';
 // import { Route } from 'react-router-dom'
 import { BrowserRouter, Switch } from 'react-router-dom';
@@ -39,6 +40,7 @@ export const Routes = () => {
           <UnprotectedRoute path='/button' component={Button} />
           <UnprotectedRoute path='/toaster' component={Toaster} />
           <UnprotectedRoute path='/modal' component={Modal} />
+          <UnprotectedRoute path='/translations' component={Translations} />
 
           <ProtectedRoute
             path='/protected'
