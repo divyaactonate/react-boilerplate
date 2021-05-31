@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
+      "tslib": ["./node_modules/tslib/tslib.d.ts"],
       "@components/*": ["./src/components/*"],
       "@providers": ["./src/providers"],
       "@library/*": ["./src/library/*"],
@@ -43,6 +44,6 @@
     "allowJs": true,
     "checkJs": true
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "include": ["**/*.ts", "**/*.tsx"]
 }

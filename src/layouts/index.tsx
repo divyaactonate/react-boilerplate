@@ -13,7 +13,8 @@ const Layout = (props: any) => {
         <Link to='/toaster'>Toaster</Link>
         <Link to='/translations'>translations</Link>
         <Link to='/modal'>Modal</Link>
-        <Link to='/login'>Login</Link>
+        <Link to='/cardList'>cardList</Link>
+        <Link to='/tabs'>tabs</Link>
       </div>
       {props.children}
     </div>
