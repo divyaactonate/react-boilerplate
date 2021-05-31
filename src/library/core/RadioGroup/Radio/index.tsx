@@ -29,7 +29,7 @@ export const Radio = ({
   id,
   children,
   style,
-  size,
+  size = 'sm',
   elementRef,
   title,
   disabled,

@@ -9,6 +9,14 @@ import {
   BeautifySize,
 } from '@library/theme';
 
+export const sizes = {
+  xs: 12,
+  sm: 16,
+  md: 20,
+  lg: 26,
+  xl: 36,
+};
+
 interface RadioStylesProps extends DefaultStyleProps {
   size: BeautifySize;
   color: string;
@@ -30,9 +38,9 @@ export const getStyles = (props: StylesProps) => {
       }`,
       position: 'relative',
       appearance: 'none',
-      width: getSizeValue({ size }),
-      height: getSizeValue({ size }),
-      borderRadius: getSizeValue({ size }),
+      width: getSizeValue({ sizes, size }),
+      height: getSizeValue({ sizes, size }),
+      borderRadius: getSizeValue({ sizes, size }),
       margin: 0,
       marginRight: theme.paddings.sm,
       background: 'red',
@@ -68,6 +76,7 @@ export const getStyles = (props: StylesProps) => {
       fontSize: theme.fontSizes[size] || theme.fontSizes.md,
       lineHeight: `${getSizeValue({ size })}px`,
       color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
+      marginLeft: 15,
 
       '&$labelDisabled': {
         color: theme.colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[5],
