@@ -29,12 +29,16 @@ module.exports = {
       },
     ],
   },
-  output: {
-    path: paths.outputPath,
-    filename: 'bundle.js',
-  },
+  // output: {
+  //   path: paths.outputPath,
+  //   // filename: 'bundle.js',
+  //   filename: 'js/[name].[contenthash].bundle.js',
+  //   // publicPath: paths.assetPath,
+  // },
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'BI HUB 3.0',
+      favicon: paths.favIconPath,
       template: paths.templatePath,
       minify: {
         removeComments: true,

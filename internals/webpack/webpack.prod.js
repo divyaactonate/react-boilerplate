@@ -4,23 +4,27 @@ const Dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   mode: 'production',
   devtool: 'eval-cheap-source-map',
   output: {
-    filename: '[name].[chunkhash].js',
-    sourceMapFilename: '[name].[chunkhash].map',
-    chunkFilename: '[id].[chunkhash].js',
+    filename: 'js/[name].[chunkhash].js',
+    sourceMapFilename: 'source/[name].[chunkhash].map',
+    chunkFilename: 'chunk/[id].[chunkhash].js',
     path: paths.outputPath,
+    // publicPath: '/',
+    // publicPath: paths.assetPath,
+    // publicPath: '../../',
     assetModuleFilename: 'images/[hash][ext][query]',
   },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: 'styles/[name].[contenthash].css',
       chunkFilename: '[id].css',
     }),
+    // new CopyWebpackPlugin({ patterns: [{ from: paths.assetPath, to: 'public' }] }),
     new Dotenv({ path: paths.prodEnvPath }),
     new webpack.DefinePlugin({
       'process.env.name': JSON.stringify('kaushal'),

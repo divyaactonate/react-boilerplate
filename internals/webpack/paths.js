@@ -7,6 +7,8 @@ const configPahs = {
   devEnvPath: path.resolve(root, './env/.env.development'),
   prodEnvPath: path.resolve(root, './env/.env.production'),
   entryPath: path.resolve(root, './src/index.tsx'),
+  assetPath: path.resolve(root, './'),
+  favIconPath: path.resolve(root, './public/favicon.ico'),
   templatePath: path.resolve(root, './src/index.html'),
   imagesFolder: 'images',
   fontsFolder: 'fonts',
