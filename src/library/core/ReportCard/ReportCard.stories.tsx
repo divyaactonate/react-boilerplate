@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/react';
-import { Card } from './index';
+import { ReportCard as Card } from './index';
 
 storiesOf('@beautify/core/Card', module)
   .add('With image', () => {

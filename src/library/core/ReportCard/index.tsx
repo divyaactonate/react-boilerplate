@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import cx from 'clsx';
-import { useStyles } from './Card.styles';
+import { useStyles } from './ReportCard.styles';
 import { DefaultProps } from '@library/theme';
 import {
   ChatIcon,
@@ -14,7 +14,7 @@ import { OfficeBuildingIcon } from '@heroicons/react/solid';
 import { Badge } from '@library/core/Badge';
 import { Checkbox } from '../Checkbox';
 
-export interface CardProps extends DefaultProps {
+export interface ReportCardProps extends DefaultProps {
   image?: string;
   title?: string;
   lastUpdated?: string;
@@ -23,21 +23,25 @@ export interface CardProps extends DefaultProps {
   onView?: any;
   onComment?: any;
 }
-export const Card = ({ themeOverride, image, className, ...others }: CardProps) => {
+export const ReportCard = ({ themeOverride, image, className, ...others }: ReportCardProps) => {
   const { classes, css } = useStyles({ themeOverride });
   return (
     <div data-beautify-card css={css.card} className={cx(className)} {...others}>
       <div style={{ minHeight: '8rem' }} className={classes.wrapper}>
         <div data-left-section className={classes.leftWrapper}>
           {image ? (
+            // <div data-left-section-content className={'flex items-center h-full justify-center'}>
+            //   <span data-left-section-content-text css={''} className={''}>
             <img
               data-left-section-content
               alt=''
               // style={{ height: '8rem', width: '8rem' }}
               className='w-32 h-32'
-              src='https://neilpatel.com/wp-content/uploads/2017/09/image-editing-tools.jpg'
+              src='http://ubiq.co/analytics-blog/wp-content/uploads/2020/07/marketing-dashboard-examples.png'
             />
           ) : (
+            //   </span>
+            // </div>
             <div data-left-section-content className={classes.leftContent}>
               <span
                 data-left-section-content-text
@@ -86,4 +90,4 @@ export const Card = ({ themeOverride, image, className, ...others }: CardProps) 
     </div>
   );
 };
-Card.displayName = '@beautify/core/Card';
+ReportCard.displayName = '@beautify/core/Card';

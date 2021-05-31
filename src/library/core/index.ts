@@ -15,6 +15,9 @@ export { Overlay } from './Overlay';
 export { Avatar } from './Avatar';
 export { Portal } from './Portal';
 export { HeadlessModal } from './HeadlessModal';
+export { ReportCard } from './ReportCard';
+export { FolderCard } from './FolderCard';
+export { ContextMenu } from './ContextMenu';
 
 export type { ButtonProps } from './Button';
 export type { ModalProps } from './Modal';
@@ -32,3 +35,6 @@ export type { OverlayProps } from './Overlay';
 export type { AvatarProps } from './Avatar';
 export type { PortalProps } from './Portal';
 export type { HeadlessModalProps } from './HeadlessModal';
+export type { ReportCardProps } from './ReportCard';
+export type { FolderCardProps } from './FolderCard';
+export type { ContextMenuProps } from './ContextMenu/ContextMenu.helper';

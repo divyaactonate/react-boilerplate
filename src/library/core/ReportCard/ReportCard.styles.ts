@@ -10,7 +10,6 @@ interface StylesProps extends CardStylesProps {
 }
 export const getStyles = (props: StylesProps) => {
   const { theme } = props;
-  console.log(theme);
 
   const css = {
     card: {
@@ -24,8 +23,8 @@ export const getStyles = (props: StylesProps) => {
 
   const classes = {
     wrapper: cx(
-      `w-full h-full flex flex-col h-32 lg:flex-row rounded-lg`,
-      `overflow-hidden border-2 border-gray-200 shadow hover:border-blue-300 `
+      `w-full h-full flex flex-row rounded-lg`,
+      `overflow-hidden border-2 border-gray-100 shadow hover:border-blue-300 `
     ),
     leftWrapper: `w-2/6 border-r border-gray-200`,
     leftContent: `flex px-4 items-center h-full justify-center bg-blue-900`,

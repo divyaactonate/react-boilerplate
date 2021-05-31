@@ -2,15 +2,14 @@ import {
   ChatIcon,
   DotsVerticalIcon,
   EyeIcon,
-  HeartIcon,
   InformationCircleIcon,
   TagIcon,
 } from '@heroicons/react/outline';
-import { OfficeBuildingIcon } from '@heroicons/react/solid';
+import { HeartIcon, OfficeBuildingIcon } from '@heroicons/react/solid';
 import Layout from '@layouts/index';
 import { Badge } from '@library/core/Badge';
-import { Card } from '@library/core/Card';
-import React, { FC } from 'react';
+import { ReportCard as Card } from '@library/core/ReportCard';
+import { FC } from 'react';
 
 const Cards: FC = () => {
   return (
@@ -243,58 +242,10 @@ const Cards: FC = () => {
             </div>
           </div>
         </div>
-        {/* <div className='ml-10 mt-10 flex items-center justify-center max-w-sm'>
-          <div className='w-full h-full'>
-            <div
-              style={{ minHeight: '9rem' }}
-              className='flex flex-col h-full lg:flex-row rounded-lg overflow-hidden border-2 hover:border-blue-300 border-gray-200 shadow'
-            >
-              <div className='w-40 border-r border-gray-200'>
-                <img alt='' className='' src='/public/assets/img/tdms/loginScreen.png' />
-              </div>
-              <div className='w-full bg-white p-4 truncate rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal'>
-                <div>
-                  <h1 className='text-black truncate capitalize font-semibold text-base mb-2 leading-tight'>
-                    Brand analytics web and transactional
-                  </h1>
-                  <div className='text-gray-500 font-normal text-xs mb-2 leading-tight'>
-                    Last Updated : 1 month ago
-                  </div>
-                  <div className='flex items-center justify-between flex-row'>
-                    <div className='flex items-center flex-row space-x-2'>
-                      <OfficeBuildingIcon className='w-5 text-orange-600' />
-                      <TagIcon className='w-5 text-gray-500' />
-                      <Badge color='yellow' variant='filled' size='xs' className='p-2'>
-                        GOLD
-                      </Badge>
-                    </div>
-                  </div>
-                </div>
-
-                <div className='flex items-center justify-between flex-row'>
-                  <div className='flex items-center text-xs flex-row space-x-4'>
-                    <HeartIcon className='w-4 text-gray-500' /> 22
-                    <EyeIcon className='w-4 text-gray-500' />
-                    16
-                    <ChatIcon className='w-4 text-gray-500' />
-                    16
-                  </div>
-                  <div className='flex flex-row space-x-1 text-gray-500'>
-                    <InformationCircleIcon className='w-4 text-gray-500' />
-                    <DotsVerticalIcon className='w-4 text-gray-500' />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
         <div className='ml-10 mt-10 max-w-sm'>
-          <Card image='/public/assets/img/tdms/loginScreen.png' />
+          <Card />
         </div>
-        <div className='ml-10 mt-10 max-w-sm'>
-          <Card image='' />
-        </div>
+        <div className='ml-10 mt-10 flex flex-row max-w-sm'></div>
       </div>
     </Layout>
   );

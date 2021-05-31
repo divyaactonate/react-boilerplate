@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Card } from './index';
+import { ReportCard as Card } from './index';
 import { shallow } from 'enzyme';
 
 describe('<Card />', () => {
