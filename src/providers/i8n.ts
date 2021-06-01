@@ -20,7 +20,7 @@ i18n
     // lng: 'en',
     backend: {
       /* translation file path */
-      loadPath: '/public/locales/{{lng}}/translations.json',
+      loadPath: '/locales/{{lng}}/translations.json',
     },
     fallbackLng: 'en',
     debug: true,

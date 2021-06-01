@@ -1,4 +1,4 @@
-const paths = require('./paths');
+const paths = require('../paths');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
@@ -34,6 +34,7 @@ module.exports = {
   //   // filename: 'bundle.js',
   //   filename: 'js/[name].[contenthash].bundle.js',
   //   // publicPath: paths.assetPath,
+  //   publicPath: '/public/',
   // },
   plugins: [
     new HtmlWebpackPlugin({
