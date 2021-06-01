@@ -5,13 +5,18 @@ import {
   InformationCircleIcon,
   TagIcon,
 } from '@heroicons/react/outline';
-import { HeartIcon, OfficeBuildingIcon } from '@heroicons/react/solid';
+import { FolderIcon, HeartIcon, OfficeBuildingIcon } from '@heroicons/react/solid';
 import Layout from '@layouts/index';
 import { Badge } from '@library/core/Badge';
-import { ReportCard as Card } from '@library/core/ReportCard';
-import { FC } from 'react';
+import { Checkbox } from '@library/core/Checkbox';
+// import { ReportCard as Card } from '@library/core/ReportCard';
+import React, { FC } from 'react';
+import { useHover } from 'react-laag';
+import { FolderCard } from '@library/core/FolderCard';
 
 const Cards: FC = () => {
+  const [isOver, hoverProps] = useHover({ delayEnter: 100, delayLeave: 300 });
+
   return (
     <Layout>
       {/* <div className='container mx-auto'>
@@ -242,10 +247,41 @@ const Cards: FC = () => {
             </div>
           </div>
         </div>
-        <div className='ml-10 mt-10 max-w-sm'>
-          <Card />
+        <div className='ml-10 mt-10 w-44'>
+          <div {...hoverProps} className='w-full h-full'>
+            <div className='flex flex-col space-y-1.5 justify-between px-3 py-2 rounded-md overflow-hidden border-2 hover:border-blue-300 border-gray-100'>
+              <div className='flex space-x-3 items-center justify-between'>
+                <div className='flex items-center truncate space-x-2'>
+                  <FolderIcon className='w-24 text-blue-500' />
+                  <h1 className='text-gray-700 truncate capitalize font-normal text-base leading-tight'>
+                    Brand analytics web and transactional
+                  </h1>
+                </div>
+                <div className='flex items-center justify-between'>
+                  <div className='text-gray-500 font-normal text-sm leading-tight'>(116)</div>
+                  {isOver ? (
+                    <Checkbox checked size='xs' />
+                  ) : (
+                    <div className='text-gray-500 w-5 font-normal text-sm leading-tight'></div>
+                  )}
+                </div>
+              </div>
+
+              <div className='flex items-center justify-between flex-row'>
+                <div className='flex items-center text-xs flex-row space-x-4'>
+                  <HeartIcon className='w-4 text-gray-500' />
+                </div>
+                <div className='flex flex-row space-x-1 text-gray-500'>
+                  <TagIcon className='w-3.5 text-gray-500' />
+                  <DotsVerticalIcon className='w-3.5 text-gray-500' />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className='ml-10 mt-10 flex flex-row max-w-sm'></div>
+        <div className='ml-10 mt-10 w-44'>
+          <FolderCard />
+        </div>
       </div>
     </Layout>
   );

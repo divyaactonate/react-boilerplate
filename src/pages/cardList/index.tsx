@@ -14,21 +14,21 @@ const CardList: FC = () => {
           <div className='p-4'>{'My Folders > Jan 2021'}</div>
           <div className='p-4 text-lg font-semibold'>{'Folders(3)'}</div>
           <div className='px-4 2xl:grid-cols-6 grid grid-flow-row lg:grid-cols-4 xl:grid-cols-4 gap-4'>
+            <FolderCard checked />
             <FolderCard />
             <FolderCard />
+            <FolderCard checked />
             <FolderCard />
-            <FolderCard />
-            <FolderCard />
-            <FolderCard />
+            <FolderCard checked />
             <FolderCard />
             <FolderCard />
           </div>
           <div className='p-4 text-lg font-semibold'>{'Reports(5)'}</div>
           <div className='px-4 2xl:grid-cols-3 grid grid-flow-row lg:grid-cols-2 xl:grid-cols-2 gap-4'>
             <Card image='k' />
+            <Card checked image='k' />
             <Card image='k' />
-            <Card image='k' />
-            <Card image='' />
+            <Card checked image='' />
             <Card image='k' />
           </div>
         </div>

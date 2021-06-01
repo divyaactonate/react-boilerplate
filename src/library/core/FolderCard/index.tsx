@@ -5,34 +5,50 @@ import { DotsVerticalIcon, HeartIcon, TagIcon } from '@heroicons/react/outline';
 import { FolderIcon } from '@heroicons/react/solid';
 import { DefaultProps } from '@library/theme';
 import cx from 'clsx';
+import { useHover } from 'react-laag';
+import { Checkbox } from '../Checkbox';
 import { useStyles } from './FolderCard.styles';
 export interface FolderCardProps extends DefaultProps {
-  hi?: string;
+  title?: string;
+  count?: number;
+  checked?: boolean;
 }
-export const FolderCard = ({ themeOverride }: FolderCardProps) => {
-  const { classes } = useStyles({ themeOverride });
+export const FolderCard = ({ themeOverride, checked = false }: FolderCardProps) => {
+  const { classes } = useStyles({ themeOverride, checked });
+  const [isOver, hoverProps] = useHover({ delayEnter: 100, delayLeave: 100 });
+
   return (
-    <div data-beautify-foldercard className={cx(classes.foldercard)}>
-      <div className='w-full h-full'>
-        <div className='flex flex-col space-y-1.5 justify-between px-3 py-2 rounded-md overflow-hidden border-2 hover:border-blue-300 border-gray-100'>
-          <div className='flex space-x-3 items-center justify-between'>
-            <div className='flex items-center truncate space-x-2'>
-              <FolderIcon className='w-24 text-blue-500' />
-              <h1 className='text-gray-700 truncate capitalize font-normal text-base leading-tight'>
-                Brand analytics web and transactional
-              </h1>
-            </div>
-            <div className='text-gray-500 font-normal text-sm leading-tight'>(116)</div>
+    <div
+      data-beautify-foldercard
+      className={cx(classes.foldercard, classes.wrapper)}
+      {...hoverProps}
+    >
+      <div className={classes.card}>
+        <div className={classes.topWrapper}>
+          <div className={classes.topLeftWrapper}>
+            <FolderIcon className={classes.folderIconClass} />
+            <h1 className={classes.titleClass}>Brand analytics web and transactional</h1>
           </div>
 
-          <div className='flex items-center justify-between flex-row'>
-            <div className='flex items-center text-xs flex-row space-x-4'>
-              <HeartIcon className='w-4 text-gray-500' />
-            </div>
-            <div className='flex flex-row space-x-1 text-gray-500'>
-              <TagIcon className='w-3.5 text-gray-500' />
-              <DotsVerticalIcon className='w-3.5 text-gray-500' />
-            </div>
+          <div className={classes.topRightWrapper}>
+            <div className={classes.countClass}>(116)</div>
+            {isOver || checked ? (
+              <div className={classes.checkBoxClass}>
+                <Checkbox radius='xs' checked={checked} size='xs' />
+              </div>
+            ) : (
+              <div className={classes.checkBoxClass}></div>
+            )}
+          </div>
+        </div>
+
+        <div className={classes.bottomWrapper}>
+          <div className={classes.bottomLeftWrapper}>
+            <HeartIcon className={classes.heartIconClass} />
+          </div>
+          <div className={classes.bottomRightWrapper}>
+            <TagIcon className={classes.tagIconClass} />
+            <DotsVerticalIcon className={classes.dotsIconClass} />
           </div>
         </div>
       </div>

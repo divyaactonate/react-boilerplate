@@ -19,8 +19,8 @@ import {
 //   xl: 36,
 // };
 export const sizes = {
-  xs: 'w-5 h-5',
-  sm: 'w-6 h-6',
+  xs: 'w-4 h-4',
+  sm: 'w-5 h-5',
   md: 'w-8 h-8',
   lg: 'w-10 h-10',
   xl: 'w-12 h-12',
@@ -34,6 +34,14 @@ interface CheckboxStylesProps extends DefaultStyleProps {
 interface StylesProps extends CheckboxStylesProps {
   theme: BeautifyTheme;
 }
+const radii = {
+  xs: 'rounded',
+  sm: 'rounded-md',
+  md: 'rounded-lg',
+  lg: 'rounded-xl',
+  xl: 'rounded-full',
+};
+
 export const getStyles = (props: StylesProps) => {
   const { theme, radius, size, color } = props;
   const css = {
@@ -84,7 +92,7 @@ export const getStyles = (props: StylesProps) => {
     checkbox: cx(
       `block p-0 m-0 bg-green-600 text-green-600 appearance-none`,
       getsizeValue({ size, sizes }),
-      getRadiusValue({ radius })
+      getRadiusValue({ radius, radii })
     ),
   };
   return { classes, css };

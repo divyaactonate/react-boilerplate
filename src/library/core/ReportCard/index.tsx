@@ -13,27 +13,38 @@ import {
 import { OfficeBuildingIcon } from '@heroicons/react/solid';
 import { Badge } from '@library/core/Badge';
 import { Checkbox } from '../Checkbox';
+import { useHover } from 'react-laag';
 
 export interface ReportCardProps extends DefaultProps {
   image?: string;
   title?: string;
+  description?: string;
   lastUpdated?: string;
   onInfoClick?: any;
   onLiked?: any;
   onView?: any;
   onComment?: any;
+  checked?: boolean;
 }
-export const ReportCard = ({ themeOverride, image, className, ...others }: ReportCardProps) => {
-  const { classes, css } = useStyles({ themeOverride });
+export const ReportCard = ({
+  themeOverride,
+  image,
+  className,
+  checked = false,
+  ...others
+}: ReportCardProps) => {
+  const { classes, css } = useStyles({ themeOverride, checked });
+  const [isOver, hoverProps] = useHover({ delayEnter: 100, delayLeave: 100 });
+
   return (
-    <div data-beautify-card css={css.card} className={cx(className)} {...others}>
+    <div data-beautify-card css={css.card} className={cx(className)} {...others} {...hoverProps}>
       <div style={{ minHeight: '8rem' }} className={classes.wrapper}>
-        <div data-left-section className={classes.leftWrapper}>
+        <div data-beautify-left-section className={classes.leftWrapper}>
           {image ? (
             // <div data-left-section-content className={'flex items-center h-full justify-center'}>
             //   <span data-left-section-content-text css={''} className={''}>
             <img
-              data-left-section-content
+              data-beautify-left-section-content
               alt=''
               // style={{ height: '8rem', width: '8rem' }}
               className='w-32 h-32'
@@ -42,9 +53,9 @@ export const ReportCard = ({ themeOverride, image, className, ...others }: Repor
           ) : (
             //   </span>
             // </div>
-            <div data-left-section-content className={classes.leftContent}>
+            <div data-beautify-left-section-content className={classes.leftContent}>
               <span
-                data-left-section-content-text
+                data-beautify-left-section-content-text
                 css={css.leftContentText}
                 className={classes.leftContentText}
               >
@@ -53,12 +64,18 @@ export const ReportCard = ({ themeOverride, image, className, ...others }: Repor
             </div>
           )}
         </div>
-        <div data-right-section className={classes.rightWrapper}>
-          <div data-right-top-section>
+        <div data-beautify-right-section className={classes.rightWrapper}>
+          <div data-beautify-right-top-section>
             <div className={classes.rightTopWrapper}>
-              <div className='flex items-center space-x-8 flex-row justify-between'>
+              <div className='flex items-center space-x-6 flex-row justify-between'>
                 <h1 className={classes.title}>Brand analytics web and transactional</h1>
-                <Checkbox size='xs' />
+                {isOver || checked ? (
+                  <div className={classes.checkBoxClass}>
+                    <Checkbox radius='xs' checked={checked} size='xs' />
+                  </div>
+                ) : (
+                  <div className={classes.checkBoxClass}></div>
+                )}
               </div>
               <div className={classes.subTitle}>Last Updated : 1 month ago</div>
               <div className={classes.metaData}>
@@ -70,7 +87,7 @@ export const ReportCard = ({ themeOverride, image, className, ...others }: Repor
               </div>
             </div>
           </div>
-          <div data-right-bottom-section>
+          <div data-beautify-right-bottom-section>
             <div className={classes.rightBottompWrapper}>
               <div className={classes.rightBottomLeftSection}>
                 <HeartIcon className={classes.iconClass} /> 22
