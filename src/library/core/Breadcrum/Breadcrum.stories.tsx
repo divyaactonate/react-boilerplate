@@ -2,7 +2,6 @@ import { storiesOf } from '@storybook/react';
 import { Breadcrum } from './index';
 import { Text } from '@library/core/Text';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
-import { Tooltip } from '@library/core';
 
 const items = [
   { title: 'beautify', href: 'https://beautify.dev' },
@@ -49,16 +48,7 @@ const items1 = [
     }}
     key={index}
   >
-    <Tooltip
-      placement='bottom-start'
-      text={
-        <div className='flex justify-center items-center text-white w-50 rounded-sm p-2 bg-blue-500  text-sm shadow-sm'>
-          {item.title}
-        </div>
-      }
-    >
-      {item.title}
-    </Tooltip>
+    {item.title}
   </Text>
 ));
 
@@ -67,18 +57,6 @@ storiesOf('@beautify/core/Breadcrum', module)
     <div style={{ padding: 50 }}>
       <Breadcrum>{items}</Breadcrum>
       <Breadcrum style={{ marginTop: 40 }}>{items1}</Breadcrum>
-      {/* <Tooltip
-        placement='top-end'
-        text={
-          <div className='flex justify-center items-center text-white w-50 rounded-sm p-2 bg-blue-500  text-sm shadow-sm'>
-            top-end
-          </div>
-        }
-      >
-        <button className='px-4 py-2 border bg-purple-600 rounded-lg border-black-200 ext-md text-white ml-3'>
-          top-end
-        </button>
-      </Tooltip> */}
     </div>
   ))
   .add('Custom separator', () => (
