@@ -18,6 +18,8 @@ export { HeadlessModal } from './HeadlessModal';
 export { ReportCard } from './ReportCard';
 export { FolderCard } from './FolderCard';
 export { ContextMenu } from './ContextMenu';
+export { Popover } from './Popover';
+export { Tooltip } from './Tooltip';
 
 export type { ButtonProps } from './Button';
 export type { ModalProps } from './Modal';
@@ -38,3 +40,5 @@ export type { HeadlessModalProps } from './HeadlessModal';
 export type { ReportCardProps } from './ReportCard';
 export type { FolderCardProps } from './FolderCard';
 export type { ContextMenuProps } from './ContextMenu/ContextMenu.helper';
+export type { PopoverProps } from './Popover';
+export type { TooltipProps } from './Tooltip';

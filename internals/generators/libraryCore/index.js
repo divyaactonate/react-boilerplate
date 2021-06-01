@@ -26,7 +26,6 @@ module.exports = {
   actions: function () {
     const actions = [];
     const pathToWrite = `${constants.root}library/core/`;
-    console.log(`${pathToWrite}{{pascalCase name}}/index.tsx`);
     actions.push(
       {
         type: 'add',
