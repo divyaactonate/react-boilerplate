@@ -59,7 +59,7 @@ export const Breadcrum = ({
             <Text<'a'>
               variant='link'
               style={{ cursor: 'pointer' }}
-              color={'blue'}
+              color={'gray'}
               component='a'
               key={index}
               onClick={() => setIsFullBreadcrumb(!isFullBreadcrumb)}
@@ -92,6 +92,7 @@ export const Breadcrum = ({
       acc.push(
         cloneElement(child, {
           className: classes.breadcrum,
+          color: 'gray',
           key: index,
           'data-beautify-breadcrumb': true,
         })
