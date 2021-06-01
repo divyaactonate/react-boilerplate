@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 // Please remove above line if not using twin css
 
-import React, { createElement } from 'react';
+import React, { ComponentPropsWithoutRef, createElement } from 'react';
 import cx from 'clsx';
 import { useStyles } from './InputWrapper.styles';
 import { DefaultProps, useBeautifyTheme } from '@library/theme';
@@ -24,7 +24,7 @@ export interface InputWrapperBaseProps {
 export interface InputWrapperProps
   extends DefaultProps,
     InputWrapperBaseProps,
-    React.ComponentPropsWithoutRef<'div'> {
+    ComponentPropsWithoutRef<'div'> {
   /** Input that should be wrapped */
   children: React.ReactNode;
 

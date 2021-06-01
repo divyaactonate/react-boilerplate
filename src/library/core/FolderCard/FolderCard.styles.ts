@@ -19,7 +19,7 @@ export const getStyles = (props: StylesProps) => {
     wrapper: `w-full h-full`,
     card: cx(
       `flex flex-col space-y-2 justify-between px-3 py-2 rounded-md`,
-      checked ? 'border-blue-300' : 'hover:border-blue-300 border-gray-100',
+      checked ? 'border-blue-300' : 'border-gray-200',
       `overflow-hidden border-2`
     ),
     topWrapper: `flex space-x-3 items-center justify-between`,

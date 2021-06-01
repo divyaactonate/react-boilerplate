@@ -2,35 +2,26 @@
 // Please remove above line if not using twin css
 
 import { DefaultProps } from '@library/theme';
-import { useLayer, useHover, Arrow } from 'react-laag';
-import { motion, AnimatePresence } from 'framer-motion';
-import { cloneElement, FC, ReactNode } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { cloneElement, ReactNode } from 'react';
+import { Arrow, useHover, useLayer } from 'react-laag';
+import { PlacementType } from 'react-laag/dist/PlacementType';
 
 export interface TooltipProps extends DefaultProps {
   bgColor?: any;
   text: ReactNode;
-  placement?:
-    | 'top-start'
-    | 'top-center'
-    | 'top-end'
-    | 'bottom-start'
-    | 'bottom-center'
-    | 'bottom-end'
-    | 'right-start'
-    | 'right-center'
-    | 'right-end'
-    | 'left-start'
-    | 'left-center'
-    | 'left-end'
-    | 'center';
-
+  placement?: PlacementType;
   children: JSX.Element;
+  arrowClassName?: string;
   borderColor?: string;
+  possiblePlacements?: PlacementType[];
   triggerOffset?: number;
 }
-export const Tooltip: FC<any> = (props: TooltipProps) => {
+export const Tooltip = (props: TooltipProps) => {
   const {
+    arrowClassName,
     children,
+    possiblePlacements,
     text,
     triggerOffset = 10,
     placement = 'top-center',
@@ -45,6 +36,8 @@ export const Tooltip: FC<any> = (props: TooltipProps) => {
   const { triggerProps, layerProps, arrowProps, renderLayer } = useLayer({
     isOpen: isOver,
     placement,
+    auto: true,
+    possiblePlacements,
     triggerOffset, // small gap between wrapped content and the tooltip
   });
 
@@ -82,10 +75,11 @@ export const Tooltip: FC<any> = (props: TooltipProps) => {
               {text}
               <Arrow
                 {...arrowProps}
+                className={arrowClassName}
                 backgroundColor={bgColor}
                 borderColor={borderColor}
                 borderWidth={1}
-                size={6}
+                size={10}
               />
             </motion.div>
           )}

@@ -25,7 +25,7 @@ export const getStyles = (props: StylesProps) => {
   const classes = {
     wrapper: cx(
       `w-full h-full flex flex-row rounded-lg`,
-      checked ? 'border-blue-300' : 'hover:border-blue-300 border-gray-100',
+      checked ? 'border-blue-300' : 'border-gray-200',
       `overflow-hidden border-2 shadow `
     ),
     leftWrapper: `w-2/6 border-r border-gray-200`,
