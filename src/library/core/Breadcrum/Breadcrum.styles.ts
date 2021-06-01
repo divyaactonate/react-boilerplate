@@ -17,15 +17,7 @@ export const getStyles = (props: StylesProps) => {
       WebkitTapHighlightColor: 'transparent',
     },
     cards: {},
-    separator: {
-      // marginLeft: 10,
-      // marginRight: 10,
-      // color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[7],
-      // lineHeight: 1,
-      // display: 'flex',
-      // alignItems: 'center',
-      // justifyContent: 'center',
-    },
+    separator: {},
   };
 
   const classes = {
