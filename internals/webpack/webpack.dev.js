@@ -3,6 +3,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const Dotenv = require('dotenv-webpack');
 const paths = require('../paths');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
+
 module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',

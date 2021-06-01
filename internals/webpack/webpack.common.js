@@ -29,13 +29,6 @@ module.exports = {
       },
     ],
   },
-  // output: {
-  //   path: paths.outputPath,
-  //   // filename: 'bundle.js',
-  //   filename: 'js/[name].[contenthash].bundle.js',
-  //   // publicPath: paths.assetPath,
-  //   publicPath: '/public/',
-  // },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'BI HUB 3.0',

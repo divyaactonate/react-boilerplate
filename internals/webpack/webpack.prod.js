@@ -5,18 +5,19 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = {
   mode: 'production',
   devtool: 'eval-cheap-source-map',
   output: {
     filename: 'js/[name].[chunkhash].js',
-    sourceMapFilename: 'source/[name].[chunkhash].map',
+    sourceMapFilename: 'sourceMap/[name].[chunkhash].map',
     chunkFilename: 'chunk/[id].[chunkhash].js',
+    assetModuleFilename: 'images/[hash][ext][query]',
     path: paths.outputPath,
     // publicPath: '/',
     // publicPath: paths.assetPath,
     // publicPath: '../../',
-    assetModuleFilename: 'images/[hash][ext][query]',
   },
   plugins: [
     new CleanWebpackPlugin(),
