@@ -7,14 +7,7 @@ storiesOf('@beautify/core/Tooltip', module).add('default', () => (
       <p className='text-2xl mt-4 text-teall-600'>Lets explore different ways to open Tooltip</p>
       <div className='text-center'>
         <div className='flex mt-20 justify-center mb-5 items-start'>
-          <Tooltip
-            placement='top-start'
-            text={
-              <div className='flex justify-center items-center text-white w-auto rounded-sm p-2 bg-blue-500  text-sm shadow-sm'>
-                top-start
-              </div>
-            }
-          >
+          <Tooltip placement='top-start' text={' your tooltip content here'}>
             <button className='px-4 py-2 border bg-purple-600 rounded-lg border-black-200 ext-md text-white ml-3'>
               top-start
             </button>
