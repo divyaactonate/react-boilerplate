@@ -33,7 +33,10 @@ export const Breadcrum = ({
       ) {
         acc.push(
           cloneElement(child, {
-            style: { color: array.length - 1 === index ? '#666666' : '#0084FF' },
+            style: {
+              color: array.length - 1 === index ? '#666666' : '#0084FF',
+              fontWeight: array.length - 1 === index ? 500 : 'normal',
+            },
             className: classes.breadcrum,
             key: index,
             'data-beautify-breadcrumb': true,
@@ -130,7 +133,10 @@ export const Breadcrum = ({
       acc.push(
         cloneElement(child, {
           className: classes.breadcrum,
-          style: { color: array.length - 1 === index ? '#666666' : '#0084FF' },
+          style: {
+            color: array.length - 1 === index ? '#666666' : '#0084FF',
+            fontWeight: array.length - 1 === index ? 500 : 'normal',
+          },
           key: index,
           'data-beautify-breadcrumb': true,
         })
