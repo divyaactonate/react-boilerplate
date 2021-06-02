@@ -5,6 +5,7 @@ import { useStyles } from './Breadcrum.styles';
 import { DefaultProps } from '@library/theme';
 import { Text, Popover } from '@library/core';
 import { Children, cloneElement, ReactNode } from 'react';
+import { Tooltip } from '../Tooltip';
 
 export interface BreadcrumProps extends DefaultProps {
   /** Separator between breadcrumbs */
@@ -33,25 +34,21 @@ export const Breadcrum = ({
       ) {
         acc.push(
           cloneElement(
-            <div className='relative py-3 sm:max-w-xl sm:mx-auto'>
-              <div className='group cursor-pointer relative inline-block border-gray-400 text-center'>
-                {child}
-                {/* <div className='opacity-0 w-28 bg-black text-white text-center text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full -left-1/2 ml-14 px-3 pointer-events-none'> */}
-                <div className='opacity-0 w-28 bg-black text-white text-center text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full ml-0 px-3 pointer-events-none'>
+            <Tooltip
+              triggerOffset={12}
+              arrowClassName='-mt-10'
+              bgColor={'#1F2937'}
+              borderColor={'#1F2937'}
+              placement='bottom-center'
+              possiblePlacements={['bottom-center', 'bottom-center']}
+              text={
+                <div className='break-words rounded-lg text-sm max-w-xs bg-gray-800 text-white p-3'>
                   {child?.props?.children}
-                  <svg
-                    className='absolute text-black h-2 w-auto top-full'
-                    style={{ left: '50%' }}
-                    x='0px'
-                    y='0px'
-                    viewBox='0 0 255 255'
-                    xmlSpace='preserve'
-                  >
-                    <polygon className='fill-current' points='0,0 127.5,127.5 255,0' />
-                  </svg>
                 </div>
-              </div>
-            </div>,
+              }
+            >
+              {child}
+            </Tooltip>,
             {
               className: classes.breadcrum,
               key: index,
