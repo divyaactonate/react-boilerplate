@@ -3,7 +3,7 @@
 
 import { DefaultProps } from '@library/theme';
 import { AnimatePresence, motion } from 'framer-motion';
-import { cloneElement, ReactNode, ForwardedRef } from 'react';
+import { cloneElement, ReactNode } from 'react';
 import { Arrow, useHover, useLayer } from 'react-laag';
 import { PlacementType } from 'react-laag/dist/PlacementType';
 
@@ -16,8 +16,6 @@ export interface TooltipProps extends DefaultProps {
   borderColor?: string;
   possiblePlacements?: PlacementType[];
   triggerOffset?: number;
-  /** Get element ref */
-  elementRef?: ForwardedRef<HTMLDivElement>;
 }
 export const Tooltip = (props: TooltipProps) => {
   const {
@@ -29,7 +27,6 @@ export const Tooltip = (props: TooltipProps) => {
     placement = 'top-center',
     bgColor = '#60a5fa',
     borderColor = '#60a5fa',
-    elementRef,
   } = props;
   // We use `useHover()` to determine whether we should show the tooltip.
   // Notice how we're configuring a small delay on enter / leave.
@@ -74,7 +71,6 @@ export const Tooltip = (props: TooltipProps) => {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.1 }}
               {...layerProps}
-              ref={elementRef}
             >
               {text}
               <Arrow
