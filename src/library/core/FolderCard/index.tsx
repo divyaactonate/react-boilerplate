@@ -2,31 +2,27 @@
 // Please remove above line if not using twin css
 
 import { DotsVerticalIcon, HeartIcon, TagIcon } from '@heroicons/react/outline';
-import { FolderIcon } from '@heroicons/react/solid';
 import { DefaultProps } from '@library/theme';
 import cx from 'clsx';
 import { useHover } from 'react-laag';
 import { Checkbox } from '../Checkbox';
 import { useStyles } from './FolderCard.styles';
+import { BlueFolder } from './FolderCardIcons';
 export interface FolderCardProps extends DefaultProps {
   title?: string;
   count?: number;
   checked?: boolean;
 }
 export const FolderCard = ({ themeOverride, checked = false }: FolderCardProps) => {
-  const { classes } = useStyles({ themeOverride, checked });
+  const { classes, css } = useStyles({ themeOverride, checked });
   const [isOver, hoverProps] = useHover({ delayEnter: 100, delayLeave: 100 });
 
   return (
-    <div
-      data-beautify-foldercard
-      className={cx(classes.foldercard, classes.wrapper)}
-      {...hoverProps}
-    >
+    <div data-beautify-foldercard css={css.card} className={cx(classes.wrapper)} {...hoverProps}>
       <div className={classes.card}>
         <div className={classes.topWrapper}>
           <div className={classes.topLeftWrapper}>
-            <FolderIcon className={classes.folderIconClass} />
+            <BlueFolder className={classes.folderIconClass} />
             <h1 className={classes.titleClass}>Brand analytics web and transactional</h1>
           </div>
 

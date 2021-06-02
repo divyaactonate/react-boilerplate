@@ -4,7 +4,7 @@ import { FolderCard } from '@library/core/FolderCard';
 const CardList: FC = () => {
   return (
     <div className='flex h-screen w-full flex-row'>
-      <div className='w-1/4 flex flex-row'>
+      <div className='flex flex-row'>
         <div className='w-1/4  bg-blue-200'>hiii</div>
         <div className='w-3/4  bg-gray-200'>hiii</div>
       </div>

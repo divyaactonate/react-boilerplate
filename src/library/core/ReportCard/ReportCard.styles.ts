@@ -14,25 +14,46 @@ export const getStyles = (props: StylesProps) => {
 
   const css = {
     card: {
+      borderLeftColor: theme.colors.yellow[8],
+      borderLeftWidth: '6px',
+      // borderTopWidth: '1px',
+      // borderBottomWidth: '1px',
+      // borderRightWidth: '1px',
+      boxShadow: checked
+        ? `0 0 0 1.2px ${theme.colors.blue[4]}`
+        : `0 0 0 1px ${theme.colors.gray[3]}`,
+      borderTopColor: checked ? theme.colors.blue[4] : theme.colors.gray[3],
+      borderBottomColor: checked ? theme.colors.blue[4] : theme.colors.gray[3],
+      borderRightColor: checked ? theme.colors.blue[4] : theme.colors.gray[3],
       color: theme.colorScheme === 'dark' ? theme.white : theme.black,
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+      '&:hover': {
+        boxShadow: !checked && `0 0 0 1.2px ${theme.colors.blue[4]}`,
+
+        // borderTopWidth: '1.5px',
+        // borderBottomWidth: '1.5px',
+        // borderRightWidth: '1.5px',
+        // borderTopColor: theme.colors.blue[4],
+        // borderBottomColor: theme.colors.blue[4],
+        // borderRightColor: theme.colors.blue[4],
+      },
     },
     leftContentText: {
       color: theme.colorScheme === 'dark' ? theme.white : theme.white,
     },
+    leftContent: {
+      backgroundColor: theme.colors.blue[9],
+    },
   };
 
   const classes = {
-    wrapper: cx(
-      `w-full h-full flex flex-row rounded-lg`,
-      checked ? 'border-blue-300' : 'border-gray-200',
-      `overflow-hidden border-2 shadow `
-    ),
+    card: cx(`w-full h-full  rounded`, `overflow-hidden shadow `),
+    wrapper: cx('flex flex-row'),
     leftWrapper: `w-2/6 border-r border-gray-200`,
-    checkBoxClass: `w-5`,
-    leftContent: `flex px-4 items-center h-full justify-center bg-blue-900`,
+    checkBoxClass: `w-8`,
+    leftContent: `flex items-center h-full  justify-center`,
     leftContentText: `px-4 break-words text-sm text-center capitalize`,
-    rightWrapper: `w-4/6 flex xs:flex-row flex-col justify-between p-4`,
+    rightWrapper: `w-4/6 flex xs:flex-row flex-col justify-between pl-4 py-4 pr-1`,
     rightTopWrapper: `flex flex-col`,
     title: `text-black truncate capitalize font-semibold text-sm mb-2 leading-none`,
     subTitle: `text-gray-500 font-normal text-xs mb-2 leading-none`,
@@ -40,7 +61,7 @@ export const getStyles = (props: StylesProps) => {
     rightBottompWrapper: `flex items-center justify-between flex-row`,
     rightBottomLeftSection: `flex items-center text-xs flex-row space-x-4`,
     badgeClass: `p-2`,
-    rightBottomRightSection: `flex flex-row space-x-1 text-gray-500`,
+    rightBottomRightSection: `flex flex-row items-center justify-between space-x-1 text-gray-500`,
     iconClass: `w-4 text-gray-500`,
   };
   return { classes, css };

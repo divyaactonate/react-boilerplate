@@ -3,12 +3,12 @@ import cx from 'clsx';
 import { useStyles } from './ReportCard.styles';
 import { DefaultProps } from '@library/theme';
 import {
-  ChatIcon,
   DotsVerticalIcon,
   EyeIcon,
   HeartIcon,
   InformationCircleIcon,
   TagIcon,
+  ChatAlt2Icon,
 } from '@heroicons/react/outline';
 import { OfficeBuildingIcon } from '@heroicons/react/solid';
 import { Badge } from '@library/core/Badge';
@@ -38,7 +38,13 @@ export const ReportCard = ({
   const [isOver, hoverProps] = useHover({ delayEnter: 100 });
 
   return (
-    <div data-beautify-card css={css.card} className={cx(className)} {...others} {...hoverProps}>
+    <div
+      data-beautify-card
+      css={css.card}
+      className={cx(className, classes.card)}
+      {...others}
+      {...hoverProps}
+    >
       <Tooltip
         triggerOffset={12}
         arrowClassName='-mt-10'
@@ -54,6 +60,7 @@ export const ReportCard = ({
           </div>
         }
       >
+        {/* <> */}
         <div style={{ minHeight: '8rem' }} className={classes.wrapper}>
           <div data-beautify-left-section className={classes.leftWrapper}>
             {image ? (
@@ -69,7 +76,11 @@ export const ReportCard = ({
             ) : (
               //   </span>
               // </div>
-              <div data-beautify-left-section-content className={classes.leftContent}>
+              <div
+                data-beautify-left-section-content
+                css={css.leftContent}
+                className={classes.leftContent}
+              >
                 <span
                   data-beautify-left-section-content-text
                   css={css.leftContentText}
@@ -109,7 +120,7 @@ export const ReportCard = ({
                   <HeartIcon className={classes.iconClass} /> 22
                   <EyeIcon className={classes.iconClass} />
                   16
-                  <ChatIcon className={classes.iconClass} />
+                  <ChatAlt2Icon className={classes.iconClass} />
                   16
                 </div>
                 <div className={classes.rightBottomRightSection}>
@@ -120,6 +131,7 @@ export const ReportCard = ({
             </div>
           </div>
         </div>
+        {/* </> */}
       </Tooltip>
     </div>
   );
