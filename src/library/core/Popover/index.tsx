@@ -62,7 +62,7 @@ export const Popover = (props: PopoverProps) => {
   // Again, we're using framer-motion for the transition effect
   return (
     <div data-beautify-popover>
-      <button className={`border-none`} {...triggerProps} onClick={() => setOpen(!isOpen)}>
+      <button {...triggerProps} onClick={() => setOpen(!isOpen)}>
         {children}
       </button>
       {renderLayer(
