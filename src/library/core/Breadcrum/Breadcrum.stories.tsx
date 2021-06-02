@@ -55,8 +55,23 @@ const items1 = [
 storiesOf('@beautify/core/Breadcrum', module)
   .add('General usage', () => (
     <div style={{ padding: 50 }}>
-      <Breadcrum>{items}</Breadcrum>
-      <Breadcrum style={{ marginTop: 40 }}>{items1}</Breadcrum>
+      {/* <Breadcrum>{items}</Breadcrum> */}
+      <Breadcrum
+        separator={
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            className='h-4 w-4'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='grey'
+          >
+            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
+          </svg>
+        }
+        style={{ marginTop: 40 }}
+      >
+        {items1}
+      </Breadcrum>
     </div>
   ))
   .add('Custom separator', () => (
