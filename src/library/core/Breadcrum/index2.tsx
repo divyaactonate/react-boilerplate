@@ -5,7 +5,6 @@ import { useStyles } from './Breadcrum.styles';
 import { DefaultProps } from '@library/theme';
 import { Text, Popover } from '@library/core';
 import { Children, cloneElement, ReactNode } from 'react';
-import { Tooltip } from '../Tooltip';
 
 export interface BreadcrumProps extends DefaultProps {
   /** Separator between breadcrumbs */
@@ -33,28 +32,12 @@ export const Breadcrum = ({
         (index === array.length - 2 && index !== 2)
       ) {
         acc.push(
-          cloneElement(
-            <Tooltip
-              triggerOffset={12}
-              arrowClassName='-mt-10'
-              bgColor={'#1F2937'}
-              borderColor={'#1F2937'}
-              placement='bottom-center'
-              possiblePlacements={['bottom-center', 'bottom-center']}
-              text={
-                <div className='break-words rounded-lg text-sm max-w-xs bg-gray-800 text-white p-3'>
-                  {child?.props?.children}
-                </div>
-              }
-            >
-              {child}
-            </Tooltip>,
-            {
-              className: classes.breadcrum,
-              key: index,
-              'data-beautify-breadcrumb': true,
-            }
-          )
+          cloneElement(child, {
+            style: { color: array.length - 1 === index ? '#666666' : '#0084FF' },
+            className: classes.breadcrum,
+            key: index,
+            'data-beautify-breadcrumb': true,
+          })
         );
 
         if (index !== array.length - 1) {
@@ -77,7 +60,7 @@ export const Breadcrum = ({
               borderColor={`white`}
               bgColor={'white'}
               content={
-                <div className='flex flex-col justify-center items-center text-gray-500  w-auto rounded-sm p-2 bg-white-500  text-sm shadow-sm '>
+                <div className='flex flex-col justify-center items-center w-auto rounded-sm p-2 bg-white-500 overflow-hidden text-sm shadow-sm'>
                   {array.length > 0 &&
                     array.map((d, ind) => {
                       if (
@@ -88,28 +71,20 @@ export const Breadcrum = ({
                       ) {
                         return (
                           <div className={`flex flex-row justify-start w-full`}>
-                            <div className={`flex w-8`}>
+                            <div className={`flex w-5`}>
                               <svg
                                 viewBox='0 0 30 30'
-                                className='sub'
+                                className={`sub h-full block flex-shrink-0`}
                                 style={{
                                   width: 14,
-                                  height: '100%',
-                                  display: 'block',
-                                  fill: 'rgba(55, 53, 47, 0.3)',
-                                  flexShrink: 0,
-                                  backfaceVisibility: 'hidden',
-                                  marginLeft: 4,
-                                  marginRight: 8,
+                                  fill: '#666666',
                                 }}
                               >
                                 <path d='M5 3V20H23.187L19.594 16.406L21 15L27 21L21 27L19.594 25.594L23.187 22H3V3H5Z'></path>
                               </svg>
                             </div>
 
-                            <div className={`flex`}>
-                              <p>{d}</p>
-                            </div>
+                            <div className={`flex}`}>{d}</div>
                           </div>
                         );
                       }
@@ -121,10 +96,10 @@ export const Breadcrum = ({
             >
               <Text<'a'>
                 variant='text'
-                style={{ cursor: 'pointer', border: 'none', borderColor: 'transparent' }}
+                className={`cursor-pointer`}
+                style={{ color: '#0084FF' }}
                 component='a'
                 key={index}
-                color={'blue'}
               >
                 {'...'}
               </Text>
@@ -155,7 +130,7 @@ export const Breadcrum = ({
       acc.push(
         cloneElement(child, {
           className: classes.breadcrum,
-          color: 'gray',
+          style: { color: array.length - 1 === index ? '#666666' : '#0084FF' },
           key: index,
           'data-beautify-breadcrumb': true,
         })
