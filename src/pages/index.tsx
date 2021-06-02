@@ -54,7 +54,7 @@ const items = [
 
 const items1 = [
   {
-    title: 'BI Hub Root Server BI Hub Root Server BI Hub Root Server',
+    title: 'BI Hub Root Server',
     href: 'https://www.notion.so/valqplan/Breadcrumbs-9267116cfc11453f9be608679ea0683e',
   },
   {
@@ -88,7 +88,7 @@ const items1 = [
 ].map((item, index) => (
   <Text<'a'>
     variant='link'
-    className={`cursor-pointer whitespace-nowrap overflow-hidden overflow-ellipsis max-w-xs`}
+    className={`cursor-pointer`}
     component='a'
     style={{ color: '#0084FF' }}
     onClick={() => {
@@ -104,12 +104,15 @@ const items1 = [
       placement='bottom-center'
       possiblePlacements={['top-center']}
       text={
-        <div className='break-words rounded-lg text-sm max-w-xs bg-gray-800 text-white py-1 px-3'>
+        <div className='break-words rounded-lg text-sm bg-gray-800 text-white py-1 px-3'>
           {item.title}
         </div>
       }
     >
-      <div className={`cursor-pointer whitespace-nowrap overflow-hidden overflow-ellipsis`}>
+      <div
+        style={{ maxWidth: 100 }}
+        className={`cursor-pointer truncate whitespace-nowrap overflow-hidden overflow-ellipsis`}
+      >
         {item.title}
       </div>
     </Tooltip>
