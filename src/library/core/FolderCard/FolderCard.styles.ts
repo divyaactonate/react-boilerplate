@@ -12,16 +12,19 @@ export const getStyles = (props: StylesProps) => {
   const { theme, checked } = props;
 
   const css = {
+    card: {
+      borderWidth: '1.5px',
+      borderColor: checked ? theme.colors.blue[4] : theme.colors.gray[3],
+      '&:hover': {
+        borderColor: theme.colors.blue[4],
+      },
+    },
     foldercard: { theme },
   };
 
   const classes = {
-    wrapper: `w-full h-full`,
-    card: cx(
-      `flex flex-col space-y-2 justify-between px-3 py-2 rounded-md`,
-      checked ? 'border-blue-300' : 'border-gray-200',
-      `overflow-hidden border-2`
-    ),
+    wrapper: `w-full h-full rounded`,
+    card: cx(`flex flex-col space-y-2 justify-between px-3 py-2 rounded-md`, `overflow-hidden`),
     topWrapper: `flex space-x-3 items-center justify-between`,
     topLeftWrapper: `flex items-center truncate space-x-2`,
     topRightWrapper: `flex items-center justify-between space-x-2`,
@@ -35,7 +38,6 @@ export const getStyles = (props: StylesProps) => {
     heartIconClass: `w-4 text-gray-500`,
     tagIconClass: `w-3.5 text-gray-500`,
     dotsIconClass: `w-3.5 text-gray-500`,
-    foldercard: cx(),
   };
   return { classes, css };
 };

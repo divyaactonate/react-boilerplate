@@ -14,23 +14,36 @@ export const getStyles = (props: StylesProps) => {
 
   const css = {
     card: {
+      borderLeftColor: theme.colors.yellow[8],
+      borderLeftWidth: '6px',
+      borderTopWidth: '1.5px',
+      borderBottomWidth: '1.5px',
+      borderRightWidth: '1.5px',
+      borderTopColor: checked ? theme.colors.blue[4] : theme.colors.gray[3],
+      borderBottomColor: checked ? theme.colors.blue[4] : theme.colors.gray[3],
+      borderRightColor: checked ? theme.colors.blue[4] : theme.colors.gray[3],
       color: theme.colorScheme === 'dark' ? theme.white : theme.black,
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+      '&:hover': {
+        borderTopColor: theme.colors.blue[4],
+        borderBottomColor: theme.colors.blue[4],
+        borderRightColor: theme.colors.blue[4],
+      },
     },
     leftContentText: {
       color: theme.colorScheme === 'dark' ? theme.white : theme.white,
     },
+    leftContent: {
+      backgroundColor: theme.colors.blue[9],
+    },
   };
 
   const classes = {
-    wrapper: cx(
-      `w-full h-full flex flex-row rounded-lg`,
-      checked ? 'border-blue-300' : 'border-gray-200',
-      `overflow-hidden border-2 shadow `
-    ),
+    card: cx(`w-full h-full  rounded`, `overflow-hidden shadow `),
+    wrapper: cx('flex flex-row'),
     leftWrapper: `w-2/6 border-r border-gray-200`,
     checkBoxClass: `w-5`,
-    leftContent: `flex px-4 items-center h-full justify-center bg-blue-900`,
+    leftContent: `flex items-center h-full  justify-center`,
     leftContentText: `px-4 break-words text-sm text-center capitalize`,
     rightWrapper: `w-4/6 flex xs:flex-row flex-col justify-between p-4`,
     rightTopWrapper: `flex flex-col`,
