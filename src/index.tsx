@@ -6,6 +6,8 @@ import { App } from './App';
 // import 'tailwindcss/dist/base.min.css';
 // import './styles.css';
 import './styles/main.css';
+import './styles/globals.css';
+
 // import 'react-contexify/dist/ReactContexify.css';
 import './styles/react-contextify.css';
 
