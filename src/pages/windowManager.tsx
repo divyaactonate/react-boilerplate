@@ -36,7 +36,7 @@ const WindowManager = () => {
                 <ActionIcon
                   autoFocus
                   onClick={() => context.dockMove(newTab(), panelData, 'middle')}
-                  size={'sm'}
+                  size={'xs'}
                 >
                   <PlusIcon />
                 </ActionIcon>

@@ -10,12 +10,29 @@
 
   .dock-panel.dock-style-custom .dock-tab {
     margin-right: 2px;
-    border: 0px solid #EDEDED;
+    border: 1px solid #EDEDED;
     background: #EDEDED;
     color: #737374;
     border-radius: 10px 10px 0 0;
     height: 36px;
     width: 140px;
+    margin-right: 12px;
+  }
+  .dock-panel.dock-style-custom .dock-tab-active::before{
+    content: url("http://localhost:8080/assets/img/tab-corner-left.svg");
+    position: absolute;
+    top: 21px;
+    left: -8px;
+    z-index: 99;
+
+  }
+  .dock-panel.dock-style-custom .dock-tab-active::after{
+    content: url("http://localhost:8080/assets/img/tab-corner-right.svg");
+    position: absolute;
+    top: 21px;
+    right: -8px;
+    z-index: 99;
+
   }
 
   .dock-panel.dock-style-custom .dock-tab.dock-tab-active {
@@ -119,14 +136,36 @@
   height: 35px;
   margin-top: 9px;
   order: 2;
+  padding: 0px 8px;
 }
 
 .dock-nav{
   width: 100%;
-  padding-right: 12px;
+  padding-right: 30px;
+
 }
 
 .dock-nav-operations .dock-nav-more {
   
   visibility: visible !important;
+}
+
+.dock-nav-more::after{
+  content: url("http://localhost:8080/assets/img/tab-more-tabs.svg");
+  position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    width: 30px;
+    height: 30px;
+    left: -8px;
+    top: 1px;
+    box-shadow: none;
+}
+
+.dock-panel button:focus {
+  outline: none;
+}
+
+.dock-tab-close-btn:before {
+  content: url("http://localhost:8080/assets/img/tab-close.svg");;
 }
