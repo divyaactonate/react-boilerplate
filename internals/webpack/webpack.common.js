@@ -35,7 +35,7 @@ module.exports = {
       cache: true,
       exclude: ['node_modules', 'internals', 'public'],
       extensions: ['ts', 'tsx'],
-      // eslintPath: require.resolve('eslint'),
+      eslintPath: require.resolve('eslint'),
       resolvePluginsRelativeTo: paths.root,
       ignore: true,
       useEslintrc: true,
