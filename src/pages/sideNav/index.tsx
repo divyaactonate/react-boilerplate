@@ -96,11 +96,13 @@ const SideNav: FC = () => {
                 style={{
                   backgroundColor: index === upperMenuSelectedIndex ? '#EDF4FD' : 'white',
                   borderLeft: index === upperMenuSelectedIndex ? '3px solid #0084FF' : 'none',
+                  paddingTop: 9,
+                  paddingBottom: 9,
                 }}
                 role='button'
                 aria-hidden='true'
                 tabIndex={index}
-                className={`flex flex-col w-full justify-center items-center py-2 px-1`}
+                className={`flex flex-col w-full justify-center items-center px-1`}
               >
                 <menu.iconName
                   iconColor={index === upperMenuSelectedIndex ? '#0084FF' : '#999999'}
