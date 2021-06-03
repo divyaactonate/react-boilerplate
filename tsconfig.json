@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "typeRoots": ["./node_modules/@types", "./src/types"],
     "paths": {
       "@components/*": ["./src/components/*"],
       "@providers": ["./src/providers"],
@@ -14,6 +15,7 @@
       "@models*": ["./src/models"],
       "@utils/*": ["./src/utils/*"],
       "@store/*": ["./src/store/*"],
+      "@styles": ["./src/styles/index.css"],
       "@src/*": ["./src/*"]
     },
     "baseUrl": "./",

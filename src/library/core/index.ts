@@ -20,6 +20,9 @@ export { FolderCard } from './FolderCard';
 export { ContextMenu } from './ContextMenu';
 export { Popover } from './Popover';
 export { Tooltip } from './Tooltip';
+export { TextInput } from './TextInput';
+export { PasswordInput } from './PasswordInput';
+export { InputsWrapper } from './InputsWrapper';
 
 export type { ButtonProps } from './Button';
 export type { ModalProps } from './Modal';
@@ -42,3 +45,6 @@ export type { FolderCardProps } from './FolderCard';
 export type { ContextMenuProps } from './ContextMenu/ContextMenu.helper';
 export type { PopoverProps } from './Popover';
 export type { TooltipProps } from './Tooltip';
+export type { TextInputProps } from './TextInput';
+export type { PasswordInputProps } from './PasswordInput';
+export type { InputsWrapperProps } from './InputsWrapper';

@@ -34,8 +34,8 @@ const Tailwind = () => {
 const PlainCss = () => {
   return (
     <>
-      <h1 className='app-css'>Csss Demo</h1>
-      <h1 className='app-scss'>Scss Demo</h1>
+      <h1 className='app-css'>Css Demo</h1>
+      <h1 className='app-scss'>Scs Demo</h1>
       {/* <h1 tw={styles.app}>Css Module Demo Not working :( </h1> */}
     </>
   );
@@ -43,14 +43,14 @@ const PlainCss = () => {
 const TwinTailwind = () => {
   return (
     <div tw='bg-green-400 mx-auto p-5 mt-5'>
-      <h1 tw='text-blue-500 text-4xl'>Hello world</h1>
+      <h1 tw='text-blue-500 text-4xl'>Twin Tailwind Styles</h1>
     </div>
   );
 };
 const TwinEmotion = () => {
   return (
     <Container>
-      <Heading>My custom heading</Heading>
+      <Heading>TwinEmotion Styles</Heading>
     </Container>
   );
 };

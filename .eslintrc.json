@@ -4,6 +4,7 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
+  "ignorePatterns": ["dist/*", "node_modules/*"],
   "settings": {
     "import/resolver": {
       "typescript": {}

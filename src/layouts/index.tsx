@@ -14,7 +14,9 @@ const Layout = (props: any) => {
         <Link to='/translations'>translations</Link>
         <Link to='/modal'>Modal</Link>
         <Link to='/cardList'>cardList</Link>
+        <Link to='/sideNav'>sideNavigation</Link>
         <Link to='/tabs'>tabs</Link>
+        <Link to='/loginPage'>loginPage</Link>
       </div>
       {props.children}
     </div>
