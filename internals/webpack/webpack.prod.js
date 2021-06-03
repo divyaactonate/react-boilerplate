@@ -3,13 +3,13 @@ const paths = require('../paths');
 const Dotenv = require('dotenv-webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'production',
   devtool: 'eval-cheap-source-map',
   output: {
+    clean: true,
     filename: 'js/[name].[chunkhash].js',
     sourceMapFilename: 'sourceMap/[name].[chunkhash].map',
     chunkFilename: 'chunk/[id].[chunkhash].js',
@@ -20,7 +20,15 @@ module.exports = {
     // publicPath: '../../',
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new webpack.ProgressPlugin(),
+    /**
+     * Adds a banner to the top of each generated chunk.
+     * new webpack.BannerPlugin(),
+     */
+    /**
+     * Cleans dist folder everytime but clean:true is there so this is not required
+     * new CleanWebpackPlugin(),
+     */
     new MiniCssExtractPlugin({
       filename: 'styles/[name].[contenthash].css',
       chunkFilename: '[id].css',

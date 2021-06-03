@@ -1,6 +1,7 @@
 const paths = require('../paths');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   entry: paths.entryPath,
@@ -30,6 +31,15 @@ module.exports = {
     ],
   },
   plugins: [
+    new ESLintPlugin({
+      cache: true,
+      exclude: ['node_modules', 'internals', 'public'],
+      extensions: ['ts', 'tsx'],
+      // eslintPath: require.resolve('eslint'),
+      resolvePluginsRelativeTo: paths.root,
+      ignore: true,
+      useEslintrc: true,
+    }),
     new HtmlWebpackPlugin({
       title: 'BI HUB 3.0',
       favicon: paths.favIconPath,

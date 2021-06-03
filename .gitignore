@@ -24,9 +24,12 @@ bower_components/
 remote-repo/
 chrome-user-data
 stats.json
+buildInfo.json
+.eslintcache
 
 # The file containing environment variables 
 .env
+
 
 # Ignore IDE specific files
 .idea/
