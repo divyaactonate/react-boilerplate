@@ -147,7 +147,7 @@
 
 .dock-nav-operations .dock-nav-more {
   
-  visibility: visible !important;
+  /* visibility: visible !important; */
 }
 
 .dock-nav-more::after{
