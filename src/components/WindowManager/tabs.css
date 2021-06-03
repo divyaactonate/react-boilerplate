@@ -17,9 +17,6 @@
     height: 36px;
     width: 140px;
   }
-  .dock-panel.dock-style-custom .dock-tab::after{
-    content: url("img/tab-corner-right.png")
-  }
 
   .dock-panel.dock-style-custom .dock-tab.dock-tab-active {
     background: #fff;
