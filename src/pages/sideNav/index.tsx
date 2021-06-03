@@ -84,7 +84,7 @@ const SideNav: FC = () => {
     <div className='flex h-screen w-full'>
       <div className={`flex flex-row w-full`}>
         <div
-          style={{ width: '5%' }}
+          style={{ width: '6%' }}
           className={`flex flex-col justify-between h-screen border py-1`}
         >
           <div className={`flex flex-col w-full border-transparent cursor-pointer border`}>
@@ -100,21 +100,23 @@ const SideNav: FC = () => {
                 role='button'
                 aria-hidden='true'
                 tabIndex={index}
-                className={`flex flex-col w-full justify-center items-center mt-1 p-1`}
+                className={`flex flex-col w-full justify-center items-center py-2 px-1`}
               >
                 <menu.iconName
                   iconColor={index === upperMenuSelectedIndex ? '#0084FF' : '#999999'}
                 />
-                <span
+                <label
                   style={{
-                    fontSize: 8,
-                    fontWeight: 600,
+                    fontSize: 9,
+                    fontStyle: 'normal',
+                    fontWeight: 500,
+                    lineHeight: 1.7,
                     color: index === upperMenuSelectedIndex ? '#0084FF' : '#666666',
                   }}
                   className={`text-gray-600`}
                 >
                   {menu.title}
-                </span>
+                </label>
               </div>
             ))}
           </div>
