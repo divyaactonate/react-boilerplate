@@ -55,7 +55,7 @@ export const getStyles = (props: StylesProps) => {
     leftContentText: `px-4 break-words text-sm text-center capitalize`,
     rightWrapper: `w-4/6 flex xs:flex-row flex-col justify-between pl-4 py-4 pr-1`,
     rightTopWrapper: `flex flex-col`,
-    title: `text-black truncate capitalize font-semibold text-sm mb-2 leading-none`,
+    title: `text-black truncate capitalize font-medium text-sm mb-2 leading-none`,
     subTitle: `text-gray-500 font-normal text-xs mb-2 leading-none`,
     metaData: `flex items-center flex-row pt-0.5 space-x-1`,
     rightBottompWrapper: `flex items-center justify-between flex-row`,

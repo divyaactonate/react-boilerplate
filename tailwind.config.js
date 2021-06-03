@@ -238,7 +238,9 @@ module.exports = {
       DEFAULT: '1',
     },
     fontFamily: {
+      inter: ['Inter'],
       sans: [
+        'Inter',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
