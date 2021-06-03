@@ -15,6 +15,7 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 import ProtectedRoute from './Protected';
 import UnprotectedRoute from './Unprotected';
 import CardList from '@pages/cardList';
+import SideNav from '@pages/sideNav';
 
 // eslint-disable-next-line react/display-name
 const ProtectedPage: any = lazy(() => import('@pages/protected'));
@@ -47,6 +48,7 @@ export const Routes = () => {
           <UnprotectedRoute path='/card' component={Card} />
           <UnprotectedRoute path='/tabs' component={Tabs} />
           <UnprotectedRoute path='/cardList' component={CardList} />
+          <UnprotectedRoute path='/sideNav' component={SideNav} />
 
           <ProtectedRoute
             path='/protected'
