@@ -39,6 +39,7 @@ module.exports = {
       resolvePluginsRelativeTo: paths.root,
       ignore: true,
       useEslintrc: true,
+      outputReport: true,
     }),
     new HtmlWebpackPlugin({
       title: 'BI HUB 3.0',
