@@ -1,4 +1,4 @@
-const paths = require('./paths');
+const paths = require('../paths');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
@@ -29,12 +29,10 @@ module.exports = {
       },
     ],
   },
-  output: {
-    path: paths.outputPath,
-    filename: 'bundle.js',
-  },
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'BI HUB 3.0',
+      favicon: paths.favIconPath,
       template: paths.templatePath,
       minify: {
         removeComments: true,

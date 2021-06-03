@@ -1,225 +1,117 @@
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { useState } from 'react';
+import { Button } from '../Button';
+import { Text } from '../Text';
+import { Portal } from '../Portal';
 import { Modal } from '.';
+import { DEFAULT_THEME } from '@library/theme/default-theme';
+import { BeautifyProvider } from '@library/theme';
+
+const Form = () => {
+  return <>Hello</>;
+};
+
+function WrappedModal(props: Omit<React.ComponentProps<typeof Modal>, 'opened' | 'onClose'>) {
+  const [opened, setOpened] = useState(false);
+
+  return (
+    <div style={{ padding: 50 }}>
+      <Button onClick={() => setOpened(true)}>Open Modal</Button>
+      <Modal opened={opened} onClose={() => setOpened(false)} {...props} />
+    </div>
+  );
+}
+
+function InPortal() {
+  const [opened, setOpened] = useState(false);
+
+  return (
+    <div style={{ padding: 50 }}>
+      <Button onClick={() => setOpened(true)}>Open Modal</Button>
+      <Portal>
+        <Modal title='Authenticate in portal' opened={opened} onClose={() => setOpened(false)}>
+          <Form />
+        </Modal>
+      </Portal>
+    </div>
+  );
+}
 
 storiesOf('@beautify/core/Modal', module)
-  .add('xs', () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    function closeModal() {
-      setIsOpen(false);
-    }
-
-    function openModal() {
-      setIsOpen(true);
-    }
-    return (
-      <>
-        <div className='flex mt-32 items-center justify-center'>
-          <button
-            type='button'
-            onClick={openModal}
-            className='px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'
-          >
-            Open Modal-{'xs'}
-          </button>
-        </div>
-        <Modal size={'xs'} title='Modal Title' opened={isOpen} onClose={closeModal}>
-          <div>
-            {/* <div className='mt-2'>
-            <p className='text-sm text-gray-500'>
-              Your payment has been successfully submitted. We’ve sent your an email with all of the
-              details of your order.
-            </p>
-          </div> */}
-
-            <div className='mt-4'>
-              <button
-                type='button'
-                className='inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500'
-                onClick={closeModal}
-              >
-                Got it, thanks!
-              </button>
-            </div>
-          </div>
-        </Modal>
-      </>
-    );
-  })
-  .add('sm', () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    function closeModal() {
-      setIsOpen(false);
-    }
-
-    function openModal() {
-      setIsOpen(true);
-    }
-    return (
-      <>
-        <div className='flex mt-32 items-center justify-center'>
-          <button
-            type='button'
-            onClick={openModal}
-            className='px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'
-          >
-            Open Modal-{'sm'}
-          </button>
-        </div>
-        <Modal size={'sm'} title='Modal Title' opened={isOpen} onClose={closeModal}>
-          <div>
-            {/* <div className='mt-2'>
-            <p className='text-sm text-gray-500'>
-              Your payment has been successfully submitted. We’ve sent your an email with all of the
-              details of your order.
-            </p>
-          </div> */}
-
-            <div className='mt-4'>
-              <button
-                type='button'
-                className='inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500'
-                onClick={closeModal}
-              >
-                Got it, thanks!
-              </button>
-            </div>
-          </div>
-        </Modal>
-      </>
-    );
-  })
-  .add('md', () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    function closeModal() {
-      setIsOpen(false);
-    }
-
-    function openModal() {
-      setIsOpen(true);
-    }
-    return (
-      <>
-        <div className='flex mt-32 items-center justify-center'>
-          <button
-            type='button'
-            onClick={openModal}
-            className='px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'
-          >
-            Open Modal-{'md'}
-          </button>
-        </div>
-        <Modal size={'md'} title='Modal Title' opened={isOpen} onClose={closeModal}>
-          <div>
-            {/* <div className='mt-2'>
-            <p className='text-sm text-gray-500'>
-              Your payment has been successfully submitted. We’ve sent your an email with all of the
-              details of your order.
-            </p>
-          </div> */}
-
-            <div className='mt-4'>
-              <button
-                type='button'
-                className='inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500'
-                onClick={closeModal}
-              >
-                Got it, thanks!
-              </button>
-            </div>
-          </div>
-        </Modal>
-      </>
-    );
-  })
-  .add('lg', () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    function closeModal() {
-      setIsOpen(false);
-    }
-
-    function openModal() {
-      setIsOpen(true);
-    }
-    return (
-      <>
-        <div className='flex mt-32 items-center justify-center'>
-          <button
-            type='button'
-            onClick={openModal}
-            className='px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'
-          >
-            Open Modal-{'lg'}
-          </button>
-        </div>
-        <Modal size={'lg'} title='Modal Title' opened={isOpen} onClose={closeModal}>
-          <div>
-            {/* <div className='mt-2'>
-            <p className='text-sm text-gray-500'>
-              Your payment has been successfully submitted. We’ve sent your an email with all of the
-              details of your order.
-            </p>
-          </div> */}
-
-            <div className='mt-4'>
-              <button
-                type='button'
-                className='inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500'
-                onClick={closeModal}
-              >
-                Got it, thanks!
-              </button>
-            </div>
-          </div>
-        </Modal>
-      </>
-    );
-  })
-  .add('xl', () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    function closeModal() {
-      setIsOpen(false);
-    }
-
-    function openModal() {
-      setIsOpen(true);
-    }
-    return (
-      <>
-        <div className='flex mt-32 items-center justify-center'>
-          <button
-            type='button'
-            onClick={openModal}
-            className='px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'
-          >
-            Open Modal-{'xl'}
-          </button>
-        </div>
-        <Modal size={'xl'} title='Modal Title' opened={isOpen} onClose={closeModal}>
-          <div>
-            {/* <div className='mt-2'>
-            <p className='text-sm text-gray-500'>
-              Your payment has been successfully submitted. We’ve sent your an email with all of the
-              details of your order.
-            </p>
-          </div> */}
-
-            <div className='mt-4'>
-              <button
-                type='button'
-                className='inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500'
-                onClick={closeModal}
-              >
-                Got it, thanks!
-              </button>
-            </div>
-          </div>
-        </Modal>
-      </>
-    );
-  });
+  .add('General usage', () => (
+    <WrappedModal title='Modal Title'>
+      <Form />
+    </WrappedModal>
+  ))
+  .add('Horizontal overflow', () => (
+    <WrappedModal title='This title is so large that there is no space to fit it all on single line and it will wrap on the second one or may be even on the third one'>
+      IDecidedToPutSoMuchUnbreakableContentInsideModalSoThatItWillOverflow
+    </WrappedModal>
+  ))
+  .add('Inside portal', () => <InPortal />)
+  .add('Vertical scroll', () => (
+    <WrappedModal title='Modal Title'>
+      {Array(100)
+        .fill('REACT IS NOT A FRAMEWORK')
+        .map((c, i) => (
+          <Text key={i} weight={'extrabold'}>
+            {c}
+          </Text>
+        ))}
+    </WrappedModal>
+  ))
+  .add('Inside overflow', () => (
+    <WrappedModal title='Modal Title' overflow='inside'>
+      {Array(100)
+        .fill('REACT IS NOT A FRAMEWORK')
+        .map((c, i) => (
+          <Text key={i} weight={'extrabold'}>
+            {c}
+          </Text>
+        ))}
+    </WrappedModal>
+  ))
+  .add('xs', () => (
+    <WrappedModal title='Modal Title' size='xs'>
+      <Form />
+    </WrappedModal>
+  ))
+  .add('sm', () => (
+    <WrappedModal title='Modal Title' size='sm'>
+      <Form />
+    </WrappedModal>
+  ))
+  .add('md', () => (
+    <WrappedModal title='Modal Title' size='md'>
+      <Form />
+    </WrappedModal>
+  ))
+  .add('lg', () => (
+    <WrappedModal title='Modal Title' size='lg'>
+      <Form />
+    </WrappedModal>
+  ))
+  .add('xl', () => (
+    <WrappedModal title='Modal Title' size='xl'>
+      <Form />
+    </WrappedModal>
+  ))
+  .add('full', () => (
+    <WrappedModal title='Modal Title' size='full'>
+      <Form />
+    </WrappedModal>
+  ))
+  .add('Radius', () => (
+    <WrappedModal title='Modal Title' radius='xl'>
+      <Form />
+    </WrappedModal>
+  ))
+  .add('Dark theme', () => (
+    <BeautifyProvider theme={{ colorScheme: 'dark' }}>
+      <div style={{ background: DEFAULT_THEME.colors.dark[7], minHeight: '100vh', padding: 50 }}>
+        <WrappedModal title='Modal Title'>
+          <Form />
+        </WrappedModal>
+      </div>
+    </BeautifyProvider>
+  ));

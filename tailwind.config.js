@@ -151,8 +151,12 @@ module.exports = {
     borderWidth: {
       DEFAULT: '1px',
       0: '0px',
+      1.5: '1.5px',
+      0: '0px',
       2: '2px',
+      3: '3px',
       4: '4px',
+      6: '6px',
       8: '8px',
     },
     boxShadow: {
@@ -234,7 +238,9 @@ module.exports = {
       DEFAULT: '1',
     },
     fontFamily: {
+      inter: ['Inter'],
       sans: [
+        'Inter',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',

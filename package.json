@@ -13,12 +13,13 @@
     "generate": "plop --plopfile internals/generators/index.js",
     "commit": "git add . && git-cz",
     "start": "webpack serve --config internals/webpack/webpack.config.js --env env=dev",
-    "build-tailwind": "tailwindcss build ./src/styles.css -o ./styles/main.css",
+    "start-prod": "node ./internals/scripts/run-prod.js",
+    "build-tailwind": "tailwindcss build ./src/styles.css -o ./src/styles/main.css",
     "build": "webpack --config internals/webpack/webpack.config.js --env env=prod",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "lint-fix": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "prettier": "prettier --write",
-    "prettify": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "prettify": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,md}\"",
     "server": "json-server db.json -p 5000 -w -d 0",
     "test": "jest",
     "test:one": "node ./internals/scripts/test.js",
@@ -46,14 +47,23 @@
     "@sentry/react": "^6.3.6",
     "axios": "^0.21.1",
     "clsx": "^1.1.1",
+    "framer-motion": "^4.1.17",
+    "i18next": "^20.3.1",
+    "i18next-browser-languagedetector": "^6.1.1",
+    "i18next-http-backend": "^1.2.6",
     "logatim": "^0.9.0",
     "mobx": "^6.3.0",
     "mobx-react": "^7.1.0",
     "rc-dock": "^3.0.14",
     "react": "^17.0.2",
+    "react-beautiful-dnd": "^13.1.0",
+    "react-contexify": "^5.0.0",
     "react-dom": "^17.0.2",
     "react-hot-toast": "^1.0.2",
-    "react-router-dom": "^5.2.0"
+    "react-i18next": "^11.10.0",
+    "react-laag": "^2.0.2",
+    "react-router-dom": "^5.2.0",
+    "tslib": "^2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.2",
@@ -76,6 +86,7 @@
     "@types/enzyme": "^3.10.8",
     "@types/jest": "^26.0.23",
     "@types/react": "^17.0.5",
+    "@types/react-beautiful-dnd": "^13.0.0",
     "@types/react-dom": "^17.0.5",
     "@types/react-router-dom": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
@@ -86,10 +97,12 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-macros": "^3.1.0",
     "babel-plugin-twin": "^1.0.2",
+    "body-parser": "^1.19.0",
     "chalk": "^2.4.2",
     "circular-dependency-plugin": "^5.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "commitizen": "^4.2.4",
+    "copy-webpack-plugin": "^9.0.0",
     "css-loader": "^5.2.4",
     "css-minimizer-webpack-plugin": "^3.0.0",
     "cz-conventional-changelog": "^3.3.0",
@@ -104,6 +117,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "express": "^4.17.1",
     "git-cz": "^4.7.6",
     "html-webpack-plugin": "^5.3.1",
     "husky": "^6.0.0",
@@ -139,7 +153,7 @@
     "src/**/*.{js,jsx,ts,tsx,json}": [
       "eslint --fix"
     ],
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "src/**/*.{js,jsx,ts,tsx,json,md}": [
       "prettier --write"
     ]
   },

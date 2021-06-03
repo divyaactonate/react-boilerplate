@@ -1,4 +1,5 @@
 import Button from '@pages/button';
+import Card from '@pages/card';
 import Styles from '@pages/cssDemo';
 import EnvVar from '@pages/envVar';
 import Home from '@pages/index';
@@ -7,11 +8,14 @@ import Mobx from '@pages/mobxDemo';
 import Modal from '@pages/modal';
 import Toaster from '@pages/toaster';
 import WindowManager from '@pages/windowManager';
+import Tabs from '@pages/tabs';
+import Translations from '@pages/translations';
 import { FC, lazy, Suspense } from 'react';
 // import { Route } from 'react-router-dom'
 import { BrowserRouter, Switch } from 'react-router-dom';
 import ProtectedRoute from './Protected';
 import UnprotectedRoute from './Unprotected';
+import CardList from '@pages/cardList';
 
 // eslint-disable-next-line react/display-name
 const ProtectedPage: any = lazy(() => import('@pages/protected'));
@@ -41,6 +45,10 @@ export const Routes = () => {
           <UnprotectedRoute path='/toaster' component={Toaster} />
           <UnprotectedRoute path='/modal' component={Modal} />
           <UnprotectedRoute path='/windowManager' component={WindowManager} />
+          <UnprotectedRoute path='/translations' component={Translations} />
+          <UnprotectedRoute path='/card' component={Card} />
+          <UnprotectedRoute path='/tabs' component={Tabs} />
+          <UnprotectedRoute path='/cardList' component={CardList} />
 
           <ProtectedRoute
             path='/protected'

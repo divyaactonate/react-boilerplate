@@ -1,16 +1,21 @@
 const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const paths = require('./paths');
+const paths = require('../paths');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
   devServer: {
+    // before: (app) => {
+    //   app.use('/', express.static(path.join(__dirname, 'public')));
+    // },
+    contentBase: paths.assetPath,
     historyApiFallback: true,
     hot: true,
     open: true,
+    port: 8080,
   },
   plugins: [
     new Dotenv({ path: paths.devEnvPath }),
