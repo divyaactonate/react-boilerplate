@@ -169,3 +169,16 @@
 .dock-tab-close-btn:before {
   content: url("http://localhost:8080/assets/img/tab-close.svg");;
 }
+
+.github-icon {
+  padding-left: 16px;
+}
+
+.github-icon:before {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  content: url("http://localhost:8080/assets/img/tab-folder-icon.svg");
+}

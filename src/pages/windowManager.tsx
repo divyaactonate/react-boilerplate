@@ -1,4 +1,5 @@
 import Tab from '@components/WindowManager';
+import NavigationTab from '@components/WindowManager/NavigationTab';
 import { PlusIcon } from '@heroicons/react/solid';
 import { ActionIcon } from '@library/core/ActionIcon';
 import DockLayout from 'rc-dock';
@@ -9,15 +10,15 @@ const WindowManager = () => {
   const tabs = [
     {
       id: 'tab1',
-      title: 'tab1',
+      title: 'Report',
       content: <Tab url={'https://bihub.com/'} />,
-      closable: true,
+      closable: false,
       group: 'card custom',
     },
     {
       id: 'tab2',
-      title: <div className='github-icon'>tab3</div>,
-      content: <Tab url={'http://www.sapna-group.com/index.php'} />,
+      title: <div className='github-icon'>Jan 2021</div>,
+      content: <NavigationTab />,
       closable: true,
       group: 'card custom',
     },
@@ -66,10 +67,11 @@ const WindowManager = () => {
       defaultLayout={defaultLayout}
       style={{
         position: 'absolute',
-        left: 10,
-        top: 10,
+        left: '316px',
+        top: 0,
         right: 10,
         bottom: 10,
+        width: '79%',
       }}
     />
   );
