@@ -7,9 +7,7 @@ interface StylesProps extends SelectStylesProps {
   theme: BeautifyTheme;
 }
 export const getStyles = (props: StylesProps) => {
-  const { theme } = props;
-  console.log(theme);
-
+  const {} = props;
   const css = {
     select: {},
   };

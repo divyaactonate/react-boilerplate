@@ -26,7 +26,7 @@ export const getStyles = (props: StylesProps) => {
   const { theme, size, radius } = props;
   const css = {
     iconClass: {
-      color: theme.colors.blue[9],
+      color: theme.colors.blue[6],
     },
     textinput: {
       color: theme.colorScheme === 'dark' ? theme.colors.white : theme.colors.gray[7],

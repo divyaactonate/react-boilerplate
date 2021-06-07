@@ -1,54 +1,40 @@
-import cx from 'clsx';
-import { useMemo } from 'react';
 import {
+  BeautifyNumberSize,
   BeautifyTheme,
   DefaultStyleProps,
-  BeautifySize,
-  getsizeValue as getSizeValue,
   useBeautifyTheme,
 } from '@library/theme';
-
+import cx from 'clsx';
+import { useMemo } from 'react';
 interface RadioGroupStylesProps extends DefaultStyleProps {
-  spacing: BeautifySize;
+  spacing: BeautifyNumberSize;
   variant: 'vertical' | 'horizontal';
 }
 interface StylesProps extends RadioGroupStylesProps {
   theme: BeautifyTheme;
 }
-export const getStyles = (props: StylesProps) => {
-  const { theme, spacing, variant } = props;
+const getStyles = (props: StylesProps) => {
+  const { spacing, variant } = props;
 
-  const css: any = {
-    wrapper: {
-      flexDirection: variant === 'vertical' ? 'column' : 'row',
-      margin: (getSizeValue({ size: spacing }) / 2) * -1,
-      marginTop:
-        (getSizeValue({ sizes: theme.spacing, size: spacing }) / 4) *
-        (variant === 'vertical' ? 1 : -1),
-
-      '& [data-mantine-radio]': {
-        margin: getSizeValue({ sizes: theme.spacing, size: spacing }) / 2,
-        marginTop:
-          variant === 'vertical' && getSizeValue({ sizes: theme.spacing, size: spacing }) / 4,
-        marginBottom:
-          variant === 'vertical' && getSizeValue({ sizes: theme.spacing, size: spacing }) / 4,
-      },
-    },
+  const css = {
+    wrapper: {},
   };
-
   const classes = {
-    wrapper: cx(`flex flex-wrap`),
+    wrapper: cx(
+      `flex flex-wrap`,
+      variant === 'horizontal' ? `flex-row space-x-${spacing}` : `flex-col space-y-${spacing}`
+    ),
   };
   return { classes, css };
 };
 
 export const useStyles = (props: RadioGroupStylesProps) => {
-  const { themeOverride, spacing, variant } = props;
+  const { spacing, variant, themeOverride } = props;
   const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
 
   return useMemo(
-    () => getStyles({ theme, spacing, variant }),
+    () => getStyles({ spacing, variant, theme }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [themeOverride, spacing, variant, theme]
+    [spacing, variant]
   );
 };

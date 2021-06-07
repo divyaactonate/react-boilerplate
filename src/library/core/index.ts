@@ -23,6 +23,8 @@ export { Tooltip } from './Tooltip';
 export { TextInput } from './TextInput';
 export { PasswordInput } from './PasswordInput';
 export { InputsWrapper } from './InputsWrapper';
+export { RadioGroup, Radio } from './RadioGroup';
+export { ReactSelect } from './ReactSelect';
 
 export type { ButtonProps } from './Button';
 export type { ModalProps } from './Modal';
@@ -48,3 +50,5 @@ export type { TooltipProps } from './Tooltip';
 export type { TextInputProps } from './TextInput';
 export type { PasswordInputProps } from './PasswordInput';
 export type { InputsWrapperProps } from './InputsWrapper';
+export type { RadioGroupProps, RadioProps } from './RadioGroup';
+export type { ReactSelectProps } from './ReactSelect';

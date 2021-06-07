@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import { RadioGroup } from './index';
+import { ReactSelect } from './index';
 import { shallow } from 'enzyme';
 
-describe('<RadioGroup />', () => {
+describe('<ReactSelect />', () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(<RadioGroup />);
+    component = shallow(<ReactSelect />);
   });
 
   test('It should mount with enzyme', () => {
@@ -14,8 +14,8 @@ describe('<RadioGroup />', () => {
   });
 
   test('It should mount with testing Library', () => {
-    render(<RadioGroup />);
-    component = screen.getByTestId('RadioGroup');
+    render(<ReactSelect />);
+    component = screen.getByTestId('ReactSelect');
     expect(component).toBeInTheDocument();
   });
 });

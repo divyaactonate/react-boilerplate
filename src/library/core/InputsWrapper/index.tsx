@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import { BeautifyCase, DefaultProps } from '@library/theme';
+import { BeautifyCase, BeautifyWeight, DefaultProps } from '@library/theme';
 import cx from 'clsx';
 import { ReactNode } from 'react';
 import { useStyles } from './InputsWrapper.styles';
@@ -10,6 +10,7 @@ export interface InputsWrapperProps extends DefaultProps {
   type?: 'text' | 'password' | 'number' | 'email';
   errorMessage?: string;
   size?: string;
+  weight?: BeautifyWeight;
   required?: boolean;
   hasError?: boolean;
   transform?: BeautifyCase;
@@ -21,12 +22,13 @@ export const InputsWrapper = ({
   label,
   errorMessage = '',
   size = 'sm',
+  weight = 'extrabold',
   hasError = false,
   required = false,
   children,
   transform = 'capitalize',
 }: InputsWrapperProps) => {
-  const { classes, css } = useStyles({ themeOverride, transform, size });
+  const { classes, css } = useStyles({ themeOverride, transform, size, weight });
   return (
     <div data-beautify-inputswrapper className={cx(classes.inputswrapper, className)}>
       <label css={css.label} htmlFor={label} className={classes.label}>

@@ -68,7 +68,7 @@ const getStyles = (props: StylesProps) => {
     filled: {
       border: '1px solid transparent',
       backgroundColor: hexToRgba(
-        getThemeColor({ theme, color, shade: 7 }),
+        getThemeColor({ theme, color, shade: 6 }),
         theme.colorScheme === 'dark' ? 0.65 : 1
       ),
       textShadow:
@@ -79,7 +79,7 @@ const getStyles = (props: StylesProps) => {
 
       '&:hover': {
         backgroundColor: hexToRgba(
-          getThemeColor({ theme, color, shade: 8 }),
+          getThemeColor({ theme, color, shade: 7 }),
           theme.colorScheme === 'dark' ? 0.95 : 1
         ),
       },

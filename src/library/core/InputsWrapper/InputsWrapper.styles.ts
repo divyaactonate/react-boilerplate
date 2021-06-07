@@ -6,18 +6,21 @@ import {
   DefaultStyleProps,
   getTextSizeValue,
   getTransformValue,
+  BeautifyWeight,
   useBeautifyTheme,
+  getWeightValue,
 } from '@library/theme';
 
 interface InputsWrapperStylesProps extends DefaultStyleProps {
   size: string;
   transform: BeautifyCase;
+  weight: BeautifyWeight;
 }
 interface StylesProps extends InputsWrapperStylesProps {
   theme: BeautifyTheme;
 }
 export const getStyles = (props: StylesProps) => {
-  const { theme, transform, size } = props;
+  const { theme, transform, size, weight } = props;
 
   const css = {
     inputswrapper: {},
@@ -33,22 +36,23 @@ export const getStyles = (props: StylesProps) => {
     inputswrapper: cx(),
     required: cx(),
     label: cx(
-      `block text-sm font-extrabold`,
+      `block`,
       getTransformValue({ transform }),
-      getTextSizeValue({ size })
+      getTextSizeValue({ size }),
+      getWeightValue({ weight })
     ),
-    error: 'mt-2 text-sm text-gray-500',
+    error: 'mt-0.5 text-sm text-gray-500',
   };
   return { classes, css };
 };
 
 export const useStyles = (props: InputsWrapperStylesProps) => {
-  const { themeOverride, transform, size } = props;
+  const { themeOverride, transform, size, weight } = props;
   const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
 
   return useMemo(
-    () => getStyles({ theme, transform, size }),
+    () => getStyles({ theme, transform, size, weight }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [themeOverride, transform, size]
+    [themeOverride, transform, size, weight]
   );
 };

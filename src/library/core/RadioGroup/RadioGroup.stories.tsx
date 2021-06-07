@@ -1,18 +1,20 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { RadioGroup, Radio } from './index';
 import { BeautifyProvider } from '@library/theme';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
+import { storiesOf } from '@storybook/react';
+import { RadioGroup, Radio } from '.';
 
 storiesOf('@beautify/core/RadioGroup', module)
   .add('General usage', () => (
     <div style={{ padding: 40 }}>
       <RadioGroup
-        label='Your favorite library/framework'
+        label='Your favorite librar framework'
         required
+        value='react'
         description="Don't worry it's anonymous, you can safely pick Angular"
       >
-        <Radio value='react'>React</Radio>
+        <Radio color='green' value='react'>
+          React
+        </Radio>
         <Radio value='ng' disabled title="Unless you can't, haha">
           Angular
         </Radio>
@@ -22,6 +24,7 @@ storiesOf('@beautify/core/RadioGroup', module)
   ))
   .add('Too many items in horizontal', () => (
     <RadioGroup
+      spacing={3}
       style={{ padding: 40, maxWidth: 300, background: '#f5f5f5' }}
       label='Too many items'
     >
@@ -35,13 +38,13 @@ storiesOf('@beautify/core/RadioGroup', module)
   ))
   .add('Vertical', () => (
     <RadioGroup
+      spacing={3}
       style={{ padding: 40 }}
       defaultValue='react'
       label='Your favorite library/framework'
       required
       description="Don't worry it's anonymous, you can safely pick Angular"
       variant='vertical'
-      spacing='xl'
     >
       <Radio value='react'>React</Radio>
       <Radio value='ng' disabled title="Unless you can't, haha">

@@ -1,11 +1,9 @@
 /** @jsxImportSource @emotion/react */
-// Please remove above line if not using twin css
-
-import React, { ComponentPropsWithoutRef, createElement } from 'react';
-import cx from 'clsx';
-import { useStyles } from './InputWrapper.styles';
-import { DefaultProps, useBeautifyTheme } from '@library/theme';
 import { Text } from '@library/core';
+import { BeautifyCase, BeautifyWeight, DefaultProps } from '@library/theme';
+import cx from 'clsx';
+import React, { ComponentPropsWithoutRef, createElement } from 'react';
+import { useStyles } from './InputWrapper.styles';
 
 export interface InputWrapperBaseProps {
   /** Input label, displayed before input */
@@ -30,7 +28,9 @@ export interface InputWrapperProps
 
   /** htmlFor label prop */
   id?: string;
-
+  size?: string;
+  weight?: BeautifyWeight;
+  transform?: BeautifyCase;
   /** Render label as label with htmlFor or as div */
   labelElement?: 'label' | 'div';
 }
@@ -45,9 +45,12 @@ export const InputWrapper = ({
   description,
   themeOverride,
   labelElement = 'label',
+  size = 'sm',
+  weight = 'extrabold',
+  transform = 'capitalize',
   ...others
 }: InputWrapperProps) => {
-  const { classes, css } = useStyles({ theme: useBeautifyTheme(themeOverride) });
+  const { classes, css } = useStyles({ themeOverride, transform, size, weight });
 
   const labelProps = labelElement === 'label' ? { htmlFor: id } : {};
   const inputLabel = createElement(

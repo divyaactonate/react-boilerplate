@@ -1,9 +1,8 @@
 /** @jsxImportSource @emotion/react */
-// Please remove above line if not using twin css
-
+import { BeautifySize, DefaultProps } from '@library/theme';
 import cx from 'clsx';
+import React from 'react';
 import { useStyles } from './Radio.styles';
-import { DefaultProps, useBeautifyTheme, BeautifySize } from '@library/theme';
 
 export interface RadioProps
   extends DefaultProps,
@@ -23,20 +22,20 @@ export interface RadioProps
   /** Get input ref */
   elementRef?: React.ForwardedRef<HTMLInputElement>;
 }
-export const Radio = ({
+
+export function Radio({
   className,
   themeOverride,
-  id,
   children,
   style,
   size = 'sm',
   elementRef,
   title,
-  disabled,
-  color,
+  disabled = false,
+  color = 'blue',
   ...others
-}: RadioProps) => {
-  const { classes, css } = useStyles({ color, size, theme: useBeautifyTheme(themeOverride) });
+}: RadioProps) {
+  const { classes, css } = useStyles({ color, size, themeOverride, disabled });
   return (
     <div
       data-mantine-radio
@@ -45,13 +44,12 @@ export const Radio = ({
       style={style}
       title={title}
     >
-      <label css={css.label} className={cx(classes.label, { [classes.labelDisabled]: disabled })}>
+      <label css={css.label} className={cx(classes.label)}>
         <input
           ref={elementRef}
-          css={css.radio}
           className={classes.radio}
+          css={css.radio}
           type='radio'
-          id={id}
           disabled={disabled}
           {...others}
         />
@@ -59,5 +57,6 @@ export const Radio = ({
       </label>
     </div>
   );
-};
-Radio.displayName = '@beautify/core/Radio';
+}
+
+Radio.displayName = '@mantine/core/Radio';

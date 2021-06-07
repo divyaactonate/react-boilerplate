@@ -1,6 +1,15 @@
 import cx from 'clsx';
 import { useMemo } from 'react';
-import { BeautifyTheme, DefaultStyleProps, useBeautifyTheme } from '@library/theme';
+import {
+  BeautifyCase,
+  BeautifyTheme,
+  BeautifyWeight,
+  DefaultStyleProps,
+  getTextSizeValue,
+  getTransformValue,
+  getWeightValue,
+  useBeautifyTheme,
+} from '@library/theme';
 
 const spacings = {
   xs: 10,
@@ -9,18 +18,19 @@ const spacings = {
   lg: 20,
   xl: 24,
 };
-
 export interface InputWrapperProps extends DefaultStyleProps {
+  size: string;
+  transform: BeautifyCase;
+  weight: BeautifyWeight;
+}
+export interface StyleProps extends InputWrapperProps {
   theme: BeautifyTheme;
 }
-
-export const getStyles = (props: InputWrapperProps) => {
-  const { theme } = props;
+export const getStyles = (props: StyleProps) => {
+  const { theme, transform, size, weight } = props;
 
   const css: any = {
-    inputwrapper: {
-      lineHeight: theme.lineHeights.normal,
-    },
+    inputwrapper: {},
     label: {
       color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
     },
@@ -37,8 +47,13 @@ export const getStyles = (props: InputWrapperProps) => {
   };
 
   const classes = {
-    inputwrapper: cx(),
-    label: cx(`block mb-3 text-md font-medium break-words`),
+    inputwrapper: cx(theme.lineHeights.normal),
+    label: cx(
+      `block mb-3 text-md font-medium break-words`,
+      getTransformValue({ transform }),
+      getTextSizeValue({ size }),
+      getWeightValue({ weight })
+    ),
     error: cx(`break-words`),
     description: cx(`break-words`),
     required: cx(),
@@ -47,12 +62,12 @@ export const getStyles = (props: InputWrapperProps) => {
 };
 
 export const useStyles = (props: InputWrapperProps) => {
-  const { themeOverride } = props;
+  const { themeOverride, transform, size, weight } = props;
   const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
 
   return useMemo(
-    () => getStyles({ theme }),
+    () => getStyles({ theme, transform, size, weight }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [themeOverride, theme]
+    [themeOverride, transform, size, weight]
   );
 };

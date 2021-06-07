@@ -1,14 +1,21 @@
-import cx from 'clsx';
-import { useMemo } from 'react';
 import {
+  BeautifySize,
   BeautifyTheme,
   DefaultStyleProps,
-  useBeautifyTheme,
-  getsizeValue as getSizeValue,
+  getTextSizeValue,
   getThemeColor,
-  BeautifySize,
+  useBeautifyTheme,
 } from '@library/theme';
-
+import cx from 'clsx';
+import { useMemo } from 'react';
+interface RadioStylesProps extends DefaultStyleProps {
+  size: BeautifySize;
+  color: string;
+  disabled: boolean;
+}
+interface StylesProps extends RadioStylesProps {
+  theme: BeautifyTheme;
+}
 export const sizes = {
   xs: 12,
   sm: 16,
@@ -16,21 +23,21 @@ export const sizes = {
   lg: 26,
   xl: 36,
 };
-
-interface RadioStylesProps extends DefaultStyleProps {
-  size: BeautifySize;
-  color: string;
-}
-
-interface StylesProps extends RadioStylesProps {
-  theme: BeautifyTheme;
-}
-export const getStyles = (props: StylesProps) => {
-  const { theme, size, color } = props;
-
+const getStyles = (props: StylesProps) => {
+  const { size, theme, color, disabled } = props;
   const css: any = {
-    labelDisabled: {},
-    wrapper: { WebkitTapHighlightColor: 'transparent' },
+    wrapper: {
+      WebkitTapHighlightColor: 'transparent',
+    },
+    label: {
+      color: disabled
+        ? theme.colorScheme === 'dark'
+          ? theme.colors.dark[3]
+          : theme.colors.gray[5]
+        : theme.colorScheme === 'dark'
+        ? theme.colors.dark[0]
+        : theme.black,
+    },
     radio: {
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[0],
       border: `1px solid ${
@@ -38,12 +45,12 @@ export const getStyles = (props: StylesProps) => {
       }`,
       position: 'relative',
       appearance: 'none',
-      width: getSizeValue({ sizes, size }),
-      height: getSizeValue({ sizes, size }),
-      borderRadius: getSizeValue({ sizes, size }),
+      width: getTextSizeValue({ sizes, size }),
+      height: getTextSizeValue({ sizes, size }),
+      borderRadius: getTextSizeValue({ sizes, size }),
       margin: 0,
-      marginRight: theme.paddings.sm,
-      background: 'red',
+      marginRight: 2,
+      // background: 'red',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -56,12 +63,11 @@ export const getStyles = (props: StylesProps) => {
           content: '""',
           display: 'block',
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
-          width: getSizeValue({ size }) / 2,
-          height: getSizeValue({ size }) / 2,
-          borderRadius: getSizeValue({ size }) / 2,
+          width: getTextSizeValue({ sizes, size }) / 2,
+          height: getTextSizeValue({ sizes, size }) / 2,
+          borderRadius: getTextSizeValue({ sizes, size }) / 2,
         },
       },
-
       '&:disabled': {
         borderColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[4],
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1],
@@ -72,34 +78,22 @@ export const getStyles = (props: StylesProps) => {
         },
       },
     },
-    label: {
-      fontSize: theme.fontSizes[size] || theme.fontSizes.md,
-      lineHeight: `${getSizeValue({ size })}px`,
-      color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
-      marginLeft: 15,
-
-      '&$labelDisabled': {
-        color: theme.colorScheme === 'dark' ? theme.colors.dark[3] : theme.colors.gray[5],
-      },
-    },
   };
-
   const classes = {
-    labelDisabled: cx(``),
-    wrapper: cx(`flex items-center`),
-    radio: cx(``),
-    label: cx(`flex items-center`),
+    wrapper: `flex items-center`,
+    label: cx(`flex items-center space-x-1.5`),
+    radio: cx(),
   };
   return { classes, css };
 };
 
 export const useStyles = (props: RadioStylesProps) => {
-  const { themeOverride, size, color } = props;
+  const { size, color, themeOverride, disabled } = props;
   const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
 
   return useMemo(
-    () => getStyles({ theme, size, color }),
+    () => getStyles({ size, theme, color, disabled }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [themeOverride, theme, size, color]
+    [size, color, themeOverride, disabled]
   );
 };

@@ -26,7 +26,7 @@ export function Overlay<T extends React.ElementType = 'div'>({
   return (
     <Element
       data-beautify-overlay
-      className={(cx('absolute h-full min-h-screen inset-0'), className)}
+      className={cx('absolute h-full min-h-screen inset-0', className)}
       style={{
         opacity,
         backgroundColor: color,

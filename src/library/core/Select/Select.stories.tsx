@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Select } from './index';
+import { DEFAULT_THEME } from '@library/theme/default-theme';
+import { ReplyIcon } from '@heroicons/react/solid';
 // import { ReplyIcon } from '@heroicons/react/solid';
 // import { DEFAULT_THEME } from '@library/theme/default-theme';
 
@@ -25,102 +27,103 @@ const WrappedSelect = (
   );
 };
 
-storiesOf('@beautify/core/Select', module).add('General usage', () => (
-  <div style={{ maxWidth: 300, padding: 20 }}>
-    <WrappedSelect label='Your favorite library' placeholder='Your favorite library' />
-  </div>
-));
-// .add('Uncontrolled', () => (
-//   <div style={{ maxWidth: 300, padding: 20 }}>
-//     <Select label='Your favorite library' placeholder='Your favorite library' data={data} />
-//   </div>
-// ))
-// .add('Required', () => (
-//   <div style={{ maxWidth: 300, padding: 20 }}>
-//     <WrappedSelect required label='Your favorite library' placeholder='Your favorite library' />
-//   </div>
-// ))
-// .add('Filled', () => (
-//   <div style={{ maxWidth: 300, padding: 20 }}>
-//     <WrappedSelect
-//       required
-//       label='Your favorite library'
-//       placeholder='Your favorite library'
-//       variant='filled'
-//     />
-//   </div>
-// ))
-// .add('With description', () => (
-//   <div style={{ maxWidth: 300, padding: 20 }}>
-//     <WrappedSelect
-//       description='Please choose wisely, you will not be able to change answer'
-//       required
-//       label='Your favorite library'
-//       placeholder='Your favorite library'
-//     />
-//   </div>
-// ))
-// .add('With error', () => (
-//   <div style={{ maxWidth: 300, padding: 20 }}>
-//     <WrappedSelect
-//       required
-//       label='Your favorite library'
-//       placeholder='Your favorite library'
-//       error='You need to choose value'
-//     />
-//   </div>
-// ))
-// .add('Invalid without error', () => (
-//   <div style={{ maxWidth: 300, padding: 20 }}>
-//     <WrappedSelect label='Your favorite library' placeholder='Your favorite library' error />
-//   </div>
-// ))
-// .add('Custom radius', () => (
-//   <div style={{ maxWidth: 300, padding: 20 }}>
-//     <WrappedSelect
-//       label='Your favorite library'
-//       placeholder='Your favorite library'
-//       radius='xl'
-//     />
-//   </div>
-// ))
-// .add('Disabled', () => (
-//   <div style={{ maxWidth: 300, padding: 20 }}>
-//     <Select
-//       disabled
-//       label='Your favorite library'
-//       placeholder='Your favorite library'
-//       data={data}
-//     />
-//     <Select
-//       style={{ marginTop: 20 }}
-//       disabled
-//       label='Your favorite library'
-//       placeholder='Your favorite library'
-//       value='react'
-//       data={data}
-//     />
-//   </div>
-// ))
-// .add('With icon', () => (
-//   <div style={{ maxWidth: 300, padding: 20 }}>
-//     <WrappedSelect
-//       icon={<ReplyIcon />}
-//       label='Your favorite library'
-//       required
-//       placeholder='Your favorite library'
-//     />
-//   </div>
-// ))
-// .add('Dark theme', () => (
-//   <div style={{ backgroundColor: DEFAULT_THEME.colors.dark[7], padding: 40, minHeight: '100vh' }}>
-//     <div style={{ width: 300, padding: 20 }}>
-//       <Select
-//         label='Your favorite library'
-//         placeholder='Your favorite library'
-//         data={data}
-//         themeOverride={{ colorScheme: 'dark' }}
-//       />
-//     </div>
-//   </div>
-// ));
+storiesOf('@beautify/core/Select', module)
+  .add('General usage', () => (
+    <div style={{ maxWidth: 300, padding: 20 }}>
+      <WrappedSelect label='Your favorite library' placeholder='Your favorite library' />
+    </div>
+  ))
+  .add('Uncontrolled', () => (
+    <div style={{ maxWidth: 300, padding: 20 }}>
+      <Select label='Your favorite library' placeholder='Your favorite library' data={data} />
+    </div>
+  ))
+  .add('Required', () => (
+    <div style={{ maxWidth: 300, padding: 20 }}>
+      <WrappedSelect required label='Your favorite library' placeholder='Your favorite library' />
+    </div>
+  ))
+  .add('Filled', () => (
+    <div style={{ maxWidth: 300, padding: 20 }}>
+      <WrappedSelect
+        required
+        label='Your favorite library'
+        placeholder='Your favorite library'
+        variant='filled'
+      />
+    </div>
+  ))
+  .add('With description', () => (
+    <div style={{ maxWidth: 300, padding: 20 }}>
+      <WrappedSelect
+        description='Please choose wisely, you will not be able to change answer'
+        required
+        label='Your favorite library'
+        placeholder='Your favorite library'
+      />
+    </div>
+  ))
+  .add('With error', () => (
+    <div style={{ maxWidth: 300, padding: 20 }}>
+      <WrappedSelect
+        required
+        label='Your favorite library'
+        placeholder='Your favorite library'
+        error='You need to choose value'
+      />
+    </div>
+  ))
+  .add('Invalid without error', () => (
+    <div style={{ maxWidth: 300, padding: 20 }}>
+      <WrappedSelect label='Your favorite library' placeholder='Your favorite library' error />
+    </div>
+  ))
+  .add('Custom radius', () => (
+    <div style={{ maxWidth: 300, padding: 20 }}>
+      <WrappedSelect
+        label='Your favorite library'
+        placeholder='Your favorite library'
+        radius='xl'
+      />
+    </div>
+  ))
+  .add('Disabled', () => (
+    <div style={{ maxWidth: 300, padding: 20 }}>
+      <Select
+        disabled
+        label='Your favorite library'
+        placeholder='Your favorite library'
+        data={data}
+      />
+      <Select
+        style={{ marginTop: 20 }}
+        disabled
+        label='Your favorite library'
+        placeholder='Your favorite library'
+        value='react'
+        data={data}
+      />
+    </div>
+  ))
+  .add('With icon', () => (
+    <div style={{ maxWidth: 300, padding: 20 }}>
+      <WrappedSelect
+        icon={<ReplyIcon className='w-10' />}
+        label='Your favorite library'
+        required
+        placeholder='Your favorite library'
+      />
+    </div>
+  ))
+  .add('Dark theme', () => (
+    <div style={{ backgroundColor: DEFAULT_THEME.colors.dark[7], padding: 40, minHeight: '100vh' }}>
+      <div style={{ width: 300, padding: 20 }}>
+        <Select
+          label='Your favorite library'
+          placeholder='Your favorite library'
+          data={data}
+          themeOverride={{ colorScheme: 'dark' }}
+        />
+      </div>
+    </div>
+  ));

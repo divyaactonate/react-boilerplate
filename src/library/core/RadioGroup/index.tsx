@@ -1,18 +1,13 @@
 /** @jsxImportSource @emotion/react */
-// Please remove above line if not using twin css
-
-import React, { Children, cloneElement, useState } from 'react';
+import { BeautifyNumberSize, DefaultProps } from '@library/theme';
 import cx from 'clsx';
+import React, { Children, cloneElement, useState } from 'react';
+import { InputWrapper, InputWrapperBaseProps } from '../InputWrapper';
+import { Radio, RadioProps } from './Radio/Radio';
 import { useStyles } from './RadioGroup.styles';
-import { sizes } from './Radio/Radio.styles';
-import { DefaultProps, BeautifySize, useBeautifyTheme } from '@library/theme';
-import { InputWrapper, InputWrapperBaseProps } from '@library/core/InputWrapper';
-import { Radio, RadioProps } from './Radio';
 
 export { Radio };
 export type { RadioProps };
-
-export const RADIO_SIZES = sizes;
 
 export interface RadioGroupProps
   extends DefaultProps,
@@ -37,32 +32,30 @@ export interface RadioGroupProps
   variant?: 'horizontal' | 'vertical';
 
   /** Spacing between radios in horizontal variant */
-  spacing?: BeautifySize;
+  spacing?: BeautifyNumberSize;
 
-  /** Active radio color */
-  color?: string;
+  // /** Active radio color */
+  // color?: string;
 
-  /** Predefined label fontSize, radio width, height and border-radius */
-  size?: BeautifySize;
+  // /** Predefined label fontSize, radio width, height and border-radius */
+  // size?: BeautifySize;
 }
 
-export const RadioGroup = ({
+export function RadioGroup({
   className,
   themeOverride,
-  name,
   children,
   value,
   defaultValue,
   onChange,
   variant = 'horizontal',
-  spacing = 'md',
-  color,
-  size,
+  spacing = 2,
+  // color,
   ...others
-}: RadioGroupProps) => {
+}: RadioGroupProps) {
   const [_value, setValue] = useState(value || defaultValue || '');
   const finalValue = typeof value === 'string' ? value : _value;
-  const { classes, css } = useStyles({ spacing, variant, theme: useBeautifyTheme(themeOverride) });
+  const { classes, css } = useStyles({ spacing, variant, themeOverride });
 
   const handleChange = (v: string) => {
     setValue(v);
@@ -75,9 +68,8 @@ export const RadioGroup = ({
       cloneElement(radio, {
         key: index,
         checked: finalValue === radio.props.value,
-        name: name,
-        color,
-        size,
+        // color,
+        // size,
         onChange: (event: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(event.currentTarget.value),
       })
@@ -90,5 +82,6 @@ export const RadioGroup = ({
       </div>
     </InputWrapper>
   );
-};
-RadioGroup.displayName = '@beautify/core/RadioGroup';
+}
+
+RadioGroup.displayName = '@mantine/core/RadioGroup';

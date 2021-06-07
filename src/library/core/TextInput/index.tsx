@@ -4,13 +4,13 @@ import { BeautifySize, DefaultProps } from '@library/theme';
 import { ComponentPassThrough } from '@library/types';
 import { ReactNode } from 'react';
 import { useStyles } from './TextInput.styles';
+import cx from 'clsx';
 
 export interface TextInputProps extends DefaultProps {
   size?: BeautifySize;
   radius?: BeautifySize;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
-  placeHolder?: string;
 }
 export const TextInput = <
   T extends React.ElementType = 'input',
@@ -21,6 +21,7 @@ export const TextInput = <
   radius = 'sm',
   leftIcon,
   themeOverride,
+  elementRef,
   className,
   ...others
 }: ComponentPassThrough<T, TextInputProps> & {
@@ -29,9 +30,15 @@ export const TextInput = <
 }) => {
   const { classes, css } = useStyles({ themeOverride, size, radius });
   return (
-    <div className={(classes.wrapper, className)}>
+    <div className={cx(classes.wrapper, className)}>
       {leftIcon && <div className={classes.leftIconWrapper}>{leftIcon}</div>}
-      <input type='text' css={css.textinput} className={classes.textinput} {...others} />
+      <input
+        ref={elementRef}
+        type='text'
+        css={css.textinput}
+        className={classes.textinput}
+        {...others}
+      />
       {rightIcon && <div className={classes.rightIconWrapper}>{rightIcon}</div>}
     </div>
   );
