@@ -46,7 +46,12 @@ const LoginPage: FC = () => {
               <PasswordInput defaultValue='Kaushal' />
             </InputsWrapper>
             <InputsWrapper label='Authentication'>
-              <ReactSelect defaultValue='windows' options={options} />
+              <ReactSelect
+                isSearchable={false}
+                isClearable={false}
+                defaultValue='windows'
+                options={options}
+              />
             </InputsWrapper>
             {/* <InputsWrapper label='Authentication'>
               <RadioGroup spacing={4} className='mt-2' variant='horizontal' defaultValue='native'>

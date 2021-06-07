@@ -79,6 +79,7 @@ export const getStyles = (props: StylesProps) => {
       //   borderColor: '#68D391',
       // },
     }),
+    indicatorSeparator: () => ({ display: 'none' }),
   };
   const css = {
     reactselect: {},

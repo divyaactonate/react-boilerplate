@@ -1,13 +1,13 @@
 /** @jsxImportSource @emotion/react */
 // Please remove above line if not using twin css
 
-import cx from 'clsx';
-import { useStyles } from './ReactSelect.styles';
 import { BeautifySize, DefaultProps } from '@library/theme';
+import cx from 'clsx';
 import React, { ComponentPropsWithoutRef, useEffect, useState } from 'react';
 import Select from 'react-select';
 // eslint-disable-next-line import/no-named-as-default
 import makeAnimated from 'react-select/animated';
+import { useStyles } from './ReactSelect.styles';
 
 const animatedComponents = makeAnimated();
 
@@ -105,7 +105,10 @@ export const ReactSelect = ({
       <Select
         instanceId={'hiii'}
         styles={colourStyles}
-        components={animatedComponents}
+        components={{
+          ...animatedComponents,
+          IndicatorSeparator: () => null,
+        }}
         isSearchable={isSearchable}
         isLoading={isLoading}
         isMulti={mode === 'multiple' ? true : false}
