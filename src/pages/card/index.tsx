@@ -7,12 +7,10 @@ import {
 } from '@heroicons/react/outline';
 import { FolderIcon, HeartIcon, OfficeBuildingIcon } from '@heroicons/react/solid';
 import Layout from '@layouts/index';
-import { Badge } from '@library/core/Badge';
-import { Checkbox } from '@library/core/Checkbox';
 // import { ReportCard as Card } from '@library/core/ReportCard';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useHover } from 'react-laag';
-import { FolderCard } from '@library/core/FolderCard';
+import { FolderCard, Badge, Checkbox } from '@library/core';
 
 const Cards: FC = () => {
   const [isOver, hoverProps] = useHover({ delayEnter: 100, delayLeave: 300 });

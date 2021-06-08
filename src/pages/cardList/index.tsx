@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { ReportCard as Card } from '@library/core/ReportCard';
-import { FolderCard } from '@library/core/FolderCard';
+import { FolderCard, ReportCard as Card } from '@library/core';
+
 const CardList: FC = () => {
   return (
     <div className='flex h-screen w-full flex-row'>

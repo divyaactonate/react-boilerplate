@@ -7,8 +7,8 @@ import {
   ReactSelect,
   Text,
   TextInput,
+  Checkbox,
 } from '@library/core';
-import { Checkbox } from '@library/core/Checkbox';
 import { BiHubIcon } from '@shared/index';
 import { FC } from 'react';
 
