@@ -1,7 +1,5 @@
 import Layout from '@layouts/index';
-import { Breadcrum } from '@library/core/Breadcrum/index2';
-import { Tooltip } from '../library/core/Tooltip';
-import { Text } from '@library/core';
+import { Tooltip, Breadcrum, Text } from '../library/core';
 
 const items = [
   {
@@ -47,7 +45,7 @@ const items = [
         </div>
       }
     >
-      {item.title}
+      <>{item.title}</>
     </Tooltip>
   </Text>
 ));
