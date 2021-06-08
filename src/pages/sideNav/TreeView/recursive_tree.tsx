@@ -7,6 +7,7 @@ import {
   TreeFolderIcon,
   PopUpIcon,
 } from '@library/icons';
+import { Tooltip } from '@library/core';
 import { Tree, TreeBranch } from './types';
 
 interface TreeItemProps {
@@ -77,12 +78,28 @@ const TreeItem = ({
                 setSelected(!selected);
                 onSelectCallback(e);
               }}
+              className={`cursor-pointer truncate`}
               style={{
+                width: 90,
                 marginLeft: 6,
                 color: `${selectedId === parseInt(id) && selected ? '#0084FF' : '#999999'}`,
               }}
             >
-              {label}
+              <Tooltip
+                triggerOffset={12}
+                arrowClassName='-mt-10'
+                bgColor={'#1F2937'}
+                borderColor={'#1F2937'}
+                placement='bottom-center'
+                possiblePlacements={['top-center']}
+                text={
+                  <div className='break-words rounded-lg text-sm max-w-xs bg-gray-800 text-white py-1 px-3'>
+                    {label}
+                  </div>
+                }
+              >
+                {label}
+              </Tooltip>
             </StyledLabel>
           </div>
           {selectedId === parseInt(id) && selected && (

@@ -362,3 +362,39 @@ export const PopUpIcon = ({ className, iconColor }: any) => (
     />
   </svg>
 );
+
+export const AddFolder = ({ className, iconColor }: any) => (
+  <svg
+    className={classNames(`ml-2`, className)}
+    width='14'
+    height='11'
+    viewBox='0 0 14 11'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+  >
+    <path
+      d='M5 6.38776H9M7 4.36735V8.40816M1 9.08163V2.34694C1 1.98971 1.14048 1.64711 1.39052 1.39451C1.64057 1.14191 1.97971 1 2.33333 1H6.33333L7.66667 2.34694H11.6667C12.0203 2.34694 12.3594 2.48885 12.6095 2.74145C12.8595 2.99405 13 3.33665 13 3.69388V9.08163C13 9.43886 12.8595 9.78146 12.6095 10.0341C12.3594 10.2867 12.0203 10.4286 11.6667 10.4286H2.33333C1.97971 10.4286 1.64057 10.2867 1.39052 10.0341C1.14048 9.78146 1 9.43886 1 9.08163Z'
+      stroke={iconColor ? iconColor : '#666666'}
+      strokeLinecap='round'
+      strokeLinejoin='round'
+    />
+  </svg>
+);
+
+export const ChevronDownIcon = ({ className, iconColor }: any) => (
+  <svg
+    className={classNames(className)}
+    width='20'
+    height='20'
+    viewBox='0 0 15 15'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+  >
+    <path
+      d='M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z'
+      fill={iconColor ? iconColor : '#999999'}
+      fillRule='evenodd'
+      clipRule='evenodd'
+    />
+  </svg>
+);
