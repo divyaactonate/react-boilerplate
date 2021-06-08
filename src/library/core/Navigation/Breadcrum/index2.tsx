@@ -86,7 +86,7 @@ export const Breadcrum = ({
                               </svg>
                             </div>
 
-                            <div className={`flex}`}>{d}</div>
+                            <div className={`flex`}>{d}</div>
                           </div>
                         );
                       }

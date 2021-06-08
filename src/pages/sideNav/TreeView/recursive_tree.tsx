@@ -13,6 +13,7 @@ import { Tree, TreeBranch } from './types';
 interface TreeItemProps {
   readonly id: string;
   readonly onSelectCallback: (e: React.MouseEvent<HTMLInputElement>) => void;
+  readonly setBreadcrumbData: (value: any) => void;
   readonly label: string;
   readonly isSelected: boolean | undefined;
   readonly selectedId: number | string;
@@ -22,11 +23,13 @@ interface TreeItemProps {
 export interface RecursiveTreeProps {
   readonly listMeta: Tree;
   readonly onSelectCallback: (value: TreeBranch) => void;
+  readonly setBreadcrumbData: (value: any) => void;
   readonly currentId: number;
 }
 
 const TreeItem = ({
   onSelectCallback,
+  setBreadcrumbData,
   label,
   isSelected,
   children,
@@ -75,6 +78,7 @@ const TreeItem = ({
             )}
             <StyledLabel
               onClick={(e: React.MouseEvent<HTMLInputElement>) => {
+                setBreadcrumbData({ title: label, href: 'https://google.com', isChild: true });
                 setSelected(!selected);
                 onSelectCallback(e);
               }}
@@ -126,7 +130,12 @@ const TreeItem = ({
   );
 };
 
-const RecursiveTree = ({ listMeta, onSelectCallback, currentId }: RecursiveTreeProps) => {
+const RecursiveTree = ({
+  listMeta,
+  onSelectCallback,
+  currentId,
+  setBreadcrumbData,
+}: RecursiveTreeProps) => {
   const createTree = (branch: TreeBranch) =>
     branch.branches && (
       <TreeItem
@@ -136,6 +145,7 @@ const RecursiveTree = ({ listMeta, onSelectCallback, currentId }: RecursiveTreeP
           console.log(e);
           onSelectCallback(branch);
         }}
+        setBreadcrumbData={setBreadcrumbData}
         selectedId={currentId}
         isSelected={branch.selected}
         label={branch.label}

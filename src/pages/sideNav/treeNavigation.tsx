@@ -5,7 +5,11 @@ import { TextInput } from '@library/core';
 import { AddFolder, ChevronDownIcon } from '@library/icons';
 import { TreeBranch } from './TreeView/types';
 
-const TreeNavigation: FC = () => {
+export interface TreeNavigationProps {
+  readonly setBreadcrumbData: (value: any) => void;
+}
+
+const TreeNavigation: FC = ({ setBreadcrumbData }: TreeNavigationProps) => {
   const [currentId, setCurrentId] = useState<number>(-1);
   const [searchVal, setSearchVal] = useState<string>('');
 
@@ -81,6 +85,7 @@ const TreeNavigation: FC = () => {
         <RecursiveTree
           listMeta={mockOrgTreeList}
           onSelectCallback={onSelect}
+          setBreadcrumbData={setBreadcrumbData}
           currentId={currentId}
         />
       </div>
