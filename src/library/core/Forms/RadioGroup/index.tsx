@@ -5,6 +5,7 @@ import React, { Children, cloneElement, useState } from 'react';
 import { InputWrapper, InputWrapperBaseProps } from '../InputWrapper';
 import { Radio, RadioProps } from './Radio/Radio';
 import { useStyles } from './RadioGroup.styles';
+import { RegisterOptions, UseFormRegister } from 'react-hook-form/dist/types';
 
 export { Radio };
 export type { RadioProps };
@@ -15,9 +16,6 @@ export interface RadioGroupProps
     Omit<React.ComponentPropsWithoutRef<'div'>, 'onChange'> {
   /** <Radio /> components only */
   children: React.ReactNode;
-
-  /** Input name attribute, used to bind radios in one group, by default generated randomly with use-id hook */
-  name?: string;
 
   /** Value of currently selected radio */
   value?: string;
@@ -39,6 +37,9 @@ export interface RadioGroupProps
 
   // /** Predefined label fontSize, radio width, height and border-radius */
   // size?: BeautifySize;
+  register?: UseFormRegister<any>;
+  rules?: RegisterOptions;
+  name?: string;
 }
 
 export function RadioGroup({
@@ -50,6 +51,9 @@ export function RadioGroup({
   onChange,
   variant = 'horizontal',
   spacing = 2,
+  register,
+  name,
+  rules,
   // color,
   ...others
 }: RadioGroupProps) {
@@ -65,14 +69,25 @@ export function RadioGroup({
   const radios: any = (Children.toArray(children) as React.ReactElement[])
     .filter((item) => item.type === Radio)
     .map((radio, index) =>
-      cloneElement(radio, {
-        key: index,
-        checked: finalValue === radio.props.value,
-        // color,
-        // size,
-        onChange: (event: React.ChangeEvent<HTMLInputElement>) =>
-          handleChange(event.currentTarget.value),
-      })
+      cloneElement(
+        radio,
+        register && name
+          ? {
+              key: index,
+              register,
+              name,
+              rules,
+              checked: finalValue === radio.props.value,
+              onChange: (event: React.ChangeEvent<HTMLInputElement>) =>
+                handleChange(event.currentTarget.value),
+            }
+          : {
+              key: index,
+              checked: finalValue === radio.props.value,
+              onChange: (event: React.ChangeEvent<HTMLInputElement>) =>
+                handleChange(event.currentTarget.value),
+            }
+      )
     );
 
   return (

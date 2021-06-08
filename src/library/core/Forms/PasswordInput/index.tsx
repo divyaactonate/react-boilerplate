@@ -5,10 +5,15 @@ import { BeautifySize, DefaultProps } from '@library/theme';
 import { ComponentPassThrough } from '@library/types';
 import { useState } from 'react';
 import { useStyles } from './PasswordInput.styles';
+import { RegisterOptions, UseFormRegister } from 'react-hook-form/dist/types';
 
 export interface PasswordInputProps extends DefaultProps {
   size?: BeautifySize;
+  isInvalid?: boolean;
   radius?: BeautifySize;
+  register?: UseFormRegister<any>;
+  rules?: RegisterOptions;
+  name?: string;
 }
 export const PasswordInput = <
   T extends React.ElementType = 'input',
@@ -17,23 +22,39 @@ export const PasswordInput = <
   size = 'md',
   radius = 'sm',
   themeOverride,
+  isInvalid = false,
+  elementRef,
+  register,
+  name,
+  rules,
   ...others
 }: ComponentPassThrough<T, PasswordInputProps> & {
   /** Get element ref */
   elementRef?: React.ForwardedRef<U>;
 }) => {
-  const { classes, css } = useStyles({ themeOverride, size, radius });
+  const { classes, css } = useStyles({ themeOverride, size, isInvalid, radius });
   const [visible, setvisible] = useState(true);
   return (
     // <div data-beautify-textinput css={css.textinput} className={cx(classes.textinput)}>
     <div className={classes.wrapper}>
-      <input
-        {...others}
-        type={visible ? 'password' : 'text'}
-        css={css.textinput}
-        className={classes.textinput}
-      />
-      <div className={classes.iconWrapper}>
+      {register && name ? (
+        <input
+          type={visible ? 'password' : 'text'}
+          css={css.textinput}
+          className={classes.textinput}
+          {...register(name, rules)}
+          {...others}
+        />
+      ) : (
+        <input
+          ref={elementRef}
+          type={visible ? 'password' : 'text'}
+          css={css.textinput}
+          className={classes.textinput}
+          {...others}
+        />
+      )}
+      <div css={css.iconWrapper} className={classes.iconWrapper}>
         {visible ? (
           <EyeIcon
             onClick={() => setvisible((e) => !e)}

@@ -11,6 +11,7 @@ import {
 interface PasswordInputStylesProps extends DefaultStyleProps {
   size: BeautifySize;
   radius: BeautifySize;
+  isInvalid: boolean;
 }
 interface StylesProps extends PasswordInputStylesProps {
   theme: BeautifyTheme;
@@ -23,19 +24,29 @@ const heights = {
   xl: 'h-14 text-lg px-4',
 };
 export const getStyles = (props: StylesProps) => {
-  const { theme, size, radius } = props;
+  const { theme, size, radius, isInvalid } = props;
   const css = {
+    iconWrapper: {
+      '&:hover': {
+        backgroundColor: theme.colors.gray[2],
+      },
+    },
     iconClass: {
       color: theme.colors.blue[6],
     },
     textinput: {
       color: theme.colorScheme === 'dark' ? theme.colors.white : theme.colors.gray[7],
-      borderColor: theme.colors.gray[5],
+      // borderColor: isInvalid? theme.colors.red[5] : theme.colors.gray[5],
+      boxShadow: isInvalid
+        ? `0 0 0 0.9px ${theme.colors.red[5]}`
+        : `0 0 0 0.5px ${theme.colors.gray[4]}`,
       '&:focus': {
         outline: 'none',
         // borderWidth: '1.5px',
         // borderColor: theme.colors.blue[5],
-        boxShadow: `0 0 0 0.7px ${theme.colors.blue[4]}`,
+        boxShadow: isInvalid
+          ? `0 0 0 0.9px ${theme.colors.red[5]}`
+          : `0 0 0 0.7px ${theme.colors.blue[4]}`,
       },
       '&::placeholder': {
         opacity: 1,
@@ -56,24 +67,24 @@ export const getStyles = (props: StylesProps) => {
 
   const classes = {
     wrapper: `w-full h-full outline-none relative rounded-md shadow-sm`,
-    iconWrapper: `absolute cursor-pointer mt-1.5 h-7 px-1 hover:bg-gray-200 rounded-full inset-y-0 right-0 mr-2 flex items-center`,
+    iconWrapper: `absolute cursor-pointer mt-1.5 h-7 px-1 rounded-full inset-y-0 right-0 mr-2 flex items-center`,
     iconClass: `h-5 w-5`,
     textinput: cx(
       heights[size],
       getRadiusValue({ radius }),
-      `block w-full mt-1.5 pr-10 border outline-none`
+      `block w-full pr-10 border outline-none`
     ),
   };
   return { classes, css };
 };
 
 export const useStyles = (props: PasswordInputStylesProps) => {
-  const { themeOverride, size, radius } = props;
+  const { themeOverride, size, radius, isInvalid } = props;
   const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
 
   return useMemo(
-    () => getStyles({ theme, size, radius }),
+    () => getStyles({ theme, size, isInvalid, radius }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [themeOverride, size, radius]
+    [themeOverride, size, radius, isInvalid]
   );
 };

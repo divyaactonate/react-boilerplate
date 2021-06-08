@@ -25,6 +25,7 @@ export interface ReactSelectProps
   /** Adds hidden option to select and sets it as selected if value is not present */
   placeholder?: string;
   radius?: BeautifySize;
+  isInvalid?: boolean;
   size?: 'sm' | 'md' | 'lg';
   mode?: 'single' | 'multiple';
   /** Data used to render options */
@@ -53,10 +54,11 @@ export const ReactSelect = ({
   onChange,
   closeMenuOnSelect = true,
   elementRef,
+  isInvalid = false,
   className,
   showArrow = true,
 }: ReactSelectProps) => {
-  const { classes, css, colourStyles } = useStyles({ themeOverride, radius, size });
+  const { classes, css, colourStyles } = useStyles({ themeOverride, isInvalid, radius, size });
   const [value, setvalue] = useState(null);
   const [state, setstate] = useState(true);
 

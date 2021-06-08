@@ -3,6 +3,7 @@ import { CheckIcon, MinusIcon } from '@heroicons/react/solid';
 import { BeautifySize, DefaultProps } from '@library/theme';
 import cx from 'clsx';
 import React, { useEffect, useState } from 'react';
+import { RegisterOptions, UseFormRegister } from 'react-hook-form/dist/types';
 import { useStyles } from './Checkbox.styles';
 export interface CheckboxProps
   extends DefaultProps,
@@ -36,6 +37,9 @@ export interface CheckboxProps
 
   /** Get input ref */
   elementRef?: React.ForwardedRef<HTMLInputElement>;
+  register?: UseFormRegister<any>;
+  rules?: RegisterOptions;
+  name?: string;
 }
 
 export const Checkbox = ({
@@ -56,6 +60,9 @@ export const Checkbox = ({
   inputStyle,
   inputClassName,
   elementRef,
+  register,
+  name,
+  rules,
   // children,
   ...others
 }: CheckboxProps) => {
@@ -84,19 +91,34 @@ export const Checkbox = ({
         // css={css.checkboxWrapper}
         className={classes.checkboxWrapper}
       >
-        <input
-          data-beautify-checkbox-input
-          id={id}
-          ref={elementRef}
-          type='checkbox'
-          css={css.checkbox}
-          className={cx(classes.checkbox, inputClassName)}
-          checked={indeterminate || isChecked}
-          onChange={onCheckUncheck}
-          disabled={disabled}
-          style={inputStyle}
-          {...others}
-        />
+        {register && name ? (
+          <input
+            data-beautify-checkbox-input
+            id={id}
+            type='checkbox'
+            css={css.checkbox}
+            className={cx(classes.checkbox, inputClassName)}
+            disabled={disabled}
+            style={inputStyle}
+            {...register(name, rules)}
+            onChange={onCheckUncheck}
+            {...others}
+          />
+        ) : (
+          <input
+            data-beautify-checkbox-input
+            id={id}
+            ref={elementRef}
+            type='checkbox'
+            css={css.checkbox}
+            className={cx(classes.checkbox, inputClassName)}
+            checked={indeterminate || isChecked}
+            onChange={onCheckUncheck}
+            disabled={disabled}
+            style={inputStyle}
+            {...others}
+          />
+        )}
         {indeterminate ? (
           <MinusIcon data-beautify-checkbox-icon css={css.icon} className={classes.icon} />
         ) : isChecked ? (

@@ -12,7 +12,7 @@
       "@shared/*": ["./src/shared/*"],
       "@hoc/*": ["./src/hoc/*"],
       "@api/*": ["./src/api/*"],
-      "@models*": ["./src/models"],
+      "@models/*": ["./src/models"],
       "@utils/*": ["./src/utils/*"],
       "@store/*": ["./src/store/*"],
       "@styles": ["./src/styles/index.css"],
