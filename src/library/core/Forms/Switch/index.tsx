@@ -2,10 +2,7 @@
 
 import { BeautifySize, DefaultProps, useBeautifyTheme } from '@library/theme';
 import cx from 'clsx';
-import { sizes, useStyles } from './Switch.styles';
-
-export const SWITCH_SIZES = sizes;
-
+import { useStyles } from './Switch.styles';
 export interface SwitchProps
   extends DefaultProps,
     Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size'> {
