@@ -1,12 +1,12 @@
-import Tab from '@components/WindowManager';
-import NavigationTab from '@components/WindowManager/NavigationTab';
+import Tab from '@components/TabManager/IframeTab';
+import NavigationTab from '@components/TabManager/NavigationTab';
 import { PlusIcon } from '@heroicons/react/solid';
 import { ActionIcon } from '@library/core/ActionIcon';
 import DockLayout from 'rc-dock';
 import 'rc-dock/dist/rc-dock.css';
-import '../components/WindowManager/tabs.css';
+import './tabs.css';
 
-const WindowManager = () => {
+const TabUI = () => {
   const tabs = [
     {
       id: 'tab1',
@@ -77,4 +77,4 @@ const WindowManager = () => {
   );
 };
 
-export default WindowManager;
+export default TabUI;

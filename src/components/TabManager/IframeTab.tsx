@@ -4,19 +4,14 @@ interface PropTypes {
   url: string;
 }
 
-/**
- *
- * Modal
- *
- */
-class Tab extends React.Component<PropTypes> {
+class IframeTab extends React.Component<PropTypes> {
   render() {
     return (
-      <div className='flex items-center justify-center w-screen h-screen'>
+      <div className='flex items-center justify-center h-screen'>
         <iframe src={this.props.url} height='100%' width='100%' title={this.props.url} />
       </div>
     );
   }
 }
 
-export default Tab;
+export default IframeTab;

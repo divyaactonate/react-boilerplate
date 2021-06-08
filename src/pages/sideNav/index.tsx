@@ -1,3 +1,4 @@
+import TabManager from '@pages/tabManager';
 import { FC } from 'react';
 import SideNavigation from './sideNavigation';
 
@@ -7,7 +8,9 @@ const SideNav: FC = () => {
       <div className={`flex flex-row w-full`}>
         <SideNavigation />
         <div style={{ width: '15%' }} className={`flex h-screen border `}></div>
-        <div style={{ width: '80%' }} className={`flex h-screen border `}></div>
+        <div style={{ width: '80%' }} className={`flex h-screen border `}>
+          <TabManager />
+        </div>
       </div>
     </div>
   );

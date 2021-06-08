@@ -7,7 +7,7 @@ import Login from '@pages/login';
 import Mobx from '@pages/mobxDemo';
 import Modal from '@pages/modal';
 import Toaster from '@pages/toaster';
-import WindowManager from '@pages/windowManager';
+import TabManager from '@pages/tabManager';
 import Tabs from '@pages/tabs';
 import Translations from '@pages/translations';
 import { FC, lazy, Suspense } from 'react';
@@ -46,7 +46,7 @@ export const Routes = () => {
           <UnprotectedRoute path='/button' component={Button} />
           <UnprotectedRoute path='/toaster' component={Toaster} />
           <UnprotectedRoute path='/modal' component={Modal} />
-          <UnprotectedRoute path='/windowManager' component={WindowManager} />
+          <UnprotectedRoute path='/tabManager' component={TabManager} />
           <UnprotectedRoute path='/translations' component={Translations} />
           <UnprotectedRoute path='/card' component={Card} />
           <UnprotectedRoute path='/tabs' component={Tabs} />

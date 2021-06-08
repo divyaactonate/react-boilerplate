@@ -2,11 +2,6 @@ import React from 'react';
 import { ReportCard as Card } from '@library/core/ReportCard';
 import { FolderCard } from '@library/core';
 
-/**
- *
- * Modal
- *
- */
 class NavigationTab extends React.Component {
   render() {
     return (
