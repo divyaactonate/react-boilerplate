@@ -289,7 +289,7 @@ export const TreeDownIcon = ({ className, iconColor }: any) => (
   <svg
     className={classNames(className)}
     height={12}
-    width={6}
+    width={9}
     viewBox='0 0 6 3'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
@@ -314,8 +314,7 @@ export const TreeRightIcon = ({ className, iconColor }: any) => (
 export const TreeFolderIcon = ({ className, iconColor }: any) => (
   <svg
     className={classNames(className)}
-    height={12}
-    width={14}
+    style={{ height: 12, width: 14 }}
     viewBox='0 0 14 12'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
@@ -330,8 +329,7 @@ export const TreeFolderIcon = ({ className, iconColor }: any) => (
 export const TreeFilledFolderIcon = ({ className, iconColor }: any) => (
   <svg
     className={classNames(className)}
-    height={12}
-    width={14}
+    style={{ height: 12, width: 14 }}
     viewBox='0 0 13 11'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'

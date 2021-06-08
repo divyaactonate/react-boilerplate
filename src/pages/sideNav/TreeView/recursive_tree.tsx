@@ -14,31 +14,49 @@ interface TreeItemProps {
   readonly onSelectCallback: (e: React.MouseEvent<HTMLInputElement>) => void;
   readonly label: string;
   readonly isSelected: boolean | undefined;
+  readonly selectedId: number | string;
   readonly children: ReadonlyArray<JSX.Element>;
 }
 
 export interface RecursiveTreeProps {
   readonly listMeta: Tree;
   readonly onSelectCallback: (value: TreeBranch) => void;
+  readonly currentId: number;
 }
 
-const TreeItem = ({ onSelectCallback, label, isSelected, children }: TreeItemProps) => {
+const TreeItem = ({
+  onSelectCallback,
+  label,
+  isSelected,
+  children,
+  selectedId,
+  id,
+}: TreeItemProps) => {
   const [isOpen, toggleItemOpen] = useState<boolean | null>(null);
   const [selected, setSelected] = useState(isSelected);
 
   return (
     <div
       style={{
-        backgroundColor: isOpen || selected ? '#EDF4FD' : '#FFFFFF',
         borderRadius: 2,
       }}
     >
-      <StyledTreeItem>
+      <StyledTreeItem
+        style={{
+          backgroundColor: selectedId === parseInt(id) && selected ? '#EDF4FD' : '#FFFFFF',
+          paddingLeft: 5,
+          paddingRight: 5,
+        }}
+      >
         {children.length > 0 && (
           <Box
             className={`h-5 w-5 flex items-center`}
             aria-hidden='true'
-            onClick={() => toggleItemOpen(!isOpen)}
+            onClick={(e: React.MouseEvent<HTMLInputElement>) => {
+              setSelected(true);
+              onSelectCallback(e);
+              toggleItemOpen(!isOpen);
+            }}
           >
             {isOpen ? (
               <TreeDownIcon iconColor={'#999999'} />
@@ -49,7 +67,7 @@ const TreeItem = ({ onSelectCallback, label, isSelected, children }: TreeItemPro
         )}
         <div className={`flex flex-row items-center w-full`}>
           <div className={`flex flex-row items-center w-full`}>
-            {selected || isOpen ? (
+            {selectedId === parseInt(id) && selected ? (
               <TreeFilledFolderIcon iconColor={'#0084FF'} />
             ) : (
               <TreeFolderIcon iconColor={'#999999'} />
@@ -60,14 +78,14 @@ const TreeItem = ({ onSelectCallback, label, isSelected, children }: TreeItemPro
                 onSelectCallback(e);
               }}
               style={{
-                marginLeft: `${children.length === 0 ? '24px' : '2px'}`,
-                color: `${selected || isOpen ? '#0084FF' : '#999999'}`,
+                marginLeft: 6,
+                color: `${selectedId === parseInt(id) && selected ? '#0084FF' : '#999999'}`,
               }}
             >
               {label}
             </StyledLabel>
           </div>
-          {(selected || isOpen) && (
+          {selectedId === parseInt(id) && selected && (
             <div
               className={`flex flex-row justify-center items-center`}
               style={{
@@ -91,7 +109,7 @@ const TreeItem = ({ onSelectCallback, label, isSelected, children }: TreeItemPro
   );
 };
 
-const RecursiveTree = ({ listMeta, onSelectCallback }: RecursiveTreeProps) => {
+const RecursiveTree = ({ listMeta, onSelectCallback, currentId }: RecursiveTreeProps) => {
   const createTree = (branch: TreeBranch) =>
     branch.branches && (
       <TreeItem
@@ -101,6 +119,7 @@ const RecursiveTree = ({ listMeta, onSelectCallback }: RecursiveTreeProps) => {
           console.log(e);
           onSelectCallback(branch);
         }}
+        selectedId={currentId}
         isSelected={branch.selected}
         label={branch.label}
       >
@@ -124,7 +143,6 @@ export default RecursiveTree;
 // styles
 const Box = styled.div({
   padding: 2,
-  color: '#999999',
 });
 
 const StyledLabel = styled(Box)({
@@ -139,5 +157,5 @@ const StyledTreeItem = styled(Box)({
   width: '100%',
 });
 const StyledTreeChildren = styled(Box)({
-  // paddingLeft: '10px',
+  paddingLeft: '10px',
 });
