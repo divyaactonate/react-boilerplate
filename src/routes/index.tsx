@@ -16,6 +16,7 @@ import ProtectedRoute from './Protected';
 import UnprotectedRoute from './Unprotected';
 import CardList from '@pages/cardList';
 import LoginPage from '@pages/loginPage';
+import loginPagee from '@pages/loginPagee';
 import SideNav from '@pages/sideNav';
 
 // eslint-disable-next-line react/display-name
@@ -51,6 +52,7 @@ export const Routes = () => {
           <UnprotectedRoute path='/cardList' component={CardList} />
           <UnprotectedRoute path='/loginPage' component={LoginPage} />
           <UnprotectedRoute path='/sideNav' component={SideNav} />
+          <UnprotectedRoute path='/loginPagee' component={loginPagee} />
 
           <ProtectedRoute
             path='/protected'
