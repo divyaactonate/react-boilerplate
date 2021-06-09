@@ -2,6 +2,7 @@ const paths = require('../paths');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 module.exports = {
   entry: paths.entryPath,
@@ -31,6 +32,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new CircularDependencyPlugin({
+      exclude: /a\.js|node_modules/, // exclude node_modules
+      failOnError: true, // show a warning when there is a circular dependency
+    }),
     new ESLintPlugin({
       cache: true,
       exclude: ['node_modules', 'internals', 'public'],

@@ -8,6 +8,9 @@ export { Checkbox } from './Checkbox';
 export { Switch } from './Switch';
 export { InputWrapper } from './InputWrapper';
 export { Input } from './Input';
+export { Label } from './Label';
+export { ErrorLabel } from './ErrorLabel';
+export { ReactCheckbox } from './ReactCheckbox';
 
 export type { ButtonProps } from './Button';
 export type { TextInputProps } from './TextInput';
@@ -19,3 +22,6 @@ export type { ReactSelectProps } from './ReactSelect';
 export type { CheckboxProps } from './Checkbox';
 export type { SwitchProps } from './Switch';
 export type { InputProps } from './Input';
+export type { LabelProps } from './Label';
+export type { ErrorLabelProps } from './ErrorLabel';
+export type { ReactCheckboxProps } from './ReactCheckbox';

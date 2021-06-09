@@ -44,7 +44,7 @@ export const AvatarGroup = ({
     size,
     radius: 'xl',
     style: css.childClass,
-    className: cx(`border-2`),
+    className: cx(`ring-2 ring-white`),
   };
   const clones = reversedChildren.map((child) => {
     return cloneElement(child, filterUndefined(childProps));

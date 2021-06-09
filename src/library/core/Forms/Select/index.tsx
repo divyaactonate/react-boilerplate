@@ -1,7 +1,8 @@
 /** @jsxImportSource @emotion/react */
-import React, { ComponentPropsWithoutRef } from 'react';
 import { DefaultProps, useBeautifyTheme } from '@library/theme';
-import { InputProps, Input, InputWrapper, InputWrapperBaseProps } from '@library/core';
+import React, { ComponentPropsWithoutRef } from 'react';
+import { Input, InputProps } from '../Input';
+import { InputWrapper, InputWrapperBaseProps } from '../InputWrapper';
 import { ChevronIcon } from './ChevronIcon';
 interface SelectItem {
   value: string;

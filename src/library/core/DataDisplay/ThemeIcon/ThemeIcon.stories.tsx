@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import { ReplyIcon } from '@heroicons/react/solid';
-import { Group } from '@library/core';
+import { Group } from '../../Others/Group';
 import { ThemeIcon } from '.';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
 import { BeautifyProvider } from '@library/theme';

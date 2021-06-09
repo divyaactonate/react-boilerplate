@@ -5,7 +5,6 @@ import React, { Children, cloneElement, useState } from 'react';
 import { InputWrapper, InputWrapperBaseProps } from '../InputWrapper';
 import { Radio, RadioProps } from './Radio/Radio';
 import { useStyles } from './RadioGroup.styles';
-
 export { Radio };
 export type { RadioProps };
 
@@ -15,9 +14,6 @@ export interface RadioGroupProps
     Omit<React.ComponentPropsWithoutRef<'div'>, 'onChange'> {
   /** <Radio /> components only */
   children: React.ReactNode;
-
-  /** Input name attribute, used to bind radios in one group, by default generated randomly with use-id hook */
-  name?: string;
 
   /** Value of currently selected radio */
   value?: string;
@@ -68,8 +64,6 @@ export function RadioGroup({
       cloneElement(radio, {
         key: index,
         checked: finalValue === radio.props.value,
-        // color,
-        // size,
         onChange: (event: React.ChangeEvent<HTMLInputElement>) =>
           handleChange(event.currentTarget.value),
       })

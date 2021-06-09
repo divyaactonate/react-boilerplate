@@ -40,21 +40,22 @@ export const badgeSize = {
 const getStyles = (props: StylesProps) => {
   const { color, radius, badgeColor, size, theme } = props;
   const classes = {
-    image: `w-full h-full object-cover`,
+    image: cx(getRadiusValue({ radius }), ``),
     avatar: cx(
-      `flex box-border relative overflow-hidden select-none`,
+      `inline-block relative`,
       `w-${sizes[size]} h-${sizes[size]}`,
       getTextSizeValue({ size }),
       getRadiusValue({ radius })
     ),
     placeholder: cx(
-      `flex items-center justify-center w-full h-full select-none w- font-bold`,
-      getTextSizeValue({ size })
+      `flex items-center justify-center w-full h-full font-bold`,
+      getTextSizeValue({ size }),
+      getRadiusValue({ radius })
     ),
     placeholderIcon: `w-9/12 h-full`,
     badge: cx(
-      radius === 'xl' ? 'bottom-2.5 right-2' : 'bottom-0 right-0',
-      `absolute border-2 inline-block w-3 h-3 rounded-full`,
+      radius === 'xl' ? 'bottom-2 right-1' : 'bottom-0 right-0',
+      `absolute border-2 ring-2 ring-white rounded-full`,
       `w-${badgeSize[size]} h-${badgeSize[size]}`
     ),
   };

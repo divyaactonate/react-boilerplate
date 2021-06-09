@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
 import cx from 'clsx';
-import { Text, Paper } from '@library/core';
 import { useStyles } from './Alert.styles';
 import { BeautifyShadow, DefaultProps } from '@library/theme';
 import {
@@ -9,7 +8,8 @@ import {
   ExclamationCircleIcon as WarningIcon,
   InformationCircleIcon as InfoIcon,
 } from '@heroicons/react/outline';
-
+import { Text } from '../../Typography/Text';
+import { Paper } from '../../Surface/Paper';
 export interface AlertProps
   extends DefaultProps,
     Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {

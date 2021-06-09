@@ -2,8 +2,9 @@
 import cx from 'clsx';
 import { useStyles } from './Breadcrum.styles';
 import { DefaultProps } from '@library/theme';
-import { Text, Popover } from '@library/core';
 import { Children, cloneElement, ReactNode } from 'react';
+import { Text } from '../../Typography/Text';
+import { Popover } from '../../Overlays/Popover';
 
 export interface BreadcrumProps extends DefaultProps {
   /** Separator between breadcrumbs */

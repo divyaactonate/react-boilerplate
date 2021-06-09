@@ -1,18 +1,20 @@
 /** @jsxImportSource @emotion/react */
-import cx from 'clsx';
-import { useStyles } from './ReportCard.styles';
-import { DefaultProps } from '@library/theme';
 import {
+  ChatAlt2Icon,
   DotsVerticalIcon,
   EyeIcon,
   HeartIcon,
   InformationCircleIcon,
   TagIcon,
-  ChatAlt2Icon,
 } from '@heroicons/react/outline';
 import { OfficeBuildingIcon } from '@heroicons/react/solid';
-import { Badge, Checkbox, Tooltip } from '@library/core';
+import { DefaultProps } from '@library/theme';
+import cx from 'clsx';
 import { useHover } from 'react-laag';
+import { Badge } from '../../DataDisplay/Badge';
+import { Checkbox } from '../../Forms/Checkbox';
+import { Tooltip } from '../../Overlays/Tooltip';
+import { useStyles } from './ReportCard.styles';
 
 export interface ReportCardProps extends DefaultProps {
   image?: string;

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { storiesOf } from '@storybook/react';
-import { Button, Text, Portal } from '@library/core';
-import { Modal } from '.';
-import { DEFAULT_THEME } from '@library/theme/default-theme';
 import { BeautifyProvider } from '@library/theme';
+import { DEFAULT_THEME } from '@library/theme/default-theme';
+import { storiesOf } from '@storybook/react';
+import React, { useState } from 'react';
+import { Modal } from '.';
+import { Button } from '../../Forms/Button';
+import { Portal } from '../../Others/Portal';
+import { Text } from '../../Typography/Text';
 
 const Form = () => {
   return <>Hello</>;

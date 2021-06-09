@@ -2,7 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Badge } from './index';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
-import { ActionIcon, Avatar, Group } from '@library/core';
+import { ActionIcon } from '../ActionIcon';
+import { Avatar } from '../Avatar';
+import { Group } from '../../Others/Group';
 
 const Cross1Icon = (props?: any) => (
   <svg

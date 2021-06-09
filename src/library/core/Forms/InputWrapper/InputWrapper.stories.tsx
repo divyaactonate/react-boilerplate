@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
-import { Text } from '@library/core';
+import { Text } from '../../Typography/Text';
 import { InputWrapper } from './index';
 
 const lorem =

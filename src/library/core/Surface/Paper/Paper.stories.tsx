@@ -1,7 +1,7 @@
 import { DEFAULT_THEME } from '@library/theme/default-theme';
 import { storiesOf } from '@storybook/react';
-import { Text } from '@library/core';
 import { Paper } from './index';
+import { Text } from '../../Typography/Text';
 
 const getShadows = (props?: any) =>
   (['none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', 'inner'] as const).map((shadow) => (
