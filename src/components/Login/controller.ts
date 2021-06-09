@@ -1,4 +1,4 @@
-import { Logger } from '@libs/logger';
+import { Logger } from '@utils/logger';
 import { useAuth } from '@store/auth';
 import { FormikHelpers } from 'formik/dist/types';
 import { useHistory } from 'react-router-dom';

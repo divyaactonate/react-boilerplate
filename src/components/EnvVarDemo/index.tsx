@@ -1,4 +1,4 @@
-import { Logger } from '@libs/logger';
+import { Logger } from '@utils/logger';
 
 const EnvVar = () => {
   Logger.info('process.env.NAME', process.env.NAME);

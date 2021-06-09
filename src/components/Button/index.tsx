@@ -7,7 +7,7 @@ import { Button } from '@library/core';
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArchiveIcon, AnnotationIcon } from '@heroicons/react/solid';
-import { Logger } from '@libs/logger';
+import { Logger } from '@utils/logger';
 
 const BaseButton: FC = () => {
   const [state, setstate] = useState(false);

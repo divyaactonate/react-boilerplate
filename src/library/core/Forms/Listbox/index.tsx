@@ -7,7 +7,7 @@
 import { FC, Fragment } from 'react';
 import { Listbox as SelectList, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
-import { Logger } from '@libs/logger';
+import { Logger } from '@utils/logger';
 
 export interface ListBoxProps {
   /** List of elements   */

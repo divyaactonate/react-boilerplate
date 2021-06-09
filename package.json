@@ -21,7 +21,6 @@
     "lint-fix": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "prettier": "prettier --write",
     "prettify": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,md}\"",
-    "server": "json-server db.json -p 5000 -w -d 0",
     "test": "jest",
     "test:one": "node ./internals/scripts/test.js",
     "test:clean": "rimraf ./coverage",

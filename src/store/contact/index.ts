@@ -1,4 +1,4 @@
-import { Logger } from '@libs/logger';
+import { Logger } from '@utils/logger';
 import { services } from '@src/api';
 import createStore from '@store/createStore';
 import { action, makeObservable, observable } from 'mobx';

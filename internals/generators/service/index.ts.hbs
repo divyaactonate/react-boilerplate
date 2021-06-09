@@ -1,13 +1,36 @@
 import { ApiCaller } from '../apiCaller';
+import { Logger } from '@utils/logger';
 
 export class {{pascalCase name}}Service {
-  static getAll = () => {
-    return ApiCaller.httpGet(`contacts`);
+  private static API_URL = ``;
+  static getAll = async () => {
+     try {
+      const res = await ApiCaller.httpGet(`${({{pascalCase name}}Service).API_URL}/`);
+      Logger.debug('{{pascalCase name}}Service.getAll() ', res);
+      return res;
+    } catch (err) {
+      Logger.error('{{pascalCase name}}Service.getAll() ', err);
+      throw err;
+    }
   };
-  static add = (data: any) => {
-    return ApiCaller.httpPost(data, `contacts`);
+  static add = async (data: any) => {
+     try {
+      const res = await ApiCaller.httpPost(`${({{pascalCase name}}Service).API_URL}/`,data);
+      Logger.debug('{{pascalCase name}}Service.add() ', res);
+      return res;
+    } catch (err) {
+      Logger.error('{{pascalCase name}}Service.add() ', err);
+      throw err;
+    }
   };
-  static delete = (id: number) => {
-    return ApiCaller.httpDelete(`contacts/${id}`);
+  static delete = async (id: number) => {
+     try {
+      const res = await ApiCaller.httpDelete(`${({{pascalCase name}}Service).API_URL}/${id}`);
+      Logger.debug('{{pascalCase name}}Service.delete() ', res);
+      return res;
+    } catch (err) {
+      Logger.error('{{pascalCase name}}Service.delete() ', err);
+      throw err;
+    }
   };
 }
