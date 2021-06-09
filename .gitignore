@@ -26,7 +26,7 @@ chrome-user-data
 stats.json
 buildInfo.json
 .eslintcache
-
+db.json
 # The file containing environment variables 
 .env
 
