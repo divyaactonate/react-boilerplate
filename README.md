@@ -342,7 +342,22 @@ npm run commit
 - [`mobx`](https://mobx.js.org/) - Simple, scalable state management.
 - [`mobx-react`](https://mobx.js.org/react-integration.html) - React bindings for MobX. Create fully reactive components.
 
+### Form Handling
+- [`formik`](https://formik.org/) - Build forms in React, without the tears
+- [`yup`](https://www.npmjs.com/package/yup) - Dead simple Object schema validation
+- [`react-select`](https://react-select.com/) - A Select control built with and for ReactJS
+
+### Internationalization
+- [`i18next`](https://www.npmjs.com/package/i18next) - I18next internationalization framework
+- [`i18next-browser-languagedetector`](https://www.npmjs.com/package/i18next-browser-languagedetector) - Language detector used in browser environment for i18next
+- [`i18next-http-backend`](https://www.npmjs.com/package/i18next-http-backend) - I18next-http-backend is a backend layer for i18next using in Node.js, in the browser and for Deno.
+- [`react-i18next`](https://www.npmjs.com/package/react-i18next) - Internationalization for react done right. Using the i18next i18n ecosystem.
+
 ### UI Library
+- [`react-hot-toast`](https://react-hot-toast.com/) - Smoking hot Notifications for React.
+- [`react-contexify`](https://fkhadra.github.io/react-contexify/) - Add contextmenu to your react component with ease
+- [`react-laag`](https://www.react-laag.com/) - A Hooks for positioning tooltips & popovers
+- [`framer-motion`](https://www.framer.com/motion/) - A simple and powerful React animation library
 - [`emotion/react`](https://emotion.sh/docs/introduction) - Simple styling in React.
 - [`emotion/styled`](https://emotion.sh/docs/styled) - Styled API for emotion
 - [`@headlessui/react`](https://headlessui.dev/) - React components for heroicons.

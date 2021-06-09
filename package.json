@@ -28,6 +28,7 @@
     "test:coverage": "jest --collect-coverage",
     "open:coverage": "start ./coverage/lcov-report/index.html",
     "prepare": "husky install",
+    "start-storybook": "node ./internals/scripts/run-storybook.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

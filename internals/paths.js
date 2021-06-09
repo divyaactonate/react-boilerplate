@@ -3,6 +3,8 @@ const path = require('path');
 const root = path.resolve(__dirname, '../');
 const configPahs = {
   root,
+  storybookOutputPath: path.resolve(root, './storybook-static'),
+  storybookOutputServePath: path.resolve(root, './storybook-static/index.html'),
   outputPath: path.resolve(root, './dist'),
   buildInfoPath: path.resolve(root, './buildInfo.json'),
   outputServePath: path.resolve(root, './dist/index.html'),
