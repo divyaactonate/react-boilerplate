@@ -1,4 +1,5 @@
 import { BaseService } from '../indexDBStorage/BaseService';
+import { ITab } from './TabManagerService';
 
 export class TabPersistanceService extends BaseService {
   tableName: string;
@@ -14,10 +15,16 @@ export class TabPersistanceService extends BaseService {
     });
   }
 
-  addTab(tab: ITab) {
+  getTabsCount() {
+    return this.connection.count({
+      from: this.tableName,
+    });
+  }
+
+  addTab(tabs: [ITab]) {
     return this.connection.insert({
       into: this.tableName,
-      values: [tab],
+      values: tabs,
       return: true, // since tabid is autoincrement field and we need id,
       // so we are making return true which will return the whole data inserted.
     });
@@ -32,11 +39,11 @@ export class TabPersistanceService extends BaseService {
     });
   }
 
-  removeTab(id: number) {
+  removeTab(tabId: number) {
     return this.connection.remove({
       from: this.tableName,
       where: {
-        id: id,
+        tabId: tabId,
       },
     });
   }

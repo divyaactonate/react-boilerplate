@@ -1,6 +1,5 @@
 import React from 'react';
-import { ReportCard as Card } from '@library/core/ReportCard';
-import { FolderCard } from '@library/core';
+import { ReportCard as Card, FolderCard } from '@library/core';
 
 class NavigationTab extends React.Component {
   render() {

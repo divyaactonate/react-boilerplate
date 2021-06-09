@@ -28,11 +28,15 @@ const getDatabase = () => {
       },
       type: {
         dataType: DATA_TYPE.String,
-        default: 'STATIC',
+        default: 'StaticTab',
       },
       nav: {
         dataType: DATA_TYPE.Array,
         default: [],
+      },
+      tabId: {
+        dataType: DATA_TYPE.Number,
+        default: 0,
       },
     },
   };

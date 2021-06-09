@@ -4,6 +4,7 @@ import { StrictMode, Suspense } from 'react';
 import { render } from 'react-dom';
 import { App } from './App';
 import '@styles';
+import { initJsStore } from './services/indexDBStorage/IdbService';
 // import * as Sentry from '@sentry/react'
 
 // Sentry.init({ dsn: 'https://examplePublicKey@o0.ingest.sentry.io/0' })
@@ -21,3 +22,6 @@ render(
   // </Sentry.ErrorBoundary>,
   document.getElementById('root')
 );
+
+// Init jsstore to use local indexdb of browser
+initJsStore();
