@@ -55,7 +55,10 @@ They are preconfigured so that you can focus on the code.
 
   <dt>Industry-standard routing</dt>
   <dd>It's natural to want to add pages (e.g. `/about`) to your application, and routing makes this possible.</dd>
-
+<dt>Industry-standard i18n internationalization support
+</dt>
+  <dd>Scalable apps need to support multiple languages, easily add and support multiple languages with `react-i18next`.
+</dd>
   <dt>Offline-first</dt>
   <dd>The next frontier in performant web apps: availability without a network connection from the instant your users load the app.</dd>
 
@@ -77,7 +80,7 @@ They are preconfigured so that you can focus on the code.
 * `webpack/webpack.common.js` config common webpack for both dev and production environments.
 * `webpack/webpack.dev.js` config webpack for dev environment.
 * `webpack/webpack.prod.js` config webpack for production environment.
-* `/webpack.config.js` main webpack config that merge common and webpack environment based config.
+* `webpack/webpack.config.js` main webpack config that merge common and webpack environment based config.
 * Enzyme config `/setupTests.ts` here you will have all setup for enzyme to test your component.
 * Prettier config `/.prettierc`.
 * Jest config `/jest.config.js`.
@@ -96,18 +99,20 @@ They are preconfigured so that you can focus on the code.
 * `npm run security-audit:prod` - To scan your project for vulnerabilities skipping devDependencies.
 * `npm run security-audit:dev` - To scan your project for vulnerabilities skipping dependencies.
 * `npm run start` - To start in development mode.*
-* `npm run start` - To start in development mode.
 * `npm run build` - To build the code.
+* `npm run build-measure` - To Measure + analyse the speed of your webpack loaders and plugins
 * `npm run build-tailwind` - To build tailwind css.
 * `npm run test:clean` - To remove previous coverage created.
 * `npm run test` - To run tests.
+* `npm run test:one` - To run test case for a single file.
 * `npm run test:coverage` - To run tests with coverage.
 * `npm run open:coverage` - To open coverage report.
 * `npm run prettify` - To prettify code.
 * `npm run lint` - To check lint erros.
 * `npm run lint-fix` - To fix auto fixable lint erros.
 * `npm run commit` - To commit your changes.
-* `npm run storybook` - To start Storybook locally.
+* `npm run start-storybook` - To start Storybook locally.
+* `npm run storybook` - To start Storybook locally in watch mode.
 * `npm run build-storybook` - To build Storybook as a static web application.
 
 ## Git-Publish-Changes
@@ -342,7 +347,22 @@ npm run commit
 - [`mobx`](https://mobx.js.org/) - Simple, scalable state management.
 - [`mobx-react`](https://mobx.js.org/react-integration.html) - React bindings for MobX. Create fully reactive components.
 
+### Form Handling
+- [`formik`](https://formik.org/) - Build forms in React, without the tears
+- [`yup`](https://www.npmjs.com/package/yup) - Dead simple Object schema validation
+- [`react-select`](https://react-select.com/) - A Select control built with and for ReactJS
+
+### Internationalization
+- [`i18next`](https://www.npmjs.com/package/i18next) - I18next internationalization framework
+- [`i18next-browser-languagedetector`](https://www.npmjs.com/package/i18next-browser-languagedetector) - Language detector used in browser environment for i18next
+- [`i18next-http-backend`](https://www.npmjs.com/package/i18next-http-backend) - I18next-http-backend is a backend layer for i18next using in Node.js, in the browser and for Deno.
+- [`react-i18next`](https://www.npmjs.com/package/react-i18next) - Internationalization for react done right. Using the i18next i18n ecosystem.
+
 ### UI Library
+- [`react-hot-toast`](https://react-hot-toast.com/) - Smoking hot Notifications for React.
+- [`react-contexify`](https://fkhadra.github.io/react-contexify/) - Add contextmenu to your react component with ease
+- [`react-laag`](https://www.react-laag.com/) - A Hooks for positioning tooltips & popovers
+- [`framer-motion`](https://www.framer.com/motion/) - A simple and powerful React animation library
 - [`emotion/react`](https://emotion.sh/docs/introduction) - Simple styling in React.
 - [`emotion/styled`](https://emotion.sh/docs/styled) - Styled API for emotion
 - [`@headlessui/react`](https://headlessui.dev/) - React components for heroicons.
@@ -418,7 +438,7 @@ npm run commit
 
 ### Plugins
 
-<!-- - [`copy-webpack-plugin`](https://github.com/webpack-contrib/copy-webpack-plugin) - Copy files to build directory -->
+- [`copy-webpack-plugin`](https://github.com/webpack-contrib/copy-webpack-plugin) - Copy files to build directory
 <!-- - [`optimize-css-assets-webpack-plugin`](https://github.com/NMFR/optimize-css-assets-webpack-plugin) - Optimize and minimize CSS assets -->
 <!-- - [`terser-webpack-plugin`](https://github.com/webpack-contrib/terser-webpack-plugin) - Optimize and minimize JavaScript -->
 <!-- - [`@svgr/webpack`](https://github.com/mrsteele/dotenv-webpack) - SVGR can be used as a webpack loader, this way you can import your SVG directly as a React Component. -->
@@ -430,6 +450,28 @@ npm run commit
 - [`dotenv-webpack`](https://github.com/mrsteele/dotenv-webpack) - Supports dotenv and other environment variables
 - [`babel-jest`](https://www.npmjs.com/package/babel-jest) - Jest plugin to use babel for transformation.
 - [`ts-jest`](https://www.npmjs.com/package/babel-jest) - A preprocessor with source maps support to help use TypeScript with Jest
+- [`speed-measure-webpack-plugin`](https://www.npmjs.com/package/speed-measure-webpack-plugin) - Measure + analyse the speed of your webpack loaders and plugins
+
+### Others
+
+- [`shelljs`](https://www.npmjs.com/package/shelljs) - Portable Unix shell commands for Node.js
+- [`readline`](https://www.npmjs.com/package/readline) - Simple streaming readline module.
+- [`express`](https://www.npmjs.com/package/express) - Fast, unopinionated, minimalist web framework
+- [`chalk`](https://www.npmjs.com/package/chalk) - Terminal string styling done right
+- [`body-parser`](https://www.npmjs.com/package/body-parser) - Node.js body parsing middleware
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

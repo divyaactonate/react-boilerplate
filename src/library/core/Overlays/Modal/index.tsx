@@ -5,8 +5,9 @@ import { useClickOutside, useScrollLock } from '@library/hooks';
 import { BeautifyPadding, BeautifyShadow, BeautifySize, DefaultProps } from '@library/theme';
 import cx from 'clsx';
 import React from 'react';
-import { ActionIcon, GroupTransition } from '@library/core';
+import { ActionIcon } from '../../DataDisplay/ActionIcon';
 import { useStyles } from './Modal.styles';
+import { GroupTransition } from '../../Animations/Transition';
 
 export interface ModalProps
   extends DefaultProps,

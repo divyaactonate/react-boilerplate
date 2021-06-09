@@ -16,7 +16,7 @@ const Layout = (props: any) => {
         <Link to='/cardList'>cardList</Link>
         <Link to='/sideNav'>sideNavigation</Link>
         <Link to='/tabs'>tabs</Link>
-        <Link to='/loginPage'>loginPage</Link>
+        <Link to='/login'>Login</Link>
       </div>
       {props.children}
     </div>

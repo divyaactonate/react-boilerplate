@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { BeautifySize, DefaultProps } from '@library/theme';
 import cx from 'clsx';
-import React, { ComponentPropsWithoutRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 // eslint-disable-next-line import/no-named-as-default
 import makeAnimated from 'react-select/animated';
@@ -16,14 +16,17 @@ export interface SelectItem {
   readonly isFixed?: boolean;
   readonly isDisabled?: boolean;
 }
-export interface ReactSelectProps extends DefaultProps, ComponentPropsWithoutRef<'select'> {
+export interface ReactSelectProps
+  extends DefaultProps,
+    Omit<React.ComponentPropsWithoutRef<'select'>, 'onChange' | 'size'> {
   /** id is used to bind input and label, if not passed unique id will be generated for each input */
   id?: string;
   closeMenuOnSelect?: boolean;
   /** Adds hidden option to select and sets it as selected if value is not present */
   placeholder?: string;
   radius?: BeautifySize;
-  size?: 'sm' | 'md' | 'lg' | any;
+  isInvalid?: boolean;
+  size?: 'sm' | 'md' | 'lg';
   mode?: 'single' | 'multiple';
   /** Data used to render options */
   options: SelectItem[];
@@ -34,7 +37,6 @@ export interface ReactSelectProps extends DefaultProps, ComponentPropsWithoutRef
   showArrow?: boolean;
   /** Called when value changes */
   onChange?: any;
-
   /** Get element ref */
   elementRef?: React.ForwardedRef<any>;
 }
@@ -52,10 +54,11 @@ export const ReactSelect = ({
   onChange,
   closeMenuOnSelect = true,
   elementRef,
+  isInvalid = false,
   className,
   showArrow = true,
 }: ReactSelectProps) => {
-  const { classes, css, colourStyles } = useStyles({ themeOverride, radius, size });
+  const { classes, css, colourStyles } = useStyles({ themeOverride, isInvalid, radius, size });
   const [value, setvalue] = useState(null);
   const [state, setstate] = useState(true);
 

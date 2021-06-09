@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/react';
-import { Button } from '@library/core';
+import { Button } from '../../Forms/Button';
 import { Group } from '.';
 
 const positions = (['start', 'center', 'end', 'between', 'around', 'evenly'] as const).map(
@@ -33,7 +33,7 @@ const spacingsColumn = ([0, 2, 6, 8, 10, 12, 14] as const).map((spacing) => (
   </div>
 ));
 
-storiesOf('@beautify/core/Group', module)
+storiesOf('@beautify/core/Others/Group', module)
   .add('Positions', () => <>{positions}</>)
   .add('SpacingsRow', () => <>{spacingsRow}</>)
   .add('SpacingsColumn', () => <>{spacingsColumn}</>)

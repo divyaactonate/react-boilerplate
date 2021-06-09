@@ -1,7 +1,7 @@
 import { DEFAULT_THEME } from '@library/theme/default-theme';
 import { storiesOf } from '@storybook/react';
-import { Text } from '@library/core';
 import { Paper } from './index';
+import { Text } from '../../Typography/Text';
 
 const getShadows = (props?: any) =>
   (['none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', 'inner'] as const).map((shadow) => (
@@ -51,7 +51,7 @@ const getRadius = (props?: any) =>
     </Paper>
   ));
 
-storiesOf('@beautify/core/Paper', module)
+storiesOf('@beautify/core/Surface/Paper', module)
   .add('Radius', () => <div style={{ padding: 40 }}>{getRadius()}</div>)
   .add('Padding', () => <div style={{ padding: 40 }}>{getPaddings()}</div>)
   .add('Shadows', () => <div style={{ padding: 40 }}>{getShadows()}</div>)

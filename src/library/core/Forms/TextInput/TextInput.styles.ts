@@ -11,6 +11,7 @@ import {
 interface TextInputStylesProps extends DefaultStyleProps {
   size: BeautifySize;
   radius: BeautifySize;
+  isInvalid: boolean;
 }
 interface StylesProps extends TextInputStylesProps {
   theme: BeautifyTheme;
@@ -23,19 +24,23 @@ const heights = {
   xl: 'h-14 text-lg px-4',
 };
 export const getStyles = (props: StylesProps) => {
-  const { theme, size, radius } = props;
+  const { theme, size, radius, isInvalid } = props;
   const css = {
     iconClass: {
       color: theme.colors.gray[5],
     },
     textinput: {
       color: theme.colorScheme === 'dark' ? theme.colors.white : theme.colors.gray[7],
-      borderColor: theme.colors.gray[5],
+      boxShadow: isInvalid
+        ? `0 0 0 0.9px ${theme.colors.red[5]}`
+        : `0 0 0 0.5px ${theme.colors.gray[4]}`,
       '&:focus': {
         outline: 'none',
         // borderWidth: '1.5px',
         // borderColor: theme.colors.blue[5],
-        boxShadow: `0 0 0 0.7px ${theme.colors.blue[4]}`,
+        boxShadow: isInvalid
+          ? `0 0 0 0.9px ${theme.colors.red[5]}`
+          : `0 0 0 0.7px ${theme.colors.blue[4]}`,
       },
       '&::placeholder': {
         opacity: 1,
@@ -62,19 +67,19 @@ export const getStyles = (props: StylesProps) => {
     textinput: cx(
       heights[size],
       getRadiusValue({ radius }),
-      `block w-full mt-1.5 pr-10 border outline-none`
+      `block w-full pr-10 border outline-none`
     ),
   };
   return { classes, css };
 };
 
 export const useStyles = (props: TextInputStylesProps) => {
-  const { themeOverride, size, radius } = props;
+  const { themeOverride, size, radius, isInvalid } = props;
   const theme: BeautifyTheme = useBeautifyTheme(themeOverride);
 
   return useMemo(
-    () => getStyles({ theme, size, radius }),
+    () => getStyles({ theme, size, radius, isInvalid }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [themeOverride, size, radius]
+    [themeOverride, size, radius, isInvalid]
   );
 };

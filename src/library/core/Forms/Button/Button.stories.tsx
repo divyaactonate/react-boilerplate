@@ -4,7 +4,7 @@ import { ExternalLinkIcon, CalendarIcon } from '@heroicons/react/solid';
 import { Button } from './index';
 import { BeautifyCase, BeautifySize } from '@library/theme';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
-import { Group } from '@library/core';
+import { Group } from '../../Others/Group';
 
 const getThemes = (props?: any) =>
   Object.keys(DEFAULT_THEME.colors).map((color) => (
@@ -40,7 +40,7 @@ const cases = (['uppercase', 'lowercase', 'capitalize', 'normal-case'] as Beauti
   )
 );
 
-storiesOf('@beautify/core/Button', module)
+storiesOf('@beautify/core/Forms/Button', module)
   .add('Themes', () => (
     <>
       <div className='flex space-x-5 ' style={{ padding: 20 }}>

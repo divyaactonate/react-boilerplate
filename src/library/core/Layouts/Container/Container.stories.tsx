@@ -1,7 +1,8 @@
 import { DEFAULT_THEME } from '@library/theme/default-theme';
 import { storiesOf } from '@storybook/react';
 import { Container } from '.';
-import { Text, Title } from '@library/core';
+import { Text } from '../../Typography/Text';
+import { Title } from '../../Typography/Title';
 
 const content = (
   <Text>
@@ -24,7 +25,7 @@ const getThemes = () =>
       {content}
     </Container>
   ));
-storiesOf('@beautify/core/Container', module)
+storiesOf('@beautify/core/Layouts/Container', module)
   .add('Themes', () => <>{getThemes()}</>)
   .add('Sizes', () => <>{containers}</>)
   .add('Fluid', () => (

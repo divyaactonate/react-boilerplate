@@ -3,7 +3,7 @@ import { DEFAULT_THEME } from '@library/theme/default-theme';
 import { storiesOf } from '@storybook/react';
 import { RadioGroup, Radio } from '.';
 
-storiesOf('@beautify/core/RadioGroup', module)
+storiesOf('@beautify/core/Forms/RadioGroup', module)
   .add('General usage', () => (
     <div style={{ padding: 40 }}>
       <RadioGroup

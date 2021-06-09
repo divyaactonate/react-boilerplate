@@ -11,6 +11,6 @@ const sizes = (['xs', 'sm', 'md', 'lg', 'xl'] as const).map((size) => (
   <Loader key={size} size={size} style={{ display: 'block', marginTop: 15 }} />
 ));
 
-storiesOf('@beautify/core/Loader', module)
+storiesOf('@beautify/core/Feedback/Loader', module)
   .add('Themes', () => <div className='flex space-x-6 '>{getThemes()}</div>)
   .add('Sizes', () => <div className='flex space-x-6'>{sizes}</div>);

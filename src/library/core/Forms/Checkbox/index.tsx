@@ -97,6 +97,7 @@ export const Checkbox = ({
           style={inputStyle}
           {...others}
         />
+
         {indeterminate ? (
           <MinusIcon data-beautify-checkbox-icon css={css.icon} className={classes.icon} />
         ) : isChecked ? (

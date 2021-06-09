@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
-import { Breadcrum } from './index';
-import { Text } from '@library/core';
+import { Breadcrum } from './index2';
+import { Text } from '../../Typography/Text';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
 
 const items = [
@@ -52,7 +52,7 @@ const items1 = [
   </Text>
 ));
 
-storiesOf('@beautify/core/Breadcrum', module)
+storiesOf('@beautify/core/Navigation/Breadcrum', module)
   .add('General usage', () => (
     <div style={{ padding: 50 }}>
       <Breadcrum

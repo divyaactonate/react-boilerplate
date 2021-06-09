@@ -5,9 +5,9 @@ import { BeautifySize, DefaultProps } from '@library/theme';
 import { ComponentPassThrough } from '@library/types';
 import { useState } from 'react';
 import { useStyles } from './PasswordInput.styles';
-
 export interface PasswordInputProps extends DefaultProps {
   size?: BeautifySize;
+  isInvalid?: boolean;
   radius?: BeautifySize;
 }
 export const PasswordInput = <
@@ -17,23 +17,27 @@ export const PasswordInput = <
   size = 'md',
   radius = 'sm',
   themeOverride,
+  isInvalid = false,
+  elementRef,
   ...others
 }: ComponentPassThrough<T, PasswordInputProps> & {
   /** Get element ref */
   elementRef?: React.ForwardedRef<U>;
 }) => {
-  const { classes, css } = useStyles({ themeOverride, size, radius });
+  const { classes, css } = useStyles({ themeOverride, size, isInvalid, radius });
   const [visible, setvisible] = useState(true);
   return (
     // <div data-beautify-textinput css={css.textinput} className={cx(classes.textinput)}>
     <div className={classes.wrapper}>
       <input
-        {...others}
+        ref={elementRef}
         type={visible ? 'password' : 'text'}
         css={css.textinput}
+        autoComplete='off'
         className={classes.textinput}
+        {...others}
       />
-      <div className={classes.iconWrapper}>
+      <div css={css.iconWrapper} className={classes.iconWrapper}>
         {visible ? (
           <EyeIcon
             onClick={() => setvisible((e) => !e)}

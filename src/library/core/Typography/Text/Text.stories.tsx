@@ -31,7 +31,7 @@ const sizes = (
   </Text>
 ));
 
-storiesOf('@beautify/core/Text', module)
+storiesOf('@beautify/core/Typography/Text', module)
   .add('General usage', () => (
     <>
       <Text>Default text</Text>

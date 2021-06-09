@@ -1,17 +1,17 @@
 import { Fetch } from '@utils/fetch';
 import { API_URL } from '@config/constants';
-import { Logger } from '@libs/logger';
+import { Logger } from '@utils/logger';
 
-class AuthApi {
+class AuthService {
   public static async signup(signupParams: any) {
     try {
       const res = await Fetch.fetch.post(`${API_URL}/auth/signup`, {
         ...signupParams,
       });
-      Logger.debug('AuthApi.signup() ', res);
+      Logger.debug('AuthService.signup() ', res);
       return res;
     } catch (err) {
-      Logger.error('AuthApi.signup() ', err);
+      Logger.error('AuthService.signup() ', err);
       throw err;
     }
   }
@@ -24,11 +24,11 @@ class AuthApi {
       Logger.debug('auth token ', email, password);
       // Logger.debug('auth token ', res)
       // // Fetch.fetch.defaults.headers.common['Authorization'] = res.headers.authorization;
-      // Logger.debug('AuthApi.siginin() ', res)
+      // Logger.debug('AuthService.siginin() ', res)
       // return res
       return true;
     } catch (err) {
-      Logger.error('AuthApi.signin() ', err);
+      Logger.error('AuthService.signin() ', err);
       throw err;
     }
   }
@@ -36,30 +36,30 @@ class AuthApi {
     try {
       const res = await Fetch.fetch.post(`${API_URL}/auth/signout`);
       // Fetch.fetch.defaults.headers.common['Authorization'] = '';
-      Logger.debug('AuthApi.signout() ', res);
+      Logger.debug('AuthService.signout() ', res);
       return res;
     } catch (err) {
-      Logger.error('AuthApi.signout() ', err);
+      Logger.error('AuthService.signout() ', err);
       throw err;
     }
   }
   public static async isAuthenticated() {
     try {
       const res = await Fetch.fetch.get(`${API_URL}/auth/authenticate`);
-      Logger.debug('AuthApi.isAuthenticated() ', res);
+      Logger.debug('AuthService.isAuthenticated() ', res);
       return res;
     } catch (err) {
-      Logger.error('AuthApi.isAuthenticated() ', err);
+      Logger.error('AuthService.isAuthenticated() ', err);
       throw err;
     }
   }
   public static async getUser() {
     try {
       const res = await Fetch.fetch.post(`${API_URL}/auth/user`);
-      Logger.debug('AuthApi.getUser() ', res);
+      Logger.debug('AuthService.getUser() ', res);
       return res;
     } catch (err) {
-      Logger.error('AuthApi.getUser() ', err);
+      Logger.error('AuthService.getUser() ', err);
       throw err;
     }
   }
@@ -68,10 +68,10 @@ class AuthApi {
       const res = await Fetch.fetch.post(`${API_URL}/auth/forgotpassword`, {
         email,
       });
-      Logger.debug('AuthApi.forgotPassword() ', res);
+      Logger.debug('AuthService.forgotPassword() ', res);
       return res;
     } catch (err) {
-      Logger.error('AuthApi.forgotPassword() ', err);
+      Logger.error('AuthService.forgotPassword() ', err);
       throw err;
     }
   }
@@ -82,12 +82,12 @@ class AuthApi {
         token,
         password,
       });
-      Logger.debug('AuthApi.resetPassword() ', res);
+      Logger.debug('AuthService.resetPassword() ', res);
       return res;
     } catch (err) {
-      Logger.error('AuthApi.resetPassword() ', err);
+      Logger.error('AuthService.resetPassword() ', err);
       throw err;
     }
   }
 }
-export { AuthApi };
+export { AuthService };

@@ -24,7 +24,7 @@ const sizes = (['xs', 'sm', 'md', 'lg', 'xl'] as any[]).map((size) => (
   <Switch color='blue' key={size} size={size} label={`Switch ${size}`} style={{ marginTop: 15 }} />
 ));
 
-storiesOf('@beautify/core/Switch', module)
+storiesOf('@beautify/core/Forms/Switch', module)
   .add('Themes', () => <div style={{ padding: 15 }}>{getThemes({ defaultChecked: true })}</div>)
   .add('Sizes', () => <div style={{ padding: 15 }}>{sizes}</div>)
   .add('Controlled', () => (

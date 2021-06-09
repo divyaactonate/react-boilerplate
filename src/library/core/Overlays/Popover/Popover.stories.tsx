@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import { Popover } from './index';
 
-storiesOf('@beautify/core/Popover', module).add('default', () => (
+storiesOf('@beautify/core/Overlays/Popover', module).add('default', () => (
   <div className='text-center'>
     <p className='text-2xl mt-4 text-teall-600'>Lets explore different ways to open Popover</p>
     <div className='text-center'>

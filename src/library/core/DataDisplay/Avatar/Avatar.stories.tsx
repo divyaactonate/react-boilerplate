@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import { PaperClipIcon } from '@heroicons/react/solid';
-import { Group } from '@library/core';
+import { Group } from '../../Others/Group';
 import { Avatar } from '.';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
 
@@ -19,7 +19,7 @@ const getThemes = (props?: any) =>
 
 const image = 'https://avatars.githubusercontent.com/u/4598631?v=4';
 
-storiesOf('@beautify/core/Avatar', module)
+storiesOf('@beautify/core/DataDisplay/Avatar', module)
   .add('Sizes', () => (
     <Group>{getSizes({ src: image, badge: true, radius: 'md', style: { margin: '20px' } })}</Group>
   ))

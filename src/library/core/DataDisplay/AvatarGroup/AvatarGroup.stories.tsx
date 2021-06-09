@@ -4,7 +4,7 @@ import { Avatar } from '..';
 import { AvatarGroup } from './index';
 const image = 'https://avatars.githubusercontent.com/u/4598631?v=4';
 
-storiesOf('@beautify/core/AvatarGroup', module)
+storiesOf('@beautify/core/DataDisplay/AvatarGroup', module)
   .add('default', () => (
     <AvatarGroup size='md' max={2}>
       <Avatar src={image} />

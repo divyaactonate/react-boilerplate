@@ -2,7 +2,8 @@ import { DEFAULT_THEME } from '@library/theme/default-theme';
 import { storiesOf } from '@storybook/react';
 import { useState } from 'react';
 import { LoadingOverlay } from '.';
-import { Button, Group } from '@library/core';
+import { Group } from '../../Others/Group';
+import { Button } from '../../Forms/Button';
 
 function LoadingOverlayDemo(props?: any) {
   const [visible, setVisible] = useState(true);
@@ -47,7 +48,7 @@ const customLoader = (
   </svg>
 );
 
-storiesOf('@beautify/core/LoadingOverlay', module)
+storiesOf('@beautify/core/Overlays/LoadingOverlay', module)
   .add('General usage', () => <LoadingOverlayDemo />)
   .add('Custom Loader props', () => (
     <LoadingOverlayDemo loaderProps={{ size: 'xl', color: 'yellow' }} />

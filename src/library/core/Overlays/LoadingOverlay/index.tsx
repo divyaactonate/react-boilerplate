@@ -1,7 +1,8 @@
 import { DefaultProps, useBeautifyTheme } from '@library/theme';
 import cx from 'clsx';
 import React, { ComponentPropsWithoutRef } from 'react';
-import { Loader, LoaderProps, GroupTransition } from '@library/core';
+import { GroupTransition } from '../../Animations/Transition';
+import { Loader, LoaderProps } from '../../Feedback/Loader';
 import { Overlay } from '../Overlay';
 import { useStyles } from './LoadingOverlay.styles';
 

@@ -1,4 +1,4 @@
-import { Logger } from '@libs/logger';
+import { Logger } from '@utils/logger';
 // import { services } from '@src/api';
 import createStore from '@store/createStore';
 import { action, makeObservable, observable } from 'mobx';
@@ -6,7 +6,7 @@ import { enableStaticRendering } from 'mobx-react';
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 enableStaticRendering(typeof window === 'undefined');
-// const { AuthApi: service } = services;
+// const { AuthService: service } = services;
 
 class AuthStore {
   isAuthenticated: boolean;

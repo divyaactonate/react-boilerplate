@@ -3,7 +3,6 @@ import { BeautifySize, DefaultProps } from '@library/theme';
 import cx from 'clsx';
 import React from 'react';
 import { useStyles } from './Radio.styles';
-
 export interface RadioProps
   extends DefaultProps,
     Omit<React.ComponentPropsWithoutRef<'input'>, 'size'> {

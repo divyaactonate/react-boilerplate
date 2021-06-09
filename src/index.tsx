@@ -1,4 +1,4 @@
-import { Logger, LoggerLevels } from '@libs/logger';
+import { Logger, LoggerLevels } from '@utils/logger';
 import { AllProviders } from '@providers';
 import { StrictMode, Suspense } from 'react';
 import { render } from 'react-dom';

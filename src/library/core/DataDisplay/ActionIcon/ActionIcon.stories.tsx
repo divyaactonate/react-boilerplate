@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import { ActionIcon } from './index';
-import { Group } from '@library/core';
+import { Group } from '../../Others/Group';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
 import { ClockIcon } from '@heroicons/react/solid';
 
@@ -11,7 +11,7 @@ const getThemes = (props?: any, iconProps?: any) =>
     </ActionIcon>
   ));
 
-storiesOf('@beautify/core/ActionIcon', module)
+storiesOf('@beautify/core/DataDisplay/ActionIcon', module)
   .add('Themes', () => <Group style={{ padding: 20 }}>{getThemes()}</Group>)
   .add('Variants', () => (
     <>

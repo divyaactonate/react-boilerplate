@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import { Tooltip } from './index';
 
-storiesOf('@beautify/core/Tooltip', module).add('default', () => (
+storiesOf('@beautify/core/Overlays/Tooltip', module).add('default', () => (
   <div className='container mx-auto'>
     <div className='text-center'>
       <p className='text-2xl mt-4 text-teall-600'>Lets explore different ways to open Tooltip</p>

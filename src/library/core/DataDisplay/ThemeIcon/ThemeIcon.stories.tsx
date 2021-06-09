@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import { ReplyIcon } from '@heroicons/react/solid';
-import { Group } from '@library/core';
+import { Group } from '../../Others/Group';
 import { ThemeIcon } from '.';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
 import { BeautifyProvider } from '@library/theme';
@@ -23,7 +23,7 @@ const getRadius = (props?: any) =>
       <ReplyIcon />
     </ThemeIcon>
   ));
-storiesOf('@beautify/core/ThemeIcon', module)
+storiesOf('@beautify/core/DataDisplay/ThemeIcon', module)
   .add('Size', () => <Group style={{ padding: 20 }}>{getSizes()}</Group>)
 
   .add('Radius', () => <Group style={{ padding: 20 }}>{getRadius()}</Group>)

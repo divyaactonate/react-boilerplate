@@ -28,7 +28,7 @@ const shadows = ['none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', 'inner'].map((colo
     Data uploaded to the server. Fire on
   </Alert>
 ));
-storiesOf('@beautify/core/Alert', module)
+storiesOf('@beautify/core/Feedback/Alert', module)
   .add('Themes', () => (
     <div style={{ maxWidth: 800, padding: 50 }}>{getThemes({ title: 'Alert title' })}</div>
   ))

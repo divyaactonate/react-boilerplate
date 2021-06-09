@@ -41,8 +41,8 @@ export class ApiCaller {
         'Access-Control-Allow-Origin': '*',
       };
       const data = JSON.stringify(payload);
-      const options: AxiosRequestConfig = { method, headers, data };
-      const res = await axios.put(URL, options);
+      const options: AxiosRequestConfig = { headers, method, url: URL, data };
+      const res = await axios(options);
       return res.data;
     } catch (err) {
       throw err;
@@ -117,7 +117,8 @@ export class ApiCaller {
   };
 
   static async uploadImage(formData: any) {
-    return axios.post(`${BASE_URL}Fileupload`, formData, {
+    const URL = `${BASE_URL}Fileupload`;
+    return axios.post(URL, formData, {
       // receive two parameter endpoint url ,form data
     });
   }

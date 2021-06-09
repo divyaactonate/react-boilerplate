@@ -1,10 +1,11 @@
 /** @jsxImportSource @emotion/react */
 
+import { ErrorLabel } from '../ErrorLabel';
+import { Label } from '../Label';
 import { BeautifyCase, BeautifyWeight, DefaultProps } from '@library/theme';
 import cx from 'clsx';
-import { ReactNode } from 'react';
+// import { cloneElement } from 'react';
 import { useStyles } from './InputsWrapper.styles';
-
 export interface InputsWrapperProps extends DefaultProps {
   label?: string;
   type?: 'text' | 'password' | 'number' | 'email';
@@ -12,9 +13,12 @@ export interface InputsWrapperProps extends DefaultProps {
   size?: string;
   weight?: BeautifyWeight;
   required?: boolean;
-  hasError?: boolean;
+  isInvalid?: boolean;
   transform?: BeautifyCase;
-  children: ReactNode;
+  children: JSX.Element;
+  errors?: any;
+  minHeight?: any;
+  name?: string;
 }
 export const InputsWrapper = ({
   themeOverride,
@@ -22,29 +26,26 @@ export const InputsWrapper = ({
   label,
   errorMessage = '',
   size = 'sm',
+  minHeight = '6rem',
   weight = 'extrabold',
-  hasError = false,
+  isInvalid = false,
   required = false,
   children,
   transform = 'capitalize',
 }: InputsWrapperProps) => {
-  const { classes, css } = useStyles({ themeOverride, transform, size, weight });
+  const { classes, css } = useStyles({ themeOverride, transform, size, weight, minHeight });
+  const LabelProps = { themeOverride, transform, isInvalid, required, label, size, weight };
+  const ErrorProps = { errorMessage, themeOverride };
   return (
-    <div data-beautify-inputswrapper className={cx(classes.inputswrapper, className)}>
-      <label css={css.label} htmlFor={label} className={classes.label}>
-        {label}
-        {required && (
-          <span data-mantine-required className={classes.required}>
-            *
-          </span>
-        )}
-      </label>
+    <div
+      data-beautify-inputswrapper
+      css={css.inputswrapper}
+      className={cx(classes.inputswrapper, className)}
+    >
+      <Label {...LabelProps} />
       {children}
-      {hasError && (
-        <p css={css.error} className={classes.error}>
-          {errorMessage}
-        </p>
-      )}
+      {/* {cloneElement(children, {})} */}
+      {isInvalid && <ErrorLabel {...ErrorProps} />}
     </div>
   );
 };
