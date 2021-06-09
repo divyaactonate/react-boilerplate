@@ -55,7 +55,10 @@ They are preconfigured so that you can focus on the code.
 
   <dt>Industry-standard routing</dt>
   <dd>It's natural to want to add pages (e.g. `/about`) to your application, and routing makes this possible.</dd>
-
+<dt>Industry-standard i18n internationalization support
+</dt>
+  <dd>Scalable apps need to support multiple languages, easily add and support multiple languages with `react-i18next`.
+</dd>
   <dt>Offline-first</dt>
   <dd>The next frontier in performant web apps: availability without a network connection from the instant your users load the app.</dd>
 
@@ -433,7 +436,7 @@ npm run commit
 
 ### Plugins
 
-<!-- - [`copy-webpack-plugin`](https://github.com/webpack-contrib/copy-webpack-plugin) - Copy files to build directory -->
+- [`copy-webpack-plugin`](https://github.com/webpack-contrib/copy-webpack-plugin) - Copy files to build directory
 <!-- - [`optimize-css-assets-webpack-plugin`](https://github.com/NMFR/optimize-css-assets-webpack-plugin) - Optimize and minimize CSS assets -->
 <!-- - [`terser-webpack-plugin`](https://github.com/webpack-contrib/terser-webpack-plugin) - Optimize and minimize JavaScript -->
 <!-- - [`@svgr/webpack`](https://github.com/mrsteele/dotenv-webpack) - SVGR can be used as a webpack loader, this way you can import your SVG directly as a React Component. -->
@@ -445,6 +448,28 @@ npm run commit
 - [`dotenv-webpack`](https://github.com/mrsteele/dotenv-webpack) - Supports dotenv and other environment variables
 - [`babel-jest`](https://www.npmjs.com/package/babel-jest) - Jest plugin to use babel for transformation.
 - [`ts-jest`](https://www.npmjs.com/package/babel-jest) - A preprocessor with source maps support to help use TypeScript with Jest
+- [`speed-measure-webpack-plugin`](https://www.npmjs.com/package/speed-measure-webpack-plugin) - Measure + analyse the speed of your webpack loaders and plugins
+
+### Others
+
+- [`shelljs`](https://www.npmjs.com/package/shelljs) - Portable Unix shell commands for Node.js
+- [`readline`](https://www.npmjs.com/package/readline) - Simple streaming readline module.
+- [`express`](https://www.npmjs.com/package/express) - Fast, unopinionated, minimalist web framework
+- [`chalk`](https://www.npmjs.com/package/chalk) - Terminal string styling done right
+- [`body-parser`](https://www.npmjs.com/package/body-parser) - Node.js body parsing middleware
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
