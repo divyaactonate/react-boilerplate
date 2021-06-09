@@ -21,7 +21,7 @@ const sizes = (['xs', 'sm', 'md', 'lg', 'xl'] as any[]).map((size) => (
 const radius = (['xs', 'sm', 'md', 'lg', 'xl'] as BeautifySize[]).map((size) => (
   <ReactSelect wrapperClass='w-56' options={colourOptions} key={size} radius={size} />
 ));
-storiesOf('@beautify/core/ReactSelect', module)
+storiesOf('@beautify/core/Forms/ReactSelect', module)
   .add('default', () => <ReactSelect wrapperClass='w-56' options={colourOptions} />)
   .add('Sizes', () => (
     <div className='flex flex-col space-y-6' style={{ padding: 20 }}>

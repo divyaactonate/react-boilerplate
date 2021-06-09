@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { ContextMenu } from './index';
 import 'react-contexify/dist/ReactContexify.css';
 
-storiesOf('@beautify/core/ContextMenu', module)
+storiesOf('@beautify/core/Disclosure/ContextMenu', module)
   .add('default', () => {
     const arr = [
       { label: 'item1', key: '1' },

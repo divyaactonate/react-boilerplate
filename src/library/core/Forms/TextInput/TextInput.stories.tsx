@@ -9,7 +9,7 @@ const sizes = (['xs', 'sm', 'md', 'lg', 'xl'] as any[]).map((s) => (
 const radius = (['xs', 'sm', 'md', 'lg', 'xl'] as BeautifySize[]).map((size) => (
   <TextInput defaultValue='kaushal' key={size} radius={size} />
 ));
-storiesOf('@beautify/core/TextInput', module)
+storiesOf('@beautify/core/Forms/TextInput', module)
   .add('default', () => <TextInput />)
   .add('Sizes', () => <div style={{ padding: 20 }}>{sizes}</div>)
   .add('Radius', () => <div style={{ padding: 20 }}>{radius}</div>)

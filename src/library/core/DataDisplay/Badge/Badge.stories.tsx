@@ -47,7 +47,7 @@ const section = (
   </ActionIcon>
 );
 
-storiesOf('@beautify/core/Badge', module)
+storiesOf('@beautify/core/DataDisplay/Badge', module)
   .add('Themes', () => (
     <>
       <Group style={{ padding: 10 }}>{getThemes()}</Group>

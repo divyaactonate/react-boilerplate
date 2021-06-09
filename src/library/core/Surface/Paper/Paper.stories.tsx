@@ -51,7 +51,7 @@ const getRadius = (props?: any) =>
     </Paper>
   ));
 
-storiesOf('@beautify/core/Paper', module)
+storiesOf('@beautify/core/Surface/Paper', module)
   .add('Radius', () => <div style={{ padding: 40 }}>{getRadius()}</div>)
   .add('Padding', () => <div style={{ padding: 40 }}>{getPaddings()}</div>)
   .add('Shadows', () => <div style={{ padding: 40 }}>{getShadows()}</div>)

@@ -31,7 +31,7 @@ const getThemes = (props?: any) =>
     <Checkbox key={color} color={color} {...props} label={color} style={{ marginTop: 15 }} />
   ));
 
-storiesOf('@beautify/core/Checkbox', module)
+storiesOf('@beautify/core/Forms/Checkbox', module)
   .add('Themes', () => <div style={{ padding: 15 }}>{getThemes({ checked: true })}</div>)
   .add('Sizes', () => <div style={{ padding: 15 }}>{sizes}</div>)
   .add('Controlled', () => <CheckboxWrapper label='Controlled' style={{ padding: 15 }} />)

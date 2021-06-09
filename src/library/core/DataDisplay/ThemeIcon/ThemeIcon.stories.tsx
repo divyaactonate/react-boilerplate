@@ -23,7 +23,7 @@ const getRadius = (props?: any) =>
       <ReplyIcon />
     </ThemeIcon>
   ));
-storiesOf('@beautify/core/ThemeIcon', module)
+storiesOf('@beautify/core/DataDisplay/ThemeIcon', module)
   .add('Size', () => <Group style={{ padding: 20 }}>{getSizes()}</Group>)
 
   .add('Radius', () => <Group style={{ padding: 20 }}>{getRadius()}</Group>)

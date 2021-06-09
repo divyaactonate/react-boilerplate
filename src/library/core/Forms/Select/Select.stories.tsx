@@ -27,7 +27,7 @@ const WrappedSelect = (
   );
 };
 
-storiesOf('@beautify/core/Select', module)
+storiesOf('@beautify/core/Forms/Select', module)
   .add('General usage', () => (
     <div style={{ maxWidth: 300, padding: 20 }}>
       <WrappedSelect label='Your favorite library' placeholder='Your favorite library' />
