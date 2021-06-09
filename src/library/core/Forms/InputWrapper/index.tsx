@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { Text } from '@library/core';
+import { Text } from '../../Typography/Text';
 import { BeautifyCase, BeautifyWeight, DefaultProps } from '@library/theme';
 import cx from 'clsx';
 import React, { ComponentPropsWithoutRef, createElement } from 'react';

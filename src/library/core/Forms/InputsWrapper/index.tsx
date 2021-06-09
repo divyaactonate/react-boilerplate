@@ -1,9 +1,10 @@
 /** @jsxImportSource @emotion/react */
 
-import { Label, ErrorLabel } from '@library/core';
+import { ErrorLabel } from '../ErrorLabel';
+import { Label } from '../Label';
 import { BeautifyCase, BeautifyWeight, DefaultProps } from '@library/theme';
 import cx from 'clsx';
-import { cloneElement } from 'react';
+// import { cloneElement } from 'react';
 import { useStyles } from './InputsWrapper.styles';
 export interface InputsWrapperProps extends DefaultProps {
   label?: string;
@@ -42,11 +43,8 @@ export const InputsWrapper = ({
       className={cx(classes.inputswrapper, className)}
     >
       <Label {...LabelProps} />
-      {/* {children} */}
-      {cloneElement(children, { isInvalid })}
-      {/* <span className={isInvalid? 'visible h-3' : 'hidden'}>
-        <ErrorLabel {...ErrorProps} />
-      </span> */}
+      {children}
+      {/* {cloneElement(children, {})} */}
       {isInvalid && <ErrorLabel {...ErrorProps} />}
     </div>
   );

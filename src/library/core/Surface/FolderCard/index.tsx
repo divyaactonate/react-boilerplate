@@ -3,7 +3,7 @@ import { DotsVerticalIcon, HeartIcon, TagIcon } from '@heroicons/react/outline';
 import { DefaultProps } from '@library/theme';
 import cx from 'clsx';
 import { useHover } from 'react-laag';
-import { Checkbox } from '@library/core';
+import { Checkbox } from '../../Forms/Checkbox';
 import { useStyles } from './FolderCard.styles';
 import { BlueFolder } from './FolderCardIcons';
 export interface FolderCardProps extends DefaultProps {

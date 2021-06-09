@@ -2,7 +2,6 @@
 import { BeautifySize, DefaultProps } from '@library/theme';
 import cx from 'clsx';
 import React from 'react';
-import { RegisterOptions, UseFormRegister } from 'react-hook-form/dist/types';
 import { useStyles } from './Radio.styles';
 export interface RadioProps
   extends DefaultProps,
@@ -21,9 +20,6 @@ export interface RadioProps
 
   /** Get input ref */
   elementRef?: React.ForwardedRef<HTMLInputElement>;
-  register?: UseFormRegister<any>;
-  rules?: RegisterOptions;
-  name?: string;
 }
 
 export function Radio({
@@ -36,9 +32,6 @@ export function Radio({
   title,
   disabled = false,
   color = 'blue',
-  register,
-  name,
-  rules,
   ...others
 }: RadioProps) {
   const { classes, css } = useStyles({ color, size, themeOverride, disabled });
@@ -51,25 +44,14 @@ export function Radio({
       title={title}
     >
       <label css={css.label} className={cx(classes.label)}>
-        {register && name ? (
-          <input
-            className={classes.radio}
-            css={css.radio}
-            type='radio'
-            disabled={disabled}
-            {...register(name, rules)}
-            {...others}
-          />
-        ) : (
-          <input
-            ref={elementRef}
-            className={classes.radio}
-            css={css.radio}
-            type='radio'
-            disabled={disabled}
-            {...others}
-          />
-        )}
+        <input
+          ref={elementRef}
+          className={classes.radio}
+          css={css.radio}
+          type='radio'
+          disabled={disabled}
+          {...others}
+        />
         <span>{children}</span>
       </label>
     </div>

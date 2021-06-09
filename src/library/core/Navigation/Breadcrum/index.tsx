@@ -2,7 +2,7 @@
 import cx from 'clsx';
 import { useStyles } from './Breadcrum.styles';
 import { DefaultProps } from '@library/theme';
-import { Text } from '@library/core';
+import { Text } from '../../Typography/Text';
 import { Children, cloneElement, ReactNode, useState } from 'react';
 
 export interface BreadcrumProps extends DefaultProps {

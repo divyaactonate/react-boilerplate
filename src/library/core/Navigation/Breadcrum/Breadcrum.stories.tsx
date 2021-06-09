@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import { Breadcrum } from './index';
-import { Text } from '@library/core';
+import { Text } from '../../Typography/Text';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
 
 const items = [

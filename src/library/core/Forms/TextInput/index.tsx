@@ -2,20 +2,15 @@
 
 import { BeautifySize, DefaultProps } from '@library/theme';
 import { ComponentPassThrough } from '@library/types';
+import cx from 'clsx';
 import { ReactNode } from 'react';
 import { useStyles } from './TextInput.styles';
-import cx from 'clsx';
-import { RegisterOptions, UseFormRegister } from 'react-hook-form/dist/types';
-
 export interface TextInputProps extends DefaultProps {
   size?: BeautifySize;
   radius?: BeautifySize;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
-  isinvalid?: boolean;
-  register?: UseFormRegister<any>;
-  rules?: RegisterOptions;
-  name?: string;
+  isInvalid?: boolean;
   type?: string;
 }
 export const TextInput = <
@@ -27,10 +22,7 @@ export const TextInput = <
   radius = 'sm',
   isInvalid = false,
   leftIcon,
-  register,
-  name,
   type = 'text',
-  rules,
   themeOverride,
   elementRef,
   className,
@@ -43,24 +35,15 @@ export const TextInput = <
   return (
     <div className={cx(classes.wrapper, className)}>
       {leftIcon && <div className={classes.leftIconWrapper}>{leftIcon}</div>}
-      {register && name ? (
-        <input
-          type={type}
-          css={css.textinput}
-          className={classes.textinput}
-          {...register(name, rules)}
-          {...others}
-        />
-      ) : (
-        <input
-          ref={elementRef}
-          type={type}
-          css={css.textinput}
-          className={classes.textinput}
-          {...others}
-        />
-      )}
 
+      <input
+        ref={elementRef}
+        type={type}
+        css={css.textinput}
+        autoComplete='off'
+        className={classes.textinput}
+        {...others}
+      />
       {rightIcon && <div className={classes.rightIconWrapper}>{rightIcon}</div>}
     </div>
   );

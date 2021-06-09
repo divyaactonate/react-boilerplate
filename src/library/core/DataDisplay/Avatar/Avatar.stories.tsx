@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 import { PaperClipIcon } from '@heroicons/react/solid';
-import { Group } from '@library/core';
+import { Group } from '../../Others/Group';
 import { Avatar } from '.';
 import { DEFAULT_THEME } from '@library/theme/default-theme';
 

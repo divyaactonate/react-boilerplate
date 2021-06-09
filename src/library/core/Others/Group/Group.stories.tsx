@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/react';
-import { Button } from '@library/core';
+import { Button } from '../../Forms/Button';
 import { Group } from '.';
 
 const positions = (['start', 'center', 'end', 'between', 'around', 'evenly'] as const).map(

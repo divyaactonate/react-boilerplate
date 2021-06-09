@@ -4,7 +4,7 @@ import { BeautifyCase } from '@library/theme/types';
 import { ComponentPassThrough } from '@library/types';
 import cx from 'clsx';
 import { memo, ReactElement } from 'react';
-import { Spinner } from '@library/core';
+import { Spinner } from '../../Feedback/Spinner';
 import { useStyles } from './Button.styles';
 
 export interface ButtonProps {
