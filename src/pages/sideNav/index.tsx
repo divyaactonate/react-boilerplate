@@ -46,7 +46,6 @@ const SideNav: FC = () => {
           }
         >
           <div
-            className={`ml-2`}
             style={{
               fontSize: 12,
               fontStyle: 'normal',
@@ -64,7 +63,7 @@ const SideNav: FC = () => {
       <div className={`flex flex-row w-full`}>
         <SideNavigation setBreadcrumbData={setBreadcrumbData} />
         <TreeNavigation setBreadcrumbData={setBreadcrumbData} />
-        <div style={{ width: '80%' }} className={`h-screen border `}>
+        <div style={{ width: '80%' }} className={`h-screen border pl-2`}>
           {breadcrumItem.length > 0 && (
             <Breadcrum
               separator={

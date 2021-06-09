@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import RecursiveTree from './TreeView/recursive_tree';
 import { mockOrgTreeList } from './TreeView/data';
 import { TextInput } from '@library/core';
@@ -11,12 +11,33 @@ export interface TreeNavigationProps {
 
 const TreeNavigation: FC = ({ setBreadcrumbData }: TreeNavigationProps) => {
   const [currentId, setCurrentId] = useState<number>(-1);
-  const [searchVal, setSearchVal] = useState<string>('');
-
-  const onSelect = (value: TreeBranch) => {
-    // You can put whatever here
-    setCurrentId(parseInt(value.id));
+  const [treeListData, setTreeData] = useState(mockOrgTreeList);
+  const [searchVal, setSearchVal] = useState<string | null>(null);
+  /**
+   * Method to search element on input changes
+   * @param data
+   * @param regObj
+   * @param arr
+   * @returns
+   */
+  const reccurArr = (data: any, regObj: any, arr: any) => {
+    data.forEach((element: any) => {
+      if (regObj.test(element.label)) {
+        arr.push(element);
+        if (element.branches.length > 0) reccurArr(element.branches, regObj, arr);
+      } else if (element.branches.length > 0) reccurArr(element.branches, regObj, arr);
+    });
+    return arr;
   };
+
+  useEffect(() => {
+    if (searchVal?.length > 0) {
+      const search = new RegExp(searchVal, 'i');
+      setTreeData(reccurArr(mockOrgTreeList, search, []));
+    } else setTreeData(mockOrgTreeList);
+  }, [searchVal]);
+
+  const onSelect = (value: TreeBranch) => setCurrentId(parseInt(value.id));
 
   return (
     <div
@@ -31,17 +52,13 @@ const TreeNavigation: FC = ({ setBreadcrumbData }: TreeNavigationProps) => {
               type='text'
               placeholder={'Search'}
               value={searchVal}
-              onChange={(e) => setSearchVal(e)}
+              onChange={(e) => setSearchVal(e.target.value)}
+              className={`bg-white w-full box-border font-medium not-italic`}
               style={{
-                backgroundColor: '#FFFFFF',
                 height: 26,
-                width: '100%',
                 border: '1px solid #E8E8E8',
-                boxSizing: 'border-box',
                 borderRadius: 6,
                 marginTop: 0,
-                fontStyle: 'normal',
-                fontWeight: 500,
                 fontSize: 12,
                 color: '#999999',
               }}
@@ -65,16 +82,12 @@ const TreeNavigation: FC = ({ setBreadcrumbData }: TreeNavigationProps) => {
             size={'sm'}
             type='text'
             defaultValue={'Sort :Most Viewed'}
+            className={`bg-white w-full box-border font-medium not-italic`}
             style={{
-              backgroundColor: '#FFFFFF',
               height: 26,
-              width: '100%',
               border: '1px solid #E8E8E8',
-              boxSizing: 'border-box',
               borderRadius: 6,
               marginTop: 0,
-              fontStyle: 'normal',
-              fontWeight: 500,
               fontSize: 12,
               color: '#999999',
             }}
@@ -83,10 +96,12 @@ const TreeNavigation: FC = ({ setBreadcrumbData }: TreeNavigationProps) => {
         </div>
 
         <RecursiveTree
-          listMeta={mockOrgTreeList}
+          listMeta={treeListData}
           onSelectCallback={onSelect}
           setBreadcrumbData={setBreadcrumbData}
           currentId={currentId}
+          // searchValue={searchVal}
+          // isSearching={searchVal !== null && searchVal.length > 0}
         />
       </div>
     </div>

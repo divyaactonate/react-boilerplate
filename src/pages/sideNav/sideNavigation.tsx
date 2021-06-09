@@ -122,7 +122,7 @@ const SideNavigation: FC = ({ setBreadcrumbData }: SideNavProps) => {
             <menu.iconName iconColor={index === upperMenuSelectedIndex ? '#0084FF' : '#999999'} />
             <label
               style={{
-                fontSize: 9,
+                fontSize: 10,
                 fontStyle: 'normal',
                 fontWeight: 500,
                 lineHeight: 1.7,
