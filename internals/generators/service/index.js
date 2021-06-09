@@ -20,7 +20,7 @@ module.exports = {
     actions.push({
       type: 'add',
       templateFile: './service/index.ts.hbs',
-      path: `${pathToWrite}api/{{camelCase name}}Api/index.ts`,
+      path: `${pathToWrite}api/{{camelCase name}}Service/index.ts`,
       abortOnFail: true,
     });
     actions.push({

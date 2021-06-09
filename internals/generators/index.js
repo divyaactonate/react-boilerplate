@@ -30,7 +30,7 @@ module.exports = function (plop) {
   plop.setActionType('prettify', (answers, config) => {
     let fileName;
     if (config.path === '/api/') {
-      fileName = plop.getHelper('camelCase')(answers.name) + 'Api';
+      fileName = plop.getHelper('camelCase')(answers.name) + 'Service';
     } else if (config.path === '/store/') {
       fileName = plop.getHelper('camelCase')(answers.name);
     } else if (config.path === '/pages/') {
