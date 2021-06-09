@@ -1,8 +1,8 @@
-import { ContactService } from './contactApi';
-import { AuthApi } from './authApi';
+import { ContactService } from './contactService';
+import { AuthService } from './authService';
 
 const services = {
   ContactService,
-  AuthApi,
+  AuthService,
 };
 export { services };

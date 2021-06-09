@@ -10,7 +10,7 @@ import {
   Text,
   TextInput,
 } from '@library/core';
-import { Logger } from '@libs/logger';
+import { Logger } from '@utils/logger';
 import { BiHubIcon } from '@shared/index';
 import { useFormik } from 'formik';
 import { inject } from 'mobx-react';
