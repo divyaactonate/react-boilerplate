@@ -45,14 +45,6 @@
     "allowJs": true,
     "checkJs": true
   },
-  "exclude": [
-    "node_modules"
-    // "dist",
-    // "coverage",
-    // ".storybook",
-    // "**/*.stories.tsx",
-    // "**/*.test.tsx",
-    // "**/*.test.ts"
-  ],
+  "exclude": ["node_modules", "dist"],
   "include": ["**/*.ts", "**/*.tsx"]
 }

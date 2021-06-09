@@ -80,7 +80,7 @@ They are preconfigured so that you can focus on the code.
 * `webpack/webpack.common.js` config common webpack for both dev and production environments.
 * `webpack/webpack.dev.js` config webpack for dev environment.
 * `webpack/webpack.prod.js` config webpack for production environment.
-* `/webpack.config.js` main webpack config that merge common and webpack environment based config.
+* `webpack/webpack.config.js` main webpack config that merge common and webpack environment based config.
 * Enzyme config `/setupTests.ts` here you will have all setup for enzyme to test your component.
 * Prettier config `/.prettierc`.
 * Jest config `/jest.config.js`.
@@ -99,18 +99,20 @@ They are preconfigured so that you can focus on the code.
 * `npm run security-audit:prod` - To scan your project for vulnerabilities skipping devDependencies.
 * `npm run security-audit:dev` - To scan your project for vulnerabilities skipping dependencies.
 * `npm run start` - To start in development mode.*
-* `npm run start` - To start in development mode.
 * `npm run build` - To build the code.
+* `npm run build-measure` - To Measure + analyse the speed of your webpack loaders and plugins
 * `npm run build-tailwind` - To build tailwind css.
 * `npm run test:clean` - To remove previous coverage created.
 * `npm run test` - To run tests.
+* `npm run test:one` - To run test case for a single file.
 * `npm run test:coverage` - To run tests with coverage.
 * `npm run open:coverage` - To open coverage report.
 * `npm run prettify` - To prettify code.
 * `npm run lint` - To check lint erros.
 * `npm run lint-fix` - To fix auto fixable lint erros.
 * `npm run commit` - To commit your changes.
-* `npm run storybook` - To start Storybook locally.
+* `npm run start-storybook` - To start Storybook locally.
+* `npm run storybook` - To start Storybook locally in watch mode.
 * `npm run build-storybook` - To build Storybook as a static web application.
 
 ## Git-Publish-Changes
