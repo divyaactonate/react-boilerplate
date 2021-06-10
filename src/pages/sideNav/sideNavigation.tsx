@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import {
   SearchIcon,
   HomeIcon,
@@ -14,70 +14,90 @@ import {
   QuestionIcon,
 } from '@library/icons';
 
-const SideNavigation: FC = () => {
+export interface SideNavProps {
+  readonly setBreadcrumbData: (value: any) => void;
+}
+
+const SideNavigation: FC = ({ setBreadcrumbData }: SideNavProps) => {
   const [upperMenuSelectedIndex, setUpperMenuIndex] = useState(2);
   const [lowerMenuSelectedIndex, setlowerMenuIndex] = useState(null);
+
+  useEffect(() => {
+    setBreadcrumbData({ title: upperMenus[2].title, href: upperMenus[2].href });
+  }, []);
 
   const upperMenus = [
     {
       title: 'Search',
       iconName: SearchIcon,
+      href: 'https://google.com',
     },
     {
       title: 'Home',
       iconName: HomeIcon,
+      href: 'https://google.com',
     },
     {
       title: 'My Folders',
       iconName: MyFolderIcon,
+      href: 'https://google.com',
     },
     {
       title: 'Favorites',
       iconName: FavoriteIcon,
+      href: 'https://google.com',
     },
     {
       title: 'BI Folders',
       iconName: BIFolderIcon,
+      href: 'https://google.com',
     },
     {
       title: 'Hub Folders',
       iconName: HubFolderIcon,
+      href: 'https://google.com',
     },
     {
       title: 'History',
       iconName: HistoryIcon,
+      href: 'https://google.com',
     },
     {
       title: 'Tags',
       iconName: TagsIcon,
+      href: 'https://google.com',
     },
   ];
 
   const lowerMenus = [
     {
       iconName: QuestionIcon,
+      href: 'https://google.com',
     },
     {
       iconName: BellIcon,
+      href: 'https://google.com',
     },
     {
       iconName: SettingIcon,
+      href: 'https://google.com',
     },
     {
       iconName: userImageIcon,
+      href: 'https://google.com',
     },
   ];
 
   const onLowerMenuClick = (menu: any, index: number) => {
+    // setBreadcrumbData({ title: menu.title, href: menu.href });
     setUpperMenuIndex(null);
     setlowerMenuIndex(index);
-    console.log('--------');
   };
 
   const onUpperMenuClick = (menu: any, index: number) => {
+    setBreadcrumbData({ title: menu.title, href: menu.href });
     setlowerMenuIndex(null);
     setUpperMenuIndex(index);
-    console.log('--------');
   };
 
   return (
@@ -102,7 +122,7 @@ const SideNavigation: FC = () => {
             <menu.iconName iconColor={index === upperMenuSelectedIndex ? '#0084FF' : '#999999'} />
             <label
               style={{
-                fontSize: 9,
+                fontSize: 10,
                 fontStyle: 'normal',
                 fontWeight: 500,
                 lineHeight: 1.7,

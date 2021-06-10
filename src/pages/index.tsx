@@ -1,5 +1,5 @@
 import Layout from '@layouts/index';
-import { Tooltip, Breadcrum, Text } from '../library/core';
+import { Tooltip, Breadcrum, Text } from '@library/core';
 
 const items = [
   {
@@ -107,10 +107,7 @@ const items1 = [
         </div>
       }
     >
-      <div
-        style={{ maxWidth: 100 }}
-        className={`cursor-pointer truncate whitespace-nowrap overflow-hidden overflow-ellipsis`}
-      >
+      <div style={{ maxWidth: 100 }} className={`cursor-pointer truncate`}>
         {item.title}
       </div>
     </Tooltip>
