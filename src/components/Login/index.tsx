@@ -50,6 +50,7 @@ const LoginView: FC = () => {
             <TextInput
               placeholder='you@example.com'
               rightIcon
+              size='lg'
               id='email'
               isInvalid={errors.email && touched.email ? true : false}
               name='email'
