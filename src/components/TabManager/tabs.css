@@ -15,7 +15,7 @@
   color: #737374;
   border-radius: 10px 10px 0 0;
   height: 36px;
-  width: 140px;
+  width: 161px;
   margin-right: 12px;
 }
 .dock-panel.dock-style-custom .dock-tab-active::before {
@@ -82,14 +82,14 @@
 }
 .dock-tab > div {
   display: flex;
-  padding: 8px 16px;
+  padding: 8px 14px;
   width: 100%;
   flex-direction: row;
 }
 .dock-panel.dock-style-card .dock-tab-close-btn {
-  right: 14px;
+  right: 10px;
   font-size: 10px;
-  top: 12px;
+  top: 11px;
   color: #737374;
   font-weight: bold;
   cursor: pointer;
@@ -161,12 +161,12 @@
 }
 
 .dock-tab-close-btn:before {
-  content: url('http://localhost:8080/assets/img/tab-close.svg');
+  content: url('http://localhost:8080/assets/img/tab-close-icon.svg');
 }
 
 .folder-icon {
   padding-left: 16px;
-  width: 90%;
+  width: 80%;
 }
 
 .folder-icon:before {
@@ -176,4 +176,40 @@
   left: 10px;
   top: 8px;
   content: url('http://localhost:8080/assets/img/tab-folder-icon.svg');
+}
+
+.dock-tab-active .tab-action-btn {
+  display: block;
+}
+
+.tab-action-btn {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  border: 1px solid transparent;
+  height: 20px;
+  min-height: 20px;
+  width: 28px;
+  min-width: 28px;
+  border-radius: rounded-lg;
+  -webkit-transition: color 100ms ease, background-color 100ms ease;
+  transition: color 100ms ease, background-color 100ms ease;
+  color: #495057;
+  background-color: transparent;
+  display: none;
+  cursor: pointer;
+}
+
+.tab-action-btn:hover {
+  background-color: #f8f9fa;
+}
+
+.tab-action-btn:not(:disabled):active {
+  -webkit-transform: translateY(1px);
+  -moz-transform: translateY(1px);
+  -ms-transform: translateY(1px);
+  transform: translateY(1px);
+}
+
+.tab-action-icon {
+  width: 18px;
 }

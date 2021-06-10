@@ -9,6 +9,8 @@ import 'rc-dock/dist/rc-dock.css';
 import './tabs.css';
 /*eslint import/namespace: ['error', { allowComputed: true }]*/
 import * as TabComponents from './index';
+import TabActionMenu from './TabActionMenu';
+// import { DotsVerticalIcon } from '@heroicons/react/outline';
 export interface ITabUI {
   id: number;
   title: string | ReactElement;
@@ -47,7 +49,15 @@ const TabUI = () => {
 
         tabList.push({
           id: tab?.tabId || 0,
-          title: <div className='folder-icon truncate'>{tab.title}</div>,
+          title: (
+            <div className='flex flex-row w-full'>
+              <div className='folder-icon truncate'>{tab.title}</div>
+              {/* <div className='tab-action-btn' role='button'>
+                <DotsVerticalIcon className='tab-action-icon' />
+              </div> */}
+              <TabActionMenu />
+            </div>
+          ),
           content: <Content />,
           closable: tabs.length > 1 ? true : false,
           group: 'card custom',
