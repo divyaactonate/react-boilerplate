@@ -2,7 +2,7 @@ import { TextInput } from '@library/core';
 import { AddFolder, ChevronDownIcon } from '@library/icons';
 import { useCallback, useEffect, useState } from 'react';
 import { mockOrgTreeList } from './TreeView/data';
-import RecursiveTree from './TreeView/recursive_tree';
+import RecursiveTree from './TreeView/recursiveTree';
 import { TreeBranch } from './TreeView/types';
 export interface TreeNavigationProps {
   readonly setBreadcrumbData: (value: any) => void;

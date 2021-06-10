@@ -4,7 +4,7 @@ import TreeNavigation from './treeNavigation';
 import { Text, Tooltip, Breadcrum } from '@library/core';
 
 const SideNav: FC = () => {
-  const [breadcrumItem, setBreadcrumItem] = useState([]);
+  const [breadcrumItem, setBreadcrumItem] = useState<any[]>([]);
 
   const setBreadcrumbData = (data: any) => {
     // You can put whatever here

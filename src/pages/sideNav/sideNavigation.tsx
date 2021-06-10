@@ -1,29 +1,30 @@
-import { useState, useEffect } from 'react';
 import {
-  SearchIcon,
-  HomeIcon,
-  MyFolderIcon,
+  BellIcon,
   BIFolderIcon,
   FavoriteIcon,
-  HubFolderIcon,
   HistoryIcon,
+  HomeIcon,
+  HubFolderIcon,
+  MyFolderIcon,
+  QuestionIcon,
+  SearchIcon,
+  SettingIcon,
   TagsIcon,
   userImageIcon,
-  SettingIcon,
-  BellIcon,
-  QuestionIcon,
 } from '@library/icons';
+import { useEffect, useState } from 'react';
 
 export interface SideNavProps {
-  readonly setBreadcrumbData: (value: any) => void;
+  readonly setBreadcrumbData: (data: any) => void;
 }
 
-const SideNavigation: any = ({ setBreadcrumbData }: SideNavProps) => {
+const SideNavigation = ({ setBreadcrumbData }: SideNavProps) => {
   const [upperMenuSelectedIndex, setUpperMenuIndex] = useState<number | null>(2);
   const [lowerMenuSelectedIndex, setlowerMenuIndex] = useState<number | null>(null);
 
   useEffect(() => {
     setBreadcrumbData({ title: upperMenus[2].title, href: upperMenus[2].href });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const upperMenus = [

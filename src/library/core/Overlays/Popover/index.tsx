@@ -62,7 +62,7 @@ export const Popover = (props: PopoverProps) => {
     <div data-beautify-popover>
       <button
         {...triggerProps}
-        className={`outline-none focus:outline-none`}
+        className={`outline-none w-full h-full focus:outline-none`}
         onClick={() => setOpen(!isOpen)}
       >
         {children}

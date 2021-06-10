@@ -102,7 +102,7 @@ const TreeItem = ({
                   </div>
                 }
               >
-                {label}
+                <>{label}</>
               </Tooltip>
             </StyledLabel>
           </div>
