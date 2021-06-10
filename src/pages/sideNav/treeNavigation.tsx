@@ -1,15 +1,13 @@
-import { FC, useState, useEffect } from 'react';
-import RecursiveTree from './TreeView/recursive_tree';
-import { mockOrgTreeList } from './TreeView/data';
 import { TextInput } from '@library/core';
 import { AddFolder, ChevronDownIcon } from '@library/icons';
+import { useCallback, useEffect, useState } from 'react';
+import { mockOrgTreeList } from './TreeView/data';
+import RecursiveTree from './TreeView/recursive_tree';
 import { TreeBranch } from './TreeView/types';
-
 export interface TreeNavigationProps {
   readonly setBreadcrumbData: (value: any) => void;
 }
-
-const TreeNavigation: FC = ({ setBreadcrumbData }: TreeNavigationProps) => {
+const TreeNavigation = ({ setBreadcrumbData }: TreeNavigationProps) => {
   const [currentId, setCurrentId] = useState<number>(-1);
   const [treeListData, setTreeData] = useState(mockOrgTreeList);
   const [searchVal, setSearchVal] = useState<string | null>(null);
@@ -20,7 +18,7 @@ const TreeNavigation: FC = ({ setBreadcrumbData }: TreeNavigationProps) => {
    * @param arr
    * @returns
    */
-  const reccurArr = (data: any, regObj: any, arr: any) => {
+  const reccurArr = useCallback((data: any, regObj: any, arr: any) => {
     data.forEach((element: any) => {
       if (regObj.test(element.label)) {
         arr.push(element);
@@ -28,17 +26,14 @@ const TreeNavigation: FC = ({ setBreadcrumbData }: TreeNavigationProps) => {
       } else if (element.branches.length > 0) reccurArr(element.branches, regObj, arr);
     });
     return arr;
-  };
-
+  }, []);
   useEffect(() => {
-    if (searchVal?.length > 0) {
+    if (searchVal && searchVal?.length > 0) {
       const search = new RegExp(searchVal, 'i');
       setTreeData(reccurArr(mockOrgTreeList, search, []));
     } else setTreeData(mockOrgTreeList);
-  }, [searchVal]);
-
+  }, [searchVal, reccurArr]);
   const onSelect = (value: TreeBranch) => setCurrentId(parseInt(value.id));
-
   return (
     <div
       style={{ width: '15%', paddingLeft: 2, paddingRight: 2 }}
@@ -51,7 +46,7 @@ const TreeNavigation: FC = ({ setBreadcrumbData }: TreeNavigationProps) => {
               size={'sm'}
               type='text'
               placeholder={'Search'}
-              value={searchVal}
+              value={searchVal ?? ''}
               onChange={(e) => setSearchVal(e.target.value)}
               className={`bg-white w-full box-border font-medium not-italic`}
               style={{
@@ -94,18 +89,14 @@ const TreeNavigation: FC = ({ setBreadcrumbData }: TreeNavigationProps) => {
             rightIcon={<ChevronDownIcon className='w-3' />}
           />
         </div>
-
         <RecursiveTree
           listMeta={treeListData}
           onSelectCallback={onSelect}
           setBreadcrumbData={setBreadcrumbData}
           currentId={currentId}
-          // searchValue={searchVal}
-          // isSearching={searchVal !== null && searchVal.length > 0}
         />
       </div>
     </div>
   );
 };
-
 export default TreeNavigation;

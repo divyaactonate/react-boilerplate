@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   SearchIcon,
   HomeIcon,
@@ -18,9 +18,9 @@ export interface SideNavProps {
   readonly setBreadcrumbData: (value: any) => void;
 }
 
-const SideNavigation: FC = ({ setBreadcrumbData }: SideNavProps) => {
-  const [upperMenuSelectedIndex, setUpperMenuIndex] = useState(2);
-  const [lowerMenuSelectedIndex, setlowerMenuIndex] = useState(null);
+const SideNavigation: any = ({ setBreadcrumbData }: SideNavProps) => {
+  const [upperMenuSelectedIndex, setUpperMenuIndex] = useState<number | null>(2);
+  const [lowerMenuSelectedIndex, setlowerMenuIndex] = useState<number | null>(null);
 
   useEffect(() => {
     setBreadcrumbData({ title: upperMenus[2].title, href: upperMenus[2].href });
@@ -89,7 +89,6 @@ const SideNavigation: FC = ({ setBreadcrumbData }: SideNavProps) => {
   ];
 
   const onLowerMenuClick = (menu: any, index: number) => {
-    // setBreadcrumbData({ title: menu.title, href: menu.href });
     setUpperMenuIndex(null);
     setlowerMenuIndex(index);
   };
