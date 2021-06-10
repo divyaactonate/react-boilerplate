@@ -2,28 +2,24 @@
 // import cx from 'clsx';
 import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid';
 import { BeautifySize, DefaultProps } from '@library/theme';
-import { ComponentPassThrough } from '@library/types';
 import { useState } from 'react';
 import { useStyles } from './PasswordInput.styles';
-export interface PasswordInputProps extends DefaultProps {
+export interface PasswordInputProps
+  extends DefaultProps,
+    Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size'> {
   size?: BeautifySize;
   isInvalid?: boolean;
   radius?: BeautifySize;
+  elementRef?: React.ForwardedRef<HTMLInputElement>;
 }
-export const PasswordInput = <
-  T extends React.ElementType = 'input',
-  U extends HTMLElement = HTMLInputElement
->({
+export const PasswordInput = ({
   size = 'md',
   radius = 'sm',
   themeOverride,
   isInvalid = false,
   elementRef,
   ...others
-}: ComponentPassThrough<T, PasswordInputProps> & {
-  /** Get element ref */
-  elementRef?: React.ForwardedRef<U>;
-}) => {
+}: PasswordInputProps) => {
   const { classes, css } = useStyles({ themeOverride, size, isInvalid, radius });
   const [visible, setvisible] = useState(true);
   return (
