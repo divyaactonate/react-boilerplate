@@ -48,7 +48,7 @@ const customLoader = (
   </svg>
 );
 
-storiesOf('@beautify/core/LoadingOverlay', module)
+storiesOf('@beautify/core/Overlays/LoadingOverlay', module)
   .add('General usage', () => <LoadingOverlayDemo />)
   .add('Custom Loader props', () => (
     <LoadingOverlayDemo loaderProps={{ size: 'xl', color: 'yellow' }} />

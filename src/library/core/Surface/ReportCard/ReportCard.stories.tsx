@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import { ReportCard as Card } from './index';
 
-storiesOf('@beautify/core/Card', module)
+storiesOf('@beautify/core/Surface/Card', module)
   .add('With image', () => {
     return (
       <div className='ml-10 mt-10 max-w-sm'>

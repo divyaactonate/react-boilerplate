@@ -16,7 +16,7 @@ const getSizes = (themeOverride?: any) =>
     </Title>
   ));
 
-storiesOf('@beautify/core/Title', module)
+storiesOf('@beautify/core/Typography/Title', module)
   .add('Themes', () => <div>{getThemes()}</div>)
   .add('Sizes', () => <div>{getSizes()}</div>)
   .add('Dark theme', () => (

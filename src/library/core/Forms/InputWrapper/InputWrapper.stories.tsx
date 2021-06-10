@@ -6,7 +6,7 @@ import { InputWrapper } from './index';
 const lorem =
   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet consequatur vitae commodi ipsa ipsam vel voluptatem eligendi placeat. Deleniti nulla atque officiis mollitia quasi numquam explicabo animi earum quas labore.';
 
-storiesOf('@beautify/core/InputWrapper', module)
+storiesOf('@beautify/core/Forms/InputWrapper', module)
   .add('All parts', () => (
     <div style={{ padding: 15, maxWidth: 400 }}>
       <InputWrapper

@@ -11,7 +11,7 @@ const getThemes = (props?: any, iconProps?: any) =>
     </ActionIcon>
   ));
 
-storiesOf('@beautify/core/ActionIcon', module)
+storiesOf('@beautify/core/DataDisplay/ActionIcon', module)
   .add('Themes', () => <Group style={{ padding: 20 }}>{getThemes()}</Group>)
   .add('Variants', () => (
     <>

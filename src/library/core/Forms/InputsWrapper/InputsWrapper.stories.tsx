@@ -15,7 +15,7 @@ const sizes = (['xs', 'sm', 'md', 'lg', 'xl'] as BeautifySize[]).map((size) => (
     <TextInput placeholder='you@example.com' defaultValue='Kaushal' />
   </InputsWrapper>
 ));
-storiesOf('@beautify/core/InputsWrapper', module)
+storiesOf('@beautify/core/Forms/InputsWrapper', module)
   .add('default', () => (
     <InputsWrapper label='Email address'>
       <TextInput placeholder='you@example.com' defaultValue='Kaushal' />
@@ -29,7 +29,7 @@ storiesOf('@beautify/core/InputsWrapper', module)
     </InputsWrapper>
   ))
   .add('error', () => (
-    <InputsWrapper hasError errorMessage='it has some error' required label='Email address'>
+    <InputsWrapper isInvalid errorMessage='it has some error' required label='Email address'>
       <TextInput placeholder='you@example.com' defaultValue='Kaushal' />
     </InputsWrapper>
   ));

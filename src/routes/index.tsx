@@ -17,6 +17,7 @@ import { FC, lazy, Suspense } from 'react';
 import { BrowserRouter, Switch } from 'react-router-dom';
 import ProtectedRoute from './Protected';
 import UnprotectedRoute from './Unprotected';
+import SetPassword from '@pages/setPassword';
 
 // eslint-disable-next-line react/display-name
 const ProtectedPage: any = lazy(() => import('@pages/protected'));
@@ -38,6 +39,7 @@ export const Routes = () => {
       <div>
         <Switch>
           <UnprotectedRoute exact path='/' component={Home} />
+          <UnprotectedRoute exact path='/setPassword' component={SetPassword} />
           <UnprotectedRoute exact path='/login' component={Login} />
           <UnprotectedRoute exact path='/loginPage' component={LoginPage} />
           <ProtectedRoute path='/cssDemo' component={Styles} />

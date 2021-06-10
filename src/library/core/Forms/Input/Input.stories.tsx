@@ -57,7 +57,7 @@ const getStates = (props?: any) => (
   </div>
 );
 
-storiesOf('@beautify/core/Input', module)
+storiesOf('@beautify/core/Forms/Input', module)
   .add('Default variant', () => <>{getStates()}</>)
   .add('Filled variant', () => <>{getStates({ variant: 'filled' })}</>)
   .add('Unstyled variant', () => <>{getStates({ variant: 'unstyled' })}</>)

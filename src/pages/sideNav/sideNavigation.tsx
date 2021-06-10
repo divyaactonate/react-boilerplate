@@ -1,83 +1,103 @@
-import { FC, useState } from 'react';
 import {
-  SearchIcon,
-  HomeIcon,
-  MyFolderIcon,
+  BellIcon,
   BIFolderIcon,
   FavoriteIcon,
-  HubFolderIcon,
   HistoryIcon,
+  HomeIcon,
+  HubFolderIcon,
+  MyFolderIcon,
+  QuestionIcon,
+  SearchIcon,
+  SettingIcon,
   TagsIcon,
   userImageIcon,
-  SettingIcon,
-  BellIcon,
-  QuestionIcon,
 } from '@library/icons';
+import { useEffect, useState } from 'react';
 
-const SideNavigation: FC = () => {
-  const [upperMenuSelectedIndex, setUpperMenuIndex] = useState(2);
-  const [lowerMenuSelectedIndex, setlowerMenuIndex] = useState(null);
+export interface SideNavProps {
+  readonly setBreadcrumbData: (data: any) => void;
+}
+
+const SideNavigation = ({ setBreadcrumbData }: SideNavProps) => {
+  const [upperMenuSelectedIndex, setUpperMenuIndex] = useState<number | null>(2);
+  const [lowerMenuSelectedIndex, setlowerMenuIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    setBreadcrumbData({ title: upperMenus[2].title, href: upperMenus[2].href });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const upperMenus = [
     {
       title: 'Search',
       iconName: SearchIcon,
+      href: 'https://google.com',
     },
     {
       title: 'Home',
       iconName: HomeIcon,
+      href: 'https://google.com',
     },
     {
       title: 'My Folders',
       iconName: MyFolderIcon,
+      href: 'https://google.com',
     },
     {
       title: 'Favorites',
       iconName: FavoriteIcon,
+      href: 'https://google.com',
     },
     {
       title: 'BI Folders',
       iconName: BIFolderIcon,
+      href: 'https://google.com',
     },
     {
       title: 'Hub Folders',
       iconName: HubFolderIcon,
+      href: 'https://google.com',
     },
     {
       title: 'History',
       iconName: HistoryIcon,
+      href: 'https://google.com',
     },
     {
       title: 'Tags',
       iconName: TagsIcon,
+      href: 'https://google.com',
     },
   ];
 
   const lowerMenus = [
     {
       iconName: QuestionIcon,
+      href: 'https://google.com',
     },
     {
       iconName: BellIcon,
+      href: 'https://google.com',
     },
     {
       iconName: SettingIcon,
+      href: 'https://google.com',
     },
     {
       iconName: userImageIcon,
+      href: 'https://google.com',
     },
   ];
 
   const onLowerMenuClick = (menu: any, index: number) => {
     setUpperMenuIndex(null);
     setlowerMenuIndex(index);
-    console.log('--------');
   };
 
   const onUpperMenuClick = (menu: any, index: number) => {
+    setBreadcrumbData({ title: menu.title, href: menu.href });
     setlowerMenuIndex(null);
     setUpperMenuIndex(index);
-    console.log('--------');
   };
 
   return (
@@ -102,7 +122,7 @@ const SideNavigation: FC = () => {
             <menu.iconName iconColor={index === upperMenuSelectedIndex ? '#0084FF' : '#999999'} />
             <label
               style={{
-                fontSize: 9,
+                fontSize: 10,
                 fontStyle: 'normal',
                 fontWeight: 500,
                 lineHeight: 1.7,

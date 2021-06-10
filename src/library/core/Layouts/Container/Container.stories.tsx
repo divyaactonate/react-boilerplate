@@ -25,7 +25,7 @@ const getThemes = () =>
       {content}
     </Container>
   ));
-storiesOf('@beautify/core/Container', module)
+storiesOf('@beautify/core/Layouts/Container', module)
   .add('Themes', () => <>{getThemes()}</>)
   .add('Sizes', () => <>{containers}</>)
   .add('Fluid', () => (

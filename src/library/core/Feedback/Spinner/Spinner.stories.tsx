@@ -25,7 +25,7 @@ const speeds = () =>
   ['0.5', '0.6', '0.7', '0.8', '0.9'].map((tick) => (
     <Spinner size={20} speed={tick + 's'} thickness={'md'} key={tick}></Spinner>
   ));
-storiesOf('@beautify/core/Spinner', module)
+storiesOf('@beautify/core/Feedback/Spinner', module)
   .add('default', () => <Spinner size={20} />)
   .add('sizes', () => <>{sizes}</>)
   .add('colors', () => <>{getThemes()}</>)

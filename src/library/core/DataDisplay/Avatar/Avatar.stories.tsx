@@ -19,7 +19,7 @@ const getThemes = (props?: any) =>
 
 const image = 'https://avatars.githubusercontent.com/u/4598631?v=4';
 
-storiesOf('@beautify/core/Avatar', module)
+storiesOf('@beautify/core/DataDisplay/Avatar', module)
   .add('Sizes', () => (
     <Group>{getSizes({ src: image, badge: true, radius: 'md', style: { margin: '20px' } })}</Group>
   ))

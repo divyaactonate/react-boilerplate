@@ -37,7 +37,7 @@ function InPortal() {
   );
 }
 
-storiesOf('@beautify/core/Modal', module)
+storiesOf('@beautify/core/Overlays/Modal', module)
   .add('General usage', () => (
     <WrappedModal title='Modal Title'>
       <Form />

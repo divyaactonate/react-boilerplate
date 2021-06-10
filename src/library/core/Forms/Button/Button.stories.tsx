@@ -40,7 +40,7 @@ const cases = (['uppercase', 'lowercase', 'capitalize', 'normal-case'] as Beauti
   )
 );
 
-storiesOf('@beautify/core/Button', module)
+storiesOf('@beautify/core/Forms/Button', module)
   .add('Themes', () => (
     <>
       <div className='flex space-x-5 ' style={{ padding: 20 }}>

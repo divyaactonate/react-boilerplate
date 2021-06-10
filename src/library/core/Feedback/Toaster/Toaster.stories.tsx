@@ -52,7 +52,7 @@ const promise = (e: any) => {
     },
   });
 };
-storiesOf('@beautify/core/Toaster', module).add('default', () => (
+storiesOf('@beautify/core/Feedback/Toaster', module).add('default', () => (
   <>
     <div className='flex justify-center space-x-8 items-start'>
       <button

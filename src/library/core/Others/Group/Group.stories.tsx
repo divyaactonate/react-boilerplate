@@ -33,7 +33,7 @@ const spacingsColumn = ([0, 2, 6, 8, 10, 12, 14] as const).map((spacing) => (
   </div>
 ));
 
-storiesOf('@beautify/core/Group', module)
+storiesOf('@beautify/core/Others/Group', module)
   .add('Positions', () => <>{positions}</>)
   .add('SpacingsRow', () => <>{spacingsRow}</>)
   .add('SpacingsColumn', () => <>{spacingsColumn}</>)
